@@ -325,8 +325,9 @@ await write(
 
 const urls = built
   .map((b) => {
+    // every language of this page, including this one
     const alts = built
-      .filter((o) => altPath(o.lang, o.urlPath) === b.urlPath)
+      .filter((o) => o.urlPath === b.urlPath || altPath(o.lang, o.urlPath) === b.urlPath)
       .map((o) => `    <xhtml:link rel="alternate" hreflang="${LANGS[o.lang].htmlLang}" href="${SITE.origin}${o.urlPath}"/>`)
       .join('\n');
     const lastmod = b.date || TODAY;
