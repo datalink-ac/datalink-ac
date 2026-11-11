@@ -1,0 +1,188 @@
+---
+title: The datalink specification (draft v0.1)
+desc: What a datalink is, what a renderer must guarantee, what an agent may rely on — and the questions still open.
+nav: spec
+---
+
+<section class="section">
+  <div class="wrap spec-layout">
+    <aside class="spec-nav">
+      <p class="card-k">draft v0.1</p>
+      <a href="#definitions">1 · Definitions</a>
+      <a href="#anatomy">2 · Anatomy</a>
+      <a href="#invariants">3 · Invariants</a>
+      <a href="#spec">4 · The data spec</a>
+      <a href="#renderers">5 · Renderers</a>
+      <a href="#contract">6 · The agent contract</a>
+      <a href="#http">7 · HTTP semantics</a>
+      <a href="#privacy">8 · Privacy</a>
+      <a href="#open">9 · Open questions</a>
+    </aside>
+
+    <article class="spec-body">
+      <h1>The datalink specification</h1>
+      <p class="lede">
+        A draft. It exists to make one idea checkable: a URL can carry data, and a
+        renderer can turn that URL into both a picture for a person and a spec for
+        a machine. Everything below is either a promise a renderer must keep or a
+        question we have not settled yet.
+      </p>
+      <p class="tiny">Status: <b>draft v0.1</b> · last revised 2026-11-12 · discussion is open on the repository issue.</p>
+
+      <h2 id="definitions">1 · Definitions</h2>
+      <dl>
+        <dt><b>datalink</b></dt>
+        <dd>A URL whose parameters carry the complete data required to render something. Not a pointer to data — the data itself.</dd>
+        <dt><b>data spec</b></dt>
+        <dd>The canonical, serialised description of that data: what was measured, in what units, over what.</dd>
+        <dt><b>renderer</b></dt>
+        <dd>A service that turns a datalink into an output for a human, and — by the invariants below — into the same data spec for a machine.</dd>
+        <dt><b>context</b></dt>
+        <dd>What a model is given to reason over. A datalink <em>is</em> context. It does not point at context, and it does not require a fetch-then-describe round trip.</dd>
+      </dl>
+
+      <h2 id="anatomy">2 · Anatomy</h2>
+      <pre class="code">https://datalink.ac/d?type=pie&amp;labels=TS,Py,Go&amp;values=4821,2312,980&amp;v=1
+       └─ host ──┘└path┘└────────── parameters ──────────────┘ └ver┘</pre>
+      <ul>
+        <li><b>host</b> — the renderer. A different host may implement the same contract.</li>
+        <li><b>path</b> — the kind of rendering. <code>/d</code> covers the flat-parameter renderers; <code>/d/arch2</code>, <code>/d/seq</code>, <code>/d/erd</code> … cover the structural ones.</li>
+        <li><b>parameters</b> — flat, named, URL-encoded. They are the data.</li>
+        <li><b>v</b> — pins the renderer version, making the output immutable.</li>
+      </ul>
+      <div class="note">
+        <b>Two rules about parameters.</b> First, they must be sufficient on their own:
+        a renderer may not need to look anything up, ask anyone, or keep a session in
+        order to draw. Second, they must be safe to publish: a datalink is a public
+        statement of its own contents.
+      </div>
+
+      <h2 id="invariants">3 · Invariants</h2>
+      <p>These five promises are the specification. A renderer that breaks one is not a datalink renderer.</p>
+
+      <div class="inv">
+        <div class="inv-item">
+          <b>I1 · Self-contained</b>
+          The link carries the data. Rendering it requires no lookup, no login, no session and no stored state on the server.
+        </div>
+        <div class="inv-item">
+          <b>I2 · Dual-audience</b>
+          One link yields two readings of the same thing: a rendering for a human and a machine-readable spec for an agent. Neither is derived from the other by a lossy step.
+        </div>
+        <div class="inv-item peri">
+          <b>I3 · Parametric</b>
+          The output is a pure function of the parameters and the version. No clock, no randomness, no user profile, no “latest” behaviour hidden behind a stable link.
+        </div>
+        <div class="inv-item peri">
+          <b>I4 · Versioned</b>
+          A version can be pinned in the link (<code>v=N</code>). A pinned link renders the same bytes forever; an unpinned link tracks the newest renderer and says so.
+        </div>
+        <div class="inv-item">
+          <b>I5 · Lossless</b>
+          The output embeds the spec it was rendered from. Parsing the output recovers the spec, so a picture can always be turned back into numbers.
+        </div>
+      </div>
+
+      <h2 id="spec">4 · The data spec</h2>
+      <p>
+        The canonical form is JSON. Two encodings are in use, and they must agree:
+      </p>
+      <ul>
+        <li><b>Flat parameters</b> — <code>labels=A,B,C</code>, <code>values=1,2,3</code>. Readable by eye, trivial for an agent to compose, no escaping puzzles. This is the default.</li>
+        <li><b><code>d=</code></b> — URL-encoded JSON, for anything nested. Same spec, one blob.</li>
+      </ul>
+      <pre class="code">// one series
+{"title":"","data":[{"label":"A","value":1},{"label":"B","value":2}]}
+
+// several series
+{"labels":["A","B"],"series":[{"name":"x","values":[1,2]},{"name":"y","values":[3,4]}]}
+
+// a flow
+{"labels":["A","B"],"links":[{"from":"A","to":"B","value":30}]}</pre>
+      <p>
+        A spec says what was measured. It does not say how it should be drawn — that is
+        the renderer's business, and it is why one spec can appear as a chart, a table,
+        a calendar or a slide.
+      </p>
+
+      <h2 id="renderers">5 · Renderers</h2>
+      <p>The registry is open. These are the kinds that exist today:</p>
+      <table>
+        <thead><tr><th>Kind</th><th>Path</th><th>Parameters</th></tr></thead>
+        <tbody>
+          <tr><td>chart</td><td><code>/d?type=pie</code>, <code>bar</code>, <code>hbar</code>, <code>line</code>, <code>area</code>, <code>radar</code>, <code>gauge</code>, <code>scatter</code>, <code>combo</code>, <code>sankey</code>, <code>butterfly</code></td><td><code>labels</code>, <code>values</code>, <code>series</code>, <code>title</code>, <code>unit</code></td></tr>
+          <tr><td>structure</td><td><code>/d/arch2</code>, <code>/d/seq</code>, <code>/d/uc</code>, <code>/d/dataflow</code>, <code>/d/lifecycle</code>, <code>/d/erd</code>, <code>/d/class</code></td><td><code>n=</code>, <code>e=</code>, <code>b=</code></td></tr>
+          <tr><td>diagram</td><td><code>/d/mindmap</code>, <code>/d/mermaid</code>, <code>/d/gantt</code></td><td><code>n=</code>, <code>m=</code></td></tr>
+          <tr><td>table</td><td><code>/d?type=table</code></td><td><code>cols=</code>, <code>rows=</code></td></tr>
+          <tr><td>calendar</td><td><code>/d?type=calendar</code></td><td><code>start=</code>, <code>ev=</code></td></tr>
+          <tr><td>deck</td><td><code>/deck</code></td><td><code>data=</code> (markdown)</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Renderers may add kinds. The invariants are not negotiable: a new kind that
+        cannot satisfy I2 and I5 is not a datalink renderer.
+      </p>
+
+      <h2 id="contract">6 · The agent contract</h2>
+      <p>What an agent may rely on, and what it must never do.</p>
+      <h3>May</h3>
+      <ul>
+        <li>Fetch the link to get a rendering — and then <em>not</em> read it as a picture.</li>
+        <li>Fetch the data view of the same link to get the spec verbatim.</li>
+        <li>Rewrite the parameters to obtain a new link, then fetch that.</li>
+        <li>Quote the link it used, so a human opens exactly what the agent saw.</li>
+      </ul>
+      <h3>Must not</h3>
+      <ul>
+        <li>Recover values from pixels — no OCR, no eyeballing, no “approximately”.</li>
+        <li>Silently round, rescale or re-order the data it was given.</li>
+        <li>Mutate anything on the server to make a link work. Links are pure.</li>
+      </ul>
+      <div class="note mint">
+        <b>The sentence that carries the whole idea:</b> give the agent the link, and
+        ask for the numbers — not the picture. Everything else is detail.
+      </div>
+
+      <h2 id="http">7 · HTTP semantics</h2>
+      <ul>
+        <li><b>GET</b>, cacheable. The renderer decides freshness; unpinned links are short-lived, pinned links are immutable.</li>
+        <li><b>Version pinning</b> — <code>v=N</code> makes the bytes stable, so a link pasted into a document stays correct.</li>
+        <li><b>Short links</b> — a renderer may accept the same spec by POST and answer with a short, stable URL. The same data must always yield the same short link; that is what makes them shareable rather than opaque.</li>
+        <li><b>Errors</b> — a 4xx with plain text and a corrected example. A renderer that cannot explain itself is not usable by an agent.</li>
+        <li><b>The data view</b> — the spec must be reachable as JSON from the same link. This site exposes it at <code>/d.json</code>; content negotiation on <code>Accept</code> is an open question below.</li>
+      </ul>
+
+      <h2 id="privacy">8 · Privacy</h2>
+      <p>
+        A datalink is public by construction. Anyone holding the string holds the data —
+        and the string travels further than data usually does: chat logs, referrer headers,
+        browser history, CDN caches, screenshots of address bars, issue trackers.
+      </p>
+      <ul>
+        <li>Never put secrets, tokens, personal data or internal identifiers in a link.</li>
+        <li>A short link hides the data, not the existence of the data. It is not a privacy tool.</li>
+        <li>Query strings are cached and logged. If a parameter is sensitive, it should not be a parameter.</li>
+        <li>Rule of thumb: if it should not appear in a screenshot of somebody's address bar, it does not belong in a datalink.</li>
+      </ul>
+      <p class="small">
+        This section is a starting point, not a finished policy. The wider question — what
+        a public data link means for the people whose data it describes — is tracked in
+        the repository issue and in the blog.
+      </p>
+
+      <h2 id="open">9 · Open questions</h2>
+      <ol>
+        <li>Should the <em>spec</em> be versioned separately from the renderer? A pinned renderer still needs a pinned grammar.</li>
+        <li>Should a spec be signed — so an agent can tell a chart from a forgery?</li>
+        <li>What happens to data too large for a URL, and what is the privacy cost of storing it server-side?</li>
+        <li>Should there be a public registry of renderers, so “a datalink” is a standard rather than a convention?</li>
+        <li>Should one link negotiate its output by <code>Accept</code> — SVG for a browser, JSON for an agent — instead of a second path?</li>
+        <li>How do we express uncertainty? A chart of estimates is not a chart of facts, and the spec should be able to say so.</li>
+      </ol>
+      <p class="small">
+        Answering these is the point of the draft. The discussion is open in the
+        <a href="https://github.com/datalink-ac/datalink-ac/issues" target="_blank" rel="noopener">repository issue</a>.
+      </p>
+    </article>
+  </div>
+</section>

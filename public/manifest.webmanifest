@@ -1,0 +1,17 @@
+{
+  "name": "datalink.ac",
+  "short_name": "datalink",
+  "description": "Data in the link — a datalink carries the data, not a picture of it.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#08090c",
+  "theme_color": "#08090c",
+  "icons": [
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

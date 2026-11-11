@@ -1,0 +1,7 @@
+# Mneme schema
+# type:required_props:optional_props
+
+_Source:name,path:tags,stage,hash,url
+_WikiPage:name,path:tags,stage,hash,linked
+_BlogPost:name,path:tags,stage,hash,publish
+_SubRepo:name,url:commit,path

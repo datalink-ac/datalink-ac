@@ -1,0 +1,58 @@
+---
+title: Privacy — datalink.ac
+desc: What this site stores, what it cannot store, and what a public link means.
+nav: privacy
+---
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">PRIVACY</span>
+      <h2>What this site stores is nothing.</h2>
+      <p class="lede">
+        There are no accounts, no cookies, no analytics script and no database behind
+        this page. A request arrives, a file is returned, and that is the whole thing.
+      </p>
+    </div>
+
+    <div class="spec-body reveal">
+      <h3 style="margin-top:0">What we store</h3>
+      <ul>
+        <li><b>Nothing about you.</b> No identifiers, no profiles, no cookies, no third-party trackers, no advertising pixels. There is no login, so there is nothing to log in to.</li>
+        <li><b>Server logs, briefly.</b> Like any web server, the host keeps request logs — IP address, timestamp, URL — for a short period, for capacity and abuse control. They are not used to build a profile of you.</li>
+        <li><b>Your colour scheme.</b> The light/dark choice is stored in your own browser, in <code>localStorage</code>. It never leaves your machine.</li>
+      </ul>
+
+      <h3>What the links on this page carry</h3>
+      <p>
+        A datalink is public by construction: whoever holds the string holds the data.
+        Two things follow.
+      </p>
+      <ul>
+        <li><b>Query strings travel.</b> They end up in server logs, browser history, chat transcripts, referrer headers and screenshots. Treat a link as public the moment you send it.</li>
+        <li><b>Short links are not private.</b> They hide the data, not the fact that a link exists — and the destination stays fetchable.</li>
+      </ul>
+      <div class="note amber">
+        <b>The rule we hold ourselves to:</b> if it should not appear in a screenshot of
+        somebody's address bar, it does not belong in a datalink. No secrets, no tokens,
+        no personal data, no internal identifiers.
+      </div>
+
+      <h3>Third parties</h3>
+      <ul>
+        <li>Charts and diagrams are rendered by <a href="https://x-cmd.com/draw" target="_blank" rel="noopener">x-cmd/draw</a>, and slide decks by <a href="https://x-cmd/ppt" target="_blank" rel="noopener">x-cmd/ppt</a>. Requests to those services carry the parameters of the link you asked for — which is the data, so the data goes there.</li>
+        <li>Typefaces are your system's own. No web fonts are downloaded, so no font service sees you.</li>
+        <li>The repository is on <a href="https://github.com/datalink-ac/datalink-ac" target="_blank" rel="noopener">GitHub</a>; the skill is on <a href="https://clawhub.ai/edwinjhlee/skills/x-cmd-draw" target="_blank" rel="noopener">ClawHub</a>. Following those links takes you to their sites and their policies.</li>
+      </ul>
+
+      <h3>Questions</h3>
+      <p>
+        Open an issue on
+        <a href="https://github.com/datalink-ac/datalink-ac/issues" target="_blank" rel="noopener">the repository</a>.
+        The thinking behind these rules — including the parts we have not settled — is
+        written up in the <a href="/blog">blog</a>.
+      </p>
+      <p class="tiny">Last revised 2026-11-12.</p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "datalink-ac",
+  // datalink.ac 这个 zone 所在的账号
+  "account_id": "d8caf3f6df38f81423fd3ed39534f753",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "html_handling": "drop-trailing-slash",
+    "not_found_handling": "404-page",
+    // worker 先跑:否则静态资源直接命中、worker 根本不执行,
+    // www→apex 的跳转与安全响应头就都落不到页面上
+    "run_worker_first": true
+  },
+  // 整站归本 worker:apex 与 www 都是 custom domain,CF 会自动建 DNS 记录。
+  // 不要改成 route —— route 需要预先存在 proxied 记录,custom domain 自带。
+  "routes": [
+    { "pattern": "datalink.ac", "custom_domain": true },
+    { "pattern": "www.datalink.ac", "custom_domain": true }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}

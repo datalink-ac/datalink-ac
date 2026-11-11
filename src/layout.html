@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="{{htmlLang}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{desc}}">
+<meta name="color-scheme" content="dark light">
+<link rel="canonical" href="{{canonical}}">
+<link rel="alternate" hreflang="{{htmlLang}}" href="{{canonical}}">
+<link rel="alternate" hreflang="{{altHtmlLang}}" href="{{altCanonical}}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="datalink.ac">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{desc}}">
+<meta property="og:url" content="{{canonical}}">
+<meta property="og:locale" content="{{ogLocale}}">
+<meta property="og:image" content="{{origin}}/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="datalink.ac — data in the link">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{title}}">
+<meta name="twitter:description" content="{{desc}}">
+<meta name="twitter:image" content="{{origin}}/assets/og.png">
+<meta name="theme-color" content="#08090c">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/og.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="stylesheet" href="/assets/style.css">
+<script>document.documentElement.classList.add('js')</script>
+{{extraHead}}
+</head>
+<body class="{{bodyClass}}">
+<a class="skip" href="#main">{{lang === 'zh' ? '跳到正文' : 'Skip to content'}}</a>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="{{lang === 'zh' ? '/zh' : '/'}}">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+        <path d="M13.6 18.4a5 5 0 0 0 7.1 0l3.5-3.5a5 5 0 0 0-7.1-7.1l-1.8 1.8"/>
+        <path d="M18.4 13.6a5 5 0 0 0-7.1 0l-3.5 3.5a5 5 0 0 0 7.1 7.1l1.8-1.8"/>
+      </svg>
+      <span class="brand-text">datalink<span class="brand-tld">.ac</span></span>
+    </a>
+
+    <nav class="nav" aria-label="Main">
+        {{nav}}
+    </nav>
+
+    <div class="head-tools">
+      <a class="lang-switch" href="{{altPath}}" hreflang="{{altHtmlLang}}" aria-label="Switch to {{altLabel}}">{{altLabel}}</a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle colour scheme" title="Toggle colour scheme">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="12" cy="12" r="4.2"/>
+          <path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6"/>
+        </svg>
+      </button>
+      <a class="gh-link" href="{{repo}}" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+{{content}}
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <p class="foot-tag">data in the link</p>
+        <p class="foot-note">A datalink carries the data, not a picture of it. Humans read the render, agents read the data, and both act on the same string.</p>
+      </div>
+      <div class="foot-links">
+        <div>
+          <p class="foot-h">{{lang === 'zh' ? '读' : 'Read'}}</p>
+          <a href="{{lang === 'zh' ? '/zh' : '/'}}">{{lang === 'zh' ? '理念' : 'Concept'}}</a>
+          <a href="{{lang === 'zh' ? '/zh/spec' : '/spec'}}">{{lang === 'zh' ? '规范草案' : 'Spec draft'}}</a>
+          <a href="{{lang === 'zh' ? '/zh/blog' : '/blog'}}">{{lang === 'zh' ? '博客' : 'Blog'}}</a>
+        </div>
+        <div>
+          <p class="foot-h">{{lang === 'zh' ? '动手' : 'Build'}}</p>
+          <a href="{{repo}}" target="_blank" rel="noopener">GitHub</a>
+          <a href="{{skill}}" target="_blank" rel="noopener">ClawHub skill</a>
+          <a href="/d?type=pie&labels=A,B&values=1,2">Try a link</a>
+        </div>
+        <div>
+          <p class="foot-h">{{lang === 'zh' ? '其它' : 'More'}}</p>
+          <a href="{{lang === 'zh' ? '/zh/privacy' : '/privacy'}}">{{lang === 'zh' ? '隐私' : 'Privacy'}}</a>
+          <a href="https://x-cmd.com/draw" target="_blank" rel="noopener">x-cmd/draw</a>
+        </div>
+      </div>
+    </div>
+    <p class="foot-legal">© {{year}} datalink.ac · {{lang === 'zh' ? '把数据放进链接里' : 'Data in the link'}}</p>
+  </div>
+</footer>
+
+<script src="/assets/app.js" defer></script>
+</body>
+</html>

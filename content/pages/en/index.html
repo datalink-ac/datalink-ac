@@ -1,0 +1,442 @@
+---
+title: datalink — data in the link
+desc: A datalink carries the data, not a picture of it. Humans read the render, agents read the data, and both act on the same link.
+nav: home
+---
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <span class="kicker">data in the link</span>
+      <h1 class="display">Put the data<br>in the <span class="grad">link</span>.</h1>
+      <p class="lede hero-sub">
+        Not a screenshot of the data. Not a link to a dashboard. The data itself —
+        in the URL, where a human reads the picture and an agent reads the numbers.
+      </p>
+      <div class="row" style="margin-top:30px">
+        <a class="btn is-primary" href="#thesis">Read the thesis</a>
+        <a class="btn" href="#try">Hand it to an agent</a>
+      </div>
+
+      <div class="hero-claims">
+        <div class="claim">
+          <span class="claim-n">01</span>
+          <span class="claim-t">datalink as <span class="accent">context</span></span>
+          <span class="claim-d">The link is the context — not a pointer to a page you have to fetch, screenshot and describe.</span>
+        </div>
+        <div class="claim">
+          <span class="claim-n">02</span>
+          <span class="claim-t">datalink as <span class="accent">agent context</span></span>
+          <span class="claim-d">For an agent the link is the interface: it reads links, it writes links, it computes on links.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="chip-row">
+        <div class="chip chip--sm">
+          <span class="dot"></span>
+          <span class="chip-url"><b>datalink.ac/d</b><i>?type=pie&amp;labels=TS,Py,Go&amp;values=4821,2312,980</i></span>
+          <button class="copy" data-copy="https://datalink.ac/d?type=pie&amp;labels=TS,Py,Go&amp;values=4821,2312,980">copy</button>
+        </div>
+      </div>
+      <div class="panel" style="margin-top:14px">
+        <div class="panel-head">
+          <span>live render</span>
+          <span class="tag tag-mint">svg</span>
+        </div>
+        <div class="panel-body">
+          <div class="chart-holder">
+            <img src="/d?type=pie&amp;labels=TS,Py,Go&amp;values=4821,2312,980&amp;title=Stars&amp;scheme=dark" alt="Pie chart of stars by language" loading="eager" width="705" height="500">
+          </div>
+        </div>
+      </div>
+      <p class="tiny" style="margin:12px 0 0">
+        Same link, read as text: <a href="/d.json?type=pie&amp;labels=TS,Py,Go&amp;values=4821,2312,980">/d.json</a>
+        · <a href="/d/explore?type=pie&amp;labels=TS,Py,Go&amp;values=4821,2312,980">open the explorer</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="thesis">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">THE PROBLEM</span>
+      <h2>The most expensive thing you can hand a model is a chart.</h2>
+      <p class="lede">
+        When a chart reaches a model as an image, three things happen. The pixels are
+        re-encoded into vision tokens. The values are recovered by reading pixels.
+        The answer is a number somebody guessed from a picture. Then it gets quoted,
+        pasted into a report, and nobody notices the mistake.
+      </p>
+    </div>
+
+    <div class="cards reveal">
+      <div class="card">
+        <p class="card-k">lossy</p>
+        <h3>A picture is a lossy format</h3>
+        <p>Whatever the chart did not draw is gone — and the model is asked to recover it anyway.</p>
+      </div>
+      <div class="card">
+        <p class="card-k">expensive</p>
+        <h3>Pixels cost more than text</h3>
+        <p>A single 705×500 chart is roughly 470 vision tokens. The same numbers as JSON are about 40.</p>
+      </div>
+      <div class="card">
+        <p class="card-k">unverifiable</p>
+        <h3>You cannot check the answer</h3>
+        <p>Ask for the source and you get a link to the picture. Ask for the data and you get a guess.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">THESIS 01</span>
+      <h2>Stop shipping screenshots to your model.</h2>
+      <p class="lede">
+        A datalink returns the render <em>and</em> the data, from the same string.
+        The human gets a picture. The agent gets the numbers — exact, machine-readable,
+        and free of the guessing step. Nothing is lost in translation because nothing
+        was ever translated.
+      </p>
+    </div>
+
+    <div class="reveal" data-demo>
+      <div class="chip-row" style="margin-bottom:18px">
+        <div class="chip">
+          <span class="dot"></span>
+          <input class="chip-url" data-url-in value="/d?type=pie&amp;labels=TS,Py,Go&amp;values=4821,2312,980&amp;scheme=auto" aria-label="Datalink URL — edit it and press Enter to re-render" spellcheck="false">
+          <button class="copy" data-copy="self">copy</button>
+        </div>
+      </div>
+
+      <div class="compare">
+        <div class="cmp-box is-human">
+          <p class="cmp-tag">human · the render</p>
+          <div class="chart-holder" data-render>
+            <p class="small">loading…</p>
+          </div>
+          <p class="tiny" style="margin:12px 0 0">A picture of the numbers. Fast to read, impossible to verify.</p>
+        </div>
+
+        <div class="compare-mid">one link</div>
+
+        <div class="cmp-box is-agent">
+          <p class="cmp-tag">agent · the data</p>
+          <pre class="code" data-json>loading…</pre>
+          <div class="meter" data-meter style="margin-top:16px"></div>
+        </div>
+      </div>
+
+      <p class="tiny" style="margin-top:16px">
+        Edit the link above and press Enter. The picture changes because the data changed —
+        and the agent's view changes with it, because they are the same string.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">THESIS 02</span>
+      <h2>The URL is the API.</h2>
+      <p class="lede">
+        Every datalink is a pure function from parameters to a picture of the truth.
+        No session, no login, no dashboard, no refresh button. A human edits the URL
+        to explore. An agent rewrites the URL to compute. Nothing else has to change,
+        because there is nothing else.
+      </p>
+    </div>
+
+    <div class="reveal" data-demo>
+      <div class="split">
+        <div class="panel">
+          <div class="panel-head"><span>the render</span><span class="tag tag-mint">live</span></div>
+          <div class="panel-body">
+            <div class="chart-holder" data-render><p class="small">loading…</p></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><span>the parameters</span><span class="tag tag-peri">edit me</span></div>
+          <div class="panel-body stack">
+            <div class="demo-params">
+              <div class="field">
+                <label for="f-type">type</label>
+                <select id="f-type" data-f="type">
+                  <option value="pie">pie</option>
+                  <option value="bar">bar</option>
+                  <option value="hbar">hbar</option>
+                  <option value="line">line</option>
+                  <option value="area">area</option>
+                  <option value="radar">radar</option>
+                  <option value="gauge">gauge</option>
+                  <option value="scatter">scatter</option>
+                  <option value="sankey">sankey</option>
+                  <option value="butterfly">butterfly</option>
+                  <option value="combo">combo</option>
+                  <option value="calendar">calendar</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="f-labels">labels</label>
+                <input id="f-labels" data-f="labels" value="TS,Py,Go" spellcheck="false">
+              </div>
+              <div class="field">
+                <label for="f-values">values</label>
+                <input id="f-values" data-f="values" value="4821,2312,980" spellcheck="false">
+              </div>
+              <div class="field">
+                <label for="f-title">title</label>
+                <input id="f-title" data-f="title" value="Stars" spellcheck="false">
+              </div>
+            </div>
+            <p class="tiny" style="margin:0">
+              Change a value, change a type, change the title. Every keystroke rewrites the
+              link and re-renders it. That is the whole interface — there is no other one.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">THESIS 03</span>
+      <h2>A chart is one rendering. The link is the general form.</h2>
+      <p class="lede">
+        Nothing about “the data lives in the URL” is specific to pie charts. The same
+        flat parameters describe a structure, a table, a calendar, a slide deck.
+        The renderer changes; the link does not.
+      </p>
+    </div>
+
+    <div class="reveal" data-tabs>
+      <div class="tabs" role="tablist">
+        <button class="tab" role="tab" data-key="chart" aria-selected="true">chart</button>
+        <button class="tab" role="tab" data-key="structure" aria-selected="false">structure</button>
+        <button class="tab" role="tab" data-key="table" aria-selected="false">table</button>
+        <button class="tab" role="tab" data-key="calendar" aria-selected="false">calendar</button>
+        <button class="tab" role="tab" data-key="deck" aria-selected="false">deck</button>
+      </div>
+
+      <div class="panel">
+        <div class="panel-body">
+          <div data-pane="chart" data-url="/d?type=area&amp;labels=Q1,Q2,Q3,Q4&amp;values=12,19,15,24&amp;title=Latency%20budget&amp;scheme=dark">
+            <div class="chart-holder" data-pane-render></div>
+          </div>
+
+          <div data-pane="structure" data-url="/d/arch2?n=web;fe;Web%20app;your%20browser;r0c0&amp;n=link;be;Datalink;the%20link%20holds%20the%20data;r0c1w2&amp;n=agent;sec;Agent;reads%20the%20data;r1c0&amp;e=web;link;GET&amp;e=agent;link;GET" hidden>
+            <div class="chart-holder" data-pane-render></div>
+          </div>
+
+          <div data-pane="table" data-url="/d?type=table&amp;cols=Service,Errors,Share&amp;rows=api:12:0.41;worker:9:0.31;db:4:0.14;cdn:4:0.14&amp;title=Errors%20by%20service" hidden>
+            <div data-pane-render style="overflow:auto"></div>
+          </div>
+
+          <div data-pane="calendar" data-url="/d?type=calendar&amp;layout=month&amp;start=2026-11-02&amp;ev=2026-11-03%3Bmeeting%3BRequirement%20review%3B14%3A00&amp;ev=2026-11-11%3Breview%3BSpec%20walkthrough%3B10%3A30&amp;scheme=dark" hidden>
+            <div class="chart-holder" data-pane-render></div>
+          </div>
+
+          <div data-pane="deck" data-url="/deck?data=%23%20Data%20in%20the%20link%0A%0A%20-%20the%20URL%20is%20the%20data%0A%20-%20humans%20read%20the%20render%0A%20-%20agents%20read%20the%20numbers" hidden>
+            <iframe data-pane-render title="A deck rendered from a link" style="width:100%;height:520px;border:1px solid var(--line);border-radius:var(--r-sm);background:#fff" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <p class="tiny" style="margin-top:16px">
+        Every tab is one link. The chart and the calendar come from
+        <a href="https://github.com/x-cmd/draw" target="_blank" rel="noopener">x-cmd/draw</a>,
+        the deck from <a href="https://github.com/x-cmd/ppt" target="_blank" rel="noopener">x-cmd/ppt</a>,
+        the table from this site. Same primitive, different renderer.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">TOGETHER</span>
+      <h2>One string, two hands.</h2>
+      <p class="lede">
+        This is a tool for agents and humans working together, not agents replacing them.
+        The human tunes the parameters to see something. The agent rewrites the parameters
+        to compute something. Neither has to learn the other's software, because the shared
+        surface is a URL — the one format both already know how to copy, edit and send.
+      </p>
+    </div>
+
+    <div class="collab reveal">
+      <div class="collab-side">
+        <p class="card-k">the human</p>
+        <h3>Explores</h3>
+        <p class="small" style="margin:0">
+          Edits a link, sees the picture, sends it on. Changes their mind, edits again.
+          The link is a notebook entry.
+        </p>
+      </div>
+
+      <div class="collab-link">
+        <svg viewBox="0 0 240 40" fill="none" stroke="currentColor" aria-hidden="true">
+          <path d="M6 20h228" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 5" opacity=".45"/>
+          <circle cx="6" cy="20" r="4.5" fill="currentColor"/>
+          <circle cx="234" cy="20" r="4.5" fill="currentColor"/>
+          <rect x="86" y="8" width="68" height="24" rx="12" fill="var(--surface)" stroke="currentColor" stroke-width="1.5"/>
+          <text x="120" y="24" text-anchor="middle" font-size="11" font-family="ui-monospace,Menlo,monospace" fill="currentColor">the link</text>
+        </svg>
+        <span>datalink.ac/d?…</span>
+      </div>
+
+      <div class="collab-side">
+        <p class="card-k">the agent</p>
+        <h3>Computes</h3>
+        <p class="small" style="margin:0">
+          Rewrites the link with new parameters, reads the data view, returns numbers.
+          Never OCRs, never estimates, never rounds the wrong digit.
+        </p>
+      </div>
+    </div>
+
+    <div class="note mint reveal" style="margin-top:26px">
+      <b>Why this beats a dashboard.</b> A dashboard keeps the data on the server and
+      hands out pictures of it. A datalink keeps the data in the string and hands out
+      both. The dashboard needs a login, a round trip, and a screenshot. The link needs
+      nothing — which is exactly why an agent can use it, and why it never goes stale.
+    </div>
+  </div>
+</section>
+
+<section class="section" id="scenarios">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">WHERE IT STARTS</span>
+      <h2>The first place a datalink earns its keep is GitHub.</h2>
+      <p class="lede">
+        Not a dashboard. Not a BI tool. The places where text already lives and
+        pictures do not: an <b>issue</b>, a <b>pull request</b>, a <b>release note</b>.
+        Those are written in words, read by people, and — increasingly — read by
+        bots. A link fits all three, and a screenshot fits none of them.
+      </p>
+    </div>
+
+    <div class="cards reveal" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+      <div class="card" style="padding:0;overflow:hidden">
+        <div class="panel-head" style="border-bottom:1px solid var(--line-soft)"><span>release · v0.3.0</span><span class="tag tag-mint">bar</span></div>
+        <div style="padding:12px">
+          <img src="/d?type=bar&amp;labels=TypeScript,JavaScript,Shell,Markdown&amp;values=4820,1687,640,180&amp;title=Code%20composition&amp;scheme=dark" alt="Bar chart of code composition by language" loading="lazy" width="705" height="500" style="border-radius:8px">
+        </div>
+        <div style="padding:0 16px 16px">
+          <p class="tiny" style="margin:0 0 8px">A release note wants to say “+2,400 lines, mostly TypeScript”. That sentence is a table. As a link it is also a chart — and it stays greppable, diffable and readable by whatever triages the repo.</p>
+          <a class="tiny mono" href="/d?type=bar&amp;labels=TypeScript,JavaScript,Shell,Markdown&amp;values=4820,1687,640,180&amp;title=Code%20composition">the link</a>
+        </div>
+      </div>
+
+      <div class="card" style="padding:0;overflow:hidden">
+        <div class="panel-head" style="border-bottom:1px solid var(--line-soft)"><span>issue · “what does this do?”</span><span class="tag tag-peri">use case</span></div>
+        <div style="padding:12px">
+          <img src="/d/uc?n=actor;actor;Developer&amp;n=uc1;uc;Write%20a%20datalink&amp;n=uc2;uc;Publish%20it%20in%20an%20issue&amp;e=actor;uc1&amp;e=actor;uc2" alt="Use case diagram of a developer using datalinks" loading="lazy" style="border-radius:8px">
+        </div>
+        <div style="padding:0 16px 16px">
+          <p class="tiny" style="margin:0 0 8px">Three paragraphs explaining a feature age faster than one diagram. And because it is a link, the next person can move a box instead of asking for a redraw.</p>
+          <a class="tiny mono" href="/d/uc?n=actor;actor;Developer&amp;n=uc1;uc;Write%20a%20datalink&amp;n=uc2;uc;Publish%20it%20in%20an%20issue&amp;e=actor;uc1&amp;e=actor;uc2">the link</a>
+        </div>
+      </div>
+
+      <div class="card" style="padding:0;overflow:hidden">
+        <div class="panel-head" style="border-bottom:1px solid var(--line-soft)"><span>pull request · “what changed?”</span><span class="tag tag-mint">mind map</span></div>
+        <div style="padding:12px">
+          <img src="/d/mindmap?n=draw/src/render/tokei.ts&amp;n=draw/src/handler.ts&amp;n=draw/test/tokei.test.ts&amp;n=draw/docs/2-data-charts/10-tokei/en.md&amp;style=tree&amp;title=Files%20changed%20in%20%2331" alt="Mind map of the files a pull request touched" loading="lazy" style="border-radius:8px">
+        </div>
+        <div style="padding:0 16px 16px">
+          <p class="tiny" style="margin:0 0 8px">The one picture a reviewer actually asks for. As a link it is reviewable: change a parameter in the pull request and the picture changes with it. A screenshot cannot be reviewed.</p>
+          <a class="tiny mono" href="/d/mindmap?n=draw/src/render/tokei.ts&amp;n=draw/src/handler.ts&amp;n=draw/test/tokei.test.ts&amp;n=draw/docs/2-data-charts/10-tokei/en.md&amp;style=tree&amp;title=Files%20changed%20in%20%2331">the link</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="note mint reveal" style="margin-top:26px">
+      <b>The reason GitHub comes first.</b> Everything there is already text: a diff,
+      a comment, a release note. A datalink drops into that world without asking
+      anybody to change a habit — and a bot reading the issue gets the numbers,
+      not a picture of them.
+    </div>
+  </div>
+</section>
+
+<section class="section" id="try">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">TRY IT</span>
+      <h2>Give it to your agent.</h2>
+      <p class="lede">
+        The <a href="https://clawhub.ai/edwinjhlee/skills/x-cmd-draw" target="_blank" rel="noopener">x-cmd-draw skill</a>
+        teaches an agent to build datalinks. No install, no key, no stored data —
+        the agent composes a URL and the chart appears.
+      </p>
+    </div>
+
+    <div class="split reveal">
+      <div class="prompt-box">
+        <div class="prompt-bar"><span class="dot"></span><span>install</span></div>
+        <pre><span class="cmd">npx</span> clawhub@latest install edwinjhlee/x-cmd-draw</pre>
+      </div>
+      <div class="prompt-box">
+        <div class="prompt-bar"><span class="dot"></span><span>or just fetch a link</span></div>
+        <pre>curl <span class="s">'https://datalink.ac/d?type=pie&amp;labels=TS,Py,Go&amp;values=4821,2312,980'</span></pre>
+      </div>
+    </div>
+
+    <div class="prompt-box reveal" style="margin-top:16px">
+      <div class="prompt-bar"><span class="dot"></span><span>a prompt worth pasting</span></div>
+      <pre><span class="quote">Draw a pie chart of our error budget by service, and give me the
+exact numbers. Read them from the link, not from the picture — I want the
+values, not your reading of the picture. Then send me the link so I can
+change the parameters myself.</span></pre>
+    </div>
+
+    <p class="tiny reveal" style="margin-top:16px">
+      That last sentence is the whole idea in one instruction: the agent is told to read
+      data, not pixels — and the link it hands back is a working instrument for the human.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">NEXT</span>
+      <h2>A draft specification is taking shape.</h2>
+      <p class="lede">
+        The invariants — self-contained, dual-audience, parametric, versioned, lossless —
+        are being written down so that any renderer can implement a datalink and any
+        agent can rely on one.
+      </p>
+    </div>
+
+    <div class="cards reveal">
+      <a class="card" href="/spec" style="color:inherit">
+        <p class="card-k">spec · v0.1</p>
+        <h3>The datalink specification</h3>
+        <p>Anatomy, invariants, the data spec, the agent contract, and the open questions.</p>
+      </a>
+      <a class="card" href="/blog" style="color:inherit">
+        <p class="card-k">blog</p>
+        <h3>Notes on the idea</h3>
+        <p>Design, reasoning and the articles behind datalink — written as we go.</p>
+      </a>
+      <a class="card" href="{{repo}}" target="_blank" rel="noopener" style="color:inherit">
+        <p class="card-k">github</p>
+        <h3>datalink-ac/datalink-ac</h3>
+        <p>The site, the renderer and the specification, in the open.</p>
+      </a>
+    </div>
+  </div>
+</section>

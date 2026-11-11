@@ -1,0 +1,16 @@
+{
+  "name": "datalink-ac",
+  "version": "0.1.0",
+  "private": true,
+  "description": "datalink.ac — data in the link. The concept site for datalink.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "devDependencies": {
+    "marked": "^18.2.0"
+  }
+}
