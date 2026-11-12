@@ -31,8 +31,18 @@ mneme/
 |---|---|
 | `wiki/20261112-datalink-issue.md` | issue #1 的出处记录：讲法、三条主张、第一个场景、留下的开放问题 |
 | `wiki/20261112-datalink-privacy.md` | 隐私思考：已经定的（公开、短链接不是隐私工具、那条规矩）与还没定的三个问题 |
+| `wiki/20261112-datalink-seo.md` | SEO 思考：理念站的 SEO 跟产品站不是一回事；已定的选择与还没定的（四条） |
 | `blog/20261112-what-a-url-reveals.md` | 已发布的《URL 会暴露什么》留档 |
 | `inbox/20261112-issue-datalink-as-context.md` | issue 原文 |
+
+## 台账在哪
+
+「现在什么状态」记在 GitHub issue，「为什么这么定」记在这里：
+
+| 台账 | 位置 |
+|---|---|
+| 理念的出处（讲法、三条主张、第一个场景） | issue #1 —— https://github.com/datalink-ac/datalink-ac/issues/1 |
+| SEO（已做的、还没做的） | issue #2 —— https://github.com/datalink-ac/datalink-ac/issues/2 |
 
 ## 还没解决的（记在 wiki 里，别丢）
 
@@ -40,6 +50,8 @@ mneme/
 - 公开链接能不能被撤销？——和纯函数性（I3）有张力，方案还没成型。
 - URL 装不下的数据怎么办？存起来就等于把私有链接变成一个数据库。
 - 规格要不要签名？agent 怎么分得出真图和伪造图？
+- SEO：双语到底怎么定位（平权索引，还是一边 canonical）？
+- SEO：`/d` 生成的 URL 该不该进索引？
 
 ## 工具
 

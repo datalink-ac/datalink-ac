@@ -63,4 +63,5 @@ issue 里把 GitHub 列为第一场景，理由是：**那里的一切本来都�
 - 站点：https://datalink.ac
 - 规范草案：https://datalink.ac/spec
 - 参考实现：x-cmd/draw
+- SEO 台账：issue #2 —— 想法记在 [[20261112-datalink-seo]]
 - 博客：《数据在链接里》《同一串字符，两个读者》《URL 就是 API》

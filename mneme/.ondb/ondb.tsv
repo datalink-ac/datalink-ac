@@ -2,3 +2,4 @@ add	_Source	95c68cce27f9491aa2ecb6711b557a0b	1794438252629	name	datalink-as-cont
 add	_WikiPage	11e092bbaa6d4231a2b27624e6848a2a	1794438252629	name	20261112-datalink-issue	path	wiki/20261112-datalink-issue.md	stage	wiki	tags	datalink,concept,issue	linked	20261112-datalink-privacy
 add	_WikiPage	f4468205dd8a458b83faf253249f03ac	1794438252629	name	20261112-datalink-privacy	path	wiki/20261112-datalink-privacy.md	stage	wiki	tags	datalink,privacy	linked	20261112-datalink-issue
 add	_BlogPost	20fa05e5041c41f0b3d7979af56f4163	1794438252629	name	20261112-what-a-url-reveals	path	blog/20261112-what-a-url-reveals.md	stage	blog	publish	true	tags	datalink,privacy
+add	_WikiPage	5ed72ed0177e4cf8bc08ca97ea469be4	1794485404117	name	20261112-datalink-seo	path	wiki/20261112-datalink-seo.md	stage	wiki	tags	datalink,seo	linked	20261112-datalink-privacy
