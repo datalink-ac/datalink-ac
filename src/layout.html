@@ -24,10 +24,10 @@
 <meta name="twitter:description" content="{{desc}}">
 <meta name="twitter:image" content="{{origin}}/assets/og.png">
 <meta name="theme-color" content="#08090c">
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/assets/og.png">
+<link rel="icon" href="/assets/favicon.svg?v={{buildId}}" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/og.png?v={{buildId}}">
 <link rel="manifest" href="/manifest.webmanifest">
-<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/style.css?v={{buildId}}">
 <script>document.documentElement.classList.add('js')</script>
 {{extraHead}}
 </head>
@@ -98,6 +98,6 @@
   </div>
 </footer>
 
-<script src="/assets/app.js" defer></script>
+<script src="/assets/app.js?v={{buildId}}" defer></script>
 </body>
 </html>

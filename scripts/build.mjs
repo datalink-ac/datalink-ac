@@ -25,6 +25,28 @@ const LANGS = {
   zh: { label: '中文', other: 'en', htmlLang: 'zh-Hans', ogLocale: 'zh_CN' },
 };
 
+/** A short id for the current assets — appended to asset URLs so a deploy
+ *  invalidates the browser cache instead of serving last week's CSS. */
+async function buildId() {
+  const { createHash } = await import('node:crypto');
+  const hash = createHash('sha256');
+  const dir = path.join(ROOT, 'public');
+  if (!existsSync(dir)) return '0';
+  for (const file of (await readdir(dir)).sort()) {
+    const full = path.join(dir, file);
+    if (file === 'assets') {
+      for (const sub of (await readdir(full)).sort()) {
+        hash.update(sub);
+        hash.update(await readFile(path.join(full, sub)));
+      }
+    } else {
+      hash.update(file);
+      hash.update(await readFile(full));
+    }
+  }
+  return hash.digest('hex').slice(0, 8);
+}
+
 const SITE = {
   origin: 'https://datalink.ac',
   repo: 'https://github.com/datalink-ac/datalink-ac',
@@ -137,6 +159,7 @@ function render({ lang, urlPath, title, desc, content, navKey, extraHead = '', b
     .replaceAll('{{content}}', content)
     .replaceAll('{{extraHead}}', extraHead + jsonLd)
     .replaceAll('{{origin}}', SITE.origin)
+    .replaceAll('{{buildId}}', BUILD_ID)
     .replaceAll('{{repo}}', SITE.repo)
     .replaceAll('{{skill}}', SITE.skill)
     .replaceAll('{{year}}', String(new Date().getFullYear())),
@@ -147,6 +170,7 @@ function render({ lang, urlPath, title, desc, content, navKey, extraHead = '', b
 /* ------------------------------------------------------------------- build */
 
 const built = []; // { urlPath, lang, title, desc, date }
+const BUILD_ID = await buildId();
 
 await rm(DIST, { recursive: true, force: true });
 

@@ -5,7 +5,7 @@ desc: A datalink is public by construction. Working out what that means before i
 tags: privacy, thinking
 ---
 
-A datalink is a URL with the data inside it. That is the entire idea, and it comes
+A datalink is a URL with the data inside it. That is the whole idea — and it comes
 with a property that is easy to state and easy to forget:
 
 > Anyone who has the string has the data.

@@ -5,10 +5,12 @@ desc: Why the URL is the right place to keep the data — and what changes when 
 tags: concept
 ---
 
-Every chart in every dashboard is a picture of something. The picture is convenient for
-a person and hostile to a machine. We have spent twenty years pretending otherwise:
-we build the picture, we host it, and then — when a model or a script needs the numbers —
-we ask somebody to go and read them off the picture.
+Every chart is a picture of something, and we have spent twenty years pretending the
+picture is the data.
+
+It is convenient for a person and hostile to a machine: we build the picture, we host
+it, and then — when a model or a script needs the numbers — we ask somebody to go and
+read them off it.
 
 That reading step is where accuracy goes to die.
 

@@ -306,6 +306,17 @@ em { font-style: normal; color: var(--mint); font-weight: 600; }
 .claim-t .accent { color: var(--mint); }
 .claim-d { color: var(--fg-mute); font-size: 14.5px; margin-left: auto; text-align: right; max-width: 34ch; }
 
+/* with one claim there is no second column to align to — stack it */
+.claim--single { display: block; padding: 18px 0 4px; }
+.claim--single .claim-n { display: inline-block; margin-right: 12px; }
+.claim--single .claim-t { display: inline; }
+.claim--single .claim-d {
+  display: block;
+  margin: 8px 0 0 40px;
+  text-align: left;
+  max-width: 48ch;
+}
+
 /* -------------------------------------------------------------- sections */
 .section { padding: var(--sec) 0; }
 .section + .section { border-top: 1px solid var(--line-soft); }
@@ -378,8 +389,56 @@ em { font-style: normal; color: var(--mint); font-weight: 600; }
 .copy.is-done { color: var(--mint); border-color: var(--mint-dim); }
 
 .chip-row { display: flex; flex-direction: column; gap: 10px; }
-.chip--sm { font-size: 11.5px; padding: 9px 10px 9px 13px; }
+.chip--sm { font-size: 11.5px; padding: 9px 10px 9px 13px; align-items: center; }
 .chip--sm .copy { font-size: 11px; padding: 4px 8px; }
+.chip--sm .chip-url { white-space: normal; overflow: visible; overflow-wrap: anywhere; line-height: 1.5; }
+
+/* ---------------------------------------------------------- two readers */
+.readers-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 2.4vw, 26px);
+  align-items: start;
+}
+@media (max-width: 860px) { .readers-grid { grid-template-columns: 1fr; } }
+
+.reader {
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: var(--surface);
+  padding: 22px 24px 20px;
+}
+.reader-human { border-color: color-mix(in srgb, var(--mint) 34%, var(--line)); }
+.reader-agent { border-color: color-mix(in srgb, var(--peri) 34%, var(--line)); }
+
+.reader-k {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin: 0 0 16px;
+}
+.reader-k span { color: var(--fg-mute); letter-spacing: .06em; }
+.reader-human .reader-k { color: var(--mint); }
+.reader-agent .reader-k { color: var(--peri); }
+
+.reader ul { list-style: none; margin: 0; padding: 0; }
+.reader li {
+  padding: 11px 0;
+  border-top: 1px solid var(--line-soft);
+  font-size: 15.5px;
+  line-height: 1.5;
+  color: var(--fg-dim);
+}
+.reader li:first-child { border-top: 0; padding-top: 0; }
+.reader li b {
+  display: block;
+  color: var(--fg);
+  font-weight: 680;
+  margin-bottom: 2px;
+}
+.reader-human li b { color: var(--mint); }
+.reader-agent li b { color: var(--peri); }
 
 /* ---------------------------------------------------------------- panels */
 .panel {

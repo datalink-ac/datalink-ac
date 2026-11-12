@@ -1,6 +1,6 @@
 ---
 title: datalink — data in the link
-desc: A datalink carries the data, not a picture of it. Humans read the render, agents read the data, and both act on the same link.
+desc: Data in the link. One URL, two readers — a human gets a vivid picture with the least mental effort; an agent reads the exact data, with no vision tokens and no second call.
 nav: home
 ---
 
@@ -8,26 +8,22 @@ nav: home
   <div class="wrap hero-grid">
     <div class="reveal">
       <span class="kicker">data in the link</span>
-      <h1 class="display">Put the data<br>in the <span class="grad">link</span>.</h1>
+      <h1 class="display">Data in the<br><span class="grad">link</span>.</h1>
       <p class="lede hero-sub">
-        Not a screenshot of the data. Not a link to a dashboard. The data itself —
-        in the URL, where a human reads the picture and an agent reads the numbers.
+        One link, two readers. A human opens it and sees the picture; an agent
+        fetches it and gets the data. Same URL — no screenshot, no round trip,
+        nothing lost in between.
       </p>
       <div class="row" style="margin-top:30px">
-        <a class="btn is-primary" href="#thesis">Read the thesis</a>
+        <a class="btn is-primary" href="#readers">See the two readers</a>
         <a class="btn" href="#try">Hand it to an agent</a>
       </div>
 
       <div class="hero-claims">
-        <div class="claim">
+        <div class="claim claim--single">
           <span class="claim-n">01</span>
-          <span class="claim-t">datalink as <span class="accent">context</span></span>
-          <span class="claim-d">The link is the context — not a pointer to a page you have to fetch, screenshot and describe.</span>
-        </div>
-        <div class="claim">
-          <span class="claim-n">02</span>
           <span class="claim-t">datalink as <span class="accent">agent context</span></span>
-          <span class="claim-d">For an agent the link is the interface: it reads links, it writes links, it computes on links.</span>
+          <span class="claim-d">For an agent the link <em>is</em> the interface: it reads links, writes links, computes on links.</span>
         </div>
       </div>
     </div>
@@ -59,6 +55,42 @@ nav: home
   </div>
 </section>
 
+
+<section class="section readers" id="readers">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">TWO READERS</span>
+      <h2>One string. Two readers. Nothing in between.</h2>
+      <p class="lede">
+        The link is the artefact, and it serves both of them — without a translation
+        step, so without a translation loss.
+      </p>
+    </div>
+
+    <div class="readers-grid reveal">
+      <div class="reader reader-human">
+        <p class="reader-k">the human <span>· gets the picture</span></p>
+        <ul>
+          <li><b>Vivid.</b> A picture carries the shape of the data at a glance — the trend, the outlier, the proportion.</li>
+          <li><b>Immediately legible.</b> Nothing to learn, no interface to master. The eye has it in a second.</li>
+          <li><b>One consistent design.</b> The same visual language everywhere, so the attention goes to the data, not to the chart.</li>
+          <li><b>Least mental effort.</b> No setup, no login, no clicking through filters to get to the one view that matters.</li>
+          <li><b>Information, maximally compressed.</b> One picture says what a hundred-row table says, in a fraction of the space.</li>
+        </ul>
+      </div>
+
+      <div class="reader reader-agent">
+        <p class="reader-k">the agent <span>· reads the data</span></p>
+        <ul>
+          <li><b>Exact.</b> The numbers themselves, not a reading of them. No rounding, no OCR, no estimating from pixels.</li>
+          <li><b>No vision tokens.</b> Text costs about four characters a token; the same data as a picture costs hundreds of vision tokens.</li>
+          <li><b>No second call.</b> One fetch returns the render and the spec together. There is nothing to reconcile afterwards.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="thesis">
   <div class="wrap">
     <div class="section-head reveal">
@@ -68,7 +100,7 @@ nav: home
         When a chart reaches a model as an image, three things happen. The pixels are
         re-encoded into vision tokens. The values are recovered by reading pixels.
         The answer is a number somebody guessed from a picture. Then it gets quoted,
-        pasted into a report, and nobody notices the mistake.
+        pasted into a report — and nobody notices the mistake.
       </p>
     </div>
 
@@ -86,7 +118,7 @@ nav: home
       <div class="card">
         <p class="card-k">unverifiable</p>
         <h3>You cannot check the answer</h3>
-        <p>Ask for the source and you get a link to the picture. Ask for the data and you get a guess.</p>
+        <p>Ask for the source and you get a picture. Ask for the data and you get a guess.</p>
       </div>
     </div>
   </div>
@@ -98,10 +130,9 @@ nav: home
       <span class="section-num">THESIS 01</span>
       <h2>Stop shipping screenshots to your model.</h2>
       <p class="lede">
-        A datalink returns the render <em>and</em> the data, from the same string.
-        The human gets a picture. The agent gets the numbers — exact, machine-readable,
-        and free of the guessing step. Nothing is lost in translation because nothing
-        was ever translated.
+        One link, two readings. The human gets a picture; the agent gets the numbers —
+        exact, machine-readable, and free of the guessing step. Nothing is lost in
+        translation, because nothing was ever translated.
       </p>
     </div>
 
@@ -148,8 +179,8 @@ nav: home
       <p class="lede">
         Every datalink is a pure function from parameters to a picture of the truth.
         No session, no login, no dashboard, no refresh button. A human edits the URL
-        to explore. An agent rewrites the URL to compute. Nothing else has to change,
-        because there is nothing else.
+        to explore; an agent rewrites it to compute. Nothing else changes, because
+        nothing else exists.
       </p>
     </div>
 
@@ -213,8 +244,8 @@ nav: home
       <h2>A chart is one rendering. The link is the general form.</h2>
       <p class="lede">
         Nothing about “the data lives in the URL” is specific to pie charts. The same
-        flat parameters describe a structure, a table, a calendar, a slide deck.
-        The renderer changes; the link does not.
+        flat parameters describe a structure diagram, a table, a calendar, a slide
+        deck. The renderer changes; the link does not.
       </p>
     </div>
 
@@ -267,10 +298,10 @@ nav: home
       <span class="section-num">TOGETHER</span>
       <h2>One string, two hands.</h2>
       <p class="lede">
-        This is a tool for agents and humans working together, not agents replacing them.
-        The human tunes the parameters to see something. The agent rewrites the parameters
-        to compute something. Neither has to learn the other's software, because the shared
-        surface is a URL — the one format both already know how to copy, edit and send.
+        A tool for agents and humans working together — not agents replacing humans.
+        The human tunes the parameters to see something; the agent rewrites them to
+        compute something. Neither learns the other's software, because the shared
+        surface is a URL: the one format both already know how to copy, edit and send.
       </p>
     </div>
 
@@ -322,8 +353,8 @@ nav: home
       <p class="lede">
         Not a dashboard. Not a BI tool. The places where text already lives and
         pictures do not: an <b>issue</b>, a <b>pull request</b>, a <b>release note</b>.
-        Those are written in words, read by people, and — increasingly — read by
-        bots. A link fits all three, and a screenshot fits none of them.
+        Written in words, read by people, and — increasingly — by bots. A link fits
+        all three. A screenshot fits none.
       </p>
     </div>
 
@@ -375,11 +406,11 @@ nav: home
   <div class="wrap">
     <div class="section-head reveal">
       <span class="section-num">TRY IT</span>
-      <h2>Give it to your agent.</h2>
+      <h2>Your agent already knows how to read a URL.</h2>
       <p class="lede">
         The <a href="https://clawhub.ai/edwinjhlee/skills/x-cmd-draw" target="_blank" rel="noopener">x-cmd-draw skill</a>
         teaches an agent to build datalinks. No install, no key, no stored data —
-        the agent composes a URL and the chart appears.
+        the agent composes a URL, and the chart appears.
       </p>
     </div>
 
@@ -412,12 +443,12 @@ change the parameters myself.</span></pre>
 <section class="section">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="section-num">NEXT</span>
-      <h2>A draft specification is taking shape.</h2>
+      <span class="section-num">THE SPEC</span>
+      <h2>The promises a renderer has to keep.</h2>
       <p class="lede">
-        The invariants — self-contained, dual-audience, parametric, versioned, lossless —
-        are being written down so that any renderer can implement a datalink and any
-        agent can rely on one.
+        Self-contained. Dual-audience. Parametric. Versioned. Lossless. Five promises
+        a renderer has to keep, so that any renderer can implement a datalink — and
+        any agent can rely on one. The draft is open for argument.
       </p>
     </div>
 
@@ -425,17 +456,17 @@ change the parameters myself.</span></pre>
       <a class="card" href="/spec" style="color:inherit">
         <p class="card-k">spec · v0.1</p>
         <h3>The datalink specification</h3>
-        <p>Anatomy, invariants, the data spec, the agent contract, and the open questions.</p>
+        <p>The anatomy, the invariants, the agent contract — and the questions we have not settled.</p>
       </a>
       <a class="card" href="/blog" style="color:inherit">
         <p class="card-k">blog</p>
         <h3>Notes on the idea</h3>
-        <p>Design, reasoning and the articles behind datalink — written as we go.</p>
+        <p>How datalink works, and why it works that way — written as we go.</p>
       </a>
       <a class="card" href="{{repo}}" target="_blank" rel="noopener" style="color:inherit">
         <p class="card-k">github</p>
         <h3>datalink-ac/datalink-ac</h3>
-        <p>The site, the renderer and the specification, in the open.</p>
+        <p>The site, the renderer and the spec, in the open.</p>
       </a>
     </div>
   </div>

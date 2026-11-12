@@ -77,12 +77,12 @@ def main() -> None:
     w = d.textlength("datalink", font=font(SANS_BOLD, 92))
     d.text((84 + w + 14, 214), ".ac", font=font(SANS, 92), fill=DIM)
 
-    # the tagline — the whole idea in four words
-    d.text((88, 336), "data in the link", font=font(MONO, 32), fill=MINT)
+    # the statement
+    d.text((84, 336), "Data in the link.", font=font(SANS_BOLD, 56), fill=FG)
 
-    # the claim
-    d.text((84, 396), "A link that carries the data,", font=font(SANS, 40), fill=FG)
-    d.text((84, 444), "not a picture of it.", font=font(SANS, 40), fill=FG)
+    # the two readers
+    d.text((84, 412), "the human sees the picture", font=font(SANS, 34), fill=MINT)
+    d.text((84, 456), "the agent reads the data", font=font(SANS, 34), fill=PERI)
 
     # a bar-chart motif, because a data link ought to look like one
     base_y = 500
