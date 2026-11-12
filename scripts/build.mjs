@@ -101,6 +101,16 @@ function parseFrontmatter(text) {
 
 const slugFrom = (file) => file.replace(/\.md$/, '');
 
+/** The day a source file last changed — a more honest lastmod than the clock. */
+async function fileDate(file) {
+  const { stat } = await import('node:fs/promises');
+  try {
+    return (await stat(file)).mtime.toISOString().slice(0, 10);
+  } catch {
+    return null;
+  }
+}
+
 /** /spec ↔ /zh/spec — the same page in the other language. */
 function altPath(lang, p) {
   if (lang === 'zh') return p.replace(/^\/zh/, '') || '/';
@@ -128,7 +138,7 @@ function applyTernaries(text, lang) {
   return text.replace(/\{\{lang === 'zh' \? '([^']*)' : '([^']*)'\}\}/g, (_, a, b) => (lang === 'zh' ? a : b));
 }
 
-function render({ lang, urlPath, title, desc, content, navKey, extraHead = '', bodyClass = '', jsonLd = '' }) {
+function render({ lang, urlPath, title, desc, content, navKey, extraHead = '', bodyClass = '', jsonLd = '', ogType = 'website', publishedTime = '' }) {
   const L = LANGS[lang];
   const nav = NAV[lang]
     .map(
@@ -158,6 +168,8 @@ function render({ lang, urlPath, title, desc, content, navKey, extraHead = '', b
     .replaceAll('{{bodyClass}}', bodyClass)
     .replaceAll('{{content}}', content)
     .replaceAll('{{extraHead}}', extraHead + jsonLd)
+    .replaceAll('{{ogType}}', ogType)
+    .replaceAll('{{publishedTime}}', publishedTime)
     .replaceAll('{{origin}}', SITE.origin)
     .replaceAll('{{buildId}}', BUILD_ID)
     .replaceAll('{{repo}}', SITE.repo)
@@ -165,6 +177,28 @@ function render({ lang, urlPath, title, desc, content, navKey, extraHead = '', b
     .replaceAll('{{year}}', String(new Date().getFullYear())),
     lang,
   );
+}
+
+/** The other posts in the same language — internal links, and a way in. */
+function relatedPosts(all, current, lang) {
+  const others = all.filter((x) => x.slug !== current.slug).slice(0, 3);
+  if (!others.length) return '';
+  const base = lang === 'zh' ? '/zh/blog' : '/blog';
+  const items = others
+    .map(
+      (x) => `          <li>
+            <a href="${base}/${x.slug}">${esc(x.title)}</a>
+            <span class="tiny">${esc(x.date)}${x.desc ? ' — ' + esc(x.desc) : ''}</span>
+          </li>`,
+    )
+    .join('\n');
+  return `
+        <nav class="related" aria-label="${lang === 'zh' ? '相关' : 'Related'}">
+          <p class="section-num">${lang === 'zh' ? '接着读' : 'READ NEXT'}</p>
+          <ul>
+${items}
+          </ul>
+        </nav>`;
 }
 
 /* ------------------------------------------------------------------- build */
@@ -210,6 +244,13 @@ async function copyTree(from, to) {
 }
 await copyTree(STATIC, DIST);
 
+// the IndexNow key, served from the site's own root so the push can be verified
+const indexnowKey = path.join(ROOT, 'scripts', 'indexnow.key');
+if (existsSync(indexnowKey)) {
+  const key = (await readFile(indexnowKey, 'utf8')).trim();
+  if (key) await write(path.join(DIST, `${key}.txt`), key);
+}
+
 // 3. hand-written pages --------------------------------------------------
 const pageFiles = [];
 for (const lang of Object.keys(LANGS)) {
@@ -251,6 +292,21 @@ for (const { lang, file, full } of pageFiles) {
   const title = meta.title || 'datalink';
   const desc = meta.desc || 'data in the link';
   const isHome = urlPath === '/' || urlPath === '/zh';
+  const crumbs =
+    urlPath === '/' || urlPath === '/zh'
+      ? null
+      : {
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: LANGS[lang].label === '中文' ? '首页' : 'Home', item: SITE.origin + (lang === 'zh' ? '/zh' : '/') },
+            ...(urlPath.includes('/blog')
+              ? [{ '@type': 'ListItem', position: 2, name: LANGS[lang].label === '中文' ? '博客' : 'Blog', item: SITE.origin + (lang === 'zh' ? '/zh/blog' : '/blog') }]
+              : []),
+            { '@type': 'ListItem', position: urlPath.includes('/blog') ? 3 : 2, name: title, item: SITE.origin + urlPath },
+          ],
+        };
+
   const jsonLd = jsonLdBlock(
     isHome
       ? {
@@ -262,15 +318,33 @@ for (const { lang, file, full } of pageFiles) {
           inLanguage: LANGS[lang].htmlLang,
           publisher: ORG,
         }
-      : {
-          '@context': 'https://schema.org',
-          '@type': 'WebPage',
-          name: title,
-          url: SITE.origin + urlPath,
-          description: desc,
-          inLanguage: LANGS[lang].htmlLang,
-          isPartOf: { '@type': 'WebSite', name: 'datalink.ac', url: SITE.origin },
-        },
+      : urlPath.endsWith('/blog')
+        ? {
+            '@context': 'https://schema.org',
+            '@type': 'Blog',
+            name: title,
+            url: SITE.origin + urlPath,
+            description: desc,
+            inLanguage: LANGS[lang].htmlLang,
+            isPartOf: { '@type': 'WebSite', name: 'datalink.ac', url: SITE.origin },
+            blogPost: posts[lang].map((x) => ({
+              '@type': 'BlogPosting',
+              headline: x.title,
+              url: SITE.origin + (lang === 'zh' ? '/zh/blog/' : '/blog/') + x.slug,
+              datePublished: x.date,
+            })),
+          }
+        : {
+            '@context': 'https://schema.org',
+            '@type': urlPath.includes('spec') ? 'TechArticle' : 'WebPage',
+            headline: title,
+            name: title,
+            url: SITE.origin + urlPath,
+            description: desc,
+            inLanguage: LANGS[lang].htmlLang,
+            isPartOf: { '@type': 'WebSite', name: 'datalink.ac', url: SITE.origin },
+            publisher: ORG,
+          },
   );
   const html = render({
     lang,
@@ -280,12 +354,19 @@ for (const { lang, file, full } of pageFiles) {
     content,
     navKey: meta.nav || (urlPath.endsWith('/blog') ? 'blog' : urlPath.includes('spec') ? 'spec' : 'home'),
     bodyClass: meta.bodyClass || '',
-    extraHead: meta.extraHead || '',
+    extraHead: (meta.extraHead || '') + (crumbs ? jsonLdBlock(crumbs) : ''),
     jsonLd,
   });
 
   await write(outPath(urlPath), html);
-  built.push({ urlPath, lang, title, desc, date: meta.date || '' });
+  built.push({
+    urlPath,
+    lang,
+    title,
+    desc,
+    date: meta.date || '',
+    lastmod: await fileDate(full),
+  });
 }
 
 // 4. posts ---------------------------------------------------------------
@@ -295,8 +376,10 @@ for (const lang of Object.keys(LANGS)) {
     const html = render({
       lang,
       urlPath,
-      title: p.title,
+      title: `${p.title} — datalink.ac`,
       desc: p.desc,
+      ogType: 'article',
+      publishedTime: p.date,
       content: `<article class="post">
         <p class="post-meta"><time datetime="${esc(p.date)}">${esc(p.date)}</time>${p.tags ? ` · ${esc(p.tags)}` : ''}</p>
         <h1 class="post-title">${esc(p.title)}</h1>
@@ -305,9 +388,19 @@ for (const lang of Object.keys(LANGS)) {
 ${p.html}
         </div>
         <p class="post-back"><a href="${lang === 'zh' ? '/zh/blog' : '/blog'}">← ${lang === 'zh' ? '回到博客' : 'Back to the blog'}</a></p>
+        ${relatedPosts(posts[lang], p, lang)}
       </article>`,
       navKey: 'blog',
       bodyClass: 'is-post',
+      extraHead: jsonLdBlock({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: lang === 'zh' ? '首页' : 'Home', item: SITE.origin + (lang === 'zh' ? '/zh' : '/') },
+          { '@type': 'ListItem', position: 2, name: lang === 'zh' ? '博客' : 'Blog', item: SITE.origin + (lang === 'zh' ? '/zh/blog' : '/blog') },
+          { '@type': 'ListItem', position: 3, name: p.title, item: SITE.origin + urlPath },
+        ],
+      }),
       jsonLd: jsonLdBlock({
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
@@ -334,6 +427,7 @@ const notFound = render({
   urlPath: '/404',
   title: '404 — datalink',
   desc: 'No such link.',
+  extraHead: '<meta name="robots" content="noindex,follow">',
   content: `<section class="section center">
         <h1 class="display-sm">404</h1>
         <p class="lede">No such link. <a href="/">Back to the concept</a> · <a href="/zh">中文</a></p>
@@ -344,7 +438,16 @@ await write(path.join(DIST, '404.html'), notFound);
 
 await write(
   path.join(DIST, 'robots.txt'),
-  `User-agent: *\nAllow: /\nSitemap: ${SITE.origin}/sitemap.xml\n`,
+  [
+    'User-agent: *',
+    'Allow: /',
+    // the machine-facing surfaces are tools, not pages worth indexing
+    'Disallow: /d.json',
+    'Disallow: /deck',
+    '',
+    `Sitemap: ${SITE.origin}/sitemap.xml`,
+    '',
+  ].join('\n'),
 );
 
 const urls = built
@@ -354,7 +457,7 @@ const urls = built
       .filter((o) => o.urlPath === b.urlPath || altPath(o.lang, o.urlPath) === b.urlPath)
       .map((o) => `    <xhtml:link rel="alternate" hreflang="${LANGS[o.lang].htmlLang}" href="${SITE.origin}${o.urlPath}"/>`)
       .join('\n');
-    const lastmod = b.date || TODAY;
+    const lastmod = b.date || b.lastmod || TODAY;
     return `  <url>\n    <loc>${SITE.origin}${b.urlPath}</loc>\n    <lastmod>${lastmod}</lastmod>${alts ? '\n' + alts : ''}\n  </url>`;
   })
   .join('\n');

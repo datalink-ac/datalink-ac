@@ -712,6 +712,18 @@ pre.code .c { color: var(--fg-mute); }
 .post-desc { color: var(--fg-dim); font-size: 15px; margin: 0; }
 .posts-grid { display: grid; gap: 14px; }
 
+/* a page-level h1 (blog index, privacy) — same weight as a section h2 */
+.page-title {
+  font-size: clamp(1.75rem, 3.9vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -.032em;
+  font-weight: 750;
+  margin: 0 0 .5em;
+}
+
+/* images that must not shift the layout */
+img.fit { width: 100%; height: auto; display: block; }
+
 /* ----------------------------------------------------------------- post */
 .post { max-width: 720px; margin: 0 auto; padding: clamp(46px, 7vw, 84px) 0 var(--sec); }
 .post-title { font-size: clamp(2rem, 5vw, 3.1rem); line-height: 1.06; letter-spacing: -.035em; margin: 0 0 .4em; font-weight: 780; }
@@ -752,6 +764,17 @@ pre.code .c { color: var(--fg-mute); }
   color: var(--mint);
 }
 .post-back { margin-top: 3em; font-size: 15px; }
+
+.related {
+  margin-top: 3.2em;
+  border-top: 1px solid var(--line-soft);
+  padding-top: 1.6em;
+}
+.related ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 15px; }
+.related li { display: grid; gap: 2px; }
+.related a { font-weight: 650; font-size: 1.02rem; color: var(--fg); }
+.related a:hover { color: var(--mint); }
+.related .tiny { display: block; }
 
 /* ---------------------------------------------------------------- spec */
 .spec-layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); }

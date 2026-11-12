@@ -42,7 +42,7 @@ nav: home
         </div>
         <div class="panel-body">
           <div class="chart-holder">
-            <img src="/d?type=pie&amp;labels=TS,Py,Go&amp;values=4821,2312,980&amp;title=Stars&amp;scheme=dark" alt="按语言划分的 star 数饼图" loading="eager" width="705" height="500">
+            <img src="/d?type=pie&amp;labels=TS,Py,Go&amp;values=4821,2312,980&amp;title=Stars&amp;scheme=dark" fetchpriority="high" alt="按语言划分的 star 数饼图" loading="eager" width="705" height="500">
           </div>
         </div>
       </div>
@@ -59,9 +59,9 @@ nav: home
   <div class="wrap">
     <div class="section-head reveal">
       <span class="section-num">两个读者</span>
-      <h2>一串字符，两个读者，中间什么也没有。</h2>
+      <h2>一个数据链接：人类得到图表，Agent 读到数据。</h2>
       <p class="lede">
-        链接就是那个产物，它同时服务两边——中间没有翻译这一步，所以也没有翻译的损耗。
+        同一条链接、同一份数字，两个读者——中间没有手工转述，所以也没有转述的损耗。
       </p>
     </div>
 
@@ -71,7 +71,7 @@ nav: home
         <ul>
           <li><b>生动。</b> 一张图一眼就带着数据的形状——趋势、离群、占比。</li>
           <li><b>一看就懂。</b> 不用学，没有界面要掌握。眼睛一秒就拿到。</li>
-          <li><b>设计统一。</b> 到处是同一套视觉语言，读者的注意力花在数据上，不是花在图上。</li>
+          <li><b>设计统一。</b> 到处是同一套视觉语言，读者的注意力花在数据表达的意图上，而不是样式上。</li>
           <li><b>心智负担最低。</b> 不用配置、不用登录、不用点半天筛选器才看到真正要的那一屏。</li>
           <li><b>信息被最大程度压缩。</b> 一张图说清一张百行表说的东西，占的空间只有零头。</li>
         </ul>
@@ -80,9 +80,9 @@ nav: home
       <div class="reader reader-agent">
         <p class="reader-k">agent <span>· 读到数据</span></p>
         <ul>
-          <li><b>准确。</b> 数字本身，不是对数字的读法。不四舍五入，不 OCR，不从像素上估。</li>
-          <li><b>不用视觉 token。</b> 文本大约四个字符一个 token；同样的数据做成图片，要几百个视觉 token。</li>
-          <li><b>不用第二次调用。</b> 取一次，渲染和规格一起回来，事后没什么要对账的。</li>
+          <li><b>准确，无幻觉。</b> 数字本身，不是对数字的读法。不四舍五入，不 OCR，不从像素上估。</li>
+          <li><b>省钱。</b> 文本大约四个字符一个 token；同样的数据反复读成图片，每次都要几百个视觉 token。</li>
+          <li><b>加快推理速度。</b> 取一次，渲染和规格一起回来——不用第二次往返，推理窗口留给更值得的事。</li>
         </ul>
       </div>
     </div>
@@ -353,7 +353,7 @@ nav: home
       <div class="card" style="padding:0;overflow:hidden">
         <div class="panel-head" style="border-bottom:1px solid var(--line-soft)"><span>release · v0.3.0</span><span class="tag tag-mint">bar</span></div>
         <div style="padding:12px">
-          <img src="/d?type=bar&amp;labels=TypeScript,JavaScript,Shell,Markdown&amp;values=4820,1687,640,180&amp;title=Code%20composition&amp;scheme=dark" alt="按语言划分的代码构成柱状图" loading="lazy" width="705" height="500" style="border-radius:8px">
+          <img src="/d?type=bar&amp;labels=TypeScript,JavaScript,Shell,Markdown&amp;values=4820,1687,640,180&amp;title=Code%20composition&amp;scheme=dark" width="466" height="520" class="fit" alt="按语言划分的代码构成柱状图" loading="lazy" width="705" height="500" style="border-radius:8px">
         </div>
         <div style="padding:0 16px 16px">
           <p class="tiny" style="margin:0 0 8px">release note 想说的是「新增 2400 行，主要是 TypeScript」。这句话本来就是一张表。做成链接，它同时是一张图——而且依然可 grep、可 diff，也能被整理仓库的 bot 读懂。</p>
@@ -364,7 +364,7 @@ nav: home
       <div class="card" style="padding:0;overflow:hidden">
         <div class="panel-head" style="border-bottom:1px solid var(--line-soft)"><span>issue · 「这东西是干嘛的？」</span><span class="tag tag-peri">用例图</span></div>
         <div style="padding:12px">
-          <img src="/d/uc?n=actor;actor;Developer&amp;n=uc1;uc;Write%20a%20datalink&amp;n=uc2;uc;Publish%20it%20in%20an%20issue&amp;e=actor;uc1&amp;e=actor;uc2" alt="开发者使用数据链接的用例图" loading="lazy" style="border-radius:8px">
+          <img src="/d/uc?n=actor;actor;Developer&amp;n=uc1;uc;Write%20a%20datalink&amp;n=uc2;uc;Publish%20it%20in%20an%20issue&amp;e=actor;uc1&amp;e=actor;uc2" width="475" height="180" class="fit" alt="开发者使用数据链接的用例图" loading="lazy" style="border-radius:8px">
         </div>
         <div style="padding:0 16px 16px">
           <p class="tiny" style="margin:0 0 8px">用三段话解释一个功能，比一张图老得快。而且因为它是链接，下一个人可以直接挪一个框，而不用开口要求重画。</p>
@@ -375,7 +375,7 @@ nav: home
       <div class="card" style="padding:0;overflow:hidden">
         <div class="panel-head" style="border-bottom:1px solid var(--line-soft)"><span>pull request · 「改了什么？」</span><span class="tag tag-mint">思维导图</span></div>
         <div style="padding:12px">
-          <img src="/d/mindmap?n=draw/src/render/tokei.ts&amp;n=draw/src/handler.ts&amp;n=draw/test/tokei.test.ts&amp;n=draw/docs/2-data-charts/10-tokei/en.md&amp;style=tree&amp;title=Files%20changed%20in%20%2331" alt="这次 PR 动到的文件的思维导图" loading="lazy" style="border-radius:8px">
+          <img src="/d/mindmap?n=draw/src/render/tokei.ts&amp;n=draw/src/handler.ts&amp;n=draw/test/tokei.test.ts&amp;n=draw/docs/2-data-charts/10-tokei/en.md&amp;style=tree&amp;title=Files%20changed%20in%20%2331" width="425" height="133" class="fit" alt="这次 PR 动到的文件的思维导图" loading="lazy" style="border-radius:8px">
         </div>
         <div style="padding:0 16px 16px">
           <p class="tiny" style="margin:0 0 8px">这是 reviewer 真正会要的那张图。做成链接，它是可以被审的：在 PR 里改一个参数，图就跟着变。截图没法被审。</p>

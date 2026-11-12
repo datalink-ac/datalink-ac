@@ -52,8 +52,12 @@ npm run dev        # build + wrangler dev（http://127.0.0.1:8788）
 ## 部署
 
 ```sh
-npm run deploy     # build + wrangler deploy
+npm run deploy     # build + wrangler deploy + IndexNow 推送
+npm run indexnow   # 只推送（默认推 sitemap 里的全部 URL）
 ```
+
+IndexNow 的密钥在 `scripts/indexnow.key`，构建时会发布到站点根目录
+（`https://datalink.ac/<key>.txt`），搜索引擎据此验证推送。
 
 Worker 与两个 custom domain 绑定：`datalink.ac` 与 `www.datalink.ac`
 （后者 301 跳到前者）。zone 在 Cloudflare 账号 `d8caf3f6…` 下。
@@ -75,7 +79,9 @@ npm run build
   没有 web font 请求——在哪儿打开都秒开。
 - **深浅色**：`prefers-color-scheme` 自动跟随，右上角可手动切换，存在本地。
 - **动效**：滚动淡入。没有 JS 时内容照常显示（只有 `.js .reveal` 才隐藏）。
-- **SEO**：canonical、`hreflang` 双语互指、JSON-LD、sitemap、robots、OG 图。
+- **SEO**：canonical、`hreflang` 双语互指、JSON-LD（WebSite / Blog / BlogPosting /
+  TechArticle / BreadcrumbList）、sitemap（带 `lastmod` 与双语互指）、robots、OG 图、
+  每页唯一 `<h1>`、图片显式尺寸（不抖）、404 `noindex`。
 
 ## 相关的仓库
 

@@ -43,7 +43,7 @@ nav: home
         </div>
         <div class="panel-body">
           <div class="chart-holder">
-            <img src="/d?type=pie&amp;labels=TS,Py,Go&amp;values=4821,2312,980&amp;title=Stars&amp;scheme=dark" alt="Pie chart of stars by language" loading="eager" width="705" height="500">
+            <img src="/d?type=pie&amp;labels=TS,Py,Go&amp;values=4821,2312,980&amp;title=Stars&amp;scheme=dark" fetchpriority="high" alt="Pie chart of stars by language" loading="eager" width="705" height="500">
           </div>
         </div>
       </div>
@@ -60,10 +60,10 @@ nav: home
   <div class="wrap">
     <div class="section-head reveal">
       <span class="section-num">TWO READERS</span>
-      <h2>One string. Two readers. Nothing in between.</h2>
+      <h2>One datalink: a human gets the chart, an agent reads the data.</h2>
       <p class="lede">
-        The link is the artefact, and it serves both of them — without a translation
-        step, so without a translation loss.
+        The same link, the same numbers, two readers — and nothing transcribed by
+        hand in between, so nothing lost in between.
       </p>
     </div>
 
@@ -73,7 +73,7 @@ nav: home
         <ul>
           <li><b>Vivid.</b> A picture carries the shape of the data at a glance — the trend, the outlier, the proportion.</li>
           <li><b>Immediately legible.</b> Nothing to learn, no interface to master. The eye has it in a second.</li>
-          <li><b>One consistent design.</b> The same visual language everywhere, so the attention goes to the data, not to the chart.</li>
+          <li><b>One consistent design.</b> The same visual language everywhere, so the reader's attention goes to what the data means — not to how it is styled.</li>
           <li><b>Least mental effort.</b> No setup, no login, no clicking through filters to get to the one view that matters.</li>
           <li><b>Information, maximally compressed.</b> One picture says what a hundred-row table says, in a fraction of the space.</li>
         </ul>
@@ -82,9 +82,9 @@ nav: home
       <div class="reader reader-agent">
         <p class="reader-k">the agent <span>· reads the data</span></p>
         <ul>
-          <li><b>Exact.</b> The numbers themselves, not a reading of them. No rounding, no OCR, no estimating from pixels.</li>
-          <li><b>No vision tokens.</b> Text costs about four characters a token; the same data as a picture costs hundreds of vision tokens.</li>
-          <li><b>No second call.</b> One fetch returns the render and the spec together. There is nothing to reconcile afterwards.</li>
+          <li><b>Exact, no hallucination.</b> The numbers themselves, not a reading of them. No rounding, no OCR, no estimating from pixels.</li>
+          <li><b>Cheaper.</b> Text costs about four characters a token; re-reading the same data as a picture costs hundreds of vision tokens, every single time.</li>
+          <li><b>Faster reasoning.</b> One call returns the render and the spec together — no second round trip, and the reasoning window stays free for the part that matters.</li>
         </ul>
       </div>
     </div>
@@ -362,7 +362,7 @@ nav: home
       <div class="card" style="padding:0;overflow:hidden">
         <div class="panel-head" style="border-bottom:1px solid var(--line-soft)"><span>release · v0.3.0</span><span class="tag tag-mint">bar</span></div>
         <div style="padding:12px">
-          <img src="/d?type=bar&amp;labels=TypeScript,JavaScript,Shell,Markdown&amp;values=4820,1687,640,180&amp;title=Code%20composition&amp;scheme=dark" alt="Bar chart of code composition by language" loading="lazy" width="705" height="500" style="border-radius:8px">
+          <img src="/d?type=bar&amp;labels=TypeScript,JavaScript,Shell,Markdown&amp;values=4820,1687,640,180&amp;title=Code%20composition&amp;scheme=dark" width="466" height="520" class="fit" alt="Bar chart of code composition by language" loading="lazy" width="705" height="500" style="border-radius:8px">
         </div>
         <div style="padding:0 16px 16px">
           <p class="tiny" style="margin:0 0 8px">A release note wants to say “+2,400 lines, mostly TypeScript”. That sentence is a table. As a link it is also a chart — and it stays greppable, diffable and readable by whatever triages the repo.</p>
@@ -373,7 +373,7 @@ nav: home
       <div class="card" style="padding:0;overflow:hidden">
         <div class="panel-head" style="border-bottom:1px solid var(--line-soft)"><span>issue · “what does this do?”</span><span class="tag tag-peri">use case</span></div>
         <div style="padding:12px">
-          <img src="/d/uc?n=actor;actor;Developer&amp;n=uc1;uc;Write%20a%20datalink&amp;n=uc2;uc;Publish%20it%20in%20an%20issue&amp;e=actor;uc1&amp;e=actor;uc2" alt="Use case diagram of a developer using datalinks" loading="lazy" style="border-radius:8px">
+          <img src="/d/uc?n=actor;actor;Developer&amp;n=uc1;uc;Write%20a%20datalink&amp;n=uc2;uc;Publish%20it%20in%20an%20issue&amp;e=actor;uc1&amp;e=actor;uc2" width="475" height="180" class="fit" alt="Use case diagram of a developer using datalinks" loading="lazy" style="border-radius:8px">
         </div>
         <div style="padding:0 16px 16px">
           <p class="tiny" style="margin:0 0 8px">Three paragraphs explaining a feature age faster than one diagram. And because it is a link, the next person can move a box instead of asking for a redraw.</p>
@@ -384,7 +384,7 @@ nav: home
       <div class="card" style="padding:0;overflow:hidden">
         <div class="panel-head" style="border-bottom:1px solid var(--line-soft)"><span>pull request · “what changed?”</span><span class="tag tag-mint">mind map</span></div>
         <div style="padding:12px">
-          <img src="/d/mindmap?n=draw/src/render/tokei.ts&amp;n=draw/src/handler.ts&amp;n=draw/test/tokei.test.ts&amp;n=draw/docs/2-data-charts/10-tokei/en.md&amp;style=tree&amp;title=Files%20changed%20in%20%2331" alt="Mind map of the files a pull request touched" loading="lazy" style="border-radius:8px">
+          <img src="/d/mindmap?n=draw/src/render/tokei.ts&amp;n=draw/src/handler.ts&amp;n=draw/test/tokei.test.ts&amp;n=draw/docs/2-data-charts/10-tokei/en.md&amp;style=tree&amp;title=Files%20changed%20in%20%2331" width="425" height="133" class="fit" alt="Mind map of the files a pull request touched" loading="lazy" style="border-radius:8px">
         </div>
         <div style="padding:0 16px 16px">
           <p class="tiny" style="margin:0 0 8px">The one picture a reviewer actually asks for. As a link it is reviewable: change a parameter in the pull request and the picture changes with it. A screenshot cannot be reviewed.</p>
