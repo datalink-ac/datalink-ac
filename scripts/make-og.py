@@ -78,11 +78,11 @@ def main() -> None:
     d.text((84 + w + 14, 214), ".ac", font=font(SANS, 92), fill=DIM)
 
     # the statement
-    d.text((84, 336), "Data in the link.", font=font(SANS_BOLD, 56), fill=FG)
+    d.text((84, 330), "Datalink as Context.", font=font(SANS_BOLD, 54), fill=FG)
 
     # the two readers
-    d.text((84, 412), "the human sees the picture", font=font(SANS, 34), fill=MINT)
-    d.text((84, 456), "the agent reads the data", font=font(SANS, 34), fill=PERI)
+    d.text((84, 406), "the agent gets the data.", font=font(SANS, 32), fill=PERI)
+    d.text((84, 448), "the human gets the picture.", font=font(SANS, 32), fill=MINT)
 
     # a bar-chart motif, because a data link ought to look like one
     base_y = 500

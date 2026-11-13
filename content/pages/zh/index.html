@@ -1,6 +1,6 @@
 ---
-title: datalink — 数据在链接里
-desc: 数据在链接里。一条 URL，两个读者——人拿到一张生动、统一设计、心智负担最低的图；agent 读到准确的数据，不用视觉 token，也不用第二次调用。
+title: Datalink as Context —— agent 拿到数据，人看到图
+desc: 数据链接就是装着「图背后的数据」的网页地址。读者看到图，你的 AI 读到精确的数字。同一个链接，永远不会各说各话。
 nav: home
 ---
 
@@ -8,22 +8,19 @@ nav: home
   <div class="wrap hero-grid">
     <div class="reveal">
       <span class="kicker">data in the link</span>
-      <h1 class="display">数据在<br><span class="grad">链接</span>里。</h1>
+      <h1 class="display">Datalink as<br><span class="grad">Context</span></h1>
+      <p class="hero-line">
+        <span class="half half-agent">agent 拿到数据。</span>
+        <span class="half half-human">人看到图。</span>
+      </p>
       <p class="lede hero-sub">
-        一条链接，两个读者。人打开它，看到图；agent 取到它，拿到数据。
-        同一个 URL——没有截图，没有往返，中间什么也没丢。
+        数据链接是一条装着「图背后的数据」的网页地址。
+        读者看到的是图，你的 AI 读到的是精确的数字。同一个链接——
+        所以两边永远不会悄悄地各说各话。
       </p>
       <div class="row" style="margin-top:30px">
-        <a class="btn is-primary" href="#readers">看两个读者</a>
-        <a class="btn" href="#try">交给 agent 试试</a>
-      </div>
-
-      <div class="hero-claims">
-        <div class="claim claim--single">
-          <span class="claim-n">01</span>
-          <span class="claim-t">datalink as <span class="accent">agent context</span></span>
-          <span class="claim-d">对 agent 来说链接<em>就是</em>接口：它读链接、写链接，在链接上做计算。</span>
-        </div>
+        <a class="btn is-primary" href="#idea">看看它怎么工作</a>
+        <a class="btn" href="#try">拿你的 AI 试试</a>
       </div>
     </div>
 
@@ -37,8 +34,8 @@ nav: home
       </div>
       <div class="panel" style="margin-top:14px">
         <div class="panel-head">
-          <span>实时渲染</span>
-          <span class="tag tag-mint">svg</span>
+          <span>读者看到的样子</span>
+          <span class="tag tag-mint">图</span>
         </div>
         <div class="panel-body">
           <div class="chart-holder">
@@ -47,27 +44,128 @@ nav: home
         </div>
       </div>
       <p class="tiny" style="margin:12px 0 0">
-        同一个链接，读成文本：<a href="/d.json?type=pie&amp;labels=TS,Py,Go&amp;values=4821,2312,980">/d.json</a>
-        · <a href="/d/explore?type=pie&amp;labels=TS,Py,Go&amp;values=4821,2312,980">打开交互编辑器</a>
+        同一个地址，读成数字：
+        <a href="/d.json?type=pie&amp;labels=TS,Py,Go&amp;values=4821,2312,980">/d.json</a>
+        · <a href="/d/explore?type=pie&amp;labels=TS,Py,Go&amp;values=4821,2312,980">在浏览器里改一改</a>
       </p>
     </div>
   </div>
 </section>
 
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">问题</span>
+      <h2>图片是个很优雅的丢数字的方式。</h2>
+      <p class="lede">
+        你让 AI 画一张图。它给了你一张图——正好是你想放进稿子里的那种。
+        可图的背后本来是一张表，而那张表现在没了。
+        从此以后，你稿子里的每一个数字，都是某人从一张图片上读下来的。
+      </p>
+    </div>
+
+    <div class="cards reveal">
+      <div class="card">
+        <p class="card-k">那张图</p>
+        <h3>你没法核对</h3>
+        <p>那根柱子可能是 4.18。你的稿子会写 4.2，或者 4.3，或者 42%。没人能分辨，因为数字根本不在图里。</p>
+      </div>
+      <div class="card">
+        <p class="card-k">那个模型</p>
+        <h3>它读的是像素，不是数据</h3>
+        <p>拿到图片的 AI，是靠「看」把数值还原出来的。它很擅长这个。它同时也在猜，而且它不知道自己哪些地方在猜。</p>
+      </div>
+      <div class="card">
+        <p class="card-k">补救办法</p>
+        <h3>你再问一遍</h3>
+        <p>「这些数字对吗？」—— 又一轮往返，又一次猜测，又一次用略微不同的方式自信地答错。</p>
+      </div>
+    </div>
+
+    <div class="note mint reveal" style="margin-top:26px">
+      <b>这不怪模型。</b> 我们为眼睛造了图片，然后把图片交给了必须拿它做算术的东西。
+    </div>
+  </div>
+</section>
+
+<section class="section" id="idea">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">想法</span>
+      <h2>把数据放进链接里。</h2>
+      <p class="lede">
+        一条网页地址，里面装着数据本身。打开它，你看到图；
+        取它，你拿到数字，和当初测量的一模一样。
+        不存在第二个需要同步的「真相版本」—— 只有这条链接。
+      </p>
+    </div>
+
+    <div class="cards reveal" style="grid-template-columns:repeat(auto-fit,minmax(230px,1fr))">
+      <div class="card">
+        <p class="card-k">一</p>
+        <h3>链接</h3>
+        <p>一条普通的网页地址。它装着数据——不是某个页面的指针，不是截图，就是数据。</p>
+      </div>
+      <div class="card">
+        <p class="card-k">二</p>
+        <h3>图</h3>
+        <p>读者打开时看到的东西。图表、表格、结构图——每次都由那份数据画出来。</p>
+      </div>
+      <div class="card">
+        <p class="card-k">三</p>
+        <h3>数据视图</h3>
+        <p>agent 取它时看到的东西。同一个地址、同一份数字，变成可以直接引用的文本。</p>
+      </div>
+    </div>
+
+    <div class="reveal" data-demo style="margin-top:34px">
+      <div class="chip-row" style="margin-bottom:18px">
+        <div class="chip">
+          <span class="dot"></span>
+          <input class="chip-url" data-url-in value="/d?type=pie&amp;labels=TS,Py,Go&amp;values=4821,2312,980&amp;scheme=auto" aria-label="链接——改一改回车即重新渲染" spellcheck="false">
+          <button class="copy" data-copy="self">copy</button>
+        </div>
+      </div>
+
+      <div class="compare">
+        <div class="cmp-box is-human">
+          <p class="cmp-tag">读者 · 图</p>
+          <div class="chart-holder" data-render>
+            <p class="small">加载中…</p>
+          </div>
+          <p class="tiny" style="margin:12px 0 0">读得快，但没法核对。</p>
+        </div>
+
+        <div class="compare-mid">同一个链接</div>
+
+        <div class="cmp-box is-agent">
+          <p class="cmp-tag">你的 AI · 数据</p>
+          <pre class="code" data-json>加载中…</pre>
+          <div class="meter" data-meter style="margin-top:16px"></div>
+        </div>
+      </div>
+
+      <p class="tiny" style="margin-top:16px">
+        改上面那串链接再回车。图变了是因为数据变了——AI 读到的数字也跟着变，
+        因为它们从来就不是两样东西。
+      </p>
+    </div>
+  </div>
+</section>
 
 <section class="section readers" id="readers">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="section-num">两个读者</span>
-      <h2>一个数据链接：人类得到图表，Agent 读到数据。</h2>
+      <h2>一条链接，各自拿到自己需要的。</h2>
       <p class="lede">
-        同一条链接、同一份数字，两个读者——中间没有手工转述，所以也没有转述的损耗。
+        链接就是那个产物，它同时服务两边——中间没有翻译这一步，所以也没有翻译的损耗。
       </p>
     </div>
 
     <div class="readers-grid reveal">
       <div class="reader reader-human">
-        <p class="reader-k">人 <span>· 拿到图</span></p>
+        <p class="reader-k">人 <span>· 看到图</span></p>
         <ul>
           <li><b>生动。</b> 一张图一眼就带着数据的形状——趋势、离群、占比。</li>
           <li><b>一看就懂。</b> 不用学，没有界面要掌握。眼睛一秒就拿到。</li>
@@ -78,45 +176,54 @@ nav: home
       </div>
 
       <div class="reader reader-agent">
-        <p class="reader-k">agent <span>· 读到数据</span></p>
+        <p class="reader-k">agent <span>· 拿到数据</span></p>
         <ul>
           <li><b>准确，无幻觉。</b> 数字本身，不是对数字的读法。不四舍五入，不 OCR，不从像素上估。</li>
-          <li><b>省钱。</b> 文本大约四个字符一个 token；同样的数据反复读成图片，每次都要几百个视觉 token。</li>
-          <li><b>加快推理速度。</b> 取一次，渲染和规格一起回来——不用第二次往返，推理窗口留给更值得的事。</li>
+          <li><b>省钱。</b> 文本大约四个字符一个 token；同样的图反复读成图片，每次都要几百个视觉 token。</li>
+          <li><b>加快推理速度。</b> 取一次，图和规格一起回来——不用第二次往返，上下文窗口留给更值得的事。</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="thesis">
+<section class="section">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="section-num">问题</span>
-      <h2>喂给模型最贵的东西，是一张图。</h2>
+      <span class="section-num">写稿的一周</span>
+      <h2>实际用起来，是这样的。</h2>
       <p class="lede">
-        当一张图表以图片的形式进入模型，会发生三件事：像素被重新编码成视觉 token；
-        数值靠读像素还原；结论就是某人从一张图上猜出来的数字。
-        然后它被引用、被写进报告——没有人发现那个错误。
+        你在写那篇季度稿。数字你已经有了。剩下四步，
+        而且没有一步需要去求谁帮忙。
       </p>
     </div>
 
-    <div class="cards reveal">
-      <div class="card">
-        <p class="card-k">有损</p>
-        <h3>图片是一种有损格式</h3>
-        <p>图上没画的东西就没了——而模型被要求把它还原出来。</p>
+    <div class="steps reveal">
+      <div class="step">
+        <p class="step-n">1</p>
+        <h3>你手里有数字</h3>
+        <p>一个表格、一次查询、一个你本来就要登录的仪表盘。这一步什么也没变——这部分你本来就在做。</p>
       </div>
-      <div class="card">
-        <p class="card-k">昂贵</p>
-        <h3>像素比文本贵</h3>
-        <p>一张 705×500 的图大约是 470 个视觉 token；同样的数字写成 JSON 大约 40 个。</p>
+      <div class="step">
+        <p class="step-n">2</p>
+        <h3>你做出一个链接</h3>
+        <p>把数据贴进地址里，图就出来了——而现在，图和数据是同一件东西，一起走。</p>
       </div>
-      <div class="card">
-        <p class="card-k">无法核对</p>
-        <h3>你没法验证答案</h3>
-        <p>要来源，拿到的是一张图；要数据，拿到的是猜测。</p>
+      <div class="step">
+        <p class="step-n">3</p>
+        <h3>你把它贴进稿子</h3>
+        <p>读者看到的是一张图，不是一堵数字。同时在改这份稿子的你的 AI，也可以取同一条链接，读到背后精确的数值。</p>
       </div>
+      <div class="step">
+        <p class="step-n">4</p>
+        <h3>有人问「上季度呢？」</h3>
+        <p>你把链接里的一处改掉，再贴一次。不用开仪表盘，不用导出，也不用等谁重画。</p>
+      </div>
+    </div>
+
+    <div class="note mint reveal" style="margin-top:26px">
+      <b>而这才是最重要的那部分。</b> 因为链接在稿子里，数字跟着图一起走。
+      六个月后有人问「4.18 是哪来的」，答案是一条链接——而且它现在还打得开。
     </div>
   </div>
 </section>
@@ -124,122 +231,12 @@ nav: home
 <section class="section">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="section-num">主张 01</span>
-      <h2>别再给模型喂截图。</h2>
+      <span class="section-num">还可以是什么</span>
+      <h2>不只是图表。</h2>
       <p class="lede">
-        同一条链接，两种读法。人拿到图；agent 拿到精确的、机器可读的数值——
-        没有猜测这一步。翻译的时候什么也没丢，因为压根没翻译。
-      </p>
-    </div>
-
-    <div class="reveal" data-demo>
-      <div class="chip-row" style="margin-bottom:18px">
-        <div class="chip">
-          <span class="dot"></span>
-          <input class="chip-url" data-url-in value="/d?type=pie&amp;labels=TS,Py,Go&amp;values=4821,2312,980&amp;scheme=auto" aria-label="数据链接——改一改回车即重新渲染" spellcheck="false">
-          <button class="copy" data-copy="self">copy</button>
-        </div>
-      </div>
-
-      <div class="compare">
-        <div class="cmp-box is-human">
-          <p class="cmp-tag">人 · 渲染</p>
-          <div class="chart-holder" data-render>
-            <p class="small">加载中…</p>
-          </div>
-          <p class="tiny" style="margin:12px 0 0">数字的一张照片。读得快，但没法核对。</p>
-        </div>
-
-        <div class="compare-mid">同一个链接</div>
-
-        <div class="cmp-box is-agent">
-          <p class="cmp-tag">agent · 数据</p>
-          <pre class="code" data-json>加载中…</pre>
-          <div class="meter" data-meter style="margin-top:16px"></div>
-        </div>
-      </div>
-
-      <p class="tiny" style="margin-top:16px">
-        改上面那串链接再回车。图变了是因为数据变了——agent 那一侧也跟着变，
-        因为它们本来就是同一串字符。
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="section-num">主张 02</span>
-      <h2>URL 就是 API。</h2>
-      <p class="lede">
-        每一条数据链接都是从参数到「真相的一张图」的纯函数。没有会话、没有登录、没有仪表盘、
-        没有刷新按钮。人改链接是为了看；agent 改链接是为了算。
-        别的什么都不变，因为也没有别的。
-      </p>
-    </div>
-
-    <div class="reveal" data-demo>
-      <div class="split">
-        <div class="panel">
-          <div class="panel-head"><span>渲染结果</span><span class="tag tag-mint">实时</span></div>
-          <div class="panel-body">
-            <div class="chart-holder" data-render><p class="small">加载中…</p></div>
-          </div>
-        </div>
-        <div class="panel">
-          <div class="panel-head"><span>参数</span><span class="tag tag-peri">随便改</span></div>
-          <div class="panel-body stack">
-            <div class="demo-params">
-              <div class="field">
-                <label for="f-type">type</label>
-                <select id="f-type" data-f="type">
-                  <option value="pie">pie</option>
-                  <option value="bar">bar</option>
-                  <option value="hbar">hbar</option>
-                  <option value="line">line</option>
-                  <option value="area">area</option>
-                  <option value="radar">radar</option>
-                  <option value="gauge">gauge</option>
-                  <option value="scatter">scatter</option>
-                  <option value="sankey">sankey</option>
-                  <option value="butterfly">butterfly</option>
-                  <option value="combo">combo</option>
-                  <option value="calendar">calendar</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="f-labels">labels</label>
-                <input id="f-labels" data-f="labels" value="TS,Py,Go" spellcheck="false">
-              </div>
-              <div class="field">
-                <label for="f-values">values</label>
-                <input id="f-values" data-f="values" value="4821,2312,980" spellcheck="false">
-              </div>
-              <div class="field">
-                <label for="f-title">title</label>
-                <input id="f-title" data-f="title" value="Stars" spellcheck="false">
-              </div>
-            </div>
-            <p class="tiny" style="margin:0">
-              改数值、改类型、改标题。每一次输入都会重写链接并重新渲染。
-              界面就这些——没有别的界面了。
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="section-num">主张 03</span>
-      <h2>图只是一种渲染，链接才是通用形态。</h2>
-      <p class="lede">
-        「数据住在 URL 里」跟饼图毫无关系。同一套扁平参数也能描述结构图、表格、
-        日历、幻灯片。换的是渲染器，不变的是链接。
+        「数据住在地址里」这件事跟饼图毫无关系。
+        同一套扁平参数能画出结构、排出表格、填满日历、做成幻灯片。
+        换的是画法，不变的是链接。
       </p>
     </div>
 
@@ -270,17 +267,17 @@ nav: home
             <div class="chart-holder" data-pane-render></div>
           </div>
 
-          <div data-pane="deck" data-url="/deck?data=%23%20Data%20in%20the%20link%0A%0A%20-%20the%20URL%20is%20the%20data%0A%20-%20humans%20read%20the%20render%0A%20-%20agents%20read%20the%20numbers" hidden>
+          <div data-pane="deck" data-url="/deck?data=%23%20Data%20in%20the%20link%0A%0A%20-%20the%20URL%20is%20the%20data%0A%20-%20humans%20read%20the%20picture%0A%20-%20agents%20read%20the%20numbers" hidden>
             <iframe data-pane-render title="由链接渲染出的幻灯片" style="width:100%;height:520px;border:1px solid var(--line);border-radius:var(--r-sm);background:#fff" loading="lazy"></iframe>
           </div>
         </div>
       </div>
 
       <p class="tiny" style="margin-top:16px">
-        每个标签页都是一条链接。图表和日历来自
+        每个标签页都是一条链接。图表和结构图来自
         <a href="https://github.com/x-cmd/draw" target="_blank" rel="noopener">x-cmd/draw</a>，
         幻灯片来自 <a href="https://github.com/x-cmd/ppt" target="_blank" rel="noopener">x-cmd/ppt</a>，
-        表格来自本站。同一个原型，不同的渲染器。
+        表格来自本站。
       </p>
     </div>
   </div>
@@ -289,58 +286,8 @@ nav: home
 <section class="section">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="section-num">协作</span>
-      <h2>同一串字符，两双手。</h2>
-      <p class="lede">
-        这是给人和 agent 协作用的工具，不是用来替代人。
-        人调参数是为了看清；agent 改参数是为了算清。
-        谁都不用学对方的软件——共同的界面就是一条 URL：
-        唯一一种双方早就知道怎么复制、修改和转发的格式。
-      </p>
-    </div>
-
-    <div class="collab reveal">
-      <div class="collab-side">
-        <p class="card-k">人</p>
-        <h3>探索</h3>
-        <p class="small" style="margin:0">
-          改链接、看图、转发。改了主意再改一次。链接就是一条笔记。
-        </p>
-      </div>
-
-      <div class="collab-link">
-        <svg viewBox="0 0 240 40" fill="none" stroke="currentColor" aria-hidden="true">
-          <path d="M6 20h228" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 5" opacity=".45"/>
-          <circle cx="6" cy="20" r="4.5" fill="currentColor"/>
-          <circle cx="234" cy="20" r="4.5" fill="currentColor"/>
-          <rect x="86" y="8" width="68" height="24" rx="12" fill="var(--surface)" stroke="currentColor" stroke-width="1.5"/>
-          <text x="120" y="24" text-anchor="middle" font-size="11" font-family="ui-monospace,Menlo,monospace" fill="currentColor">链接</text>
-        </svg>
-        <span>datalink.ac/d?…</span>
-      </div>
-
-      <div class="collab-side">
-        <p class="card-k">agent</p>
-        <h3>计算</h3>
-        <p class="small" style="margin:0">
-          改写链接、读数据视图、返回数字。不做 OCR，不做估算，也不会把某一位数字读错。
-        </p>
-      </div>
-    </div>
-
-    <div class="note mint reveal" style="margin-top:26px">
-      <b>为什么比仪表盘强。</b> 仪表盘把数据留在服务器上，只发图片；
-      数据链接把数据留在字符串里，两个都发。仪表盘要登录、要往返、要截图；
-      链接什么都不需要——这正是 agent 能直接用的原因，也是它永远不会过期的原因。
-    </div>
-  </div>
-</section>
-
-<section class="section" id="scenarios">
-  <div class="wrap">
-    <div class="section-head reveal">
       <span class="section-num">从哪开始</span>
-      <h2>数据链接最先证明自己的地方，是 GitHub。</h2>
+      <h2>它最先证明自己的地方，是 GitHub。</h2>
       <p class="lede">
         不是仪表盘，不是 BI 工具。是那些「文字本来就在、图片本来就不在」的地方：
         <b>issue</b>、<b>pull request</b>、<b>release note</b>。
@@ -353,7 +300,7 @@ nav: home
       <div class="card" style="padding:0;overflow:hidden">
         <div class="panel-head" style="border-bottom:1px solid var(--line-soft)"><span>release · v0.3.0</span><span class="tag tag-mint">bar</span></div>
         <div style="padding:12px">
-          <img src="/d?type=bar&amp;labels=TypeScript,JavaScript,Shell,Markdown&amp;values=4820,1687,640,180&amp;title=Code%20composition&amp;scheme=dark" width="466" height="520" class="fit" alt="按语言划分的代码构成柱状图" loading="lazy" width="705" height="500" style="border-radius:8px">
+          <img src="/d?type=bar&amp;labels=TypeScript,JavaScript,Shell,Markdown&amp;values=4820,1687,640,180&amp;title=Code%20composition&amp;scheme=dark" width="466" height="520" class="fit" alt="按语言划分的代码构成柱状图" loading="lazy">
         </div>
         <div style="padding:0 16px 16px">
           <p class="tiny" style="margin:0 0 8px">release note 想说的是「新增 2400 行，主要是 TypeScript」。这句话本来就是一张表。做成链接，它同时是一张图——而且依然可 grep、可 diff，也能被整理仓库的 bot 读懂。</p>
@@ -364,10 +311,10 @@ nav: home
       <div class="card" style="padding:0;overflow:hidden">
         <div class="panel-head" style="border-bottom:1px solid var(--line-soft)"><span>issue · 「这东西是干嘛的？」</span><span class="tag tag-peri">用例图</span></div>
         <div style="padding:12px">
-          <img src="/d/uc?n=actor;actor;Developer&amp;n=uc1;uc;Write%20a%20datalink&amp;n=uc2;uc;Publish%20it%20in%20an%20issue&amp;e=actor;uc1&amp;e=actor;uc2" width="475" height="180" class="fit" alt="开发者使用数据链接的用例图" loading="lazy" style="border-radius:8px">
+          <img src="/d/uc?n=actor;actor;Developer&amp;n=uc1;uc;Write%20a%20datalink&amp;n=uc2;uc;Publish%20it%20in%20an%20issue&amp;e=actor;uc1&amp;e=actor;uc2" width="475" height="180" class="fit" alt="开发者使用数据链接的用例图" loading="lazy">
         </div>
         <div style="padding:0 16px 16px">
-          <p class="tiny" style="margin:0 0 8px">用三段话解释一个功能，比一张图老得快。而且因为它是链接，下一个人可以直接挪一个框，而不用开口要求重画。</p>
+          <p class="tiny" style="margin:0 0 8px">用三段话解释一个功能比一张图老得快；因为是链接，下一个人能直接挪一个框，而不是开口要求重画。</p>
           <a class="tiny mono" href="/d/uc?n=actor;actor;Developer&amp;n=uc1;uc;Write%20a%20datalink&amp;n=uc2;uc;Publish%20it%20in%20an%20issue&amp;e=actor;uc1&amp;e=actor;uc2">这条链接</a>
         </div>
       </div>
@@ -375,18 +322,18 @@ nav: home
       <div class="card" style="padding:0;overflow:hidden">
         <div class="panel-head" style="border-bottom:1px solid var(--line-soft)"><span>pull request · 「改了什么？」</span><span class="tag tag-mint">思维导图</span></div>
         <div style="padding:12px">
-          <img src="/d/mindmap?n=draw/src/render/tokei.ts&amp;n=draw/src/handler.ts&amp;n=draw/test/tokei.test.ts&amp;n=draw/docs/2-data-charts/10-tokei/en.md&amp;style=tree&amp;title=Files%20changed%20in%20%2331" width="425" height="133" class="fit" alt="这次 PR 动到的文件的思维导图" loading="lazy" style="border-radius:8px">
+          <img src="/d/mindmap?n=draw/src/render/tokei.ts&amp;n=draw/src/handler.ts&amp;n=draw/test/tokei.test.ts&amp;n=draw/docs/2-data-charts/10-tokei/en.md&amp;style=tree&amp;title=Files%20changed%20in%20%2331" width="425" height="133" class="fit" alt="这次 PR 动到的文件的思维导图" loading="lazy">
         </div>
         <div style="padding:0 16px 16px">
-          <p class="tiny" style="margin:0 0 8px">这是 reviewer 真正会要的那张图。做成链接，它是可以被审的：在 PR 里改一个参数，图就跟着变。截图没法被审。</p>
+          <p class="tiny" style="margin:0 0 8px">这是 reviewer 真正会要的那张图。作为链接它是<b>可以审的</b>：在 PR 里改一个参数，图跟着变。截图没法被审。</p>
           <a class="tiny mono" href="/d/mindmap?n=draw/src/render/tokei.ts&amp;n=draw/src/handler.ts&amp;n=draw/test/tokei.test.ts&amp;n=draw/docs/2-data-charts/10-tokei/en.md&amp;style=tree&amp;title=Files%20changed%20in%20%2331">这条链接</a>
         </div>
       </div>
     </div>
 
     <div class="note mint reveal" style="margin-top:26px">
-      <b>为什么 GitHub 排在第一。</b> 那里的东西本来都是文本：一个 diff、一条评论、一份 release note。
-      数据链接不用任何人改习惯就能落进去——而且读 issue 的 bot 拿到的是数字，不是数字的照片。
+      <b>为什么 GitHub 排在第一。</b> 那里的一切本来都是文本：一个 diff、一条评论、一份 release note。
+      数据链接不用任何人改习惯就能落进去。而且读 issue 的 bot 拿到的是数字，不是数字的照片。
     </div>
   </div>
 </section>
@@ -395,17 +342,16 @@ nav: home
   <div class="wrap">
     <div class="section-head reveal">
       <span class="section-num">试一试</span>
-      <h2>你的 agent 早就会读 URL 了。</h2>
+      <h2>你的 AI 早就会读链接了。</h2>
       <p class="lede">
-        <a href="https://clawhub.ai/edwinjhlee/skills/x-cmd-draw" target="_blank" rel="noopener">x-cmd-draw skill</a>
-        会教 agent 怎么拼数据链接。不用装、不用密钥、不存数据——
-        agent 把 URL 拼出来，图就出来了。
+        用一个小小的 skill 教会它做数据链接，然后像平时一样开口要一张图就行。
+        不用密钥、不用账号、不用仪表盘——agent 把链接拼出来，图就出来了。
       </p>
     </div>
 
     <div class="split reveal">
       <div class="prompt-box">
-        <div class="prompt-bar"><span class="dot"></span><span>安装</span></div>
+        <div class="prompt-bar"><span class="dot"></span><span>装上 skill</span></div>
         <pre><span class="cmd">npx</span> clawhub@latest install edwinjhlee/x-cmd-draw</pre>
       </div>
       <div class="prompt-box">
@@ -416,14 +362,15 @@ nav: home
 
     <div class="prompt-box reveal" style="margin-top:16px">
       <div class="prompt-bar"><span class="dot"></span><span>值得粘贴的一段 prompt</span></div>
-      <pre><span class="quote">画一张饼图，把我们的错误预算按服务拆开，然后把精确的数值给我。
-从链接里读，不要从图片里读——我要的是数值，不是你看图得到的印象。
-最后把链接发给我，我自己想改参数。</span></pre>
+      <pre><span class="quote">给我画一张饼图，把我们的邮件订阅者按月份拆开，从一月到现在。
+把精确的数值给我——从链接里读，不要从图片里读，
+因为我要的是数值，不是你看图得到的印象。
+最后把链接发给我，我自己想改时间范围。</span></pre>
     </div>
 
     <p class="tiny reveal" style="margin-top:16px">
-      最后那句话就是整个想法：让 agent 去读数据而不是像素，
-      再把链接交回给人——那串链接在人手里依然是一件可用的工具。
+      那段 prompt 就是整个想法的三句话：要一张图，禁止有损的那一步，
+      再把链接要回来——因为链接是一件工具，不是一张工具的照片。
     </p>
   </div>
 </section>
@@ -431,12 +378,11 @@ nav: home
 <section class="section">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="section-num">规范</span>
-      <h2>一个渲染器必须守住的承诺。</h2>
+      <span class="section-num">继续读</span>
+      <h2>想看细节，都写下来了。</h2>
       <p class="lede">
-        自包含。双读者。参数化。可版本化。无损。
-        五条承诺，守住了，任何渲染器都能实现一条数据链接——任何 agent 都能放心依赖它。
-        草案，欢迎争论。
+        一份规范草案——渲染器必须守住的承诺，agent 可以凭什么做假设。
+        以及它背后的推演，在博客里。
       </p>
     </div>
 
