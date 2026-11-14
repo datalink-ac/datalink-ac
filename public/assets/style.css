@@ -647,6 +647,15 @@ pre.code .c { color: var(--fg-mute); }
   margin-bottom: 10px;
 }
 .cmp-box pre.code { max-height: 360px; overflow: auto; font-size: 12.4px; }
+.cmp-box pre.link-code {
+  max-height: none;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: var(--mint);
+  font-size: 12.8px;
+  line-height: 1.6;
+}
+.cmp-box pre[data-json] { white-space: pre-wrap; overflow-wrap: anywhere; }
 .is-human .cmp-tag { color: var(--mint); }
 .is-agent .cmp-tag { color: var(--peri); }
 

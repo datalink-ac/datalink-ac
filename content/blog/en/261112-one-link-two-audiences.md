@@ -22,14 +22,17 @@ The asymmetry is not subtle and it is not free.
 |---|---|---|
 | what the reader gets | a rendering chosen for human eyes | the numbers, exactly |
 | precision | whatever the renderer drew | whatever was measured |
-| cost to a model | vision tokens, ~1 per 750 px² | text tokens, ~4 characters each |
+| cost to a model | vision tokens, ~1 per 750 px² | text tokens, ~4 characters each — the link is ~20 |
 | verifiable | no | yes — it is text |
 
-Take a 705×500 chart. As an image that is roughly 470 vision tokens. The same chart's
-data, as JSON, is about 40 tokens. That is an order of magnitude, and it is not the
-interesting part — the interesting part is what the picture *cannot* tell you: the
-unit, the sample size, whether the value is a mean or a maximum, whether the series
-was truncated at the axis.
+Take a 705×500 chart. As an image that is roughly 470 vision tokens. The link that
+carries the same numbers is about 20 — the numbers are *in* it, so an agent that
+reads the link has the data without fetching anything.
+
+That is more than an order of magnitude, and it is not the interesting part — the
+interesting part is what the picture *cannot* tell you: the unit, the sample size,
+whether the value is a mean or a maximum, whether the series was truncated at the
+axis.
 
 We are not comparing a lossy format with a lossless one and calling the picture a
 bad citizen. We are comparing the format we happened to build for people with the

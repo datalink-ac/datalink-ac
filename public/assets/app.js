@@ -181,31 +181,37 @@
         });
         const data = await res.json();
         if (my !== seq) return;
-        const text = JSON.stringify(data, null, 2);
+        const text = JSON.stringify(data);
         if (jsonOut) jsonOut.textContent = text;
+
+        // What an AI actually reads is the link — the numbers are inside it.
+        // The picture is what it costs when the same thing arrives as an image.
+        const link = abs;
+        const linkOut = $('[data-link-out]', demo);
+        if (linkOut) linkOut.textContent = link;
 
         const { w, h } = svgText ? svgSize(svgText) : { w: 0, h: 0 };
         const pic = w && h ? imageTokens(w, h) : 0;
-        const dat = textTokens(text);
+        const dat = textTokens(link);
         if (meter) {
           const max = Math.max(pic, dat, 1);
           meter.innerHTML = `
             <div class="meter-row">
               <div>
-                <div class="meter-label">the picture, as tokens</div>
+                <div class="meter-label">the picture, as an image</div>
                 <div class="meter-bar"><div class="meter-fill is-pic" style="width:${(pic / max) * 100}%"></div></div>
               </div>
               <div class="meter-val">≈ ${pic}</div>
             </div>
             <div class="meter-row">
               <div>
-                <div class="meter-label">the data, as tokens</div>
+                <div class="meter-label">the link, with the numbers in it</div>
                 <div class="meter-bar"><div class="meter-fill is-data" style="width:${(dat / max) * 100}%"></div></div>
               </div>
               <div class="meter-val">≈ ${dat}</div>
             </div>
-            <p class="meter-verdict">${pic ? `≈ ${Math.max(1, Math.round(pic / Math.max(dat, 1)))}× fewer tokens for the same numbers` : 'the data, verbatim'}</p>
-            <p class="tiny">Estimate: images are tiled into vision tokens (≈ width × height ÷ 750); JSON is tokenised as text (≈ 4 characters per token). The numbers are exact; the cost is an approximation.</p>`;
+            <p class="meter-verdict">${pic ? `≈ ${Math.max(1, Math.round(pic / Math.max(dat, 1)))}× fewer tokens — and the agent can read it, not only look at it` : 'the numbers, right there in the link'}</p>
+            <p class="tiny">Estimate: an image is tiled into vision tokens (≈ width × height ÷ 750); a link is tokenised as text (≈ 4 characters per token). The arithmetic is an approximation; the ratio is the point.</p>`;
         }
       } catch (e) {
         if (jsonOut) jsonOut.textContent = '— no data view for this link —';
