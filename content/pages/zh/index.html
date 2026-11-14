@@ -1,6 +1,6 @@
 ---
 title: Datalink as Context —— agent 拿到数据，人看到图
-desc: 数据链接就是装着「图背后的数据」的网页地址。读者看到图，你的 AI 读到精确的数字。同一个链接，永远不会各说各话。
+desc: 数据链接就是装着「图背后的数据」的网页地址。读者看到图，你的 AI 读到精确的数字。
 nav: home
 ---
 
@@ -15,11 +15,10 @@ nav: home
       </p>
       <p class="lede hero-sub">
         数据链接是一条装着「图背后的数据」的网页地址。
-        读者看到的是图，你的 AI 读到的是精确的数字。同一个链接——
-        所以两边永远不会悄悄地各说各话。
+        读者看到的是图，你的 AI 读到的是精确的数字。
       </p>
       <div class="row" style="margin-top:30px">
-        <a class="btn is-primary" href="#idea">看看它怎么工作</a>
+        <a class="btn is-primary" href="#flow">看它怎么跑</a>
         <a class="btn" href="#try">拿你的 AI 试试</a>
       </div>
     </div>
@@ -58,17 +57,17 @@ nav: home
       <span class="section-num">问题</span>
       <h2>图片是个很优雅的丢数字的方式。</h2>
       <p class="lede">
-        你让 AI 画一张图。它给了你一张图——正好是你想放进稿子里的那种。
-        可图的背后本来是一张表，而那张表现在没了。
-        从此以后，你稿子里的每一个数字，都是某人从一张图片上读下来的。
+        稿子是 AI 写的。它需要一张图的时候，就做一张图——
+        而它做出来的图，背后没有数字。
+        所以成稿里的每一个数字，都是从像素上读出来的。
       </p>
     </div>
 
     <div class="cards reveal">
       <div class="card">
         <p class="card-k">那张图</p>
-        <h3>你没法核对</h3>
-        <p>那根柱子可能是 4.18。你的稿子会写 4.2，或者 4.3，或者 42%。没人能分辨，因为数字根本不在图里。</p>
+        <h3>数字不在里面</h3>
+        <p>那根柱子可能是 4.18。稿子里会写 4.2，或者 4.3，或者 42%。没人能分辨，因为数字根本不在图里。</p>
       </div>
       <div class="card">
         <p class="card-k">那个模型</p>
@@ -76,14 +75,10 @@ nav: home
         <p>拿到图片的 AI，是靠「看」把数值还原出来的。它很擅长这个。它同时也在猜，而且它不知道自己哪些地方在猜。</p>
       </div>
       <div class="card">
-        <p class="card-k">补救办法</p>
-        <h3>你再问一遍</h3>
-        <p>「这些数字对吗？」—— 又一轮往返，又一次猜测，又一次用略微不同的方式自信地答错。</p>
+        <p class="card-k">读者</p>
+        <h3>他们信了</h3>
+        <p>稿子带着一个没人核对过的数字发出去。信任这份文字的读者，没有办法分辨。</p>
       </div>
-    </div>
-
-    <div class="note mint reveal" style="margin-top:26px">
-      <b>这不怪模型。</b> 我们为眼睛造了图片，然后把图片交给了必须拿它做算术的东西。
     </div>
   </div>
 </section>
@@ -104,17 +99,17 @@ nav: home
       <div class="card">
         <p class="card-k">一</p>
         <h3>链接</h3>
-        <p>一条普通的网页地址。它装着数据——不是某个页面的指针，不是截图，就是数据。</p>
+        <p>一条普通的网页地址，由你的 agent 拼出来。它装着数据——不是某个页面的指针，不是截图，就是数据。</p>
       </div>
       <div class="card">
         <p class="card-k">二</p>
         <h3>图</h3>
-        <p>读者打开时看到的东西。图表、表格、结构图——每次都由那份数据画出来。</p>
+        <p>读者看到的。图表、表格、结构图——每次都由那份数据画出来。</p>
       </div>
       <div class="card">
         <p class="card-k">三</p>
         <h3>数据视图</h3>
-        <p>agent 取它时看到的东西。同一个地址、同一份数字，变成可以直接引用的文本。</p>
+        <p>agent 取链接时拿到的。同样的数字，变成可以直接引用的文本。</p>
       </div>
     </div>
 
@@ -133,7 +128,7 @@ nav: home
           <div class="chart-holder" data-render>
             <p class="small">加载中…</p>
           </div>
-          <p class="tiny" style="margin:12px 0 0">读得快，但没法核对。</p>
+          <p class="tiny" style="margin:12px 0 0">读者要的东西，一眼就够。</p>
         </div>
 
         <div class="compare-mid">同一个链接</div>
@@ -141,15 +136,15 @@ nav: home
         <div class="cmp-box is-agent">
           <p class="cmp-tag">你的 AI · 链接</p>
           <pre class="code link-code" data-link-out>加载中…</pre>
-          <p class="tiny" style="margin:14px 0 6px">里面带着的数字：</p>
+          <p class="tiny" style="margin:14px 0 6px">背后的数字，精确无误：</p>
           <pre class="code" data-json>加载中…</pre>
           <div class="meter" data-meter style="margin-top:16px"></div>
         </div>
       </div>
 
       <p class="tiny" style="margin-top:16px">
-        改上面那串链接再回车。图变了是因为数据变了——AI 读到的数字也跟着变，
-        因为它们从来就不是两样东西。
+        你的 agent 改一个参数，就得到另一张图——不用重画，不用导出，不用求谁。
+        试试：改上面那个数字，回车。
       </p>
     </div>
   </div>
@@ -189,43 +184,46 @@ nav: home
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="flow">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="section-num">写稿的一周</span>
-      <h2>实际用起来，是这样的。</h2>
+      <span class="section-num">怎么跑</span>
+      <h2>一段 prompt 进去，一份图表全是链接的报告出来。</h2>
       <p class="lede">
-        你在写那篇季度稿。数字你已经有了。剩下四步，
-        而且没有一步需要去求谁帮忙。
+        稿子是 agent 写的——README、issue、pull request、或者一条帖子——
+        它需要图的时候，就拼一条链接，而不是贴一张图片。
+        报告看起来和平常一样；变的是每一张图都还揣着自己的数字。
       </p>
     </div>
 
-    <div class="steps reveal">
-      <div class="step">
-        <p class="step-n">1</p>
-        <h3>你手里有数字</h3>
-        <p>一个表格、一次查询、一个你本来就要登录的仪表盘。这一步什么也没变——这部分你本来就在做。</p>
+    <div class="prompt-box reveal">
+      <div class="prompt-bar"><span class="dot"></span><span>复制这段</span></div>
+      <pre><span class="quote">写一篇 Q3 复盘——每月的新增、流失和营收，各配一张图。
+图用数据链接，链接留着，以后我们能从里面直接取数字。</span></pre>
+    </div>
+
+    <div class="cards reveal" style="margin-top:26px">
+      <div class="card">
+        <p class="card-k">读者拿到什么</p>
+        <h3>一份看起来做完了的报告</h3>
+        <p>图都出自同一个渲染器，每次都长一个样——不是 agent 当天随手拼出来的样子。</p>
       </div>
-      <div class="step">
-        <p class="step-n">2</p>
-        <h3>你做出一个链接</h3>
-        <p>把数据贴进地址里，图就出来了——而现在，图和数据是同一件东西，一起走。</p>
+      <div class="card">
+        <p class="card-k">背后留下什么</p>
+        <h3>还装着数据的链接</h3>
+        <p>每张图都是一条链接，数字在里面。一路上什么也没被压平。</p>
       </div>
-      <div class="step">
-        <p class="step-n">3</p>
-        <h3>你把它贴进稿子</h3>
-        <p>读者看到的是一张图，不是一堵数字。同时在改这份稿子的你的 AI，也可以取同一条链接，读到背后精确的数值。</p>
-      </div>
-      <div class="step">
-        <p class="step-n">4</p>
-        <h3>有人问「上季度呢？」</h3>
-        <p>你把链接里的一处改掉，再贴一次。不用开仪表盘，不用导出，也不用等谁重画。</p>
+      <div class="card">
+        <p class="card-k">往后意味着什么</p>
+        <h3>能被重新读回来的记忆</h3>
+        <p>半年之后，有记忆的 agent 读那条链接，能读出当时的意图和数字，而不只是它们的照片。</p>
       </div>
     </div>
 
     <div class="note mint reveal" style="margin-top:26px">
-      <b>而这才是最重要的那部分。</b> 因为链接在稿子里，数字跟着图一起走。
-      六个月后有人问「4.18 是哪来的」，答案是一条链接——而且它现在还打得开。
+      <b>最后这一条才是真正的奖品。</b> 聊天记录里的一张截图是条死路：
+      背后的判断没了，数字也没了。链接两样都留着——
+      这才是报告能被 agent 再次拿去用的原因，而不是只能被相信。
     </div>
   </div>
 </section>
@@ -236,7 +234,6 @@ nav: home
       <span class="section-num">还可以是什么</span>
       <h2>不只是图表。</h2>
       <p class="lede">
-        「数据住在地址里」这件事跟饼图毫无关系。
         同一套扁平参数能画出结构、排出表格、填满日历、做成幻灯片。
         换的是画法，不变的是链接。
       </p>
@@ -305,7 +302,7 @@ nav: home
           <img src="/d?type=bar&amp;labels=TypeScript,JavaScript,Shell,Markdown&amp;values=4820,1687,640,180&amp;title=Code%20composition&amp;scheme=dark" width="466" height="520" class="fit" alt="按语言划分的代码构成柱状图" loading="lazy">
         </div>
         <div style="padding:0 16px 16px">
-          <p class="tiny" style="margin:0 0 8px">release note 想说的是「新增 2400 行，主要是 TypeScript」。这句话本来就是一张表。做成链接，它同时是一张图——而且依然可 grep、可 diff，也能被整理仓库的 bot 读懂。</p>
+          <p class="tiny" style="margin:0 0 8px">「新增 2400 行，主要是 TypeScript」这句话本来就是一张表。做成链接，它同时是一张图——而且依然可 grep、可 diff，也能被整理仓库的 bot 读懂。</p>
           <a class="tiny mono" href="/d?type=bar&amp;labels=TypeScript,JavaScript,Shell,Markdown&amp;values=4820,1687,640,180&amp;title=Code%20composition">这条链接</a>
         </div>
       </div>
@@ -346,8 +343,8 @@ nav: home
       <span class="section-num">试一试</span>
       <h2>你的 AI 早就会读链接了。</h2>
       <p class="lede">
-        用一个小小的 skill 教会它做数据链接，然后像平时一样开口要一张图就行。
-        不用密钥、不用账号、不用仪表盘——agent 把链接拼出来，图就出来了。
+        用一个小小的 skill 教会它把数据链接做对。不用密钥、不用账号、不用仪表盘——
+        agent 把链接拼出来，图就出来了。
       </p>
     </div>
 
@@ -362,17 +359,9 @@ nav: home
       </div>
     </div>
 
-    <div class="prompt-box reveal" style="margin-top:16px">
-      <div class="prompt-bar"><span class="dot"></span><span>值得粘贴的一段 prompt</span></div>
-      <pre><span class="quote">给我画一张饼图，把我们的邮件订阅者按月份拆开，从一月到现在。
-把精确的数值给我——从链接里读，不要从图片里读，
-因为我要的是数值，不是你看图得到的印象。
-最后把链接发给我，我自己想改时间范围。</span></pre>
-    </div>
-
     <p class="tiny reveal" style="margin-top:16px">
-      那段 prompt 就是整个想法的三句话：要一张图，禁止有损的那一步，
-      再把链接要回来——因为链接是一件工具，不是一张工具的照片。
+      skill 是可选的——读完这一页的 agent 本来就会拼链接。
+      上面「怎么跑」那段的 prompt 直接就能用，skill 只是把形状教给它。
     </p>
   </div>
 </section>

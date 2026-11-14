@@ -1,6 +1,6 @@
 ---
 title: Datalink as Context — the agent gets the data, the human gets the picture
-desc: A datalink is a web address that carries the data behind the picture. Your reader sees the chart; your AI reads the exact numbers. Same link, never out of sync.
+desc: A datalink is a web address that carries the data behind the picture. Your reader sees a chart; your AI reads the exact numbers.
 nav: home
 ---
 
@@ -15,11 +15,10 @@ nav: home
       </p>
       <p class="lede hero-sub">
         A datalink is a web address that carries the data behind the picture.
-        Your reader sees a chart. Your AI reads the exact numbers. Same link —
-        so the two can never quietly disagree.
+        Your reader sees a chart; your AI reads the exact numbers.
       </p>
       <div class="row" style="margin-top:30px">
-        <a class="btn is-primary" href="#idea">See how it works</a>
+        <a class="btn is-primary" href="#flow">See the flow</a>
         <a class="btn" href="#try">Use it with your AI</a>
       </div>
     </div>
@@ -58,34 +57,28 @@ nav: home
       <span class="section-num">THE PROBLEM</span>
       <h2>A picture is a lovely way to lose a number.</h2>
       <p class="lede">
-        You ask your AI for a chart. You get a picture — which is exactly what you
-        wanted to put in your draft. But behind the picture there was a table, and
-        the table is gone. From here on, every number in your draft is something
-        somebody read off an image.
+        Your AI writes the piece. Where it needs a chart, it makes one — and a
+        chart it made is a picture with no numbers behind it. So every number in
+        the finished piece is a value it read off pixels.
       </p>
     </div>
 
     <div class="cards reveal">
       <div class="card">
         <p class="card-k">the picture</p>
-        <h3>You cannot check it</h3>
-        <p>The bar might say 4.18. Your draft will say 4.2, or 4.3, or 42%. Nobody can tell which, because the numbers are not in the picture.</p>
+        <h3>The numbers are not in it</h3>
+        <p>The bar might say 4.18. The piece will say 4.2, or 4.3, or 42%. Nobody can tell which, because the numbers are not in the picture.</p>
       </div>
       <div class="card">
         <p class="card-k">the model</p>
         <h3>It reads pixels, not data</h3>
-        <p>An AI handed an image recovers the values by looking at it. It is good at that. It is also guessing, and it does not know which parts it guessed.</p>
+        <p>Given an image, an AI recovers the values by looking at it. It is good at that. It is also guessing — and it does not know which parts.</p>
       </div>
       <div class="card">
-        <p class="card-k">the fix</p>
-        <h3>You ask again</h3>
-        <p>“Are those numbers right?” — another round trip, another guess, another chance to be confidently wrong in a slightly different way.</p>
+        <p class="card-k">the reader</p>
+        <h3>They trust it</h3>
+        <p>The piece goes out with a number in it that nobody checked. A reader who trusts the writing has no way to tell.</p>
       </div>
-    </div>
-
-    <div class="note mint reveal" style="margin-top:26px">
-      <b>None of this is the model’s fault.</b> We built pictures for eyes, and then
-      handed the pictures to something that has to do arithmetic on them.
     </div>
   </div>
 </section>
@@ -96,9 +89,9 @@ nav: home
       <span class="section-num">THE IDEA</span>
       <h2>Put the data in the link.</h2>
       <p class="lede">
-        One web address, carrying the data itself. Open it and you get the picture.
-        Fetch it and you get the numbers, exactly as they were measured. There is no
-        second version of the truth to keep in sync — there is only the link.
+        One address, carrying the data itself. Open it and you get the picture;
+        fetch it and you get the numbers, exactly as measured. There is no second
+        version of the truth to keep in sync — there is only the link.
       </p>
     </div>
 
@@ -106,17 +99,17 @@ nav: home
       <div class="card">
         <p class="card-k">one</p>
         <h3>The link</h3>
-        <p>An ordinary web address. It carries the data — not a pointer to a page, not a screenshot, the data.</p>
+        <p>An ordinary web address, composed by your agent. It carries the data — not a pointer to a page, not a screenshot, the data.</p>
       </div>
       <div class="card">
         <p class="card-k">two</p>
         <h3>The picture</h3>
-        <p>What a reader sees when they open it. A chart, a table, a diagram — drawn from that data, every time.</p>
+        <p>What a reader sees. A chart, a table, a diagram — drawn from that data, every time.</p>
       </div>
       <div class="card">
         <p class="card-k">three</p>
         <h3>The data view</h3>
-        <p>What an agent sees when it fetches it. The same address, the same numbers, as text it can quote.</p>
+        <p>What an agent gets when it fetches the link. The same numbers, as text it can quote.</p>
       </div>
     </div>
 
@@ -135,7 +128,7 @@ nav: home
           <div class="chart-holder" data-render>
             <p class="small">loading…</p>
           </div>
-          <p class="tiny" style="margin:12px 0 0">Fast to read, impossible to check.</p>
+          <p class="tiny" style="margin:12px 0 0">Everything the reader needs, at a glance.</p>
         </div>
 
         <div class="compare-mid">one link</div>
@@ -143,16 +136,16 @@ nav: home
         <div class="cmp-box is-agent">
           <p class="cmp-tag">your AI · the link</p>
           <pre class="code link-code" data-link-out>loading…</pre>
-          <p class="tiny" style="margin:14px 0 6px">and the numbers it carries:</p>
+          <p class="tiny" style="margin:14px 0 6px">and the numbers behind it, exactly:</p>
           <pre class="code" data-json>loading…</pre>
           <div class="meter" data-meter style="margin-top:16px"></div>
         </div>
       </div>
 
       <p class="tiny" style="margin-top:16px">
-        Edit the link above and press Enter. The picture changes because the data
-        changed — and the numbers your AI reads change with it, because they were
-        never a separate thing.
+        Your agent changes one parameter and gets a different picture — no
+        redrawing, no exporting, no asking anyone. Try it: change a number above
+        and press Enter.
       </p>
     </div>
   </div>
@@ -193,44 +186,49 @@ nav: home
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="flow">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="section-num">A WEEK OF WRITING</span>
-      <h2>What it is like to actually use one.</h2>
+      <span class="section-num">THE FLOW</span>
+      <h2>One prompt in. A report whose charts are links.</h2>
       <p class="lede">
-        You are writing the quarterly post. You have the numbers. The rest is
-        four steps, and none of them involve asking anyone for anything.
+        The agent writes the piece — a README, an issue, a pull request, a post —
+        and where it needs a chart it composes a link instead of pasting an image.
+        The report looks the same as ever; what changed is that every chart still
+        holds its numbers.
       </p>
     </div>
 
-    <div class="steps reveal">
-      <div class="step">
-        <p class="step-n">1</p>
-        <h3>You have the numbers</h3>
-        <p>A sheet, a query, a dashboard you already log into. Nothing changes here — this is the part you already do.</p>
+    <div class="prompt-box reveal">
+      <div class="prompt-bar"><span class="dot"></span><span>copy this</span></div>
+      <pre><span class="quote">Write our Q3 review — signups, churn and revenue by month, with a chart
+for each. Use datalinks for the charts, and keep the links, so we can pull the
+numbers out of them later.</span></pre>
+    </div>
+
+    <div class="cards reveal" style="margin-top:26px">
+      <div class="card">
+        <p class="card-k">what the reader gets</p>
+        <h3>A report that looks finished</h3>
+        <p>Charts from one renderer, the same every time — not whatever the agent improvised that day.</p>
       </div>
-      <div class="step">
-        <p class="step-n">2</p>
-        <h3>You make a link</h3>
-        <p>Paste the data into the address. A chart appears — and now the chart and the data are the same thing, travelling together.</p>
+      <div class="card">
+        <p class="card-k">what stays behind</p>
+        <h3>Links that still hold the data</h3>
+        <p>Every picture is a link with the numbers inside it. Nothing was flattened on the way.</p>
       </div>
-      <div class="step">
-        <p class="step-n">3</p>
-        <h3>You paste it in your draft</h3>
-        <p>Your reader sees a chart instead of a wall of numbers. Your AI, working on the same draft, can fetch the same link and read the exact values behind it.</p>
-      </div>
-      <div class="step">
-        <p class="step-n">4</p>
-        <h3>Someone asks “and last quarter?”</h3>
-        <p>You change one thing in the link and paste it again. No dashboard, no export, no waiting for anyone to redraw anything.</p>
+      <div class="card">
+        <p class="card-k">what it means later</p>
+        <h3>Memory that can be re-read</h3>
+        <p>Six months on, an agent with memory reads the link and finds the intent and the numbers — not a picture of them.</p>
       </div>
     </div>
 
     <div class="note mint reveal" style="margin-top:26px">
-      <b>And the part that matters most.</b> Because the link is in the draft, the
-      numbers travel with the picture. Six months later, when someone asks where
-      4.18 came from, the answer is a link — and it still opens.
+      <b>That last one is the real prize.</b> A screenshot in a chat log is a dead
+      end: the thinking behind it is gone, and so are the numbers. A link keeps
+      both — which is what makes a report something an agent can work from again,
+      instead of something it has to take on faith.
     </div>
   </div>
 </section>
@@ -241,8 +239,7 @@ nav: home
       <span class="section-num">WHAT ELSE</span>
       <h2>It is not only charts.</h2>
       <p class="lede">
-        Nothing about “the data lives in the address” is specific to pie charts.
-        The same flat parameters draw a structure, lay out a table, fill a calendar,
+        The same flat parameters draw a structure, lay out a table, fill a calendar
         or make a deck. The drawing changes; the link does not.
       </p>
     </div>
@@ -296,10 +293,10 @@ nav: home
       <span class="section-num">WHERE IT STARTS</span>
       <h2>The first place it earns its keep is GitHub.</h2>
       <p class="lede">
-        Not a dashboard. Not a BI tool. The places where text already lives and
-        pictures do not: an <b>issue</b>, a <b>pull request</b>, a <b>release note</b>.
-        Written in words, read by people, and — increasingly — by bots. A link fits
-        all three. A screenshot fits none.
+        Not a dashboard, not a BI tool: the places where text already lives and
+        pictures do not — an <b>issue</b>, a <b>pull request</b>, a <b>release note</b>.
+        Written in words, read by people, and by bots. A link fits all three; a
+        screenshot fits none.
       </p>
     </div>
 
@@ -310,7 +307,7 @@ nav: home
           <img src="/d?type=bar&amp;labels=TypeScript,JavaScript,Shell,Markdown&amp;values=4820,1687,640,180&amp;title=Code%20composition&amp;scheme=dark" width="466" height="520" class="fit" alt="Bar chart of code composition by language" loading="lazy">
         </div>
         <div style="padding:0 16px 16px">
-          <p class="tiny" style="margin:0 0 8px">A release note wants to say “+2,400 lines, mostly TypeScript”. That sentence is a table. As a link it is also a chart — and it stays greppable, diffable and readable by whatever triages the repo.</p>
+          <p class="tiny" style="margin:0 0 8px">“+2,400 lines, mostly TypeScript” is a table. As a link it is also a chart — and still greppable, diffable, and readable by whatever triages the repo.</p>
           <a class="tiny mono" href="/d?type=bar&amp;labels=TypeScript,JavaScript,Shell,Markdown&amp;values=4820,1687,640,180&amp;title=Code%20composition">the link</a>
         </div>
       </div>
@@ -353,9 +350,8 @@ nav: home
       <span class="section-num">TRY IT</span>
       <h2>Your AI already knows how to read a link.</h2>
       <p class="lede">
-        Teach it to make datalinks with one small skill, and then ask for a chart
-        the way you would ask for anything else. No key, no account, no dashboard —
-        the agent composes a link and the chart appears.
+        One small skill teaches it to make datalinks properly. No key, no account,
+        no dashboard — the agent composes a link and the picture appears.
       </p>
     </div>
 
@@ -370,18 +366,10 @@ nav: home
       </div>
     </div>
 
-    <div class="prompt-box reveal" style="margin-top:16px">
-      <div class="prompt-bar"><span class="dot"></span><span>a prompt worth pasting</span></div>
-      <pre><span class="quote">Make me a pie chart of our newsletter subscribers by month since January.
-Give me the exact numbers — read them from the link, not from the picture,
-because I want the values, not your reading of them. Then send me the link
-so I can change the range myself.</span></pre>
-    </div>
-
     <p class="tiny reveal" style="margin-top:16px">
-      That prompt is the whole idea in three sentences: ask for a chart, forbid the
-      lossy step, and ask for the link back — because the link is an instrument,
-      not a picture of one.
+      The skill is optional — an agent that has read this page can already build
+      the links. The prompt in «the flow» above works as it is; the skill just
+      teaches the agent the shape.
     </p>
   </div>
 </section>

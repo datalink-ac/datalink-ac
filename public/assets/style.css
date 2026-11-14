@@ -296,27 +296,6 @@ em { font-style: normal; color: var(--mint); font-weight: 600; }
 .half-agent { color: var(--peri); }
 .half-human { color: var(--mint); }
 
-/* a short walkthrough, in steps */
-.steps {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 16px;
-}
-.step {
-  border: 1px solid var(--line);
-  border-radius: var(--r);
-  background: var(--surface);
-  padding: 20px;
-}
-.step-n {
-  font-family: var(--mono);
-  font-size: 24px;
-  line-height: 1;
-  color: var(--mint);
-  margin: 0 0 12px;
-}
-.step h3 { font-size: 1.05rem; }
-.step p { color: var(--fg-dim); font-size: 15px; margin: 0; }
 
 .hero-claims {
   margin: 34px 0 0;
