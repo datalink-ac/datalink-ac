@@ -67,24 +67,20 @@ nav: home
       <h2>Put the data in the link.</h2>
     </div>
 
-    <ul class="plain-list plain-list--tight reveal">
-      <li><b>The link</b> — the data is in it.</li>
-      <li><b>The picture</b> — what a reader sees.</li>
-      <li><b>The numbers</b> — what an agent reads.</li>
-    </ul>
-
-    <div class="reveal" data-demo style="margin-top:26px">
-      <div class="chip-row" style="margin-bottom:18px">
+    <div class="reveal" data-demo>
+      <div class="chip-row">
         <div class="chip">
           <span class="dot"></span>
           <input class="chip-url" data-url-in value="/draw?type=pie&amp;labels=TS,Py,Go&amp;values=4821,2312,980&amp;scheme=auto" aria-label="The link — edit it and press Enter" spellcheck="false">
           <button class="copy" data-copy="self">copy</button>
         </div>
+        <p class="demo-key"><b>The link</b> — the data is in it.</p>
+        <p class="demo-hint">Change a number above and press Enter — the picture and the numbers change together.</p>
       </div>
 
       <div class="compare">
         <div class="cmp-box is-human">
-          <p class="cmp-tag">a reader · the picture</p>
+          <p class="cmp-tag cmp-tag--line"><b>The picture</b> — what a reader sees.</p>
           <div class="chart-holder" data-render>
             <p class="small">loading…</p>
           </div>
@@ -93,15 +89,12 @@ nav: home
         <div class="compare-mid">one link</div>
 
         <div class="cmp-box is-agent">
-          <p class="cmp-tag">your AI · the link</p>
+          <p class="cmp-tag cmp-tag--line"><b>The numbers</b> — what an agent reads.</p>
           <pre class="code link-code" data-link-out>loading…</pre>
           <div class="meter" data-meter style="margin-top:14px"></div>
         </div>
       </div>
 
-      <p class="tiny" style="margin-top:14px">
-        Change a number above and press Enter — the picture and the numbers change together.
-      </p>
     </div>
   </div>
 </section>
@@ -114,20 +107,14 @@ nav: home
 
     <div class="prompt-box reveal">
       <div class="prompt-bar"><span class="dot"></span><span>copy this</span></div>
-      <pre><span class="quote">Write our Q3 review — signups, churn and revenue by month, with a chart
-for each. Use datalinks for the charts, and keep the links, so we can pull the
-numbers out of them later.</span></pre>
+      <pre><span class="quote">From now on, use the draw skill: when you write a README, an issue, a pull
+request, a blog post or a chat message that needs a chart, embed the chart as a
+link — not an image.</span></pre>
     </div>
 
-    <div class="row reveal" style="margin-top:16px">
-      <div class="prompt-box" style="flex:1;min-width:280px">
-        <div class="prompt-bar"><span class="dot"></span><span>add the skill</span></div>
-        <pre><span class="cmd">npx</span> clawhub@latest install edwinjhlee/x-cmd-draw</pre>
-      </div>
-      <div class="prompt-box" style="flex:1;min-width:280px">
-        <div class="prompt-bar"><span class="dot"></span><span>or fetch a link</span></div>
-        <pre>curl <span class="s">'https://datalink.ac/draw?type=pie&amp;labels=TS,Py,Go&amp;values=4821,2312,980'</span></pre>
-      </div>
+    <div class="prompt-box reveal" style="margin-top:14px">
+      <div class="prompt-bar"><span class="dot"></span><span>add the skill</span></div>
+      <pre><span class="cmd">npx</span> clawhub@latest install edwinjhlee/x-cmd-draw</pre>
     </div>
   </div>
 </section>
@@ -138,11 +125,35 @@ numbers out of them later.</span></pre>
       <h2>What you get.</h2>
     </div>
 
-    <ul class="plain-list plain-list--tight reveal">
-      <li><b>A picture says more than a thousand words</b> — the shape, the trend, the proportion, in one glance.</li>
-      <li><b>Easy to share, change, extend</b> — paste it anywhere; the other side gets the exact context, not a screenshot.</li>
-      <li><b>Behind it is an app</b> — change a parameter in the explorer, and the picture changes on the spot.</li>
-    </ul>
+    <div class="scenarios reveal">
+      <article class="scenario">
+        <p class="scenario-k">your README</p>
+        <h3>The number stays in the link</h3>
+        <p>
+          Today the number changes, so the chart is re-rendered, re-uploaded and
+          committed as a binary: the repository grows, and the diff says “image
+          changed” instead of what changed. With a datalink the agent changes one
+          number and commits — the diff shows the number, and a year later the
+          history still says what you meant.
+        </p>
+      </article>
+
+      <article class="scenario">
+        <p class="scenario-k">five languages</p>
+        <h3>Six URLs, not thirty files</h3>
+        <p>
+          Five languages mean five chart files, five renders, five commits — and
+          every change to the data means doing it five times. With a datalink the
+          language is a parameter: six charts, six URLs, one line of text each,
+          generated from the same source by the same agent.
+        </p>
+      </article>
+    </div>
+
+    <p class="tiny reveal" style="margin-top:18px">
+      The link also records what was measured and how — so a report stays readable
+      by an agent months later.
+    </p>
 
     <p class="tiny reveal" style="margin-top:26px">One diagram, six languages, six links.</p>
     <div class="lang-pair reveal">
@@ -198,13 +209,12 @@ numbers out of them later.</span></pre>
 <section class="section">
   <div class="wrap">
     <div class="section-head reveal">
-      <h2>Not only charts.</h2>
+      <h2>Same link, any picture.</h2>
     </div>
 
     <div class="reveal" data-tabs>
       <div class="tabs" role="tablist">
         <button class="tab" role="tab" data-key="structure" aria-selected="true">architecture</button>
-        <button class="tab" role="tab" data-key="table" aria-selected="false">table</button>
         <button class="tab" role="tab" data-key="calendar" aria-selected="false">calendar</button>
         <button class="tab" role="tab" data-key="deck" aria-selected="false">deck</button>
         <button class="tab" role="tab" data-key="map" aria-selected="false">map</button>
@@ -214,19 +224,17 @@ numbers out of them later.</span></pre>
 
       <div class="panel">
         <div class="panel-body">
-          <div data-pane="structure" data-url="n=web;fe;Browser;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20Gateway;r0c2&amp;n=auth;be;Auth%20Service;r1c1&amp;n=render;be;Chart%20Render;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=Data%20Layer;pg%20cache" hidden>
+          <div data-pane="structure" data-url="/draw/archmap?n=web;fe;Browser;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20Gateway;r0c2&amp;n=auth;be;Auth%20Service;r1c1&amp;n=render;be;Chart%20Render;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=Data%20Layer;pg%20cache" hidden>
             <div class="chart-holder" data-pane-render></div>
           </div>
-          <div data-pane="table" data-url="/draw?type=table&amp;cols=Service,Errors,Share&amp;rows=api:12:0.41;worker:9:0.31;db:4:0.14;cdn:4:0.14&amp;title=Errors%20by%20service" hidden>
-            <div data-pane-render style="overflow:auto"></div>
           </div>
           <div data-pane="calendar" data-url="/draw?type=calendar&amp;layout=month&amp;start=2026-11-02&amp;ev=2026-11-03%3Bmeeting%3BRequirement%20review%3B14%3A00&amp;ev=2026-11-11%3Breview%3BSpec%20walkthrough%3B10%3A30&amp;scheme=dark" hidden>
             <div class="chart-holder" data-pane-render></div>
           </div>
-          <div data-pane="deck" data-url="/deck?data=%23%20Data%20in%20the%20link%0A%0A%20-%20the%20URL%20is%20the%20data%0A%20-%20humans%20read%20the%20picture%0A%20-%20agents%20read%20the%20numbers" hidden>
+          <div data-pane="deck" data-url="/ppt?data=%23%20Data%20in%20the%20link%0A%0A%20-%20the%20URL%20is%20the%20data%0A%20-%20humans%20read%20the%20picture%0A%20-%20agents%20read%20the%20numbers" hidden>
             <iframe data-pane-render title="A deck rendered from a link" style="width:100%;height:520px;border:1px solid var(--line);border-radius:var(--r-sm);background:#fff" loading="lazy"></iframe>
           </div>
-          <div data-pane="map" data-url="%7B%22visualMap%22%3A%7B%22min%22%3A70%2C%22max%22%3A120%2C%22show%22%3Afalse%2C%22inRange%22%3A%7B%22color%22%3A%5B%22%231e3a5f%22%2C%22%232d6a9f%22%2C%22%234d9fd0%22%2C%22%237cc4ea%22%2C%22%23b8e3f7%22%5D%7D%7D%2C%22series%22%3A%5B%7B%22type%22%3A%22map%22%2C%22map%22%3A%22USA%22%2C%22roam%22%3Afalse%2C%22label%22%3A%7B%22show%22%3Afalse%7D%2C%22itemStyle%22%3A%7B%22areaColor%22%3A%22%231f2937%22%2C%22borderColor%22%3A%22%23334155%22%2C%22borderWidth%22%3A0.6%7D%2C%22data%22%3A%5B%7B%22name%22%3A%22California%22%2C%22value%22%3A103%7D%2C%7B%22name%22%3A%22Texas%22%2C%22value%22%3A88%7D%2C%7B%22name%22%3A%22New%20York%22%2C%22value%22%3A117%7D%2C%7B%22name%22%3A%22Florida%22%2C%22value%22%3A76%7D%2C%7B%22name%22%3A%22Illinois%22%2C%22value%22%3A97%7D%2C%7B%22name%22%3A%22Ohio%22%2C%22value%22%3A83%7D%5D%7D%5D%7D" hidden>
+          <div data-pane="map" data-url="/draw/echarts?d=%7B%22visualMap%22%3A%7B%22min%22%3A70%2C%22max%22%3A120%2C%22show%22%3Afalse%2C%22inRange%22%3A%7B%22color%22%3A%5B%22%231e3a5f%22%2C%22%232d6a9f%22%2C%22%234d9fd0%22%2C%22%237cc4ea%22%2C%22%23b8e3f7%22%5D%7D%7D%2C%22series%22%3A%5B%7B%22type%22%3A%22map%22%2C%22map%22%3A%22USA%22%2C%22roam%22%3Afalse%2C%22label%22%3A%7B%22show%22%3Afalse%7D%2C%22itemStyle%22%3A%7B%22areaColor%22%3A%22%231f2937%22%2C%22borderColor%22%3A%22%23334155%22%2C%22borderWidth%22%3A0.6%7D%2C%22data%22%3A%5B%7B%22name%22%3A%22California%22%2C%22value%22%3A103%7D%2C%7B%22name%22%3A%22Texas%22%2C%22value%22%3A88%7D%2C%7B%22name%22%3A%22New%20York%22%2C%22value%22%3A117%7D%2C%7B%22name%22%3A%22Florida%22%2C%22value%22%3A76%7D%2C%7B%22name%22%3A%22Illinois%22%2C%22value%22%3A97%7D%2C%7B%22name%22%3A%22Ohio%22%2C%22value%22%3A83%7D%5D%7D%5D%7D" hidden>
             <div class="chart-holder" data-pane-render></div>
           </div>
           <div data-pane="molecule" data-url="/draw/chem?smiles=CN1C%3DNC2%3DC1C%28%3DO%29N%28C%28%3DO%29N2C%29C" hidden>
