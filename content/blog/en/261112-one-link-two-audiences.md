@@ -22,12 +22,12 @@ The asymmetry is not subtle and it is not free.
 |---|---|---|
 | what the reader gets | a rendering chosen for human eyes | the same rendering — and the numbers |
 | precision | whatever the renderer drew | whatever was measured |
-| cost to a model | vision tokens, ~1 per 750 px² | text tokens, ~4 characters each — the link is ~20 |
+| cost to a model | the picture as SVG markup: ~1,100 tokens | the link that holds the same numbers: ~25 tokens |
 | what is left behind | the picture | the picture and the data |
 
-Take a 705×500 chart. As an image that is roughly 470 vision tokens. The link that
-carries the same numbers is about 20 — the numbers are *in* it, so an agent that
-reads the link has the data without fetching anything.
+Take a 705×500 chart. As SVG markup that is roughly 1,100 tokens — an agent has to
+read the whole picture to get at the numbers. The link that carries the same numbers
+is about 25: they are *in* it, so the agent has the data without fetching anything.
 
 That is more than an order of magnitude, and it is not the interesting part — the
 interesting part is what the picture *cannot* tell you: the unit, the sample size,

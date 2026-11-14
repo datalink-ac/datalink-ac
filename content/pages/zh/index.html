@@ -58,11 +58,6 @@ nav: home
     <div class="section-head reveal">
             <span class="section-num">问题</span>
       <h2>图不是数据。</h2>
-      <p class="lede">
-        稿子是 AI 写的，写的时候数据在它手里。可它留下的是一张图——
-        而数据进了那张图，就没再出来。
-        下个月再读这篇东西的人，手里只有那张图。
-      </p>
     </div>
 
     <div class="cards reveal">
@@ -90,11 +85,6 @@ nav: home
     <div class="section-head reveal">
       <span class="section-num">想法</span>
       <h2>把数据放进链接里。</h2>
-      <p class="lede">
-        一条网页地址，里面装着数据本身。打开它，你看到图；
-        读它，你拿到数字——它们就在地址里，和当初测量的一模一样。
-        不存在第二个需要同步的「真相版本」，因为只有这条链接。
-      </p>
     </div>
 
     <div class="cards reveal" style="grid-template-columns:repeat(auto-fit,minmax(230px,1fr))">
@@ -143,8 +133,7 @@ nav: home
       </div>
 
       <p class="tiny" style="margin-top:16px">
-        你的 agent 改一个参数，就得到另一张图——不用重画，不用导出，不用求谁。
-        试试：改上面那个数字，回车。
+        改上面那个数字，回车——图和数字一起变。
       </p>
     </div>
   </div>
@@ -154,10 +143,7 @@ nav: home
   <div class="wrap">
     <div class="section-head reveal">
       <span class="section-num">两个读者</span>
-      <h2>一条链接，各自拿到自己需要的。</h2>
-      <p class="lede">
-        链接就是那个产物，它同时服务两边——没有翻译这一步，所以也没有损耗。
-      </p>
+      <h2>一条链接，人与智能体各取所需，无幻觉，无额外视觉 token 账单。</h2>
     </div>
 
     <div class="readers-grid reveal">
@@ -176,7 +162,7 @@ nav: home
         <p class="reader-k">agent <span>· 拿到数据</span></p>
         <ul>
           <li><b>准确，无幻觉。</b> 数字本身，不是对数字的读法。不四舍五入，不 OCR，不从像素上估。</li>
-          <li><b>省钱。</b> 文本大约四个字符一个 token；同样的图反复读成图片，每次都要几百个视觉 token。</li>
+          <li><b>省钱。</b> 同一张图，写成 SVG 大约一千一百个 token；装着同样数字的链接只有二十几个。</li>
           <li><b>加快推理速度。</b> 链接本来就在正文里，数字本来就在链接里。不用取图、不用再看一遍、不用第二次调用，上下文窗口一点也没花在像素上。</li>
         </ul>
       </div>
@@ -189,11 +175,6 @@ nav: home
     <div class="section-head reveal">
       <span class="section-num">怎么跑</span>
       <h2>一段 prompt 进去，一份图表全是链接的报告出来。</h2>
-      <p class="lede">
-        稿子是 agent 写的——README、issue、pull request、或者一条帖子——
-        它需要图的时候，就拼一条链接，而不是贴一张图片。
-        报告看起来和平常一样；变的是每一张图都还揣着自己的数字。
-      </p>
     </div>
 
     <div class="prompt-box reveal">
@@ -234,10 +215,6 @@ nav: home
     <div class="section-head reveal">
       <span class="section-num">两个场景</span>
       <h2>两种不用再付的成本。</h2>
-      <p class="lede">
-        图是文件。文件要重做、重传、再提交一次——仓库里堆着这种二进制文件，
-        每改一次数字就胖一圈。链接是文本。文本只要改。
-      </p>
     </div>
 
     <div class="scenarios reveal">
@@ -251,8 +228,8 @@ nav: home
       <article class="scenario">
         <p class="scenario-k">场景二</p>
         <h3>同一份文档要出好几种语言</h3>
-        <p class="scenario-now"><b>今天。</b> 五种语言，五张图文件，五次渲染，五次提交——而数据每改一次，就要做五遍。</p>
-        <p class="scenario-now is-datalink"><b>用数据链接。</b> 语言只是一个参数。五张图，五条 URL，每条一行文字——由同一个 agent 从同一份来源生成。</p>
+        <p class="scenario-now"><b>今天。</b> 六种语言，六张图文件，六次渲染，六次提交——而数据每改一次，就要做六遍。</p>
+        <p class="scenario-now is-datalink"><b>用数据链接。</b> 语言只是一个参数。六张图，六条 URL，每条一行文字——由同一个 agent 从同一份来源生成。</p>
       </article>
     </div>
 
@@ -268,12 +245,6 @@ nav: home
           <img src="/draw/archmap?n=web;fe;%E6%B5%8F%E8%A7%88%E5%99%A8;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20%E7%BD%91%E5%85%B3;%E8%AE%A4%E8%AF%81;r0c2&amp;n=auth;be;%E8%AE%A4%E8%AF%81%E6%9C%8D%E5%8A%A1;r1c1&amp;n=render;be;%E5%9B%BE%E8%A1%A8%E6%B8%B2%E6%9F%93;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=%E6%95%B0%E6%8D%AE%E5%B1%82;pg%20cache" alt="架构图，中文标签：浏览器、CDN、API 网关、认证服务、图表渲染、Postgres、Redis" loading="lazy" width="440" height="286">
         </a>
         <figcaption>中文</figcaption>
-      </figure>
-      <figure>
-        <a href="https://www.x-cmd.com/draw/explore/archmap?n=web;fe;Browser;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API-Gateway;Auth;r0c2&amp;n=auth;be;Auth-Service;r1c1&amp;n=render;be;Chart-Renderer;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=Datenebene;pg%20cache" target="_blank" rel="noopener">
-          <img src="/draw/archmap?n=web;fe;Browser;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API-Gateway;Auth;r0c2&amp;n=auth;be;Auth-Service;r1c1&amp;n=render;be;Chart-Renderer;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=Datenebene;pg%20cache" alt="Architekturdiagramm mit deutschen Beschriftungen: Browser, CDN, API-Gateway, Auth-Service, Chart-Renderer, Postgres, Redis" loading="lazy" width="440" height="286">
-        </a>
-        <figcaption>Deutsch</figcaption>
       </figure>
       <figure>
         <a href="https://www.x-cmd.com/draw/explore/archmap?n=web;fe;Navigateur;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;Passerelle%20API;Auth;r0c2&amp;n=auth;be;Service%20d%27auth;r1c1&amp;n=render;be;Rendu%20de%20graphique;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=Couche%20de%20donn%C3%A9es;pg%20cache" target="_blank" rel="noopener">
@@ -293,11 +264,14 @@ nav: home
         </a>
         <figcaption>Español</figcaption>
       </figure>
+      <figure>
+        <a href="https://www.x-cmd.com/draw/explore/archmap?n=web;fe;%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4;%EC%9D%B8%EC%A6%9D;r0c2&amp;n=auth;be;%EC%9D%B8%EC%A6%9D%20%EC%84%9C%EB%B9%84%EC%8A%A4;r1c1&amp;n=render;be;%EC%B0%A8%ED%8A%B8%20%EB%A0%8C%EB%8D%94%EB%A7%81;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EA%B3%84%EC%B8%B5;pg%20cache" target="_blank" rel="noopener">
+          <img src="/draw/archmap?n=web;fe;%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4;%EC%9D%B8%EC%A6%9D;r0c2&amp;n=auth;be;%EC%9D%B8%EC%A6%9D%20%EC%84%9C%EB%B9%84%EC%8A%A4;r1c1&amp;n=render;be;%EC%B0%A8%ED%8A%B8%20%EB%A0%8C%EB%8D%94%EB%A7%81;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EA%B3%84%EC%B8%B5;pg%20cache" alt="아키텍처 다이어그램, 한국어 라벨: 브라우저, CDN, API 게이트웨이, 인증 서비스, 차트 렌더링, Postgres, Redis" loading="lazy" width="440" height="286">
+        </a>
+        <figcaption>한국어</figcaption>
+      </figure>
     </div>
-    <p class="tiny reveal" style="margin-top:14px">
-      同一张图，六种语言，六条链接——语言就住在标签里。
-      没有六个文件，没有六次渲染，也没有东西要同步。
-    </p>
+
 
 
 
@@ -309,10 +283,6 @@ nav: home
     <div class="section-head reveal">
       <span class="section-num">还可以是什么</span>
       <h2>不只是图表。</h2>
-      <p class="lede">
-        同一套扁平参数能画出结构、填满日历、摊开一张地图、画出一个分子、
-        做成一套幻灯片。换的是画法，不变的是链接。
-      </p>
     </div>
 
     <div class="reveal" data-tabs>
@@ -370,11 +340,6 @@ nav: home
     <div class="section-head reveal">
       <span class="section-num">最合适的地方</span>
       <h2>它最合适的地方，是 GitHub。</h2>
-      <p class="lede">
-        GitHub 上的一切都是文字，给人读，也被 bot 读。
-        数据链接就这么放进去，把数字一起带上：读者能核对，reviewer 能改，
-        bot 能读，几年之后还在。
-      </p>
     </div>
 
     <div class="cards reveal" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
@@ -420,10 +385,6 @@ nav: home
     <div class="section-head reveal">
       <span class="section-num">试一试</span>
       <h2>你的 AI 早就会读链接了。</h2>
-      <p class="lede">
-        用一个小小的 skill 教会它把数据链接做对。不用密钥、不用账号、不用仪表盘——
-        agent 把链接拼出来，图就出来了。
-      </p>
     </div>
 
     <div class="split reveal">
@@ -449,10 +410,6 @@ nav: home
     <div class="section-head reveal">
       <span class="section-num">继续读</span>
       <h2>想看细节，都写下来了。</h2>
-      <p class="lede">
-        一份规范草案——渲染器必须守住的承诺，agent 可以凭什么做假设。
-        以及它背后的推演，在博客里。
-      </p>
     </div>
 
     <div class="cards reveal">

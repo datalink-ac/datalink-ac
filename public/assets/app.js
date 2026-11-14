@@ -199,15 +199,16 @@
 
       // What an AI reads is the link — the numbers are inside it. The picture is
       // what the same thing costs when it arrives as an image.
-      const { w, h } = svgText ? svgSize(svgText) : { w: 0, h: 0 };
-      const pic = w && h ? imageTokens(w, h) : 0;
+      // The same numbers, two carriers: the rendered picture (SVG markup, which
+      // an agent has to read as text) and the link that holds them.
+      const pic = svgText ? Math.round(svgText.length / 3) : 0;
       const dat = textTokens(abs);
       if (meter) {
         const max = Math.max(pic, dat, 1);
         meter.innerHTML = `
           <div class="meter-row">
             <div>
-              <div class="meter-label">the picture, as an image</div>
+              <div class="meter-label">the picture, as SVG markup</div>
               <div class="meter-bar"><div class="meter-fill is-pic" style="width:${(pic / max) * 100}%"></div></div>
             </div>
             <div class="meter-val">≈ ${pic}</div>
@@ -219,8 +220,7 @@
             </div>
             <div class="meter-val">≈ ${dat}</div>
           </div>
-          <p class="meter-verdict">${pic ? `≈ ${Math.max(1, Math.round(pic / Math.max(dat, 1)))}× fewer tokens — and the agent can read it, not only look at it` : 'the numbers, right there in the link'}</p>
-          <p class="tiny">Estimate: an image is tiled into vision tokens (≈ width × height ÷ 750); a link is tokenised as text (≈ 4 characters per token). The arithmetic is an approximation; the ratio is the point.</p>`;
+          <p class="meter-verdict">${pic ? `≈ ${Math.max(1, Math.round(pic / Math.max(dat, 1)))}× fewer tokens — and the agent can read it, not only look at it` : 'the numbers, right there in the link'}</p>`;
       }
     };
 

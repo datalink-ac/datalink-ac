@@ -29,6 +29,21 @@
 参考实现是 [x-cmd/draw](https://github.com/x-cmd/draw)（图表与结构图）和
 [x-cmd/ppt](https://github.com/x-cmd/ppt)（幻灯片）。draw 就是 datalink 的一个实现。
 
+## 托管：Cloudflare Pages
+
+站点是 **Cloudflare Pages** 上的一个项目（`datalink-ac`），没有独立的 Worker：
+
+- 页面是静态 HTML，`scripts/build.mjs` 把 `content/` + `public/` 变成 `dist/`
+- `functions/` 里是三个 Pages Function，把渲染路径转发到 x-cmd.com：
+  - `/draw`、`/draw/…` → `www.x-cmd.com/draw/…`
+  - `/draw.json`、`/draw.json/…` → 数据视图（把渲染结果里的 `<metadata>` 掏出来当规格）
+  - `/ppt`、`/ppt/…` → `po6.sh/ppt`（x-cmd.com/ppt 还没部署，代码是同一份）
+- zone 上另外两条规则（纯配置，不在代码里）：
+  - 安全响应头（CSP / Referrer-Policy / X-Content-Type-Options）——
+    只加在本站页面上，`/draw`、`/ppt` 走的是上游自己的头
+  - `www.datalink.ac` → `datalink.ac` 的 301（Pages 的 `_redirects` 不支持域名级跳转，
+    所以这条是 zone 上的 Single Redirect）
+
 ## 仓库结构
 
 ```
@@ -37,9 +52,13 @@ content/
   blog/<lang>/*.md        博客文章（markdown）
 src/
   layout.html             页面骨架：head、导航、页脚、语言切换
-  worker.js               Cloudflare Worker：站点 + 转发 x-cmd.com + /draw.json
+functions/
+  draw/[[path]].ts        /draw → x-cmd.com/draw 的转发
+  draw.json/[[path]].ts   数据视图
+  ppt/[[path]].ts         /ppt → 幻灯片渲染器
 scripts/
   build.mjs               content/ + public/ → dist/
+  indexnow.mjs            推送 sitemap 里的 URL（IndexNow）
   make-og.py              生成社交预览图（可选，需要 Pillow）
 public/                   静态资源（css、js、favicon、og.png、manifest）
 mneme/                    项目的记忆中枢：思考、决策记录、开放问题
@@ -50,21 +69,21 @@ mneme/                    项目的记忆中枢：思考、决策记录、开放
 ```sh
 npm install
 npm run build      # content/ + public/ → dist/
-npm run dev        # build + wrangler dev（http://127.0.0.1:8788）
+npm run dev        # build + wrangler pages dev
 ```
 
 ## 部署
 
 ```sh
-npm run deploy     # build + wrangler deploy + IndexNow 推送
+npm run deploy     # build + wrangler pages deploy + IndexNow 推送
 npm run indexnow   # 只推送（默认推 sitemap 里的全部 URL）
 ```
 
 IndexNow 的密钥在 `scripts/indexnow.key`，构建时会发布到站点根目录
 （`https://datalink.ac/<key>.txt`），搜索引擎据此验证推送。
 
-Worker 与两个 custom domain 绑定：`datalink.ac` 与 `www.datalink.ac`
-（后者 301 跳到前者）。zone 在 Cloudflare 账号 `d8caf3f6…` 下。
+Pages 项目 `datalink-ac`，custom domain 是 `datalink.ac` 与 `www.datalink.ac`
+（后者 301 跳到前者）。zone 在 Cloudflare 账号 `d8caf3f6…` 下（Free 计划）。
 
 ## 加一篇博客
 

@@ -58,11 +58,6 @@ nav: home
     <div class="section-head reveal">
             <span class="section-num">THE PROBLEM</span>
       <h2>The picture is not the data.</h2>
-      <p class="lede">
-        Your AI writes the piece with the data in hand. What it leaves behind is a
-        picture — and the data went into the image and did not come back out of
-        it. Next month, whoever reads the piece has the picture and nothing else.
-      </p>
     </div>
 
     <div class="cards reveal">
@@ -90,12 +85,6 @@ nav: home
     <div class="section-head reveal">
       <span class="section-num">THE IDEA</span>
       <h2>Put the data in the link.</h2>
-      <p class="lede">
-        One address, carrying the data itself. Open it and you get the picture;
-        read it and you get the numbers — they are right there in the address,
-        exactly as measured. There is no second version of the truth to keep in
-        sync, because there is only the link.
-      </p>
     </div>
 
     <div class="cards reveal" style="grid-template-columns:repeat(auto-fit,minmax(230px,1fr))">
@@ -144,9 +133,8 @@ nav: home
       </div>
 
       <p class="tiny" style="margin-top:16px">
-        Your agent changes one parameter and gets a different picture — no
-        redrawing, no exporting, no asking anyone. Try it: change a number above
-        and press Enter.
+        Change a number above and press Enter — the picture and the numbers change
+        together.
       </p>
     </div>
   </div>
@@ -156,11 +144,7 @@ nav: home
   <div class="wrap">
     <div class="section-head reveal">
       <span class="section-num">TWO READERS</span>
-      <h2>One link, and each one gets what they need.</h2>
-      <p class="lede">
-        The link is the artefact, and it serves both — no translation step, so
-        nothing is lost.
-      </p>
+      <h2>One link. The person and the agent each get what they need — no hallucination, no extra vision-token bill.</h2>
     </div>
 
     <div class="readers-grid reveal">
@@ -179,7 +163,7 @@ nav: home
         <p class="reader-k">the agent <span>· gets the data</span></p>
         <ul>
           <li><b>Exact, no hallucination.</b> The numbers themselves, not a reading of them. No rounding, no OCR, no estimating from pixels.</li>
-          <li><b>Cheaper.</b> Text costs about four characters a token; re-reading the same chart as an image costs hundreds of vision tokens, every single time.</li>
+          <li><b>Cheaper.</b> The same chart as SVG markup is about 1,100 tokens; the link that carries the same numbers is about 25.</li>
           <li><b>Faster reasoning.</b> The link is already in the text, and the numbers are already in the link. No image to fetch, nothing to look at, no second call — and none of the context window spent on pixels.</li>
         </ul>
       </div>
@@ -192,12 +176,6 @@ nav: home
     <div class="section-head reveal">
       <span class="section-num">THE FLOW</span>
       <h2>One prompt in. A report whose charts are links.</h2>
-      <p class="lede">
-        The agent writes the piece — a README, an issue, a pull request, a post —
-        and where it needs a chart it composes a link instead of pasting an image.
-        The report looks the same as ever; what changed is that every chart still
-        holds its numbers.
-      </p>
     </div>
 
     <div class="prompt-box reveal">
@@ -240,11 +218,6 @@ numbers out of them later.</span></pre>
     <div class="section-head reveal">
       <span class="section-num">TWO CASES</span>
       <h2>Two costs you stop paying.</h2>
-      <p class="lede">
-        A picture is a file. Files have to be re-made, re-uploaded and committed
-        again — and a repository full of them gets heavier every time a number
-        changes. A link is text. Text just changes.
-      </p>
     </div>
 
     <div class="scenarios reveal">
@@ -258,8 +231,8 @@ numbers out of them later.</span></pre>
       <article class="scenario">
         <p class="scenario-k">case two</p>
         <h3>You ship the same docs in five languages</h3>
-        <p class="scenario-now"><b>Today.</b> Five languages, five chart files, five renders, five commits — and every change to the data means doing it five times.</p>
-        <p class="scenario-now is-datalink"><b>With a datalink.</b> The language is a parameter. Five charts, five URLs, one line of text each — generated from the same source by the same agent.</p>
+        <p class="scenario-now"><b>Today.</b> Six languages, six chart files, six renders, six commits — and every change to the data means doing it six times.</p>
+        <p class="scenario-now is-datalink"><b>With a datalink.</b> The language is a parameter. Six charts, six URLs, one line of text each — generated from the same source by the same agent.</p>
       </article>
     </div>
 
@@ -275,12 +248,6 @@ numbers out of them later.</span></pre>
           <img src="/draw/archmap?n=web;fe;%E6%B5%8F%E8%A7%88%E5%99%A8;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20%E7%BD%91%E5%85%B3;%E8%AE%A4%E8%AF%81;r0c2&amp;n=auth;be;%E8%AE%A4%E8%AF%81%E6%9C%8D%E5%8A%A1;r1c1&amp;n=render;be;%E5%9B%BE%E8%A1%A8%E6%B8%B2%E6%9F%93;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=%E6%95%B0%E6%8D%AE%E5%B1%82;pg%20cache" alt="架构图，中文标签：浏览器、CDN、API 网关、认证服务、图表渲染、Postgres、Redis" loading="lazy" width="440" height="286">
         </a>
         <figcaption>中文</figcaption>
-      </figure>
-      <figure>
-        <a href="https://www.x-cmd.com/draw/explore/archmap?n=web;fe;Browser;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API-Gateway;Auth;r0c2&amp;n=auth;be;Auth-Service;r1c1&amp;n=render;be;Chart-Renderer;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=Datenebene;pg%20cache" target="_blank" rel="noopener">
-          <img src="/draw/archmap?n=web;fe;Browser;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API-Gateway;Auth;r0c2&amp;n=auth;be;Auth-Service;r1c1&amp;n=render;be;Chart-Renderer;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=Datenebene;pg%20cache" alt="Architekturdiagramm mit deutschen Beschriftungen: Browser, CDN, API-Gateway, Auth-Service, Chart-Renderer, Postgres, Redis" loading="lazy" width="440" height="286">
-        </a>
-        <figcaption>Deutsch</figcaption>
       </figure>
       <figure>
         <a href="https://www.x-cmd.com/draw/explore/archmap?n=web;fe;Navigateur;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;Passerelle%20API;Auth;r0c2&amp;n=auth;be;Service%20d%27auth;r1c1&amp;n=render;be;Rendu%20de%20graphique;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=Couche%20de%20donn%C3%A9es;pg%20cache" target="_blank" rel="noopener">
@@ -300,11 +267,14 @@ numbers out of them later.</span></pre>
         </a>
         <figcaption>Español</figcaption>
       </figure>
+      <figure>
+        <a href="https://www.x-cmd.com/draw/explore/archmap?n=web;fe;%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4;%EC%9D%B8%EC%A6%9D;r0c2&amp;n=auth;be;%EC%9D%B8%EC%A6%9D%20%EC%84%9C%EB%B9%84%EC%8A%A4;r1c1&amp;n=render;be;%EC%B0%A8%ED%8A%B8%20%EB%A0%8C%EB%8D%94%EB%A7%81;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EA%B3%84%EC%B8%B5;pg%20cache" target="_blank" rel="noopener">
+          <img src="/draw/archmap?n=web;fe;%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4;%EC%9D%B8%EC%A6%9D;r0c2&amp;n=auth;be;%EC%9D%B8%EC%A6%9D%20%EC%84%9C%EB%B9%84%EC%8A%A4;r1c1&amp;n=render;be;%EC%B0%A8%ED%8A%B8%20%EB%A0%8C%EB%8D%94%EB%A7%81;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EA%B3%84%EC%B8%B5;pg%20cache" alt="아키텍처 다이어그램, 한국어 라벨: 브라우저, CDN, API 게이트웨이, 인증 서비스, 차트 렌더링, Postgres, Redis" loading="lazy" width="440" height="286">
+        </a>
+        <figcaption>한국어</figcaption>
+      </figure>
     </div>
-    <p class="tiny reveal" style="margin-top:14px">
-      The same diagram in six languages, six links — the language lives in the labels.
-      No six files, no six renders, nothing to keep in sync.
-    </p>
+
 
 
 
@@ -316,11 +286,6 @@ numbers out of them later.</span></pre>
     <div class="section-head reveal">
       <span class="section-num">WHAT ELSE</span>
       <h2>It is not only charts.</h2>
-      <p class="lede">
-        The same flat parameters draw a structure, fill a calendar, lay out a
-        map, make a molecule, or build a deck. The drawing changes; the link does
-        not.
-      </p>
     </div>
 
     <div class="reveal" data-tabs>
@@ -378,12 +343,6 @@ numbers out of them later.</span></pre>
     <div class="section-head reveal">
       <span class="section-num">WHERE IT FITS</span>
       <h2>GitHub is where it fits best.</h2>
-      <p class="lede">
-        Everything on GitHub is text, and it is read by people and by bots. A
-        datalink goes right in and brings the numbers with it: a reader can check
-        them, a reviewer can change them, a bot can read them, and years later they
-        are still there.
-      </p>
     </div>
 
     <div class="cards reveal" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
@@ -429,10 +388,6 @@ numbers out of them later.</span></pre>
     <div class="section-head reveal">
       <span class="section-num">TRY IT</span>
       <h2>Your AI already knows how to read a link.</h2>
-      <p class="lede">
-        One small skill teaches it to make datalinks properly. No key, no account,
-        no dashboard — the agent composes a link and the picture appears.
-      </p>
     </div>
 
     <div class="split reveal">
@@ -459,10 +414,6 @@ numbers out of them later.</span></pre>
     <div class="section-head reveal">
       <span class="section-num">READ MORE</span>
       <h2>If you want the details, they are written down.</h2>
-      <p class="lede">
-        A draft specification — the promises a renderer has to keep, and what an
-        agent may rely on. And the reasoning behind it, in the blog.
-      </p>
     </div>
 
     <div class="cards reveal">

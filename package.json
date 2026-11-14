@@ -2,13 +2,13 @@
   "name": "datalink-ac",
   "version": "0.1.0",
   "private": true,
-  "description": "datalink.ac — data in the link. The concept site for datalink.",
+  "description": "datalink.ac — data in the link. A concept site, and a front door to x-cmd.com's renderers.",
   "type": "module",
   "license": "Apache-2.0",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "dev": "npm run build && wrangler dev",
-    "deploy": "npm run build && wrangler deploy && npm run indexnow",
+    "dev": "npm run build && wrangler pages dev dist",
+    "deploy": "npm run build && wrangler pages deploy dist --project-name datalink-ac --branch main && npm run indexnow",
     "indexnow": "node scripts/indexnow.mjs"
   },
   "devDependencies": {
