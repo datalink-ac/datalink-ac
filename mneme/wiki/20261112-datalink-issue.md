@@ -36,7 +36,7 @@ agent 写稿（README、issue、PR、博文、聊天），需要图就拼一条�
 | **A picture is not the data.** | 图给你看的是形状，不是数值；agent 只能把像素读回来；过后谁也核对不了 |
 | **The link is the data.** | 链接里装着数据 —— 大 URL 框，可以直接改，改完回车，图和数字一起变 |
 | **The repo stops growing. The documents stop drifting.** | 两个案例：README 里改数字（不用重渲染重上传，diff 里就是那个数字）；六种语言（六条 URL，不是三十六个文件） |
-| **Datalink gives more than pictures.** | 架构图、日历、幻灯片、地图、分子、图表 —— 大号 label 排开 |
+| **Datalink gives more than pictures.** | 架构图、日程、幻灯片、地图、分子、图表 —— 大号 label 排开，点一个换一张图 |
 | **Datalink is designed for GitHub.** | release / issue / PR 三张真图 |
 | **Make your agent use datalinks.** | 左 prompt（带 skill 说明书地址）、右 clawhub 安装，都能 copy |
 
@@ -67,6 +67,30 @@ agent 写稿（README、issue、PR、博文、聊天），需要图就拼一条�
 - **拿 vision token 跟 token 比** → 图片不能只按 token 算，
   现在比的是「SVG 标记约 1,100 vs 链接约 25」，两边都是文本。
 
+### 渲染器给的东西，不一定是你要的
+
+- **日历只会说中文。** draw 的日历图面文字（月份、星期、图例、页脚）是写死的中文，
+  代码里的英文串够不着（`en` 挂在皮肤的 `title` 上，日历两个家族都不是）。
+  英文页那一格因此换成 gantt（它的文字来自 URL，语言中立），
+  中文页保留日历。开了 **x-cmd/draw#28**。
+- **分子式默认画一块深色卡片**，浅色页面上像一个洞 —— 钉 `scheme=light`。
+- **`scheme=auto` 是两套配色 + 媒体查询**，跟着读者的系统走，不是跟着页面走；
+  手动切主题时得由 JS 把 `scheme=` 换掉。
+- **内联的 SVG 会把 `:root{color-scheme:light}` 漏到页面上** —— 内联时改成 `svg{`，
+  不然整页的 color-scheme 被图带走。
+- **幻灯片那一格原本嵌的是 ppt 编辑器**（一个深色的 app），跟旁边一排图片不像一类。
+  改成 `/ppt/cover.svg`：一张幻灯片，本身就是一张图。
+
+### 自己家的 bug（自己家才查得出）
+
+- 标签页的「architecture」是**白的** —— 亮色模式里有一条
+  `.tab[aria-selected=true]{color:#fff}`，浅底白字，等于没有标签。
+- 标签区多了一个 `</div>`，五个面板被挤出 `.panel-body`。
+- `.chart-holder` 是 grid + `place-items:center`，里面的 `<a>` 收缩包裹，
+  SVG 的 `width:100%` 落在收缩宽度上 —— 图一直按原尺寸待着，框里一大片空。
+- 规范草案里的路径全是旧的（`/d?…`、`/deck`、`/d/arch2`），
+  而站上早就换成 `/draw?…`、`/ppt` 了。**页面说自己有什么，就是有什么。**
+
 ## 相关
 
 - 台账（现在什么状态）：issue #2
@@ -75,3 +99,4 @@ agent 写稿（README、issue、PR、博文、聊天），需要图就拼一条�
 - draw 的宣传素材：x-cmd-hub/draw#87
 - 渲染器要一个 table：x-cmd/draw#24
 - 架构图标题乱跑：x-cmd/draw#22
+- 日历要会说英文：x-cmd/draw#28
