@@ -559,25 +559,30 @@ pre.code .c { color: var(--fg-mute); }
   box-shadow: var(--glow-mint);
 }
 
-.tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 4px; }
+/* what it can give — big labels, centred */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 30px;
+  justify-content: center;
+  margin-bottom: 22px;
+}
 .tab {
-  font-family: var(--mono);
-  font-size: 12.5px;
-  padding: 6px 13px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  color: var(--fg-dim);
+  font-family: var(--sans);
+  font-size: 1.06rem;
+  font-weight: 600;
+  letter-spacing: -.012em;
+  padding: 4px 2px 6px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
   background: transparent;
+  color: var(--fg-mute);
   cursor: pointer;
-  transition: all .16s;
+  transition: color .18s, border-color .18s;
 }
-.tab:hover { color: var(--fg); border-color: var(--fg-mute); }
-.tab[aria-selected="true"] {
-  color: #06120b;
-  background: var(--mint);
-  border-color: var(--mint);
-  font-weight: 700;
-}
+.tab:hover { color: var(--fg-dim); }
+.tab[aria-selected="true"] { color: var(--mint); border-bottom-color: var(--mint); }
 @media (prefers-color-scheme: light) { .tab[aria-selected="true"] { color: #fff; } }
 
 /* ---------------------------------------------------------- token meter */
@@ -625,9 +630,71 @@ pre.code .c { color: var(--fg-mute); }
 }
 .cmp-box.is-human { border-top-color: var(--mint); }
 .cmp-box.is-agent { border-top-color: var(--peri); }
-.demo-key { margin: 10px 0 0; font-size: .98rem; color: var(--fg-dim); }
-.demo-key b { color: var(--fg); font-weight: 680; }
-.demo-hint { margin: 3px 0 0; font-size: .86rem; color: var(--fg-mute); }
+/* the url bar — a search box you can edit */
+.urlbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 8px 7px 24px;
+  box-shadow: 0 18px 40px -28px rgba(0, 0, 0, .8);
+  transition: border-color .18s, box-shadow .18s;
+}
+.urlbar:focus-within {
+  border-color: var(--mint-dim);
+  box-shadow: 0 0 0 1px var(--mint-dim), 0 18px 40px -28px rgba(0, 0, 0, .8);
+}
+.urlbar-hl,
+.urlbar-input {
+  font-family: var(--mono);
+  font-size: 15px;
+  line-height: 28px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.urlbar-hl {
+  position: absolute;
+  left: 24px;
+  right: 96px;
+  pointer-events: none;
+  color: var(--fg-dim);
+  text-overflow: ellipsis;
+}
+.urlbar-input {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  outline: none;
+  color: transparent;
+  caret-color: var(--mint);
+  padding: 0;
+}
+.urlbar-input::placeholder { color: var(--fg-mute); }
+.urlbar-hl .scheme { color: var(--fg-mute); }
+.urlbar-hl .host { color: var(--mint); font-weight: 600; }
+.urlbar-hl .path { color: var(--peri); }
+.urlbar-hl .k { color: var(--fg-mute); }
+.urlbar-hl .v { color: var(--fg); }
+.urlbar-hl .num { color: var(--amber); font-weight: 700; }
+.urlbar-copy {
+  flex: none;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  color: var(--fg-dim);
+  cursor: pointer;
+  transition: color .16s, border-color .16s;
+}
+.urlbar-copy:hover { color: var(--mint); border-color: var(--mint-dim); }
+.urlbar-copy.is-done { color: var(--mint); border-color: var(--mint-dim); }
 
 .cmp-tag--line {
   font-family: var(--sans);
@@ -667,6 +734,27 @@ pre.code .c { color: var(--fg-mute); }
 .cmp-box pre.link-code .num { color: var(--amber); font-weight: 700; }
 
 /* ------------------------------------------------------------ two cases */
+/* the two cases, and the carousel beside them */
+.cases-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  gap: clamp(22px, 3vw, 44px);
+  align-items: start;
+}
+@media (max-width: 880px) { .cases-grid { grid-template-columns: 1fr; } }
+.cases-list { display: grid; gap: 24px; }
+.case-k {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--fg-mute);
+  margin: 0 0 8px;
+}
+.case h3 { font-size: 1.16rem; margin-bottom: .6em; }
+.case p { font-size: 15.5px; color: var(--fg-dim); margin: 0; }
+.cases-list .tiny { margin: 0; }
+
 .scenarios {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -792,6 +880,15 @@ pre.code .c { color: var(--fg-mute); }
   background: var(--bg-2);
   overflow: hidden;
 }
+/* the call to action: prompt on the left, install on the right */
+.try-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr);
+  gap: 18px;
+  align-items: start;
+}
+@media (max-width: 880px) { .try-grid { grid-template-columns: 1fr; } }
+
 .prompt-bar {
   display: flex;
   align-items: center;
@@ -803,6 +900,21 @@ pre.code .c { color: var(--fg-mute); }
   color: var(--fg-mute);
   letter-spacing: .06em;
 }
+.prompt-bar .mini-copy {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--fg-mute);
+  cursor: pointer;
+  transition: color .16s, border-color .16s;
+}
+.prompt-bar .mini-copy:hover { color: var(--mint); border-color: var(--mint-dim); }
+.prompt-bar .mini-copy.is-done { color: var(--mint); border-color: var(--mint-dim); }
+
 .prompt-bar .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--mint); }
 .prompt-box pre {
   margin: 0;

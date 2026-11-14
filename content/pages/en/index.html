@@ -63,18 +63,14 @@ nav: home
 <section class="section" id="idea">
   <div class="wrap">
     <div class="section-head reveal">
-      <h2>Put the data in the link.</h2>
+      <h2>The link is the data.</h2>
     </div>
 
     <div class="reveal" data-demo>
-      <div class="chip-row">
-        <div class="chip">
-          <span class="dot"></span>
-          <input class="chip-url" data-url-in value="https://datalink.ac/draw?type=pie&amp;labels=TS,Py,Go&amp;values=4821,2312,980&amp;scheme=auto" aria-label="The link — edit it and press Enter" spellcheck="false">
-          <button class="copy" data-copy="self">copy</button>
-        </div>
-        <p class="demo-key"><b>The link</b> — the data is in it.</p>
-        <p class="demo-hint">Change a number above and press Enter — the picture and the numbers change together.</p>
+      <div class="urlbar" data-urlbar>
+        <div class="urlbar-hl" data-urlbar-hl aria-hidden="true"></div>
+        <input class="urlbar-input" data-url-in value="https://datalink.ac/draw?type=pie&amp;labels=TS,Py,Go&amp;values=4821,2312,980&amp;scheme=auto" aria-label="The link — edit it and press Enter" placeholder="edit a number and press Enter" spellcheck="false" autocomplete="off">
+        <button class="urlbar-copy" data-copy="self">copy</button>
       </div>
 
       <div class="compare">
@@ -94,33 +90,6 @@ nav: home
         </div>
       </div>
 
-      <p class="tiny reveal" style="margin-top:16px">
-        The link carries the numbers and what they were measuring. It still means
-        something if the service behind it is gone — and months later an agent can
-        still read the report.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="try">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <h2>One prompt in. A report whose charts are links.</h2>
-    </div>
-
-    <div class="prompt-box reveal">
-      <div class="prompt-bar"><span class="dot"></span><span>copy this</span></div>
-      <pre><span class="quote">Use the draw skill — read
-<a href="https://github.com/x-cmd/draw/blob/main/.x-cmd/clawhub/SKILL.md" target="_blank" rel="noopener">https://github.com/x-cmd/draw/blob/main/.x-cmd/clawhub/SKILL.md</a>
-and follow it. From now on, when you write a README, an issue, a pull request, a
-blog post or a chat message that needs a chart, embed the chart as a link — not an
-image.</span></pre>
-    </div>
-
-    <div class="prompt-box reveal" style="margin-top:14px">
-      <div class="prompt-bar"><span class="dot"></span><span>add the skill</span></div>
-      <pre><span class="cmd">npx</span> clawhub@latest install edwinjhlee/x-cmd-draw</pre>
     </div>
   </div>
 </section>
@@ -128,12 +97,13 @@ image.</span></pre>
 <section class="section">
   <div class="wrap">
     <div class="section-head reveal">
-      <h2>Two costs you stop paying.</h2>
+      <h2>The repo stops growing. The documents stop drifting.</h2>
     </div>
 
-    <div class="scenarios reveal">
-      <article class="scenario">
-        <p class="scenario-k">your README</p>
+    <div class="cases-grid reveal">
+    <div class="cases-list">
+      <article class="case">
+        <p class="case-k">your README</p>
         <h3>The number stays in the link</h3>
         <p>
           Today the number changes, so the chart is re-rendered, re-uploaded and
@@ -144,8 +114,8 @@ image.</span></pre>
         </p>
       </article>
 
-      <article class="scenario">
-        <p class="scenario-k">six languages</p>
+      <article class="case">
+        <p class="case-k">six languages</p>
         <h3>Six URLs, not thirty-six files</h3>
         <p>
           Six languages mean six chart files, six renders, six commits — and every
@@ -160,8 +130,10 @@ image.</span></pre>
       The link also records what was measured and how — so a report stays readable
       by an agent months later.
     </p>
+        <p class="tiny">The link also records what was measured and how — so a report stays readable by an agent months later.</p>
+      </div>
 
-    <div class="topic reveal" data-topic>
+    <div class="topic reveal" data-topic data-carousel>
       <figure class="topic-figure">
         <a data-topic-link href="https://www.x-cmd.com/draw/explore/archmap?n=web;fe;Browser;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20Gateway;r0c2&amp;n=auth;be;Auth%20Service;r1c1&amp;n=render;be;Chart%20Render;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=Data%20Layer;pg%20cache" target="_blank" rel="noopener">
           <img data-topic-img src="/draw/archmap?n=web;fe;Browser;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20Gateway;r0c2&amp;n=auth;be;Auth%20Service;r1c1&amp;n=render;be;Chart%20Render;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=Data%20Layer;pg%20cache" alt="Architecture diagram, English labels" loading="lazy" width="440" height="286">
@@ -183,7 +155,7 @@ image.</span></pre>
 <section class="section">
   <div class="wrap">
     <div class="section-head reveal">
-      <h2>More than a picture.</h2>
+      <h2>Datalink gives more than pictures.</h2>
     </div>
 
     <div class="reveal" data-tabs>
@@ -268,3 +240,27 @@ image.</span></pre>
     </div>
   </div>
 </section>
+
+<section class="section" id="try">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Make your agent use datalinks.</h2>
+    </div>
+
+    <div class="try-grid reveal">
+      <div class="prompt-box">
+        <div class="prompt-bar"><span class="dot"></span><span>copy this</span><button class="mini-copy" data-copy="Use the draw skill — read https://github.com/x-cmd/draw/blob/main/.x-cmd/clawhub/SKILL.md and follow it. From now on, when you write a README, an issue, a pull request, a blog post or a chat message that needs a chart, embed the chart as a link — not an image.">copy</button></div>
+        <pre><span class="quote">Use the draw skill — read
+<a href="https://github.com/x-cmd/draw/blob/main/.x-cmd/clawhub/SKILL.md" target="_blank" rel="noopener">https://github.com/x-cmd/draw/blob/main/.x-cmd/clawhub/SKILL.md</a>
+and follow it. From now on, when you write a README, an issue, a pull request, a
+blog post or a chat message that needs a chart, embed the chart as a link — not an
+image.</span></pre>
+      </div>
+      <div class="prompt-box">
+        <div class="prompt-bar"><span class="dot"></span><span>add the skill</span><button class="mini-copy" data-copy="npx clawhub@latest install edwinjhlee/x-cmd-draw">copy</button></div>
+        <pre><span class="cmd">npx</span> clawhub@latest install edwinjhlee/x-cmd-draw</pre>
+      </div>
+    </div>
+  </div>
+</section>
+

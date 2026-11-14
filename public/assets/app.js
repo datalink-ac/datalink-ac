@@ -66,7 +66,10 @@
   $$('[data-copy]').forEach((btn) => {
     btn.addEventListener('click', () => {
       const src = btn.getAttribute('data-copy');
-      const text = src === 'self' ? (btn.closest('.chip')?.querySelector('input, a')?.value ?? '') : src;
+      const text =
+        src === 'self'
+          ? (btn.closest('.chip, [data-urlbar]')?.querySelector('input, a')?.value ?? '')
+          : src;
       copyText(text, btn);
     });
   });
@@ -249,20 +252,88 @@
     renderLink();
   }
 
+  /* ---------------------------------------------------- the url bar --- */
+  /** Paint a URL as coloured parts: scheme, host, path, keys, values, numbers. */
+  const paintUrl = (raw) => {
+    let u;
+    try {
+      u = new URL(raw, location.origin);
+    } catch (e) {
+      return esc(raw);
+    }
+    const scheme = esc(u.protocol.replace(':', '')) + '://';
+    const host = esc(u.host);
+    const path = esc(u.pathname);
+    let qs = '';
+    u.searchParams.forEach((value, key) => {
+      const val = esc(value).replace(/(\d+(?:[.,]\d+)*)/g, '<b class="num">$1</b>');
+      qs += `${qs ? '&amp;' : '?'}<span class="k">${esc(key)}</span>=<span class="v">${val}</span>`;
+    });
+    return `<span class="scheme">${scheme}</span><span class="host">${host}</span><span class="path">${path}</span><span class="qs">${qs}</span>`;
+  };
+
+  $$('[data-urlbar]').forEach((bar) => {
+    const input = $('[data-url-in]', bar);
+    const hl = $('[data-urlbar-hl]', bar);
+    if (!input || !hl) return;
+    const paint = () => {
+      hl.innerHTML = paintUrl(input.value);
+      hl.style.transform = `translateX(${-input.scrollLeft}px)`;
+    };
+    input.addEventListener('input', paint);
+    input.addEventListener('scroll', paint);
+    paint();
+  });
+
   /* ------------------------------------------- one topic, many languages --- */
   $$('[data-topic]').forEach((topic) => {
     const img = $('[data-topic-img]', topic);
     const link = $('[data-topic-link]', topic);
-    $$('[data-topic-tab]', topic).forEach((tab) => {
+    const tabs = $$('[data-topic-tab]', topic);
+    const auto = topic.dataset.carousel !== undefined;
+
+    const show = (tab) => {
+      if (!tab) return;
+      if (img) {
+        img.src = tab.dataset.src || '';
+        img.alt = tab.dataset.alt || '';
+      }
+      if (link) link.href = tab.dataset.href || '';
+      tabs.forEach((t) => t.classList.toggle('is-on', t === tab));
+    };
+
+    let timer = null;
+    const tick = () => {
+      const idx = tabs.findIndex((t) => t.classList.contains('is-on'));
+      show(tabs[(idx + 1) % tabs.length]);
+    };
+    const stop = () => {
+      if (timer) clearInterval(timer);
+      timer = null;
+    };
+    const start = (ms) => {
+      stop();
+      if (auto) timer = setInterval(tick, ms);
+    };
+
+    tabs.forEach((tab) =>
       tab.addEventListener('click', () => {
-        if (img) {
-          img.src = tab.dataset.src || '';
-          img.alt = tab.dataset.alt || '';
-        }
-        if (link) link.href = tab.dataset.href || '';
-        $$('[data-topic-tab]', topic).forEach((t) => t.classList.toggle('is-on', t === tab));
-      });
-    });
+        show(tab);
+        start(6000);          // a click buys some quiet time
+      }),
+    );
+
+    if (auto) {
+      // only rotate while the section is on screen
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(
+          (entries) => entries.forEach((e) => (e.isIntersecting ? start(3200) : stop())),
+          { threshold: 0.25 },
+        ).observe(topic);
+      } else {
+        start(3200);
+      }
+    }
   });
 
   /* ------------------------------------------------------------ tabs --- */

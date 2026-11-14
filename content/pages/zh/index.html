@@ -63,18 +63,14 @@ nav: home
 <section class="section" id="idea">
   <div class="wrap">
     <div class="section-head reveal">
-      <h2>把数据放进链接里。</h2>
+      <h2>链接就是数据。</h2>
     </div>
 
     <div class="reveal" data-demo>
-      <div class="chip-row">
-        <div class="chip">
-          <span class="dot"></span>
-          <input class="chip-url" data-url-in value="https://datalink.ac/draw?type=pie&amp;labels=TS,Py,Go&amp;values=4821,2312,980&amp;scheme=auto" aria-label="链接——改一改回车即重新渲染" spellcheck="false">
-          <button class="copy" data-copy="self">copy</button>
-        </div>
-        <p class="demo-key"><b>链接</b> —— 数据就在里面。</p>
-        <p class="demo-hint">改上面那个数字，回车——图和数字一起变。</p>
+      <div class="urlbar" data-urlbar>
+        <div class="urlbar-hl" data-urlbar-hl aria-hidden="true"></div>
+        <input class="urlbar-input" data-url-in value="https://datalink.ac/draw?type=pie&amp;labels=TS,Py,Go&amp;values=4821,2312,980&amp;scheme=auto" aria-label="链接——改一改回车即重新渲染" placeholder="改一个数字，回车" spellcheck="false" autocomplete="off">
+        <button class="urlbar-copy" data-copy="self">copy</button>
       </div>
 
       <div class="compare">
@@ -94,31 +90,6 @@ nav: home
         </div>
       </div>
 
-      <p class="tiny reveal" style="margin-top:16px">
-        链接带着数字，也带着当时在量什么。背后的服务挂了，它照样说得清；
-        几个月后，agent 依然读得懂那份报告。
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="try">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <h2>一段 prompt 进去，一份图表全是链接的报告出来。</h2>
-    </div>
-
-    <div class="prompt-box reveal">
-      <div class="prompt-bar"><span class="dot"></span><span>复制这段</span></div>
-      <pre><span class="quote">用 draw 这个 skill —— 先读
-<a href="https://github.com/x-cmd/draw/blob/main/.x-cmd/clawhub/SKILL.md" target="_blank" rel="noopener">https://github.com/x-cmd/draw/blob/main/.x-cmd/clawhub/SKILL.md</a>
-并照着做。以后写 README、issue、pull request、博文或者聊天消息时，只要需要图，
-就用链接来画，别贴图片。</span></pre>
-    </div>
-
-    <div class="prompt-box reveal" style="margin-top:14px">
-      <div class="prompt-bar"><span class="dot"></span><span>装上 skill</span></div>
-      <pre><span class="cmd">npx</span> clawhub@latest install edwinjhlee/x-cmd-draw</pre>
     </div>
   </div>
 </section>
@@ -126,12 +97,13 @@ nav: home
 <section class="section">
   <div class="wrap">
     <div class="section-head reveal">
-      <h2>两种不用再付的成本。</h2>
+      <h2>仓库不再胖，文档不再走样。</h2>
     </div>
 
-    <div class="scenarios reveal">
-      <article class="scenario">
-        <p class="scenario-k">你的 README</p>
+    <div class="cases-grid reveal">
+    <div class="cases-list">
+      <article class="case">
+        <p class="case-k">你的 README</p>
         <h3>数字留在链接里</h3>
         <p>
           今天数字一变，图就得重渲染、重上传、再当二进制提交一次：仓库在胖，
@@ -140,8 +112,8 @@ nav: home
         </p>
       </article>
 
-      <article class="scenario">
-        <p class="scenario-k">六种语言</p>
+      <article class="case">
+        <p class="case-k">六种语言</p>
         <h3>六条 URL，不是三十六个文件</h3>
         <p>
           六种语言就是六张图文件、六次渲染、六次提交——数据每改一次，做六遍。
@@ -164,7 +136,10 @@ nav: home
     </div>
 
     <p class="tiny reveal" style="margin-top:26px">同一张图，六种语言，六条链接。</p>
-    <div class="topic reveal" data-topic>
+        <p class="tiny">链接还记下了当时在量什么、怎么量的——所以一份报告，几个月后 agent 依然读得懂。</p>
+      </div>
+
+    <div class="topic reveal" data-topic data-carousel>
       <figure class="topic-figure">
         <a data-topic-link href="https://www.x-cmd.com/draw/explore/archmap?n=web;fe;Browser;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20Gateway;r0c2&amp;n=auth;be;Auth%20Service;r1c1&amp;n=render;be;Chart%20Render;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=Data%20Layer;pg%20cache" target="_blank" rel="noopener">
           <img data-topic-img src="/draw/archmap?n=web;fe;Browser;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20Gateway;r0c2&amp;n=auth;be;Auth%20Service;r1c1&amp;n=render;be;Chart%20Render;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=Data%20Layer;pg%20cache" alt="Architecture diagram, English labels" loading="lazy" width="440" height="286">
@@ -186,7 +161,7 @@ nav: home
 <section class="section">
   <div class="wrap">
     <div class="section-head reveal">
-      <h2>不只是图。</h2>
+      <h2>Datalink 给的不只是图。</h2>
     </div>
 
     <div class="reveal" data-tabs>
@@ -272,3 +247,26 @@ nav: home
     </div>
   </div>
 </section>
+
+<section class="section" id="try">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>让你的 agent 用上 datalink。</h2>
+    </div>
+
+    <div class="try-grid reveal">
+      <div class="prompt-box">
+        <div class="prompt-bar"><span class="dot"></span><span>复制这段</span><button class="mini-copy" data-copy="用 draw 这个 skill —— 先读 https://github.com/x-cmd/draw/blob/main/.x-cmd/clawhub/SKILL.md 并照着做。以后写 README、issue、pull request、博文或者聊天消息时，只要需要图，就用链接来画，别贴图片。">copy</button></div>
+        <pre><span class="quote">用 draw 这个 skill —— 先读
+<a href="https://github.com/x-cmd/draw/blob/main/.x-cmd/clawhub/SKILL.md" target="_blank" rel="noopener">https://github.com/x-cmd/draw/blob/main/.x-cmd/clawhub/SKILL.md</a>
+并照着做。以后写 README、issue、pull request、博文或者聊天消息时，只要需要图，
+就用链接来画，别贴图片。</span></pre>
+      </div>
+      <div class="prompt-box">
+        <div class="prompt-bar"><span class="dot"></span><span>装上 skill</span><button class="mini-copy" data-copy="npx clawhub@latest install edwinjhlee/x-cmd-draw">copy</button></div>
+        <pre><span class="cmd">npx</span> clawhub@latest install edwinjhlee/x-cmd-draw</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
