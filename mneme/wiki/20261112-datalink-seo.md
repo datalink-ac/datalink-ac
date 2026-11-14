@@ -29,6 +29,21 @@ tags: datalink, seo, thinking
 技术底子该做的一定做（一个下午的事），但别把它当成 SEO 的主体。
 主体是：有没有一篇东西好到别人必须引用它。
 
+## 定位变了，词也得变
+
+首页后来整个重做过一次，**受众换了**：不再是「给工程师看的数据链接」，
+而是「用 AI 写稿的人 —— 文字工作者，非程序员」。
+这件事对 SEO 的影响比任何 meta 标签都大：**查询意图变了**。
+
+- 旧的意图：「chart as data link」「URL that contains data」
+- 新的意图：「AI 写的稿子里的数字怎么核对」「agent 读图会读错吗」
+  「AI 做报告 数据 准确」
+
+所以标题层该含的词也变了：`data in the link` 是理念的名字，
+但读者真正会搜的是**他正在头疼的那件事** ✓✓
+（首页现在写的是「The picture is not the data」「One prompt in. A report whose
+charts are links.」——这两句就是查询意图本身。）
+
 ## 审计出来的那几处，为什么都算「硬伤」
 
 理念站的全部资产就是那十几个页面。metadata 错了，

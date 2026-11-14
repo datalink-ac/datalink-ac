@@ -75,6 +75,13 @@ export default {
       return proxy(request, url, DECKER, pathname.replace(/^\/deck/, '') || '/');
     }
 
+    // The deck pulls its own stylesheets and scripts from /ppt/assets/… — the
+    // paths the renderer writes into the page. Without this they 404 and the
+    // deck arrives unstyled.
+    if (pathname === '/ppt' || pathname.startsWith('/ppt/')) {
+      return proxy(request, url, DECKER, pathname.replace(/^\/ppt/, '') || '/');
+    }
+
     // ---- the site --------------------------------------------------------
     return withSiteHeaders(await env.ASSETS.fetch(request), url);
   },
