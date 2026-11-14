@@ -99,7 +99,7 @@ nav: home
       <div class="card">
         <p class="card-k">一</p>
         <h3>链接</h3>
-        <p>一条普通的网页地址，由你的 agent 拼出来。它装着数据——不是某个页面的指针，不是截图，就是数据。</p>
+        <p>一条普通的网页地址。它装着数据——不是某个页面的指针，不是截图，就是数据。</p>
       </div>
       <div class="card">
         <p class="card-k">二</p>
@@ -136,8 +136,6 @@ nav: home
         <div class="cmp-box is-agent">
           <p class="cmp-tag">你的 AI · 链接</p>
           <pre class="code link-code" data-link-out>加载中…</pre>
-          <p class="tiny" style="margin:14px 0 6px">背后的数字，精确无误：</p>
-          <pre class="code" data-json>加载中…</pre>
           <div class="meter" data-meter style="margin-top:16px"></div>
         </div>
       </div>
@@ -225,6 +223,53 @@ nav: home
       背后的判断没了，数字也没了。链接两样都留着——
       这才是报告能被 agent 再次拿去用的原因，而不是只能被相信。
     </div>
+  </div>
+</section>
+
+<section class="section" id="cases">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">两个场景</span>
+      <h2>两种不用再付的成本。</h2>
+      <p class="lede">
+        图是文件。文件要重做、重传、再提交一次——仓库里堆着这种二进制文件，
+        每改一次数字就胖一圈。链接是文本。文本只要改。
+      </p>
+    </div>
+
+    <div class="scenarios reveal">
+      <article class="scenario">
+        <p class="scenario-k">场景一</p>
+        <h3>你的 README 里有数据</h3>
+        <p class="scenario-now"><b>今天。</b> 数字变了，图就得重渲染、重上传、再当二进制提交一次。仓库在胖，而 diff 只说「图片变了」，不说变了什么。</p>
+        <p class="scenario-now is-datalink"><b>用数据链接。</b> agent 改链接里的一个数字，提交。diff 里就是那个数字，图跟着变；一年后提交历史还说得清你当时的意思。</p>
+      </article>
+
+      <article class="scenario">
+        <p class="scenario-k">场景二</p>
+        <h3>同一份文档要出好几种语言</h3>
+        <p class="scenario-now"><b>今天。</b> 五种语言，五张图文件，五次渲染，五次提交——而数据每改一次，就要做五遍。</p>
+        <p class="scenario-now is-datalink"><b>用数据链接。</b> 语言只是一个参数。五张图，五条 URL，每条一行文字——由同一个 agent 从同一份来源生成。</p>
+      </article>
+    </div>
+
+    <div class="lang-pair reveal">
+      <figure>
+        <img src="/d?type=pie&amp;labels=TypeScript,Python,Go&amp;values=4821,2312,980&amp;title=Stars&amp;scheme=dark" alt="同一张图，英文标题" loading="lazy" width="705" height="500">
+        <figcaption>&amp;<b>title=Stars</b></figcaption>
+      </figure>
+      <figure>
+        <img src="/d?type=pie&amp;labels=TypeScript,Python,Go&amp;values=4821,2312,980&amp;title=Sterne&amp;scheme=dark" alt="同一张图，德文标题" loading="lazy" width="705" height="500">
+        <figcaption>&amp;<b>title=Sterne</b></figcaption>
+      </figure>
+      <figure>
+        <img src="/d?type=pie&amp;labels=TypeScript,Python,Go&amp;values=4821,2312,980&amp;title=%E6%98%9F%E6%A0%87&amp;scheme=dark" alt="同一张图，中文标题" loading="lazy" width="705" height="500">
+        <figcaption>&amp;<b>title=星标</b></figcaption>
+      </figure>
+    </div>
+    <p class="tiny reveal" style="margin-top:14px">
+      同样的数字，三种语言，差别只有一个参数——三条 URL，而不是三个地方的三张二进制文件。
+    </p>
   </div>
 </section>
 

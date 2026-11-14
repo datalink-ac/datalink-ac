@@ -99,7 +99,7 @@ nav: home
       <div class="card">
         <p class="card-k">one</p>
         <h3>The link</h3>
-        <p>An ordinary web address, composed by your agent. It carries the data — not a pointer to a page, not a screenshot, the data.</p>
+        <p>An ordinary web address. It carries the data — not a pointer to a page, not a screenshot, the data.</p>
       </div>
       <div class="card">
         <p class="card-k">two</p>
@@ -136,8 +136,6 @@ nav: home
         <div class="cmp-box is-agent">
           <p class="cmp-tag">your AI · the link</p>
           <pre class="code link-code" data-link-out>loading…</pre>
-          <p class="tiny" style="margin:14px 0 6px">and the numbers behind it, exactly:</p>
-          <pre class="code" data-json>loading…</pre>
           <div class="meter" data-meter style="margin-top:16px"></div>
         </div>
       </div>
@@ -230,6 +228,55 @@ numbers out of them later.</span></pre>
       both — which is what makes a report something an agent can work from again,
       instead of something it has to take on faith.
     </div>
+  </div>
+</section>
+
+<section class="section" id="cases">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">TWO CASES</span>
+      <h2>Two costs you stop paying.</h2>
+      <p class="lede">
+        A picture is a file. Files have to be re-made, re-uploaded and committed
+        again — and a repository full of them gets heavier every time a number
+        changes. A link is text. Text just changes.
+      </p>
+    </div>
+
+    <div class="scenarios reveal">
+      <article class="scenario">
+        <p class="scenario-k">case one</p>
+        <h3>Your README has numbers in it</h3>
+        <p class="scenario-now"><b>Today.</b> The number changes, so the chart is re-rendered, re-uploaded and committed as a binary. The repository grows, and the diff says “image changed” — not what changed.</p>
+        <p class="scenario-now is-datalink"><b>With a datalink.</b> The agent changes one number in the URL and commits. The diff shows the number, the picture follows it, and a year later the history still says what you meant.</p>
+      </article>
+
+      <article class="scenario">
+        <p class="scenario-k">case two</p>
+        <h3>You ship the same docs in five languages</h3>
+        <p class="scenario-now"><b>Today.</b> Five languages, five chart files, five renders, five commits — and every change to the data means doing it five times.</p>
+        <p class="scenario-now is-datalink"><b>With a datalink.</b> The language is a parameter. Five charts, five URLs, one line of text each — generated from the same source by the same agent.</p>
+      </article>
+    </div>
+
+    <div class="lang-pair reveal">
+      <figure>
+        <img src="/d?type=pie&amp;labels=TypeScript,Python,Go&amp;values=4821,2312,980&amp;title=Stars&amp;scheme=dark" alt="The same chart with an English title" loading="lazy" width="705" height="500">
+        <figcaption>&amp;<b>title=Stars</b></figcaption>
+      </figure>
+      <figure>
+        <img src="/d?type=pie&amp;labels=TypeScript,Python,Go&amp;values=4821,2312,980&amp;title=Sterne&amp;scheme=dark" alt="The same chart with a German title" loading="lazy" width="705" height="500">
+        <figcaption>&amp;<b>title=Sterne</b></figcaption>
+      </figure>
+      <figure>
+        <img src="/d?type=pie&amp;labels=TypeScript,Python,Go&amp;values=4821,2312,980&amp;title=%E6%98%9F%E6%A0%87&amp;scheme=dark" alt="The same chart with a Chinese title" loading="lazy" width="705" height="500">
+        <figcaption>&amp;<b>title=星标</b></figcaption>
+      </figure>
+    </div>
+    <p class="tiny reveal" style="margin-top:14px">
+      Same numbers, three languages, one parameter apart — and three URLs instead of
+      three binaries in three places.
+    </p>
   </div>
 </section>
 

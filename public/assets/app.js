@@ -102,11 +102,21 @@
   const esc = (s) =>
     String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
-  /** Colour the link the way the rest of the site talks about it. */
+  /** The link, with the numbers inside it lit up. */
   const linkHtml = (url) => {
     const u = new URL(url, location.origin);
     const q = u.search ? '?' + u.search.slice(1) : '';
-    return `<b>${esc(u.host)}${esc(u.pathname)}</b><i>${esc(q)}</i>`;
+    const qs = q
+      .split('&')
+      .map((pair) => {
+        const i = pair.indexOf('=');
+        if (i < 0) return esc(pair);
+        const key = pair.slice(0, i);
+        const val = esc(pair.slice(i + 1)).replace(/(\d+(?:[.,]\d+)*)/g, '<b class="num">$1</b>');
+        return `<i>${esc(key)}</i>=${val}`;
+      })
+      .join('&');
+    return `<b>${esc(u.host)}${esc(u.pathname)}</b><i>${qs}</i>`;
   };
 
   const svgSize = (svgText) => {
@@ -122,7 +132,6 @@
   if (demo) {
     const urlIn = $('[data-url-in]', demo);
     const render = $('[data-render]', demo);
-    const jsonOut = $('[data-json]', demo);
     const meter = $('[data-meter]', demo);
     const fields = $$('[data-f]', demo);
     let seq = 0;
@@ -158,8 +167,11 @@
       const my = ++seq;
       const path = currentPath();
       const abs = location.origin + path;
+
       const out = $('[data-url-out]', demo);
       if (out) out.innerHTML = linkHtml(abs);
+      const linkOut = $('[data-link-out]', demo);
+      if (linkOut) linkOut.innerHTML = linkHtml(abs);
 
       let svgText = '';
       try {
@@ -175,46 +187,30 @@
         if (my === seq) showError('could not reach the renderer');
       }
 
-      try {
-        const res = await fetch('/d.json' + path.replace(/^\/d(?=[/?]|$)/, ''), {
-          headers: { accept: 'application/json' },
-        });
-        const data = await res.json();
-        if (my !== seq) return;
-        const text = JSON.stringify(data);
-        if (jsonOut) jsonOut.textContent = text;
-
-        // What an AI actually reads is the link — the numbers are inside it.
-        // The picture is what it costs when the same thing arrives as an image.
-        const link = abs;
-        const linkOut = $('[data-link-out]', demo);
-        if (linkOut) linkOut.textContent = link;
-
-        const { w, h } = svgText ? svgSize(svgText) : { w: 0, h: 0 };
-        const pic = w && h ? imageTokens(w, h) : 0;
-        const dat = textTokens(link);
-        if (meter) {
-          const max = Math.max(pic, dat, 1);
-          meter.innerHTML = `
-            <div class="meter-row">
-              <div>
-                <div class="meter-label">the picture, as an image</div>
-                <div class="meter-bar"><div class="meter-fill is-pic" style="width:${(pic / max) * 100}%"></div></div>
-              </div>
-              <div class="meter-val">≈ ${pic}</div>
+      // What an AI reads is the link — the numbers are inside it. The picture is
+      // what the same thing costs when it arrives as an image.
+      const { w, h } = svgText ? svgSize(svgText) : { w: 0, h: 0 };
+      const pic = w && h ? imageTokens(w, h) : 0;
+      const dat = textTokens(abs);
+      if (meter) {
+        const max = Math.max(pic, dat, 1);
+        meter.innerHTML = `
+          <div class="meter-row">
+            <div>
+              <div class="meter-label">the picture, as an image</div>
+              <div class="meter-bar"><div class="meter-fill is-pic" style="width:${(pic / max) * 100}%"></div></div>
             </div>
-            <div class="meter-row">
-              <div>
-                <div class="meter-label">the link, with the numbers in it</div>
-                <div class="meter-bar"><div class="meter-fill is-data" style="width:${(dat / max) * 100}%"></div></div>
-              </div>
-              <div class="meter-val">≈ ${dat}</div>
+            <div class="meter-val">≈ ${pic}</div>
+          </div>
+          <div class="meter-row">
+            <div>
+              <div class="meter-label">the link, with the numbers in it</div>
+              <div class="meter-bar"><div class="meter-fill is-data" style="width:${(dat / max) * 100}%"></div></div>
             </div>
-            <p class="meter-verdict">${pic ? `≈ ${Math.max(1, Math.round(pic / Math.max(dat, 1)))}× fewer tokens — and the agent can read it, not only look at it` : 'the numbers, right there in the link'}</p>
-            <p class="tiny">Estimate: an image is tiled into vision tokens (≈ width × height ÷ 750); a link is tokenised as text (≈ 4 characters per token). The arithmetic is an approximation; the ratio is the point.</p>`;
-        }
-      } catch (e) {
-        if (jsonOut) jsonOut.textContent = '— no data view for this link —';
+            <div class="meter-val">≈ ${dat}</div>
+          </div>
+          <p class="meter-verdict">${pic ? `≈ ${Math.max(1, Math.round(pic / Math.max(dat, 1)))}× fewer tokens — and the agent can read it, not only look at it` : 'the numbers, right there in the link'}</p>
+          <p class="tiny">Estimate: an image is tiled into vision tokens (≈ width × height ÷ 750); a link is tokenised as text (≈ 4 characters per token). The arithmetic is an approximation; the ratio is the point.</p>`;
       }
     };
 

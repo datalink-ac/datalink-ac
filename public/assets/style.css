@@ -630,11 +630,72 @@ pre.code .c { color: var(--fg-mute); }
   max-height: none;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
-  color: var(--mint);
+  color: var(--fg-mute);
   font-size: 12.8px;
-  line-height: 1.6;
+  line-height: 1.7;
 }
-.cmp-box pre[data-json] { white-space: pre-wrap; overflow-wrap: anywhere; }
+.cmp-box pre.link-code b { color: var(--mint); }
+.cmp-box pre.link-code i { color: var(--fg-dim); font-style: normal; }
+
+/* the numbers, lit up inside the link */
+.chip-url .num,
+.cmp-box pre.link-code .num { color: var(--amber); font-weight: 700; }
+
+/* ------------------------------------------------------------ two cases */
+.scenarios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 18px;
+}
+.scenario {
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: var(--surface);
+  padding: 22px 24px;
+}
+.scenario-k {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--fg-mute);
+  margin: 0 0 10px;
+}
+.scenario h3 { font-size: 1.12rem; margin-bottom: .7em; }
+.scenario p { font-size: 15px; color: var(--fg-dim); margin: 0 0 .85em; }
+.scenario p:last-child { margin-bottom: 0; }
+.scenario p b { color: var(--fg); }
+.scenario .is-datalink {
+  border-left: 2px solid var(--mint);
+  padding-left: 15px;
+  margin-left: -17px;
+  margin-top: 1.1em;
+}
+.scenario .is-datalink b { color: var(--mint); }
+
+/* the same numbers, a language apart */
+.lang-pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+  margin-top: 26px;
+}
+.lang-pair figure {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: var(--surface);
+  overflow: hidden;
+}
+.lang-pair img { width: 100%; height: auto; display: block; }
+.lang-pair figcaption {
+  padding: 10px 14px;
+  border-top: 1px solid var(--line-soft);
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--fg-mute);
+}
+.lang-pair figcaption b { color: var(--amber); }
 .is-human .cmp-tag { color: var(--mint); }
 .is-agent .cmp-tag { color: var(--peri); }
 
