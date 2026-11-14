@@ -769,6 +769,15 @@ pre.code .c { color: var(--fg-mute); }
 }
 .card:hover { border-color: var(--mint-dim); transform: translateY(-2px); box-shadow: var(--glow-mint); }
 .card h3 { font-size: 1.06rem; }
+.card h3 .card-aside {
+  display: block;
+  margin-top: 3px;
+  font-size: .86rem;
+  font-weight: 500;
+  letter-spacing: .01em;
+  color: var(--mint);
+}
+.card h3 .card-aside::before { content: "— "; color: var(--fg-mute); }
 .card p { color: var(--fg-dim); font-size: 15px; margin: 0; }
 .card .card-k {
   font-family: var(--mono);
@@ -915,7 +924,6 @@ img.fit { width: 100%; height: auto; display: block; }
   color: var(--mint);
   margin: 0 0 10px;
 }
-.foot-note { color: var(--fg-mute); font-size: 14.5px; max-width: 40ch; margin: 0; }
 .foot-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 24px; }
 .foot-links > div { display: grid; gap: 7px; align-content: start; }
 .foot-h {

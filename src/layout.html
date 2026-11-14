@@ -74,8 +74,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <p class="foot-tag">data in the link</p>
-        <p class="foot-note">A datalink carries the data, not a picture of it. Humans read the render, agents read the data, and both act on the same string.</p>
+        <p class="foot-tag">{{lang === 'zh' ? '链接里的数据，就是 agent 的上下文。' : 'Data in the link as context for agents.'}}</p>
       </div>
       <div class="foot-links">
         <div>
@@ -97,7 +96,7 @@
         </div>
       </div>
     </div>
-    <p class="foot-legal">© {{year}} datalink.ac · {{lang === 'zh' ? '把数据放进链接里' : 'Data in the link'}}</p>
+    <p class="foot-legal">{{year}} datalink.ac · {{lang === 'zh' ? '把数据放进链接里' : 'Data in the link'}}</p>
   </div>
 </footer>
 

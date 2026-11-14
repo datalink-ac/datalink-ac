@@ -15,7 +15,7 @@ nav: home
       </p>
       <p class="lede hero-sub">
         A datalink is a picture, a web link, that carries the data.
-        Your reader sees the picture; your AI reads the numbers out of the link.
+        Your reader sees the picture; your AI reads the exact numbers from the link.
       </p>
       <div class="row" style="margin-top:30px">
         <a class="btn is-primary" href="#flow">See the flow</a>
@@ -84,24 +84,21 @@ nav: home
   <div class="wrap">
     <div class="section-head reveal">
       <span class="section-num">THE IDEA</span>
-      <h2>Put the data in the link.</h2>
+      <h2>Put the data in the link — so the link still says what it says when the service behind it is down.</h2>
     </div>
 
-    <div class="cards reveal" style="grid-template-columns:repeat(auto-fit,minmax(230px,1fr))">
+    <div class="cards reveal" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
       <div class="card">
-        <p class="card-k">one</p>
-        <h3>The link</h3>
-        <p>An ordinary web address. It carries the data — not a pointer to a page, not a screenshot, the data.</p>
+        <h3>The link <span class="card-aside">the data is in it</span></h3>
+        <p>Share it and the other side gets the exact context, not a picture of one — they can change it, add a comment, share it again. The numbers travel with the link: put it in a README, in a blog post, and it still means something when the service behind it is down. Stateless — no account, no cloud, nothing that has to stay running.</p>
       </div>
       <div class="card">
-        <p class="card-k">two</p>
-        <h3>The picture</h3>
-        <p>What a reader sees. A chart, a diagram, a map — drawn from that data, every time.</p>
+        <h3>The picture <span class="card-aside">a glance is enough</span></h3>
+        <p>What a reader sees: the shape, the trend, the proportion — in one glance, without opening anything. The same visual language every time, so the attention goes to what the data means, not to how it is styled.</p>
       </div>
       <div class="card">
-        <p class="card-k">three</p>
-        <h3>The numbers</h3>
-        <p>What an agent reads. Already in the address — exact, quotable, no looking involved.</p>
+        <h3>The numbers <span class="card-aside">exact, quotable, no looking</span></h3>
+        <p>What an agent reads: the numbers themselves, already in the address. It never reconstructs a value from pixels, never rounds one, never spends a vision token. It quotes the number — and it can do arithmetic on it.</p>
       </div>
     </div>
 
@@ -151,20 +148,18 @@ nav: home
       <div class="reader reader-human">
         <p class="reader-k">the human <span>· gets the picture</span></p>
         <ul>
-          <li><b>Vivid.</b> A picture carries the shape of the data at a glance — the trend, the outlier, the proportion.</li>
-          <li><b>Immediately legible.</b> Nothing to learn, no interface to master. The eye has it in a second.</li>
-          <li><b>One consistent design.</b> The same visual language everywhere, so the reader's attention goes to what the data means — not to how it is styled.</li>
-          <li><b>Least mental effort.</b> No setup, no login, no clicking through filters to reach the one view that matters.</li>
-          <li><b>Information, maximally compressed.</b> One picture says what a long table says, in a fraction of the space.</li>
+          <li><b>A picture says more than a thousand words.</b> The shape, the trend, the proportion — what a paragraph would take to say, in one glance.</li>
+          <li><b>Easy to share.</b> Paste it into a README, a post, an issue — the other side gets the exact context, not a picture of it. They can change it, comment on it, share it again.</li>
+          <li><b>Easy to extend and explore.</b> Change one parameter and you get a different view. Want another kind of picture? Add a renderer — the link looks the same.</li>
         </ul>
       </div>
 
       <div class="reader reader-agent">
         <p class="reader-k">the agent <span>· gets the data</span></p>
         <ul>
-          <li><b>Exact, no hallucination.</b> The numbers themselves, not a reading of them. No rounding, no OCR, no estimating from pixels.</li>
-          <li><b>Cheaper.</b> The same chart as SVG markup is about 1,100 tokens; the link that carries the same numbers is about 25.</li>
-          <li><b>Faster reasoning.</b> The link is already in the text, and the numbers are already in the link. No image to fetch, nothing to look at, no second call — and none of the context window spent on pixels.</li>
+          <li><b>Exact.</b> The numbers themselves — no rounding, no OCR, no estimating from pixels.</li>
+          <li><b>No hallucination.</b> It reads the data; it never invents a value.</li>
+          <li><b>Cheaper.</b> The link is ~25 tokens; the same chart as SVG is ~1,100. One fetch, and the context window stays free.</li>
         </ul>
       </div>
     </div>

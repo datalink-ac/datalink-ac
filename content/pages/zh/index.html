@@ -15,7 +15,7 @@ nav: home
       </p>
       <p class="lede hero-sub">
         数据链接是一张图片，也是一个网页链接——它装着数据。
-        读者看到的是图，你的 AI 从链接里读到数字。
+        读者看到的是图，你的 AI 从链接里读到准确数字。
       </p>
       <div class="row" style="margin-top:30px">
         <a class="btn is-primary" href="#flow">看它怎么跑</a>
@@ -84,24 +84,21 @@ nav: home
   <div class="wrap">
     <div class="section-head reveal">
       <span class="section-num">想法</span>
-      <h2>把数据放进链接里。</h2>
+      <h2>把数据放进链接里——哪怕背后的服务挂了，这条链接说的还是它说的。</h2>
     </div>
 
-    <div class="cards reveal" style="grid-template-columns:repeat(auto-fit,minmax(230px,1fr))">
+    <div class="cards reveal" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
       <div class="card">
-        <p class="card-k">一</p>
-        <h3>链接</h3>
-        <p>一条普通的网页地址。它装着数据——不是某个页面的指针，不是截图，就是数据。</p>
+        <h3>链接 <span class="card-aside">数据就在里面</span></h3>
+        <p>分享出去，对方拿到的是准确的 context，不是一张截图——他可以改，可以加评论，再分享。数字跟着链接走：放进 README、放进博文，哪怕背后的服务挂了，这条链接的内容仍然知道。stateless：不用账号，不依赖云端，不用一直跑着什么。</p>
       </div>
       <div class="card">
-        <p class="card-k">二</p>
-        <h3>图</h3>
-        <p>读者看到的。图表、结构图、地图——每次都由那份数据画出来。</p>
+        <h3>图 <span class="card-aside">一眼就够</span></h3>
+        <p>读者看到的：形状、趋势、占比，一眼就够，不用点开任何东西。视觉语言每次都一样，读者的注意力花在数据表达的意图上，而不是样式上。</p>
       </div>
       <div class="card">
-        <p class="card-k">三</p>
-        <h3>数字</h3>
-        <p>agent 读到的东西。已经在地址里了——精确、可引用，不用「看」。</p>
+        <h3>数字 <span class="card-aside">精确、可引用，不用「看」</span></h3>
+        <p>agent 读到的：地址里那些数字本身。它不用从像素里重建数值，不用四舍五入，不花一个视觉 token。它引用那个数字，也可以拿它做计算。</p>
       </div>
     </div>
 
@@ -143,27 +140,25 @@ nav: home
   <div class="wrap">
     <div class="section-head reveal">
       <span class="section-num">两个读者</span>
-      <h2>一条链接，人与智能体各取所需，无幻觉，无额外视觉 token 账单。</h2>
+      <h2>一条链接，各取所需。</h2>
     </div>
 
     <div class="readers-grid reveal">
       <div class="reader reader-human">
         <p class="reader-k">人 <span>· 看到图</span></p>
         <ul>
-          <li><b>生动。</b> 一张图一眼就带着数据的形状——趋势、离群、占比。</li>
-          <li><b>一看就懂。</b> 不用学，没有界面要掌握。眼睛一秒就拿到。</li>
-          <li><b>设计统一。</b> 到处是同一套视觉语言，读者的注意力花在数据表达的意图上，而不是样式上。</li>
-          <li><b>心智负担最低。</b> 不用配置、不用登录、不用点半天筛选器才看到真正要的那一屏。</li>
-          <li><b>信息被最大程度压缩。</b> 一张图说清一张长表说的东西，占的空间只有零头。</li>
+          <li><b>一图胜千言。</b> 形状、趋势、占比——文字要写一段话才说得出的，图一眼就说完。</li>
+          <li><b>易于分享。</b> 贴进 README、博文、issue，对方拿到的是准确的 context，不是一张截图；他可以改，可以加评论，再分享。</li>
+          <li><b>方便扩展和探索。</b> 改一个参数就换一个视图；想多一种画法，加一个渲染器就行——链接的样子不变。</li>
         </ul>
       </div>
 
       <div class="reader reader-agent">
         <p class="reader-k">agent <span>· 拿到数据</span></p>
         <ul>
-          <li><b>准确，无幻觉。</b> 数字本身，不是对数字的读法。不四舍五入，不 OCR，不从像素上估。</li>
-          <li><b>省钱。</b> 同一张图，写成 SVG 大约一千一百个 token；装着同样数字的链接只有二十几个。</li>
-          <li><b>加快推理速度。</b> 链接本来就在正文里，数字本来就在链接里。不用取图、不用再看一遍、不用第二次调用，上下文窗口一点也没花在像素上。</li>
+          <li><b>精确。</b> 数字本身——不四舍五入，不 OCR，不从像素上估。</li>
+          <li><b>无幻觉。</b> 它读数据，不编数字。</li>
+          <li><b>省钱。</b> 链接约 25 个 token，同一张图写成 SVG 约 1,100 个。取一次，上下文窗口不占。</li>
         </ul>
       </div>
     </div>
