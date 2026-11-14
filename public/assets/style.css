@@ -217,6 +217,9 @@ code, pre, .mono { font-family: var(--mono); }
 }
 .display-sm { font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1; letter-spacing: -.035em; margin: 0 0 .3em; }
 
+/* the letters that spell the domain: D, A, C */
+.key { color: var(--mint); }
+
 .grad {
   background: linear-gradient(96deg, var(--mint) 8%, var(--peri) 82%);
   -webkit-background-clip: text;
@@ -517,6 +520,7 @@ pre.code {
   color: var(--fg-dim);
   white-space: pre;
 }
+pre.code a { color: var(--mint); text-decoration: underline; text-underline-offset: 2px; }
 pre.code .k { color: var(--peri); }
 pre.code .s { color: var(--mint); }
 pre.code .n { color: var(--amber); }
