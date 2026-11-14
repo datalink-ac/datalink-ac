@@ -119,6 +119,10 @@
     return `<b>${esc(u.host)}${esc(u.pathname)}</b><i>${qs}</i>`;
   };
 
+  // Every picture is a link to the explorer, where it can be changed by hand.
+  const EXPLORE = 'https://www.x-cmd.com/draw/explore';
+  const exploreUrl = (path) => EXPLORE + path.replace(/^\/d/, '');
+
   const svgSize = (svgText) => {
     const doc = new DOMParser().parseFromString(svgText, 'image/svg+xml');
     const el = doc.documentElement;
@@ -181,7 +185,13 @@
         if (!res.ok) {
           showError(svgText.slice(0, 200) || `renderer said ${res.status}`);
         } else {
-          render.innerHTML = svgText;
+          render.innerHTML = '';
+          const a = document.createElement('a');
+          a.href = exploreUrl(path);
+          a.target = '_blank';
+          a.rel = 'noopener';
+          a.innerHTML = svgText;
+          render.appendChild(a);
         }
       } catch (e) {
         if (my === seq) showError('could not reach the renderer');
@@ -268,6 +278,14 @@
         const text = await res.text();
         if (!res.ok) {
           holder.innerHTML = `<p class="small" style="color:var(--amber);margin:0">${esc(text.slice(0, 160))}</p>`;
+        } else if (url.startsWith('/d')) {
+          holder.innerHTML = '';
+          const a = document.createElement('a');
+          a.href = exploreUrl(url);
+          a.target = '_blank';
+          a.rel = 'noopener';
+          a.innerHTML = text;
+          holder.appendChild(a);
         } else {
           holder.innerHTML = text;
         }

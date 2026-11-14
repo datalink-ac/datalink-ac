@@ -502,6 +502,9 @@ em { font-style: normal; color: var(--mint); font-weight: 600; }
 }
 .chart-holder svg { width: 100%; height: auto; display: block; }
 .chart-holder img { width: 100%; height: auto; display: block; }
+.chart-holder a, .lang-pair a { display: block; }
+.chart-holder a:hover img, .lang-pair a:hover img { opacity: .82; }
+.lang-pair img { transition: opacity .18s; }
 
 pre.code {
   margin: 0;
