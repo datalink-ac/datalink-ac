@@ -41,25 +41,27 @@ the past that nobody can check.
 
 **It diffs.** Two links that differ in one parameter differ in one character. A
 chart in a pull request is a chart you can review: change the number, change the
-link, see the picture change. That is only possible because the picture is a
-*function* of something small and textual.
+link, see the picture change. And — the part that matters in a repository — a chart
+that lives in a repo as a *file* is a binary that grows the history and has to be
+re-rendered and re-uploaded every time a number moves. The same chart as a *link* is
+one character in a diff, and the picture follows it on its own.
 
 ## The shared surface
 
 Here is the part we did not expect to matter.
 
-A human and an agent working on the same piece of data do two different things. The
-human explores: they slide a parameter, look, slide it back. The agent computes:
-it rewrites a parameter to get an answer nobody had asked for yet. Neither of them
-wants to learn the other's software.
+Nobody types a URL by hand any more, and nobody should. You say what you want; the
+agent composes the links, draws the pictures and sends the report. What you get back
+is a piece with charts in it — and every chart is a link with its numbers still
+inside.
 
-But a URL is a format both already know. The human can edit it in the address bar.
-The agent can rewrite it in a tool call. Neither needs a client library, a session
-or an explanation of the product. The link is the shared surface, and because it is
-the same artefact for both of them, the picture the agent reasoned about and the
-picture the human explores are guaranteed to be the same picture.
+Then the two of you read the same artefact, differently. The human sees the picture
+and gets the insight out of it. The agent reads the link and gets the exact data —
+already there, no fetch, no vision tokens, nothing spent on pixels. Neither of them
+had to learn the other's software, because a URL is a format both already know: you
+can point at it, you can copy it, an agent can rewrite it in one call.
 
-That is the collaboration. Not “AI plus a UI”. One string, two sets of hands.
+That is the collaboration. Not "AI plus a UI". One string, two sets of hands.
 
 ## What it costs
 

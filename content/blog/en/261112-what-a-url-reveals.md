@@ -13,6 +13,11 @@ with a property that is easy to state and easy to forget:
 Not “anyone who can log in”. Not “anyone who is on the same network”. Anyone. The
 string is the payload.
 
+It matters more now than it did a year ago, for one reason: the link outlives the
+piece. A screenshot in a chat log is gone in a week. A datalink in a release note
+is still there in three years, still holding the numbers it was made from — and
+still perfectly readable by whoever finds it.
+
 ## Where a link actually goes
 
 It is worth being concrete about the ways a URL escapes, because most of them are
@@ -71,6 +76,11 @@ tells a reader which parts of the system are fragile. Making the data linkable i
 making it *quotable*, and quotability has consequences for the people inside the
 data, not just for the people who made it.
 
+The agent makes this sharper, not softer. A report written by an AI is full of
+numbers that came from somewhere, and the link is the only place that somewhere is
+recorded. Publishing the report publishes the data — and, with the link, publishes
+it in a form that anybody can quote back precisely.
+
 Two questions we do not have good answers to yet:
 
 1. **Should a datalink carry a sensitivity marker?** The spec has a way to say “this
@@ -90,3 +100,6 @@ It stores nothing about you beyond ordinary request logs, held briefly, for capa
 and abuse control. Your colour-scheme choice lives in your own browser. Every chart
 on this page is a link you can copy — and every one of them is safe to copy, because
 none of them contains anything that should not be copied.
+
+Which is also why this page has no charts of your traffic. Not because there is
+nothing to show, but because the moment we publish them, we have published them.
