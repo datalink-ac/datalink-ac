@@ -4,70 +4,74 @@ date: 2026-11-12
 tags: datalink, concept, issue
 ---
 
-# 讲法：datalink as context（issue #1 的出处）
+# 讲法：Datalink as Context（issue #1 的出处）
 
 > 原始 issue：https://github.com/datalink-ac/datalink-ac/issues/1
 > 抓到这里的原文副本：`mneme/inbox/20261112-issue-datalink-as-context.md`
+>
+> 这一篇记的是**现在这版**的说法。首页重做过好几轮，
+> 下面写的是活下来的那一版。
 
-## 这条 issue 定了什么
+## 一句话
 
-**一句话：把数据放进链接里（data in the link）。**
+**Datalink as Context** ——
 
-> 后来首页又改了一次，定位更准了：**Datalink as Context** ——
-> agent 拿到数据，人拿到图。现在是 **AI 写稿** 的年代：
-> 人不写链接，人只复制一段 prompt，agent 写稿、需要图就拼链接。
-> 所以整页的叙事改成「稿子是 AI 写的 → 图不是数据 → 链接里装着数据 →
-> 报告也是记忆」。
+> **Agent gets true data. Human gets big picture.**
+> 都靠同一件事：把数据放进链接里。
 
-不是数据的截图，不是仪表盘的入口——是数据本身，在 URL 里。
-人打开链接看到图，agent 取到链接拿到数，操作的是同一串字符。
+D-A-C 三个字母对应 datalink.ac —— 首页的大标题就是按这个做的。
 
-两种读法（这是整个理念的骨架，issue 的标题就是它）：
+## 谁在用
 
-- **datalink as context** — 链接本身就是上下文，不是指向上下文的指针。
-  拿到链接的一方不需要「抓取 → 截图 → 转述」这一轮往返。
-- **datalink as agent context** — 对 agent 来说链接就是接口：
-  它读链接、写链接、在链接上做计算。
+**AI 写稿的年代，人不写链接。** 人只复制一段 prompt，
+agent 写稿（README、issue、PR、博文、聊天），需要图就拼一条链接。
+所以首页从头到尾都在讲 agent 怎么用，而不是人怎么用。
 
-## 三个主张（issue 的正文结构）
+这也是为什么首页的主语是 agent，而不是「你」。
 
-| | 主张 | 一句话 |
-|---|---|---|
-| 01 | **图不是数据** | 稿子是 AI 写的，数据进了图就没再出来；下一个人只有那张图，没有东西可核对。链接把数字留住，参数还说明了当时在量什么。 |
-| 02 | URL 就是 API | 数据链接是从参数到「真相的一张图」的纯函数。白拿三样：缓存、版本化（`v=1`）、可 diff。 |
-| 03 | 图只是一种渲染 | 同一套扁平参数已经能描述结构图、表格、日历、幻灯片。换的是渲染器，不变的是链接。 |
+## 现在的骨架（首页七节）
 
-## 第一个场景：GitHub（用户明确要求的重点）
+| | 那一节要说的 |
+|---|---|
+| **A picture is not the data.** | 图给你看的是形状，不是数值；agent 只能把像素读回来；过后谁也核对不了 |
+| **The link is the data.** | 链接里装着数据 —— 大 URL 框，可以直接改，改完回车，图和数字一起变 |
+| **The repo stops growing. The documents stop drifting.** | 两个案例：README 里改数字（不用重渲染重上传，diff 里就是那个数字）；六种语言（六条 URL，不是三十六个文件） |
+| **Datalink gives more than pictures.** | 架构图、日历、幻灯片、地图、分子、图表 —— 大号 label 排开 |
+| **Datalink is designed for GitHub.** | release / issue / PR 三张真图 |
+| **Make your agent use datalinks.** | 左 prompt（带 skill 说明书地址）、右 clawhub 安装，都能 copy |
 
-issue 里把 GitHub 列为第一场景，理由是：**那里的一切本来都是文本**——
-一个 diff、一条评论、一份 release note。数据链接不用任何人改习惯就能落进去。
+## 两条不能丢的
 
-- **release note** —「新增 2400 行，主要是 TypeScript」这句话本来就是一张表。
-  做成链接，它同时是一张图，而且依然可 grep、可 diff。
-- **issue** — 三段话比一张图老得快；因为是链接，下一个人能直接挪一个框，而不是要求重画。
-- **pull request** — reviewer 真正会要的那张图。作为链接它是**可以审的**：
-  在 PR 里改一个参数，图跟着变。截图没法被审。
+**一、两种读法是同一串字符。**
+人读到图（insight and vision），agent 读到数（exact, quotable）。
+同一串数字，一个给人看，一个给机器读 —— 这才是「Context」这个词的意思。
 
-补充理由（写 issue 时补上的）：读 issue 的 bot 拿到的是数字，不是数字的照片。
-这让「agent context」在最日常的地方成立，而不是只在一个 demo 里成立。
+**二、链接就是存档。**
+数字在链接里，所以：仓库不再堆二进制、diff 里看得见数字、
+六个月后 agent 还能从那条链接里读出当时的意图和数据。
 
-## 这条 issue 留了什么
+## 被砍掉的（别再加回来）
 
-规范里还没定的六件事，直接搬到 issue 里当讨论题：
+- 小节标签（「怎么跑」「两个读者」「另一半」那一套）—— 节标题自己就是观点
+- 导语 —— 节标题已经说完了，导语是重复
+- 「我们为眼睛造了图片」这类辩解 —— 那是解释，不是宣传
+- draw 自己的设计宣传（统一视觉、最省事、压得紧）——
+  那些搬到 **x-cmd-hub/draw#87** 去了，datalink.ac 不替 draw 讲它
 
-1. 规格要不要单独版本化（钉住渲染器 ≠ 钉住语法）
-2. 规格要不要签名（怎么让 agent 分得出真图和伪造图）
-3. URL 装不下的数据怎么办，以及存到服务器上的隐私代价
-4. 要不要有公开的渲染器注册表
-5. 要不要按 `Accept` 协商输出（浏览器 SVG / agent JSON），而不是另开一条路径
-6. 怎么表达不确定性（估算出来的图和事实的图不是一回事）
+## 踩过的坑
 
-外加一条更硬的：**隐私的线划在哪里**。见 [[20261112-datalink-privacy]]。
+- **一开始整页是密密麻麻的文字**（英文 1,345 词）→ 砍到 449 词。
+  「要讲价值，不要写日记」。
+- **标题写成没有营养的断言**（「不只是图表」）→ 那种句子读者一眼就滑过去。
+- **把人写成要手写 URL 的人** → 人只复制 prompt。
+- **拿 vision token 跟 token 比** → 图片不能只按 token 算，
+  现在比的是「SVG 标记约 1,100 vs 链接约 25」，两边都是文本。
 
 ## 相关
 
-- 站点：https://datalink.ac
-- 规范草案：https://datalink.ac/spec
-- 参考实现：x-cmd/draw
-- SEO 台账：issue #2 —— 想法记在 [[20261112-datalink-seo]]
-- 博客：《数据在链接里》《同一串字符，两个读者》《URL 就是 API》
+- 台账（现在什么状态）：issue #2
+- SEO 怎么想：[[20261112-datalink-seo]]
+- 隐私那条线：[[20261112-datalink-privacy]]
+- draw 的宣传素材：x-cmd-hub/draw#87
+- 渲染器要一个 table：x-cmd/draw#24
+- 架构图标题乱跑：x-cmd/draw#22

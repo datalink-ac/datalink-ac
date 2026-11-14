@@ -53,7 +53,7 @@ nav: spec
        └─ host ──┘└path┘└────────── parameters ──────────────┘ └ver┘</pre>
       <ul>
         <li><b>host</b> — the renderer. A different host may implement the same contract.</li>
-        <li><b>path</b> — the kind of rendering. <code>/d</code> covers the flat-parameter renderers; <code>/d/arch2</code>, <code>/d/seq</code>, <code>/d/erd</code> … cover the structural ones.</li>
+        <li><b>path</b> — the kind of rendering. <code>/draw</code> covers the flat-parameter renderers; <code>/draw/archmap</code>, <code>/draw/seq</code>, <code>/draw/erd</code> … cover the structural ones.</li>
         <li><b>parameters</b> — flat, named, URL-encoded. They are the data.</li>
         <li><b>v</b> — pins the renderer version, making the output immutable.</li>
       </ul>
@@ -117,12 +117,12 @@ nav: spec
       <table>
         <thead><tr><th>Kind</th><th>Path</th><th>Parameters</th></tr></thead>
         <tbody>
-          <tr><td>chart</td><td><code>/d?type=pie</code>, <code>bar</code>, <code>hbar</code>, <code>line</code>, <code>area</code>, <code>radar</code>, <code>gauge</code>, <code>scatter</code>, <code>combo</code>, <code>sankey</code>, <code>butterfly</code></td><td><code>labels</code>, <code>values</code>, <code>series</code>, <code>title</code>, <code>unit</code></td></tr>
-          <tr><td>structure</td><td><code>/d/arch2</code>, <code>/d/seq</code>, <code>/d/uc</code>, <code>/d/dataflow</code>, <code>/d/lifecycle</code>, <code>/d/erd</code>, <code>/d/class</code></td><td><code>n=</code>, <code>e=</code>, <code>b=</code></td></tr>
-          <tr><td>diagram</td><td><code>/d/mindmap</code>, <code>/d/mermaid</code>, <code>/d/gantt</code></td><td><code>n=</code>, <code>m=</code></td></tr>
-          <tr><td>table</td><td><code>/d?type=table</code></td><td><code>cols=</code>, <code>rows=</code></td></tr>
-          <tr><td>calendar</td><td><code>/d?type=calendar</code></td><td><code>start=</code>, <code>ev=</code></td></tr>
-          <tr><td>deck</td><td><code>/deck</code></td><td><code>data=</code> (markdown)</td></tr>
+          <tr><td>chart</td><td><code>/draw?type=pie</code>, <code>bar</code>, <code>hbar</code>, <code>line</code>, <code>area</code>, <code>radar</code>, <code>gauge</code>, <code>scatter</code>, <code>combo</code>, <code>sankey</code>, <code>butterfly</code></td><td><code>labels</code>, <code>values</code>, <code>series</code>, <code>title</code>, <code>unit</code></td></tr>
+          <tr><td>structure</td><td><code>/draw/archmap</code>, <code>/draw/seq</code>, <code>/draw/uc</code>, <code>/draw/dataflow</code>, <code>/draw/lifecycle</code>, <code>/draw/erd</code>, <code>/draw/class</code></td><td><code>n=</code>, <code>e=</code>, <code>b=</code></td></tr>
+          <tr><td>diagram</td><td><code>/draw/mindmap</code>, <code>/draw/mermaid</code>, <code>/draw/gantt</code></td><td><code>n=</code>, <code>m=</code></td></tr>
+          <tr><td>table</td><td><code>/draw?type=table</code> — <em>specified, not rendered yet</em></td><td><code>cols=</code>, <code>rows=</code></td></tr>
+          <tr><td>calendar</td><td><code>/draw?type=calendar</code></td><td><code>start=</code>, <code>ev=</code></td></tr>
+          <tr><td>deck</td><td><code>/ppt</code></td><td><code>data=</code> (markdown)</td></tr>
         </tbody>
       </table>
       <p>
@@ -157,7 +157,7 @@ nav: spec
         <li><b>Version pinning</b> — <code>v=N</code> makes the bytes stable, so a link pasted into a document stays correct.</li>
         <li><b>Short links</b> — a renderer may accept the same spec by POST and answer with a short, stable URL. The same data must always yield the same short link; that is what makes them shareable rather than opaque.</li>
         <li><b>Errors</b> — a 4xx with plain text and a corrected example. A renderer that cannot explain itself is not usable by an agent.</li>
-        <li><b>The data view</b> — the spec must be reachable as JSON from the same link, so that a reader can go past the picture. This site exposes it at <code>/d.json</code>; content negotiation on <code>Accept</code> is an open question below.</li>
+        <li><b>The data view</b> — the spec must be reachable as JSON from the same link, so that a reader can go past the picture. This site exposes it at <code>/draw.json</code>; content negotiation on <code>Accept</code> is an open question below.</li>
       </ul>
 
       <h2 id="privacy">8 · Privacy</h2>

@@ -11,6 +11,64 @@
   const THEME_KEY = 'datalink-theme';
   const root = document.documentElement;
 
+  /* --------------------------------------------------------- pictures --- */
+  /* The renderer paints the picture, so it has to be told which palette to
+     use. `scheme=auto` follows the reader's system; when the reader picks a
+     scheme here, the pictures have to be told instead. Pictures that the page
+     pinned to one palette keep it. */
+  const pictureSync = [];
+  const authored = new WeakMap();
+
+  const schemeOf = (url) => {
+    const m = String(url || '').match(/[?&]scheme=([^&#]*)/);
+    return m ? m[1] : 'auto';
+  };
+
+  const withScheme = (url, scheme) => {
+    const bare = url.replace(/([?&]scheme=)[^&#]*/, '');
+    const join = bare.endsWith('?') || bare.endsWith('&') ? '' : bare.includes('?') ? '&' : '?';
+    return bare + join + 'scheme=' + scheme;
+  };
+
+  /** Every picture the page points at, and the palette it asked for. */
+  const pictureList = () => {
+    const list = [];
+    $$('img[src*="/draw"]').forEach((el) =>
+      list.push({ el, get: () => el.getAttribute('src'), set: (v) => el.setAttribute('src', v) }));
+    $$('[data-src*="/draw"]').forEach((el) =>
+      list.push({ el, get: () => el.getAttribute('data-src'), set: (v) => el.setAttribute('data-src', v) }));
+    $$('[data-url-in]').forEach((el) =>
+      list.push({ el, get: () => el.value, set: (v) => { el.value = v; } }));
+    return list;
+  };
+
+  const syncPictures = () => {
+    const t = root.getAttribute('data-theme');
+    const target = t === 'light' || t === 'dark' ? t : null;
+
+    pictureList().forEach(({ el, get, set }) => {
+      const url = get();
+      if (!url) return;
+      const want = target || authored.get(el) || 'auto';
+      const next = withScheme(url, want);
+      if (next === url) return;
+      set(next);
+      if (el.matches('[data-url-in]')) {
+        el.dispatchEvent(new Event('input'));
+        el.dispatchEvent(new Event('change'));
+      }
+    });
+
+    pictureSync.forEach((fn) => fn(target));
+  };
+
+  /* remember what the page asked for, so `auto` can go back to it */
+  const rememberPictures = () => {
+    pictureList().forEach(({ el, get }) => {
+      if (!authored.has(el)) authored.set(el, schemeOf(get()));
+    });
+  };
+
   const applyTheme = (t) => {
     if (t === 'auto') root.removeAttribute('data-theme');
     else root.setAttribute('data-theme', t);
@@ -33,6 +91,7 @@
       } catch (e) {}
       const next = order[(order.indexOf(cur) + 1) % order.length];
       applyTheme(next);
+      syncPictures();
       btn.setAttribute('title', `Colour scheme: ${next}`);
     });
   });
@@ -104,6 +163,10 @@
 
   const esc = (s) =>
     String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+
+  /* The renderer puts its palette in `:root`. Dropped into the page as it is,
+     that would repaint the page too — so the palette belongs to the picture. */
+  const inlineSvg = (text) => text.replace(/:root\{/g, 'svg{');
 
   /** The link, with the numbers inside it lit up. */
   const linkHtml = (url) => {
@@ -193,7 +256,7 @@
           a.href = exploreUrl(path);
           a.target = '_blank';
           a.rel = 'noopener';
-          a.innerHTML = svgText;
+          a.innerHTML = inlineSvg(svgText);
           render.appendChild(a);
         }
       } catch (e) {
@@ -354,9 +417,14 @@
     const loadPane = async (pane) => {
       const holder = pane.querySelector('[data-pane-render]');
       const frame = pane.querySelector('iframe');
+      const pic = pane.querySelector('[data-pane-img]');
       const url = pane.dataset.url;
       if (frame) {
         frame.src = url;
+        return;
+      }
+      if (pic) {
+        pic.src = url;
         return;
       }
       if (!holder || holder.dataset.loaded === url) return;
@@ -365,22 +433,48 @@
         const text = await res.text();
         if (!res.ok) {
           holder.innerHTML = `<p class="small" style="color:var(--amber);margin:0">${esc(text.slice(0, 160))}</p>`;
-        } else if (url.startsWith('/d')) {
+        } else if (url.startsWith('/draw')) {
           holder.innerHTML = '';
           const a = document.createElement('a');
           a.href = exploreUrl(url);
           a.target = '_blank';
           a.rel = 'noopener';
-          a.innerHTML = text;
+          a.innerHTML = inlineSvg(text);
           holder.appendChild(a);
         } else {
-          holder.innerHTML = text;
+          holder.innerHTML = inlineSvg(text);
         }
         holder.dataset.loaded = url;
       } catch (e) {
         holder.innerHTML = '<p class="small" style="color:var(--amber);margin:0">could not reach the renderer</p>';
       }
     };
+    /* remember the palette each pane asked for */
+    panes.forEach((p) => {
+      if (p.dataset.url) authored.set(p, schemeOf(p.dataset.url));
+    });
+
+    pictureSync.push((target) => {
+      let dirty = false;
+      panes.forEach((p) => {
+        if (!p.dataset.url || !p.dataset.url.includes('/draw')) return;
+        const want = target || authored.get(p) || 'auto';
+        const next = withScheme(p.dataset.url, want);
+        if (next !== p.dataset.url) {
+          p.dataset.url = next;
+          const holder = p.querySelector('[data-pane-render]');
+          if (holder) {
+            holder.dataset.loaded = '';
+            holder.innerHTML = '';
+          }
+          dirty = true;
+        }
+      });
+      if (!dirty) return;
+      const visible = panes.find((p) => !p.hidden);
+      if (visible) loadPane(visible);
+    });
+
     const first = tabs.find((t) => t.getAttribute('aria-selected') === 'true') || tabs[0];
     if (first) {
       show(first.dataset.key);
@@ -388,4 +482,8 @@
       if (pane) loadPane(pane);
     }
   });
+
+  /* the panes register late, so remember and give them the scheme once more */
+  rememberPictures();
+  syncPictures();
 })();

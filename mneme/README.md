@@ -41,8 +41,8 @@ mneme/
 
 | 台账 | 位置 |
 |---|---|
-| 理念的出处（讲法、三条主张、第一个场景） | issue #1 —— https://github.com/datalink-ac/datalink-ac/issues/1 |
-| SEO（已做的、还没做的） | issue #2 —— https://github.com/datalink-ac/datalink-ac/issues/2 |
+| 理念现在的说法（Datalink as Context、首页七节、被砍掉的那些） | issue #1 —— https://github.com/datalink-ac/datalink-ac/issues/1 |
+| SEO 台账（已做的、还没做的） | issue #2 —— https://github.com/datalink-ac/datalink-ac/issues/2 |
 
 ## 还没解决的（记在 wiki 里，别丢）
 

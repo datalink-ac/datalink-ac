@@ -51,7 +51,7 @@ nav: spec
        └─ host ──┘└path┘└────────── parameters ──────────────┘ └ver┘</pre>
       <ul>
         <li><b>host</b> —— 渲染器。换一个 host 也可以实现同一套契约。</li>
-        <li><b>path</b> —— 渲染的种类。<code>/d</code> 覆盖扁平参数那一类；<code>/d/arch2</code>、<code>/d/seq</code>、<code>/d/erd</code>……覆盖结构图那一类。</li>
+        <li><b>path</b> —— 渲染的种类。<code>/draw</code> 覆盖扁平参数那一类；<code>/draw/archmap</code>、<code>/draw/seq</code>、<code>/draw/erd</code>……覆盖结构图那一类。</li>
         <li><b>parameters</b> —— 扁平、有名字、URL 编码。它们就是数据。</li>
         <li><b>v</b> —— 钉住渲染器版本，让输出不再变动。</li>
       </ul>
@@ -111,12 +111,12 @@ nav: spec
       <table>
         <thead><tr><th>种类</th><th>路径</th><th>参数</th></tr></thead>
         <tbody>
-          <tr><td>图表</td><td><code>/d?type=pie</code>、<code>bar</code>、<code>hbar</code>、<code>line</code>、<code>area</code>、<code>radar</code>、<code>gauge</code>、<code>scatter</code>、<code>combo</code>、<code>sankey</code>、<code>butterfly</code></td><td><code>labels</code>、<code>values</code>、<code>series</code>、<code>title</code>、<code>unit</code></td></tr>
-          <tr><td>结构图</td><td><code>/d/arch2</code>、<code>/d/seq</code>、<code>/d/uc</code>、<code>/d/dataflow</code>、<code>/d/lifecycle</code>、<code>/d/erd</code>、<code>/d/class</code></td><td><code>n=</code>、<code>e=</code>、<code>b=</code></td></tr>
-          <tr><td>示意图</td><td><code>/d/mindmap</code>、<code>/d/mermaid</code>、<code>/d/gantt</code></td><td><code>n=</code>、<code>m=</code></td></tr>
-          <tr><td>表格</td><td><code>/d?type=table</code></td><td><code>cols=</code>、<code>rows=</code></td></tr>
-          <tr><td>日历</td><td><code>/d?type=calendar</code></td><td><code>start=</code>、<code>ev=</code></td></tr>
-          <tr><td>幻灯片</td><td><code>/deck</code></td><td><code>data=</code>（markdown）</td></tr>
+          <tr><td>图表</td><td><code>/draw?type=pie</code>、<code>bar</code>、<code>hbar</code>、<code>line</code>、<code>area</code>、<code>radar</code>、<code>gauge</code>、<code>scatter</code>、<code>combo</code>、<code>sankey</code>、<code>butterfly</code></td><td><code>labels</code>、<code>values</code>、<code>series</code>、<code>title</code>、<code>unit</code></td></tr>
+          <tr><td>结构图</td><td><code>/draw/archmap</code>、<code>/draw/seq</code>、<code>/draw/uc</code>、<code>/draw/dataflow</code>、<code>/draw/lifecycle</code>、<code>/draw/erd</code>、<code>/draw/class</code></td><td><code>n=</code>、<code>e=</code>、<code>b=</code></td></tr>
+          <tr><td>示意图</td><td><code>/draw/mindmap</code>、<code>/draw/mermaid</code>、<code>/draw/gantt</code></td><td><code>n=</code>、<code>m=</code></td></tr>
+          <tr><td>表格</td><td><code>/draw?type=table</code> —— <em>已定规格，尚未能渲染</em></td><td><code>cols=</code>、<code>rows=</code></td></tr>
+          <tr><td>日历</td><td><code>/draw?type=calendar</code></td><td><code>start=</code>、<code>ev=</code></td></tr>
+          <tr><td>幻灯片</td><td><code>/ppt</code></td><td><code>data=</code>（markdown）</td></tr>
         </tbody>
       </table>
       <p>
@@ -151,7 +151,7 @@ nav: spec
         <li><b>钉版本</b> —— <code>v=N</code> 让字节稳定，贴进文档里的链接不会过期。</li>
         <li><b>短链接</b> —— 渲染器可以接受用 POST 提交同一份规格，返回一个短而稳定的 URL。相同的数据必须永远得到相同的短链接——这才是短链接可分享的原因，而不是因为它不可解析。</li>
         <li><b>错误</b> —— 4xx，纯文本，并附一个改对了的例子。解释不了自己的渲染器，agent 也用不了。</li>
-        <li><b>数据视图</b> —— 规格必须能从同一条链接以 JSON 取到，好让读的人能越过图看到数字。本站在 <code>/d.json</code> 提供；按 <code>Accept</code> 协商输出是下面那个待决问题。</li>
+        <li><b>数据视图</b> —— 规格必须能从同一条链接以 JSON 取到，好让读的人能越过图看到数字。本站在 <code>/draw.json</code> 提供；按 <code>Accept</code> 协商输出是下面那个待决问题。</li>
       </ul>
 
       <h2 id="privacy">8 · 隐私</h2>
