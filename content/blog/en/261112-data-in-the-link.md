@@ -37,7 +37,7 @@ substance of a thing is deliberately kept away from the address of the thing.
 ## What changes when the data is in the link
 
 **The link becomes the whole context.** Not a pointer to context — the context. An
-agent that receives `datalink.ac/d?type=pie&labels=TS,Py,Go&values=4821,2312,980`
+agent that receives `datalink.ac/draw?type=pie&labels=TS,Py,Go&values=4821,2312,980`
 has the numbers, the labels and the shape of the question. Nothing to fetch, nothing
 to look at, no paragraph describing what the picture showed.
 

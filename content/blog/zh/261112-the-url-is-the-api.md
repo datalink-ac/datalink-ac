@@ -20,7 +20,7 @@ tags: 概念, 设计
 没有会话、没有登录、没有存下来的状态、没有藏起来的默认值。
 
 ```
-/d?type=bar&labels=Mon,Tue,Wed&values=120,180,95
+/draw?type=bar&labels=Mon,Tue,Wed&values=120,180,95
 ```
 
 这是一个纯函数。同样的参数，今天和明年给出同样的图，在任何机器上、不需要账号。

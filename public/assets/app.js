@@ -121,7 +121,7 @@
 
   // Every picture is a link to the explorer, where it can be changed by hand.
   const EXPLORE = 'https://www.x-cmd.com/draw/explore';
-  const exploreUrl = (path) => EXPLORE + path.replace(/^\/d/, '');
+  const exploreUrl = (path) => EXPLORE + path.replace(/^\/draw/, '');
 
   const svgSize = (svgText) => {
     const doc = new DOMParser().parseFromString(svgText, 'image/svg+xml');

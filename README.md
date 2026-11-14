@@ -15,11 +15,15 @@
 
 | 路径 | 是什么 |
 |---|---|
-| `/d?<params>` | 渲染：人打开看到图（SVG / HTML） |
-| `/d/<kind>?<params>` | 其它渲染器：`/d/arch2`、`/d/seq`、`/d/erd`、`/d/mindmap`、`/d/mermaid`… |
-| `/d.json?<params>` | 数据视图：agent 读的那一份，机器可读的 JSON |
-| `/d?type=table&…` | 表格渲染器（本站在地实现） |
-| `/deck?<params>` | 幻灯片（markdown 进，deck 出） |
+| `/draw?<params>` | 渲染：人打开看到图（SVG / HTML） |
+| `/draw/<kind>?<params>` | 其它渲染器：`/draw/arch2`、`/draw/seq`、`/draw/erd`、`/draw/mindmap`、`/draw/echarts`、`/draw/chem`… |
+| `/explore?<params>` | 交互式编辑器（转发到 x-cmd.com 的 explorer） |
+| `/draw.json?<params>` | 数据视图：agent 读的那一份，机器可读的 JSON |
+| `/ppt?<params>` | 幻灯片（markdown 进，deck 出） |
+
+这些路径**全部转发到 x-cmd.com 上对应的 endpoint** —— datalink.ac 是一扇门，
+不是另一套实现（`/draw.json` 是唯一的例外：上游还没有 JSON 视图，
+这一层把渲染结果里的 `<metadata>` 掏出来当规格用，见 x-cmd/draw#24）。
 | `/`、`/zh`、`/spec`、`/blog`、`/privacy` | 站点本身 |
 
 参考实现是 [x-cmd/draw](https://github.com/x-cmd/draw)（图表与结构图）和
@@ -33,7 +37,7 @@ content/
   blog/<lang>/*.md        博客文章（markdown）
 src/
   layout.html             页面骨架：head、导航、页脚、语言切换
-  worker.js               Cloudflare Worker：站点 + /d 代理 + /d.json + 表格渲染
+  worker.js               Cloudflare Worker：站点 + 转发 x-cmd.com + /draw.json
 scripts/
   build.mjs               content/ + public/ → dist/
   make-og.py              生成社交预览图（可选，需要 Pillow）

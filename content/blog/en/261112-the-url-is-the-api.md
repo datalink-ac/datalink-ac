@@ -21,7 +21,7 @@ There is another way. Make the link itself the interface: parameters in, picture
 No session, no login, no stored state, no hidden defaults.
 
 ```
-/d?type=bar&labels=Mon,Tue,Wed&values=120,180,95
+/draw?type=bar&labels=Mon,Tue,Wed&values=120,180,95
 ```
 
 This is a pure function. The same parameters give the same picture today and next
