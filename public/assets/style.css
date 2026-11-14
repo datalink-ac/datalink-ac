@@ -759,6 +759,34 @@ pre.code .c { color: var(--fg-mute); }
 .prompt-box .quote { color: var(--fg); }
 
 /* ---------------------------------------------------------------- cards */
+/* a list of statements — one line each */
+.plain-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+.plain-list li {
+  font-size: 1.08rem;
+  line-height: 1.5;
+  color: var(--fg-dim);
+  padding-left: 18px;
+  position: relative;
+}
+.plain-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--mint);
+}
+.plain-list b { color: var(--fg); font-weight: 680; }
+.plain-list--tight li { font-size: 1rem; }
+
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
 .card {
   border: 1px solid var(--line);
