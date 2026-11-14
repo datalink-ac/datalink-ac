@@ -23,11 +23,18 @@ nav: spec
       <h1>The datalink specification</h1>
       <p class="lede">
         A draft, and it exists to make one idea checkable: a URL can carry data, and
-        a renderer can turn that URL into both a picture for a person and a spec for
-        a machine. Everything below is either a promise a renderer must keep, or a
-        question we have not settled.
+        a renderer can turn that URL into both a picture for a person and the exact
+        numbers for a machine. Everything below is either a promise a renderer must
+        keep, or a question we have not settled.
       </p>
-      <p class="tiny">Status: <b>draft v0.1</b> · last revised 2026-11-12 · discussion is open on the repository issue.</p>
+      <div class="note reveal">
+        <b>Who this page is for.</b> If you want to <em>use</em> datalinks — you write
+        with an AI, and you want the numbers in its reports to be real — the
+        <a href="/">home page</a> is enough, and this page is the deep end of it.
+        This page is for the people who want to <em>implement</em> a renderer, or to
+        rely on one and need to know exactly what it promises.
+      </div>
+      <p class="tiny">Status: <b>draft v0.1</b> · last revised 2026-11-14 · discussion is open on the repository issue.</p>
 
       <h2 id="definitions">1 · Definitions</h2>
       <dl>
@@ -127,7 +134,8 @@ nav: spec
       <p>What an agent may rely on, and what it must never do.</p>
       <h3>May</h3>
       <ul>
-        <li>Fetch the link to get a rendering — and then <em>not</em> read it as a picture.</li>
+        <li>Read the numbers straight out of the link it was given — they are in the address.</li>
+        <li>Fetch the link for the rendering, and then <em>not</em> read that as a picture.</li>
         <li>Fetch the data view of the same link to get the spec verbatim.</li>
         <li>Rewrite the parameters to obtain a new link, then fetch that.</li>
         <li>Quote the link it used, so a human opens exactly what the agent saw.</li>
@@ -149,7 +157,7 @@ nav: spec
         <li><b>Version pinning</b> — <code>v=N</code> makes the bytes stable, so a link pasted into a document stays correct.</li>
         <li><b>Short links</b> — a renderer may accept the same spec by POST and answer with a short, stable URL. The same data must always yield the same short link; that is what makes them shareable rather than opaque.</li>
         <li><b>Errors</b> — a 4xx with plain text and a corrected example. A renderer that cannot explain itself is not usable by an agent.</li>
-        <li><b>The data view</b> — the spec must be reachable as JSON from the same link. This site exposes it at <code>/d.json</code>; content negotiation on <code>Accept</code> is an open question below.</li>
+        <li><b>The data view</b> — the spec must be reachable as JSON from the same link, so that a reader can go past the picture. This site exposes it at <code>/d.json</code>; content negotiation on <code>Accept</code> is an open question below.</li>
       </ul>
 
       <h2 id="privacy">8 · Privacy</h2>
