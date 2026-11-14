@@ -249,6 +249,22 @@
     renderLink();
   }
 
+  /* ------------------------------------------- one topic, many languages --- */
+  $$('[data-topic]').forEach((topic) => {
+    const img = $('[data-topic-img]', topic);
+    const link = $('[data-topic-link]', topic);
+    $$('[data-topic-tab]', topic).forEach((tab) => {
+      tab.addEventListener('click', () => {
+        if (img) {
+          img.src = tab.dataset.src || '';
+          img.alt = tab.dataset.alt || '';
+        }
+        if (link) link.href = tab.dataset.href || '';
+        $$('[data-topic-tab]', topic).forEach((t) => t.classList.toggle('is-on', t === tab));
+      });
+    });
+  });
+
   /* ------------------------------------------------------------ tabs --- */
   $$('[data-tabs]').forEach((group) => {
     const tabs = $$('[role="tab"]', group);

@@ -695,6 +695,42 @@ pre.code .c { color: var(--fg-mute); }
 .scenario .is-datalink b { color: var(--mint); }
 
 /* the same numbers, a language apart */
+/* one diagram — switch the language */
+.topic {
+  margin-top: 12px;
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+}
+.topic-figure {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: var(--bg-2);
+  padding: 20px;
+}
+.topic-figure img { width: min(560px, 100%); height: auto; display: block; }
+.topic-switch { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+.topic-tab {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--fg-dim);
+  cursor: pointer;
+  transition: color .16s, border-color .16s, background .16s;
+}
+.topic-tab:hover { color: var(--fg); border-color: var(--fg-mute); }
+.topic-tab.is-on {
+  color: #06120b;
+  background: var(--mint);
+  border-color: var(--mint);
+  font-weight: 700;
+}
+@media (prefers-color-scheme: light) { .topic-tab.is-on { color: #fff; } }
+
 .lang-pair {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
