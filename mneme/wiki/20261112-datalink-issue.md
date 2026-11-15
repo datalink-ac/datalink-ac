@@ -34,7 +34,7 @@ agent 写稿（README、issue、PR、博文、聊天），需要图就拼一条�
 | | 那一节要说的 |
 |---|---|
 | **The link is the data.** | 链接里装着数据 —— 大 URL 框，可以直接改，改完回车，图和数字一起变 |
-| **The repo stops growing. The documents stop drifting.** | 两个案例：README 里改数字（不用重渲染重上传，diff 里就是那个数字）；六种语言（六条 URL，不是三十六个文件） |
+| **Six-language charts, six datalinks — instead of six PNG files blowing your storage.** | 大标题先摆一笔具体的账：六种语言就是六个图片文件，每改一次数据再添六个。接着讲解（六条 URL，每条一行文字；README 里改数字，diff 里就是那个数字）。最后一句收尾：**The repo stops growing. The documents stop drifting.** |
 | **Datalink gives more than pictures.** | 架构图、日历、PPT、地图、分子、图表 —— 大号 label 排开，点一个换一张图 |
 | **Datalink is designed for GitHub.** | release / issue / PR 三张真图 |
 | **Make your agent use datalinks.** | 左 prompt（带 skill 说明书地址）、右 clawhub 安装，都能 copy |
@@ -54,6 +54,8 @@ agent 写稿（README、issue、PR、博文、聊天），需要图就拼一条�
 - **「A picture is not the data.」那一节** —— 首屏已经说了
   「Agent gets true data. Human gets big picture.」，
   再用一节把同一句话说三遍，是重复
+- **「三十六个文件」这种说法** —— 哪有什么三十六个文件。
+  真相是：**每改一次数据，仓库里就多六个图片文件**。
 - 小节标签（「怎么跑」「两个读者」「另一半」那一套）—— 节标题自己就是观点
 - 导语 —— 节标题已经说完了，导语是重复
 - 「我们为眼睛造了图片」这类辩解 —— 那是解释，不是宣传

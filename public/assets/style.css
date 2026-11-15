@@ -746,6 +746,18 @@ pre.code .c { color: var(--fg-mute); }
 }
 @media (max-width: 880px) { .cases-grid { grid-template-columns: 1fr; } }
 .cases-list { display: grid; gap: 24px; }
+
+/* the closing line: the general claim, one last time */
+.closing {
+  margin: clamp(30px, 4vw, 54px) 0 0;
+  padding-top: clamp(18px, 2.2vw, 26px);
+  border-top: 1px solid var(--line-soft);
+  font-size: clamp(1.2rem, 2.3vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -.022em;
+  line-height: 1.3;
+  color: var(--fg);
+}
 .case-k {
   font-family: var(--mono);
   font-size: 11.5px;
