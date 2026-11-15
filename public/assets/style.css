@@ -699,6 +699,15 @@ pre.code .c { color: var(--fg-mute); }
 .urlbar-copy:hover { color: var(--mint); border-color: var(--mint-dim); }
 .urlbar-copy.is-done { color: var(--mint); border-color: var(--mint-dim); }
 
+.cmp-box.is-human { border-color: color-mix(in srgb, var(--mint) 40%, var(--line)); }
+.cmp-box.is-agent { border-color: color-mix(in srgb, var(--peri) 40%, var(--line)); }
+.cmp-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
 .cmp-tag--line {
   font-family: var(--sans);
   font-size: .98rem;
@@ -711,15 +720,6 @@ pre.code .c { color: var(--fg-mute); }
 .is-human .cmp-tag--line b { color: var(--mint); }
 .is-agent .cmp-tag--line b { color: var(--peri); }
 
-.cmp-box.is-human { border-color: color-mix(in srgb, var(--mint) 40%, var(--line)); }
-.cmp-box.is-agent { border-color: color-mix(in srgb, var(--peri) 40%, var(--line)); }
-.cmp-tag {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
 .cmp-box pre.code { max-height: 360px; overflow: auto; font-size: 12.4px; }
 .cmp-box pre.link-code {
   max-height: none;
@@ -850,8 +850,8 @@ pre.code .c { color: var(--fg-mute); }
   color: var(--fg-mute);
 }
 .lang-pair figcaption b { color: var(--amber); }
-.is-human .cmp-tag { color: var(--mint); }
-.is-agent .cmp-tag { color: var(--peri); }
+.is-human .cmp-tag--line { color: color-mix(in srgb, var(--mint) 22%, var(--fg-dim)); }
+.is-agent .cmp-tag--line { color: color-mix(in srgb, var(--peri) 22%, var(--fg-dim)); }
 
 /* --------------------------------------------------------------- humans */
 .collab {
