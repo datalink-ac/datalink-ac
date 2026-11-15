@@ -165,40 +165,201 @@ nav: home
       <h2>Datalink 是为 GitHub 设计的。</h2>
     </div>
 
-    <div class="cards reveal" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+    <div class="cards cards-2x2 reveal">
       <div class="card" style="padding:0;overflow:hidden">
-        <div class="panel-head" style="border-bottom:1px solid var(--line-soft)"><span>release</span><span class="tag tag-mint">bar</span></div>
-        <div style="padding:12px">
-          <a href="https://www.x-cmd.com/draw/explore?type=bar&amp;labels=TypeScript,JavaScript,Shell,Markdown&amp;values=4820,1687,640,180&amp;title=Code%20composition" target="_blank" rel="noopener">
-            <img src="/draw?type=bar&amp;labels=TypeScript,JavaScript,Shell,Markdown&amp;values=4820,1687,640,180&amp;title=Code%20composition&amp;scheme=auto" width="466" height="520" class="fit" alt="按语言划分的代码构成柱状图" loading="lazy">
+        <div class="panel-head"><span>release</span><span class="tag tag-mint">代码构成</span></div>
+        <div class="card-shot">
+          <a href="https://www.x-cmd.com/draw/tokei?layout=butterfly&amp;langs=TypeScript:4820:1180:940,JavaScript:1687:298:71,Shell:640:120:88,CSS:210:40:35,Markdown:180:760:120,JSON:95:0:12&amp;title=Code%20composition&amp;w=560&amp;h=300&amp;scheme=auto" target="_blank" rel="noopener">
+            <img src="/draw/tokei?layout=butterfly&amp;langs=TypeScript:4820:1180:940,JavaScript:1687:298:71,Shell:640:120:88,CSS:210:40:35,Markdown:180:760:120,JSON:95:0:12&amp;title=Code%20composition&amp;w=560&amp;h=300&amp;scheme=auto" alt="一个仓库的代码构成" loading="lazy">
           </a>
         </div>
-        <div class="card-note" style="padding:0 16px 16px">
-          <p class="tiny" style="margin:0">数字留在链接里，release note 就一直是真的。</p>
+        <div class="card-note">
+          <p class="tiny">代码构成放进 release note —— 是链接，下个版本自己就更新了。</p>
+        </div>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden">
+        <div class="panel-head"><span>issue</span><span class="tag tag-mint">流程</span></div>
+        <div class="card-shot">
+          <a href="https://www.x-cmd.com/draw/mermaid?m=graph%20TD%3BA%5B%E9%9C%80%E6%B1%82%5D--%3EB%5B%E8%AE%BE%E8%AE%A1%5D%3BB--%3EC%5B%E5%BC%80%E5%8F%91%5D%3BC--%3ED%5B%E8%AF%84%E5%AE%A1%5D%3BD--%3E%7C%E6%94%B9%7C%20C%3BD--%3EE%5B%E5%8F%91%E5%B8%83%5D&amp;title=%E4%B8%80%E4%B8%AA%E9%9C%80%E6%B1%82%E7%9A%84%E6%B5%81%E7%A8%8B&amp;w=300&amp;h=400&amp;scheme=auto" target="_blank" rel="noopener">
+            <img src="/draw/mermaid?m=graph%20TD%3BA%5B%E9%9C%80%E6%B1%82%5D--%3EB%5B%E8%AE%BE%E8%AE%A1%5D%3BB--%3EC%5B%E5%BC%80%E5%8F%91%5D%3BC--%3ED%5B%E8%AF%84%E5%AE%A1%5D%3BD--%3E%7C%E6%94%B9%7C%20C%3BD--%3EE%5B%E5%8F%91%E5%B8%83%5D&amp;title=%E4%B8%80%E4%B8%AA%E9%9C%80%E6%B1%82%E7%9A%84%E6%B5%81%E7%A8%8B&amp;w=300&amp;h=400&amp;scheme=auto" alt="一个需求的流程" loading="lazy">
+          </a>
+        </div>
+        <div class="card-note">
+          <p class="tiny">一个需求的流程，画一次 —— 下一个 issue 引同一条链接。</p>
+        </div>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden">
+        <div class="panel-head"><span>pull request</span><span class="tag tag-mint">性能对比</span></div>
+        <div class="card-shot">
+          <a href="https://www.x-cmd.com/draw?type=bar&amp;labels=summary,pages,referrers,browsers&amp;series=DuckDB:117.0,4.6,7.8,66.3&amp;series=SQLite:3125.7,875.7,863.6,1829.1&amp;title=duckdb%20vs%20sqlite&amp;w=560&amp;h=300&amp;scheme=auto" target="_blank" rel="noopener">
+            <img src="/draw?type=bar&amp;labels=summary,pages,referrers,browsers&amp;series=DuckDB:117.0,4.6,7.8,66.3&amp;series=SQLite:3125.7,875.7,863.6,1829.1&amp;title=duckdb%20vs%20sqlite&amp;w=560&amp;h=300&amp;scheme=auto" alt="DuckDB 与 SQLite 的性能对比" loading="lazy">
+          </a>
+        </div>
+        <div class="card-note">
+          <p class="tiny">PR 里的性能对比 —— 数字跟着 diff 走。</p>
+        </div>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden">
+        <div class="panel-head"><span>README</span><span class="tag tag-mint">架构图</span></div>
+        <div class="card-shot">
+          <a href="https://www.x-cmd.com/draw/arch2?n=client;ext;Your%20app%20or%20CI;GET%20/draw%3Ftype%3D...;r0c0&amp;n=worker;fe;Edge%20worker;src/index.ts%20%C2%B7%20fetch%20handler;r0c1&amp;n=handler;be;handler.ts;route%20%E2%86%92%20respond;r1c1&amp;n=specs;be;specs/;parse%20%2B%20validate;r2c0&amp;n=store;db;store.ts;short%20links%20%E2%86%92%20Git%20repo;r2c1&amp;n=render;be;render/;draw%20the%20SVG;r3c0&amp;n=styles;be;styles/;skins%20%2B%20families;r4c0&amp;n=png;be;png.ts;resvg%20%E2%86%92%20PNG;r4c2&amp;e=client;worker;HTTPS&amp;e=worker;handler;same%20core&amp;e=handler;specs;spec&amp;e=handler;store;short%20link&amp;e=handler;render;render&amp;e=render;styles;skin&amp;e=render;png;format%3Dpng&amp;b=Edge%20runtime%20%E2%80%94%20Cloudflare%20Worker;worker%20handler%20specs%20store%20render%20styles&amp;title=Inside%20draw&amp;w=560&amp;h=340&amp;scheme=auto" target="_blank" rel="noopener">
+            <img src="/draw/arch2?n=client;ext;Your%20app%20or%20CI;GET%20/draw%3Ftype%3D...;r0c0&amp;n=worker;fe;Edge%20worker;src/index.ts%20%C2%B7%20fetch%20handler;r0c1&amp;n=handler;be;handler.ts;route%20%E2%86%92%20respond;r1c1&amp;n=specs;be;specs/;parse%20%2B%20validate;r2c0&amp;n=store;db;store.ts;short%20links%20%E2%86%92%20Git%20repo;r2c1&amp;n=render;be;render/;draw%20the%20SVG;r3c0&amp;n=styles;be;styles/;skins%20%2B%20families;r4c0&amp;n=png;be;png.ts;resvg%20%E2%86%92%20PNG;r4c2&amp;e=client;worker;HTTPS&amp;e=worker;handler;same%20core&amp;e=handler;specs;spec&amp;e=handler;store;short%20link&amp;e=handler;render;render&amp;e=render;styles;skin&amp;e=render;png;format%3Dpng&amp;b=Edge%20runtime%20%E2%80%94%20Cloudflare%20Worker;worker%20handler%20specs%20store%20render%20styles&amp;title=Inside%20draw&amp;w=560&amp;h=340&amp;scheme=auto" alt="渲染器的架构" loading="lazy">
+          </a>
+        </div>
+        <div class="card-note">
+          <p class="tiny">README 里的架构图 —— 改链接，图就跟着变。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="idea">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>链接就是数据。</h2>
+    </div>
+
+    <div class="reveal" data-demo>
+      <div class="urlbar" data-urlbar>
+        <div class="urlbar-hl" data-urlbar-hl aria-hidden="true"></div>
+        <input class="urlbar-input" data-url-in value="https://datalink.ac/draw?type=pie&amp;t=revenue&amp;labels=TS,Py,Go&amp;values=4821,2312,980&amp;w=480&amp;h=340&amp;scheme=auto" aria-label="链接——改一改回车即重新渲染" placeholder="改一个数字，回车" spellcheck="false" autocomplete="off">
+        <button class="urlbar-copy" data-copy="self">copy</button>
+      </div>
+
+      <div class="compare">
+        <div class="cmp-box is-human">
+          <p class="cmp-tag cmp-tag--line"><b>图</b> —— 读者看到的。</p>
+          <div class="chart-holder" data-render>
+            <p class="small">加载中…</p>
+          </div>
+        </div>
+
+        <div class="compare-mid">同一个链接</div>
+
+        <div class="cmp-box is-agent">
+          <p class="cmp-tag cmp-tag--line"><b>数字</b> —— agent 读到的。</p>
+          <pre class="code link-code" data-link-out>加载中…</pre>
+          <div class="meter" data-meter style="margin-top:14px"></div>
         </div>
       </div>
 
-      <div class="card" style="padding:0;overflow:hidden">
-        <div class="panel-head" style="border-bottom:1px solid var(--line-soft)"><span>issue</span><span class="tag tag-peri">用例图</span></div>
-        <div style="padding:12px">
-          <a href="https://www.x-cmd.com/draw/explore/uc?n=actor;actor;Developer&amp;n=uc1;uc;Write%20a%20datalink&amp;n=uc2;uc;Publish%20it%20in%20an%20issue&amp;e=actor;uc1&amp;e=actor;uc2" target="_blank" rel="noopener">
-            <img src="/draw/uc?n=actor;actor;Developer&amp;n=uc1;uc;Write%20a%20datalink&amp;n=uc2;uc;Publish%20it%20in%20an%20issue&amp;e=actor;uc1&amp;e=actor;uc2" width="475" height="180" class="fit" alt="开发者使用数据链接的用例图" loading="lazy">
-          </a>
-        </div>
-        <div class="card-note" style="padding:0 16px 16px">
-          <p class="tiny" style="margin:0">一张图代替三段话，而且下一个人还能挪一个框。</p>
-        </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head case-head reveal">
+      <h2 class="case-h">案例：六种语言的图</h2>
+    </div>
+
+    <div class="case-ways reveal">
+      <p class="case-line is-good"><span class="case-mark">✅</span> 6 条链接，每种语言一条——diff 里看得到数字，历史也读得懂</p>
+      <p class="case-line is-bad"><span class="case-mark">❌</span> 每改一次数据就多 6 个 PNG 文件——仓库在胖，文档走样</p>
+    </div>
+
+    <div class="topic reveal" data-topic data-carousel>
+      <div class="tabs" role="group" aria-label="language">
+        <button class="tab is-on" type="button" data-topic-tab data-src="/draw/archmap?n=web;fe;Browser;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20Gateway;r0c2&amp;n=auth;be;Auth%20Service;r1c1&amp;n=render;be;Chart%20Render;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=Data%20Layer;pg%20cache" data-href="https://www.x-cmd.com/draw/explore/archmap?n=web;fe;Browser;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20Gateway;r0c2&amp;n=auth;be;Auth%20Service;r1c1&amp;n=render;be;Chart%20Render;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=Data%20Layer;pg%20cache" data-alt="Architecture diagram, English labels">English</button>
+        <button class="tab" type="button" data-topic-tab data-src="/draw/archmap?n=web;fe;%E6%B5%8F%E8%A7%88%E5%99%A8;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20%E7%BD%91%E5%85%B3;%E8%AE%A4%E8%AF%81;r0c2&amp;n=auth;be;%E8%AE%A4%E8%AF%81%E6%9C%8D%E5%8A%A1;r1c1&amp;n=render;be;%E5%9B%BE%E8%A1%A8%E6%B8%B2%E6%9F%93;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=%E6%95%B0%E6%8D%AE%E5%B1%82;pg%20cache" data-href="https://www.x-cmd.com/draw/explore/archmap?n=web;fe;%E6%B5%8F%E8%A7%88%E5%99%A8;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20%E7%BD%91%E5%85%B3;%E8%AE%A4%E8%AF%81;r0c2&amp;n=auth;be;%E8%AE%A4%E8%AF%81%E6%9C%8D%E5%8A%A1;r1c1&amp;n=render;be;%E5%9B%BE%E8%A1%A8%E6%B8%B2%E6%9F%93;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=%E6%95%B0%E6%8D%AE%E5%B1%82;pg%20cache" data-alt="架构图，中文标签">中文</button>
+        <button class="tab" type="button" data-topic-tab data-src="/draw/archmap?n=web;fe;Navigateur;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;Passerelle%20API;Auth;r0c2&amp;n=auth;be;Service%20d%27auth;r1c1&amp;n=render;be;Rendu%20de%20graphique;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=Couche%20de%20donn%C3%A9es;pg%20cache" data-href="https://www.x-cmd.com/draw/explore/archmap?n=web;fe;Navigateur;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;Passerelle%20API;Auth;r0c2&amp;n=auth;be;Service%20d%27auth;r1c1&amp;n=render;be;Rendu%20de%20graphique;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=Couche%20de%20donn%C3%A9es;pg%20cache" data-alt="Schéma d’architecture, libellé en français">Français</button>
+        <button class="tab" type="button" data-topic-tab data-src="/draw/archmap?n=web;fe;%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4;%E8%AA%8D%E8%A8%BC;r0c2&amp;n=auth;be;%E8%AA%8D%E8%A8%BC%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9;r1c1&amp;n=render;be;%E3%83%81%E3%83%A3%E3%83%BC%E3%83%88%E6%8F%8F%E7%94%BB;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=%E3%83%87%E3%83%BC%E3%82%BF%E5%B1%A4;pg%20cache" data-href="https://www.x-cmd.com/draw/explore/archmap?n=web;fe;%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4;%E8%AA%8D%E8%A8%BC;r0c2&amp;n=auth;be;%E8%AA%8D%E8%A8%BC%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9;r1c1&amp;n=render;be;%E3%83%81%E3%83%A3%E3%83%BC%E3%83%88%E6%8F%8F%E7%94%BB;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=%E3%83%87%E3%83%BC%E3%82%BF%E5%B1%A4;pg%20cache" data-alt="アーキテクチャ図、日本語のラベル">日本語</button>
+        <button class="tab" type="button" data-topic-tab data-src="/draw/archmap?n=web;fe;Navegador;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20Gateway;Autenticaci%C3%B3n;r0c2&amp;n=auth;be;Servicio%20de%20auth;r1c1&amp;n=render;be;Render%20de%20gr%C3%A1ficos;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=Capa%20de%20datos;pg%20cache" data-href="https://www.x-cmd.com/draw/explore/archmap?n=web;fe;Navegador;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20Gateway;Autenticaci%C3%B3n;r0c2&amp;n=auth;be;Servicio%20de%20auth;r1c1&amp;n=render;be;Render%20de%20gr%C3%A1ficos;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=Capa%20de%20datos;pg%20cache" data-alt="Diagrama de arquitectura con etiquetas en español">Español</button>
+        <button class="tab" type="button" data-topic-tab data-src="/draw/archmap?n=web;fe;%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4;%EC%9D%B8%EC%A6%9D;r0c2&amp;n=auth;be;%EC%9D%B8%EC%A6%9D%20%EC%84%9C%EB%B9%84%EC%8A%A4;r1c1&amp;n=render;be;%EC%B0%A8%ED%8A%B8%20%EB%A0%8C%EB%8D%94%EB%A7%81;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EA%B3%84%EC%B8%B5;pg%20cache" data-href="https://www.x-cmd.com/draw/explore/archmap?n=web;fe;%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4;%EC%9D%B8%EC%A6%9D;r0c2&amp;n=auth;be;%EC%9D%B8%EC%A6%9D%20%EC%84%9C%EB%B9%84%EC%8A%A4;r1c1&amp;n=render;be;%EC%B0%A8%ED%8A%B8%20%EB%A0%8C%EB%8D%94%EB%A7%81;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EA%B3%84%EC%B8%B5;pg%20cache" data-alt="아키텍처 다이어그램, 한국어 라벨">한국어</button>
+      </div>
+      <figure class="topic-figure">
+        <a data-topic-link href="https://www.x-cmd.com/draw/explore/archmap?n=web;fe;Browser;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20Gateway;r0c2&amp;n=auth;be;Auth%20Service;r1c1&amp;n=render;be;Chart%20Render;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=Data%20Layer;pg%20cache" target="_blank" rel="noopener">
+          <img data-topic-img src="/draw/archmap?n=web;fe;Browser;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20Gateway;r0c2&amp;n=auth;be;Auth%20Service;r1c1&amp;n=render;be;Chart%20Render;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=Data%20Layer;pg%20cache" alt="Architecture diagram, English labels" loading="lazy" width="440" height="286">
+        </a>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Datalink 给的不只是图。</h2>
+    </div>
+
+    <div class="reveal" data-tabs>
+      <div class="tabs" role="tablist">
+        <button class="tab" role="tab" data-key="structure" aria-selected="true">架构图</button>
+        <button class="tab" role="tab" data-key="calendar" aria-selected="false">日历</button>
+        <button class="tab" role="tab" data-key="ppt" aria-selected="false">PPT</button>
+        <button class="tab" role="tab" data-key="map" aria-selected="false">地图</button>
+        <button class="tab" role="tab" data-key="molecule" aria-selected="false">分子结构</button>
+        <button class="tab" role="tab" data-key="chart" aria-selected="false">图表</button>
       </div>
 
-      <div class="card" style="padding:0;overflow:hidden">
-        <div class="panel-head" style="border-bottom:1px solid var(--line-soft)"><span>pull request</span><span class="tag tag-mint">思维导图</span></div>
-        <div style="padding:12px">
-          <a href="https://www.x-cmd.com/draw/explore/mindmap?n=draw/src/render/tokei.ts&amp;n=draw/src/handler.ts&amp;n=draw/test/tokei.test.ts&amp;n=draw/docs/2-data-charts/10-tokei/en.md&amp;style=tree&amp;title=Files%20changed%20in%20%2331" target="_blank" rel="noopener">
-            <img src="/draw/mindmap?n=draw/src/render/tokei.ts&amp;n=draw/src/handler.ts&amp;n=draw/test/tokei.test.ts&amp;n=draw/docs/2-data-charts/10-tokei/en.md&amp;style=tree&amp;title=Files%20changed%20in%20%2331" width="425" height="133" class="fit" alt="这次 PR 动到的文件的思维导图" loading="lazy">
-          </a>
+      <div class="panel">
+        <div class="panel-body">
+          <div data-pane="structure" data-url="/draw/archmap?n=web;fe;%E6%B5%8F%E8%A7%88%E5%99%A8;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20%E7%BD%91%E5%85%B3;%E8%AE%A4%E8%AF%81;r0c2&amp;n=auth;be;%E8%AE%A4%E8%AF%81%E6%9C%8D%E5%8A%A1;r1c1&amp;n=render;be;%E5%9B%BE%E8%A1%A8%E6%B8%B2%E6%9F%93;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=%E6%95%B0%E6%8D%AE%E5%B1%82;pg%20cache" hidden>
+            <div class="chart-holder" data-pane-render></div>
+          </div>
+          <div data-pane="calendar" data-url="/draw?type=calendar&amp;layout=month&amp;start=2026-11-02&amp;ev=2026-11-03%3Bmeeting%3B%E9%9C%80%E6%B1%82%E8%AF%84%E5%AE%A1%3B14%3A00&amp;ev=2026-11-11%3Breview%3B%E8%A7%84%E8%8C%83%E8%B5%B0%E6%9F%A5%3B10%3A30&amp;scheme=auto" hidden>
+            <div class="chart-holder" data-pane-render></div>
+          </div>
+          <div data-pane="ppt" data-url="https://www.x-cmd.com/ppt?url=https%3A%2F%2Fraw.githubusercontent.com%2Fx-cmd%2Foffice%2Fmain%2Fdatalink.md" hidden>
+            <iframe data-pane-render title="一条链接带来的讲稿" src="https://www.x-cmd.com/ppt?url=https%3A%2F%2Fraw.githubusercontent.com%2Fx-cmd%2Foffice%2Fmain%2Fdatalink.md" style="display:block;width:100%;height:470px;border:1px solid var(--line);border-radius:var(--r-sm);background:#141414" loading="lazy"></iframe>
+          </div>
+          <div data-pane="map" data-url="/draw/echarts?d=%7B%22title%22%3A%7B%22text%22%3A%22US%20states%20%C2%B7%20GDP%20per%20capita%202024%20%C2%B7%20thousand%20USD%22%7D%2C%22visualMap%22%3A%7B%22min%22%3A50%2C%22max%22%3A120%2C%22orient%22%3A%22horizontal%22%2C%22left%22%3A%22center%22%2C%22bottom%22%3A8%2C%22text%22%3A%5B%22high%22%2C%22low%22%5D%2C%22itemWidth%22%3A12%2C%22itemHeight%22%3A200%2C%22inRange%22%3A%7B%22color%22%3A%5B%22%23dbeafe%22%2C%22%237dd3fc%22%2C%22%230ea5e9%22%2C%22%23075985%22%5D%7D%7D%2C%22series%22%3A%5B%7B%22type%22%3A%22map%22%2C%22map%22%3A%22USA%22%2C%22roam%22%3Afalse%2C%22label%22%3A%7B%22show%22%3Atrue%2C%22fontSize%22%3A11%2C%22color%22%3A%22%230f172a%22%7D%2C%22labelLayout%22%3A%7B%22hideOverlap%22%3Atrue%7D%2C%22itemStyle%22%3A%7B%22areaColor%22%3A%22var(--d-grid)%22%2C%22borderColor%22%3A%22%23ffffff%22%2C%22borderWidth%22%3A0.6%7D%2C%22data%22%3A%5B%7B%22name%22%3A%22New%20York%22%2C%22value%22%3A116.9%2C%22label%22%3A%7B%22formatter%22%3A%22NY%5Cn%24117k%22%2C%22color%22%3A%22%23ffffff%22%7D%7D%2C%7B%22name%22%3A%22Massachusetts%22%2C%22value%22%3A109.1%2C%22label%22%3A%7B%22formatter%22%3A%22MA%5Cn%24109k%22%2C%22color%22%3A%22%23ffffff%22%7D%7D%2C%7B%22name%22%3A%22Washington%22%2C%22value%22%3A107.6%2C%22label%22%3A%7B%22formatter%22%3A%22WA%5Cn%24108k%22%2C%22color%22%3A%22%23ffffff%22%7D%7D%2C%7B%22name%22%3A%22Delaware%22%2C%22value%22%3A105.5%2C%22label%22%3A%7B%22formatter%22%3A%22DE%5Cn%24106k%22%2C%22color%22%3A%22%23ffffff%22%7D%7D%2C%7B%22name%22%3A%22California%22%2C%22value%22%3A102.7%2C%22label%22%3A%7B%22formatter%22%3A%22CA%5Cn%24103k%22%2C%22color%22%3A%22%23ffffff%22%7D%7D%2C%7B%22name%22%3A%22North%20Dakota%22%2C%22value%22%3A100.5%2C%22label%22%3A%7B%22formatter%22%3A%22ND%5Cn%24101k%22%2C%22color%22%3A%22%23ffffff%22%7D%7D%2C%7B%22name%22%3A%22Connecticut%22%2C%22value%22%3A97.1%2C%22label%22%3A%7B%22formatter%22%3A%22CT%5Cn%2497k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Alaska%22%2C%22value%22%3A96.7%2C%22label%22%3A%7B%22formatter%22%3A%22AK%5Cn%2497k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Nebraska%22%2C%22value%22%3A94.4%2C%22label%22%3A%7B%22formatter%22%3A%22NE%5Cn%2494k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Colorado%22%2C%22value%22%3A93.6%2C%22label%22%3A%7B%22formatter%22%3A%22CO%5Cn%2494k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Illinois%22%2C%22value%22%3A90.3%2C%22label%22%3A%7B%22formatter%22%3A%22IL%5Cn%2490k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22New%20Jersey%22%2C%22value%22%3A89%2C%22label%22%3A%7B%22formatter%22%3A%22NJ%5Cn%2489k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Texas%22%2C%22value%22%3A88.5%2C%22label%22%3A%7B%22formatter%22%3A%22TX%5Cn%2489k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Wyoming%22%2C%22value%22%3A87.6%2C%22label%22%3A%7B%22formatter%22%3A%22WY%5Cn%2488k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Minnesota%22%2C%22value%22%3A87.6%2C%22label%22%3A%7B%22formatter%22%3A%22MN%5Cn%2488k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Maryland%22%2C%22value%22%3A87.2%2C%22label%22%3A%7B%22formatter%22%3A%22MD%5Cn%2487k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Virginia%22%2C%22value%22%3A86.5%2C%22label%22%3A%7B%22formatter%22%3A%22VA%5Cn%2487k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Utah%22%2C%22value%22%3A85.5%2C%22label%22%3A%7B%22formatter%22%3A%22UT%5Cn%2486k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22New%20Hampshire%22%2C%22value%22%3A84.7%2C%22label%22%3A%7B%22formatter%22%3A%22NH%5Cn%2485k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22South%20Dakota%22%2C%22value%22%3A83.1%2C%22label%22%3A%7B%22formatter%22%3A%22SD%5Cn%2483k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Nevada%22%2C%22value%22%3A82.3%2C%22label%22%3A%7B%22formatter%22%3A%22NV%5Cn%2482k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Iowa%22%2C%22value%22%3A82%2C%22label%22%3A%7B%22formatter%22%3A%22IA%5Cn%2482k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Hawaii%22%2C%22value%22%3A81.3%2C%22label%22%3A%7B%22formatter%22%3A%22HI%5Cn%2481k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Georgia%22%2C%22value%22%3A78.8%2C%22label%22%3A%7B%22formatter%22%3A%22GA%5Cn%2479k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Ohio%22%2C%22value%22%3A77.7%2C%22label%22%3A%7B%22formatter%22%3A%22OH%5Cn%2478k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Tennessee%22%2C%22value%22%3A77.6%2C%22label%22%3A%7B%22formatter%22%3A%22TN%5Cn%2478k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Kansas%22%2C%22value%22%3A77.6%2C%22label%22%3A%7B%22formatter%22%3A%22KS%5Cn%2478k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Oregon%22%2C%22value%22%3A77.3%2C%22label%22%3A%7B%22formatter%22%3A%22OR%5Cn%2477k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Pennsylvania%22%2C%22value%22%3A77.1%2C%22label%22%3A%7B%22formatter%22%3A%22PA%5Cn%2477k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22North%20Carolina%22%2C%22value%22%3A76.4%2C%22label%22%3A%7B%22formatter%22%3A%22NC%5Cn%2476k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Wisconsin%22%2C%22value%22%3A76%2C%22label%22%3A%7B%22formatter%22%3A%22WI%5Cn%2476k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Arizona%22%2C%22value%22%3A75.2%2C%22label%22%3A%7B%22formatter%22%3A%22AZ%5Cn%2475k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Indiana%22%2C%22value%22%3A75%2C%22label%22%3A%7B%22formatter%22%3A%22IN%5Cn%2475k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Florida%22%2C%22value%22%3A73.9%2C%22label%22%3A%7B%22formatter%22%3A%22FL%5Cn%2474k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Rhode%20Island%22%2C%22value%22%3A72.3%2C%22label%22%3A%7B%22formatter%22%3A%22RI%5Cn%2472k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Missouri%22%2C%22value%22%3A71.8%2C%22label%22%3A%7B%22formatter%22%3A%22MO%5Cn%2472k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Louisiana%22%2C%22value%22%3A71.6%2C%22label%22%3A%7B%22formatter%22%3A%22LA%5Cn%2472k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%2C%7B%22name%22%3A%22Virginia%22%2C%22value%22%3A%22Virginia%22%2C%22value%22%3A71.6%2C%22label%22%3A%7B%22formatter%22%3A%22LA%5Cn%2472k%22%2C%22color%22%3A%22%230f172a%22%7D%7D%5D%7D%5D%7D&w=960&h=540&amp;scheme=light" hidden>
+            <div class="chart-holder" data-pane-render></div>
+          </div>
+          <div data-pane="molecule" data-url="/draw/chem?smiles=CN1C%3DNC2%3DC1C%28%3DO%29N%28C%28%3DO%29N2C%29C&amp;scheme=light" hidden>
+            <div class="chart-holder" data-pane-render></div>
+          </div>
+          <div data-pane="chart" data-url="/draw?type=area&amp;labels=Q1,Q2,Q3,Q4&amp;values=12,19,15,24&amp;title=Latency%20budget&amp;scheme=auto" hidden>
+            <div class="chart-holder" data-pane-render></div>
+          </div>
         </div>
-        <div class="card-note" style="padding:0 16px 16px">
-          <p class="tiny" style="margin:0">在 PR 里改一个参数，图跟着变。截图没法被审。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Datalink 是为 GitHub 设计的。</h2>
+    </div>
+
+    <div class="cards cards-2x2 reveal">
+      <div class="card" style="padding:0;overflow:hidden">
+        <div class="panel-head"><span>release</span><span class="tag tag-mint">代码构成</span></div>
+        <div class="card-shot">
+          <a href="https://www.x-cmd.com/draw/tokei?layout=butterfly&langs=TypeScript:4820:1180:940,JavaScript:1687:298:71,Shell:640:120:88,CSS:210:40:35,Markdown:180:760:120,JSON:95:0:12&title=Code%20composition&w=560&h=300&scheme=auto" target="_blank" rel="noopener"></a>
+        </div>
+        <div class="card-note">
+          <p class="tiny">代码构成放进 release note —— 是链接，下个版本自己就更新了。</p>
+        </div>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden">
+        <div class="panel-head"><span>issue</span><span class="tag tag-mint">流程</span></div>
+        <div class="card-shot">
+          <a href="https://www.x-cmd.com/draw/mermaid?m=graph%20LR%3BA%5B%E9%9C%80%E6%B1%82%5D--%3EB%5B%E8%AE%BE%E8%AE%A1%5D%3BB--%3EC%5B%E5%BC%80%E5%8F%91%5D%3BC--%3ED%5B%E8%AF%84%E5%AE%A1%5D%3BD--%3E%7C%E6%94%B9%7C%20C%3BD--%3EE%5B%E5%8F%91%E5%B8%83%5D&title=%E4%B8%80%E4%B8%AA%E9%9C%80%E6%B1%82%E7%9A%84%E6%B5%81%E7%A8%8B&w=560&h=220&scheme=auto" target="_blank" rel="noopener"></a>
+        </div>
+        <div class="card-note">
+          <p class="tiny">一个需求的流程，画一次 —— 下一个 issue 引同一条链接。</p>
+        </div>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden">
+        <div class="panel-head"><span>pull request</span><span class="tag tag-mint">性能对比</span></div>
+        <div class="card-shot">
+          <a href="https://www.x-cmd.com/draw?type=bar&labels=summary,pages,referrers,browsers&series=DuckDB:117.0,4.6,7.8,66.3&series=SQLite:3125.7,875.7,863.6,1829.1&title=duckdb%20vs%20sqlite&w=560&h=300&scheme=auto" target="_blank" rel="noopener"></a>
+        </div>
+        <div class="card-note">
+          <p class="tiny">PR 里的性能对比 —— 数字跟着 diff 走。</p>
+        </div>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden">
+        <div class="panel-head"><span>README</span><span class="tag tag-mint">架构图</span></div>
+        <div class="card-shot">
+          <a href="https://www.x-cmd.com/draw/arch2?n=client;ext;Your%20app%20or%20CI;GET%20/draw%3Ftype%3D...;r0c0&n=worker;fe;Edge%20worker;src/index.ts%20%C2%B7%20fetch%20handler;r0c1&n=handler;be;handler.ts;route%20%E2%86%92%20respond;r1c1&n=specs;be;specs/;parse%20%2B%20validate;r2c0&n=store;db;store.ts;short%20links%20%E2%86%92%20Git%20repo;r2c1&n=render;be;render/;draw%20the%20SVG;r3c0&n=styles;be;styles/;skins%20%2B%20families;r4c0&n=png;be;png.ts;resvg%20%E2%86%92%20PNG;r4c2&e=client;worker;HTTPS&e=worker;handler;same%20core&e=handler;specs;spec&e=handler;store;short%20link&e=handler;render;render&e=render;styles;skin&e=render;png;format%3Dpng&b=Edge%20runtime%20%E2%80%94%20Cloudflare%20Worker;worker%20handler%20specs%20store%20render%20styles&title=Inside%20draw&w=560&h=340&scheme=auto" target="_blank" rel="noopener"></a>
+        </div>
+        <div class="card-note">
+          <p class="tiny">README 里的架构图 —— 改链接，图就跟着变。</p>
         </div>
       </div>
     </div>
@@ -208,7 +369,7 @@ nav: home
 <section class="section" id="try">
   <div class="wrap">
     <div class="section-head reveal">
-      <h2>告诉 agent，每张图都用 datalink。</h2>
+      <h2>告诉 agent：图用 datalink。</h2>
     </div>
 
     <div class="try-grid reveal">

@@ -264,7 +264,7 @@ em { font-style: normal; color: var(--mint); font-weight: 600; }
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
   gap: clamp(28px, 5vw, 64px);
-  align-items: center;
+  align-items: start;
 }
 @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
 
@@ -281,6 +281,7 @@ em { font-style: normal; color: var(--mint); font-weight: 600; }
   transition: opacity .28s ease;
 }
 /* the link in the chip: host on one line, the parameters on the next */
+.hero .chip-row { margin-top: 22px; }
 .hero .chip-url b { display: block; }
 .hero .chip-url i { display: block; height: 69px; overflow: hidden; }
 @media (max-width: 760px) { .hero .chip-url i { height: 86px; } }
@@ -1024,6 +1025,17 @@ pre.code .c { color: var(--fg-mute); }
 .plain-list--tight li { font-size: 1rem; }
 
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.cards-2x2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 760px) { .cards-2x2 { grid-template-columns: 1fr; } }
+.card-shot {
+  padding: 14px;
+  display: grid;
+  place-items: center;
+  min-height: 240px;
+  background: var(--bg-2);
+  border-radius: var(--r-sm);
+}
+.card-shot img { width: 100%; height: auto; max-height: 320px; object-fit: contain; display: block; }
 .cards .card { display: flex; flex-direction: column; }
 .card-note { margin-top: auto; }
 .card {
