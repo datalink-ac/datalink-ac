@@ -47,19 +47,6 @@ nav: home
   </div>
 </section>
 
-<section class="section">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <h2>A picture is not the data.</h2>
-    </div>
-    <ul class="plain-list reveal">
-      <li>The chart shows the shape, not the values.</li>
-      <li>Your AI reads pixels back — exact for a bar, a guess for a label.</li>
-      <li>Later nobody can check the number: reader or agent.</li>
-    </ul>
-  </div>
-</section>
-
 <section class="section" id="idea">
   <div class="wrap">
     <div class="section-head reveal">
@@ -156,8 +143,8 @@ nav: home
     <div class="reveal" data-tabs>
       <div class="tabs" role="tablist">
         <button class="tab" role="tab" data-key="structure" aria-selected="true">architecture</button>
-        <button class="tab" role="tab" data-key="schedule" aria-selected="false">schedule</button>
-        <button class="tab" role="tab" data-key="deck" aria-selected="false">deck</button>
+        <button class="tab" role="tab" data-key="calendar" aria-selected="false">calendar</button>
+        <button class="tab" role="tab" data-key="ppt" aria-selected="false">ppt</button>
         <button class="tab" role="tab" data-key="map" aria-selected="false">map</button>
         <button class="tab" role="tab" data-key="molecule" aria-selected="false">molecule</button>
         <button class="tab" role="tab" data-key="chart" aria-selected="false">chart</button>
@@ -168,14 +155,11 @@ nav: home
           <div data-pane="structure" data-url="/draw/archmap?n=web;fe;Browser;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20Gateway;r0c2&amp;n=auth;be;Auth%20Service;r1c1&amp;n=render;be;Chart%20Render;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=Data%20Layer;pg%20cache" hidden>
             <div class="chart-holder" data-pane-render></div>
           </div>
-          <div data-pane="schedule" data-url="/draw/gantt?m=dateFormat%20YYYY-MM-DD%0A%20%20section%20Dev%0A%20%20%20%20Design%3Adone%2C%20a1%2C%202026-11-02%2C%203d%0A%20%20%20%20Build%3Aactive%2C%20a2%2C%20after%20a1%2C%205d%0A%20%20%20%20Ship%3Amilestone%2C%20m1%2C%202026-11-12%2C%200d%0A%20%20section%20QA%0A%20%20%20%20Regression%3Acrit%2C%20b1%2C%20after%20a2%2C%203d&amp;title=Release%20plan&amp;w=720" hidden>
+          <div data-pane="calendar" data-url="/draw?type=calendar&amp;layout=month&amp;start=2026-11-02&amp;ev=2026-11-03%3Bmeeting%3BRequirement%20review%3B14%3A00&amp;ev=2026-11-11%3Breview%3BSpec%20walkthrough%3B10%3A30&amp;scheme=auto" hidden>
             <div class="chart-holder" data-pane-render></div>
           </div>
-          </div>
-          <div data-pane="deck" data-url="/ppt/cover.svg?data=%23%20Data%20in%20the%20link%0A%0A-%20the%20URL%20is%20the%20data%0A-%20humans%20read%20the%20picture%0A-%20agents%20read%20the%20numbers%0A" hidden>
-            <div class="chart-holder">
-              <img data-pane-img src="/ppt/cover.svg?data=%23%20Data%20in%20the%20link%0A%0A-%20the%20URL%20is%20the%20data%0A-%20humans%20read%20the%20picture%0A-%20agents%20read%20the%20numbers%0A" alt="A slide from a deck that a link carried" width="960" height="700">
-            </div>
+          <div data-pane="ppt" data-url="https://www.x-cmd.com/ppt?url=https%3A%2F%2Fraw.githubusercontent.com%2Fx-cmd%2Foffice%2Fmain%2Fdatalink.md" hidden>
+            <iframe data-pane-render title="A deck carried by a link" src="https://www.x-cmd.com/ppt?url=https%3A%2F%2Fraw.githubusercontent.com%2Fx-cmd%2Foffice%2Fmain%2Fdatalink.md" style="width:100%;height:520px;border:1px solid var(--line);border-radius:var(--r-sm);background:#141414" loading="lazy"></iframe>
           </div>
           <div data-pane="map" data-url="/draw/echarts?d=%7B%22visualMap%22%3A%7B%22min%22%3A70%2C%22max%22%3A120%2C%22show%22%3Afalse%2C%22inRange%22%3A%7B%22color%22%3A%5B%22%23bcd9f2%22%2C%22%238dbce8%22%2C%22%235d9cdb%22%2C%22%233377c4%22%2C%22%231b5296%22%5D%7D%7D%2C%22series%22%3A%5B%7B%22type%22%3A%22map%22%2C%22map%22%3A%22USA%22%2C%22roam%22%3Afalse%2C%22label%22%3A%7B%22show%22%3Afalse%7D%2C%22itemStyle%22%3A%7B%22areaColor%22%3A%22%23aab3c2%22%2C%22borderColor%22%3A%22%235c6675%22%2C%22borderWidth%22%3A0.6%7D%2C%22data%22%3A%5B%7B%22name%22%3A%22California%22%2C%22value%22%3A103%7D%2C%7B%22name%22%3A%22Texas%22%2C%22value%22%3A88%7D%2C%7B%22name%22%3A%22New%20York%22%2C%22value%22%3A117%7D%2C%7B%22name%22%3A%22Florida%22%2C%22value%22%3A76%7D%2C%7B%22name%22%3A%22Illinois%22%2C%22value%22%3A97%7D%2C%7B%22name%22%3A%22Ohio%22%2C%22value%22%3A83%7D%5D%7D%5D%7D" hidden>
             <div class="chart-holder" data-pane-render></div>
@@ -249,11 +233,11 @@ nav: home
         <div class="prompt-bar"><span class="dot"></span><span>copy this</span><button class="mini-copy" data-copy="Use the draw skill — read https://github.com/x-cmd/draw/blob/main/.x-cmd/clawhub/SKILL.md and follow it. From now on, when you write a README, an issue, a pull request, a blog post or a chat message that needs a chart, embed the chart as a link — not an image.">copy</button></div>
         <pre><span class="pre-body"><span class="quote">Use the draw skill — read
 <a href="https://github.com/x-cmd/draw/blob/main/.x-cmd/clawhub/SKILL.md" target="_blank" rel="noopener">https://github.com/x-cmd/draw/blob/main/.x-cmd/clawhub/SKILL.md</a>
-and follow it. From now on, when you write a README, an issue, a pull request, a blog post or a chat message that needs a chart, embed the chart as a link — not an image.</span></span></pre></pre>
+and follow it. From now on, when you write a README, an issue, a pull request, a blog post or a chat message that needs a chart, embed the chart as a link — not an image.</span></span></pre>
       </div>
       <div class="prompt-box">
         <div class="prompt-bar"><span class="dot"></span><span>add the skill</span><button class="mini-copy" data-copy="npx clawhub@latest install edwinjhlee/x-cmd-draw">copy</button></div>
-        <pre><span class="pre-body"><span class="cmd">npx</span> clawhub@latest install edwinjhlee/x-cmd-draw</span></pre></pre>
+        <pre><span class="pre-body"><span class="cmd">npx</span> clawhub@latest install edwinjhlee/x-cmd-draw</span></pre>
       </div>
     </div>
   </div>

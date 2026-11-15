@@ -29,14 +29,13 @@ agent 写稿（README、issue、PR、博文、聊天），需要图就拼一条�
 
 这也是为什么首页的主语是 agent，而不是「你」。
 
-## 现在的骨架（首页七节）
+## 现在的骨架（首页六节）
 
 | | 那一节要说的 |
 |---|---|
-| **A picture is not the data.** | 图给你看的是形状，不是数值；agent 只能把像素读回来；过后谁也核对不了 |
 | **The link is the data.** | 链接里装着数据 —— 大 URL 框，可以直接改，改完回车，图和数字一起变 |
 | **The repo stops growing. The documents stop drifting.** | 两个案例：README 里改数字（不用重渲染重上传，diff 里就是那个数字）；六种语言（六条 URL，不是三十六个文件） |
-| **Datalink gives more than pictures.** | 架构图、日程、幻灯片、地图、分子、图表 —— 大号 label 排开，点一个换一张图 |
+| **Datalink gives more than pictures.** | 架构图、日历、PPT、地图、分子、图表 —— 大号 label 排开，点一个换一张图 |
 | **Datalink is designed for GitHub.** | release / issue / PR 三张真图 |
 | **Make your agent use datalinks.** | 左 prompt（带 skill 说明书地址）、右 clawhub 安装，都能 copy |
 
@@ -52,6 +51,9 @@ agent 写稿（README、issue、PR、博文、聊天），需要图就拼一条�
 
 ## 被砍掉的（别再加回来）
 
+- **「A picture is not the data.」那一节** —— 首屏已经说了
+  「Agent gets true data. Human gets big picture.」，
+  再用一节把同一句话说三遍，是重复
 - 小节标签（「怎么跑」「两个读者」「另一半」那一套）—— 节标题自己就是观点
 - 导语 —— 节标题已经说完了，导语是重复
 - 「我们为眼睛造了图片」这类辩解 —— 那是解释，不是宣传
@@ -71,8 +73,11 @@ agent 写稿（README、issue、PR、博文、聊天），需要图就拼一条�
 
 - **日历只会说中文。** draw 的日历图面文字（月份、星期、图例、页脚）是写死的中文，
   代码里的英文串够不着（`en` 挂在皮肤的 `title` 上，日历两个家族都不是）。
-  英文页那一格因此换成 gantt（它的文字来自 URL，语言中立），
-  中文页保留日历。开了 **x-cmd/draw#28**。
+  英文页那一格因此只能挂着一张中文日历 —— 开了 **x-cmd/draw#28** 等它会说英文。
+- **PPT 那一格是活的 iframe**，直接指 `www.x-cmd.com/ppt?url=…`，
+  引的是 x-cmd/office 里那份 datalink 讲稿（11 页）。
+  裸的 `x-cmd.com` 不在本站 CSP 的 `frame-src` 里（白名单写的是 `www.x-cmd.com`），
+  用的是同一个服务的规范主机名。
 - **分子式默认画一块深色卡片**，浅色页面上像一个洞 —— 钉 `scheme=light`。
 - **`scheme=auto` 是两套配色 + 媒体查询**，跟着读者的系统走，不是跟着页面走；
   手动切主题时得由 JS 把 `scheme=` 换掉。
