@@ -748,6 +748,24 @@ pre.code .c { color: var(--fg-mute); }
   line-height: 1.3;
   color: var(--fg);
 }
+/* the case: the good way, and the way it replaces */
+.section-head.case-head { margin-bottom: 0; }
+.case-h { margin-bottom: 18px; }
+.case-ways { margin: 0 0 clamp(28px, 3.6vw, 44px); }
+.case-line {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  margin: 0 0 10px;
+  font-size: clamp(1.1rem, 1.9vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  line-height: 1.45;
+}
+.case-line.is-good { color: var(--fg); }
+.case-line.is-bad { color: var(--fg-mute); font-weight: 600; }
+.case-mark { flex: none; }
+
 .case-p { font-size: 15.5px; color: var(--fg-dim); margin: 0; line-height: 1.62; }
 .case-p b { color: var(--fg); font-weight: 700; }
 .cases-list .tiny { margin: 0; }
