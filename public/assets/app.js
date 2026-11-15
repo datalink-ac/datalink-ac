@@ -229,7 +229,7 @@
       /* every link shows the same amount of text — the carousel must not resize
          the page while it turns. The copy button still gives the whole link. */
       const head = q.length > 128 ? q.slice(0, 128) + '\u2026' : q;
-      paramsOut.innerHTML = head.replace(/&/g, '&amp;&#8203;').replace(/^\?/, '?&amp;#8203;');
+      paramsOut.innerHTML = head.replace(/&/g, '&amp;\u200b').replace(/^\?/, '?\u200b');
       copyBtn.setAttribute('data-copy', location.origin + clean);
       items.forEach((i) => i.classList.toggle('is-on', i === item));
     };
