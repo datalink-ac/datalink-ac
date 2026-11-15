@@ -226,9 +226,10 @@
       link.href = item.getAttribute('data-href') || '#';
       hostOut.textContent = location.host + path;
       const q = query ? '?' + query : '';
-      /* the map's link is enormous — show the head of it, copy gives the whole thing */
-      paramsOut.innerHTML =
-        q.length > 170 ? esc(q.slice(0, 170)) + '\u2026' : q.replace(/&/g, '&amp;&#8203;');
+      /* every link shows the same amount of text — the carousel must not resize
+         the page while it turns. The copy button still gives the whole link. */
+      const head = q.length > 128 ? q.slice(0, 128) + '\u2026' : q;
+      paramsOut.innerHTML = head.replace(/&/g, '&amp;&#8203;').replace(/^\?/, '?&amp;#8203;');
       copyBtn.setAttribute('data-copy', location.origin + clean);
       items.forEach((i) => i.classList.toggle('is-on', i === item));
     };
