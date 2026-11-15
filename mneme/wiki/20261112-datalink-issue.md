@@ -94,6 +94,9 @@ agent 写稿（README、issue、PR、博文、聊天），需要图就拼一条�
   改成 `/ppt/cover.svg`：一张幻灯片，本身就是一张图。
 
 ### 自己家的 bug（自己家才查得出）
+- **同权重的 CSS，后写的赢** —— 想复用 `.topic-switch` 的样式，
+  结果首屏那排按钮也跟着变成竖排（`.topic-switch` 的竖排规则写在后面）。
+  复用样式要么提高选择器权重，要么把规则挪到后面。
 
 - 标签页的「architecture」是**白的** —— 亮色模式里有一条
   `.tab[aria-selected=true]{color:#fff}`，浅底白字，等于没有标签。
