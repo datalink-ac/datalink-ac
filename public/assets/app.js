@@ -198,6 +198,78 @@
     return { w, h };
   };
 
+  /* ------------------------------------- hero: one link, many pictures --- */
+  const hero = $('[data-hero]');
+  if (hero) {
+    const img = $('[data-hero-img]', hero);
+    const link = $('[data-hero-link]', hero);
+    const hostOut = $('[data-hero-host]', hero);
+    const paramsOut = $('[data-hero-params]', hero);
+    const copyBtn = $('[data-hero-copy]', hero);
+    const items = $$('[data-hero-item]', hero);
+
+    /* the palette: the page's, unless the page has none and the picture pinned one */
+    const schemeFor = (item) => {
+      const t = root.getAttribute('data-theme');
+      if (t === 'light' || t === 'dark') return t;
+      return item.getAttribute('data-scheme') || 'auto';
+    };
+
+    const show = (item) => {
+      if (!item) return;
+      const src = withScheme(item.getAttribute('data-src'), schemeFor(item));
+      /* the chip shows the data link — the rendering params (size, palette) are not part of it */
+      const clean = item.getAttribute('data-url') || src;
+      const [path, query] = clean.split('?');
+      img.src = src;
+      img.alt = item.getAttribute('data-alt') || '';
+      link.href = item.getAttribute('data-href') || '#';
+      hostOut.textContent = location.host + path;
+      const q = query ? '?' + query : '';
+      /* the map's link is enormous — show the head of it, copy gives the whole thing */
+      paramsOut.innerHTML =
+        q.length > 170 ? esc(q.slice(0, 170)) + '\u2026' : q.replace(/&/g, '&amp;&#8203;');
+      copyBtn.setAttribute('data-copy', location.origin + clean);
+      items.forEach((i) => i.classList.toggle('is-on', i === item));
+    };
+
+    let timer = null;
+    const stop = () => {
+      if (timer) clearInterval(timer);
+      timer = null;
+    };
+    const start = (ms) => {
+      stop();
+      timer = setInterval(() => {
+        const idx = items.findIndex((i) => i.classList.contains('is-on'));
+        show(items[(idx + 1) % items.length]);
+      }, ms);
+    };
+
+    items.forEach((item) =>
+      item.addEventListener('click', () => {
+        show(item);
+        start(7000);            /* a click buys some quiet time */
+      }),
+    );
+
+    show(items[0]);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(
+        (entries) => entries.forEach((e) => (e.isIntersecting ? start(4200) : stop())),
+        { threshold: 0.25 },
+      ).observe(hero);
+    } else {
+      start(4200);
+    }
+
+    /* the page's palette changed — repaint the picture that is on screen */
+    pictureSync.push(() => {
+      const cur = items.find((i) => i.classList.contains('is-on')) || items[0];
+      show(cur);
+    });
+  }
+
   const demo = $('[data-demo]');
   if (demo) {
     const urlIn = $('[data-url-in]', demo);
