@@ -221,8 +221,19 @@
       /* the chip shows the data link — the rendering params (size, palette) are not part of it */
       const clean = item.getAttribute('data-url') || src;
       const [path, query] = clean.split('?');
-      img.src = src;
+      /* the picture fades when it turns — a hard swap reads as a glitch */
       img.alt = item.getAttribute('data-alt') || '';
+      clearTimeout(fadeTimer);
+      if (first) {
+        first = false;
+        img.src = src;
+      } else {
+        img.style.opacity = '0';
+        fadeTimer = setTimeout(() => {
+          img.onload = () => { img.style.opacity = '1'; };
+          img.src = src;
+        }, 220);
+      }
       link.href = item.getAttribute('data-href') || '#';
       hostOut.textContent = location.host + path;
       const q = query ? '?' + query : '';
@@ -235,6 +246,8 @@
     };
 
     let timer = null;
+    let fadeTimer = null;
+    let first = true;
     const stop = () => {
       if (timer) clearInterval(timer);
       timer = null;

@@ -273,13 +273,19 @@ em { font-style: normal; color: var(--mint); font-weight: 600; }
 /* the hero's picture box — one size, so the panel does not jump between examples */
 .hero-shot { height: 330px; }
 .hero-shot a { display: block; height: 100%; }
-.chart-holder.hero-shot img { width: 100%; height: 100%; object-fit: contain; display: block; }
-.topic-switch/* the link in the chip: host on one line, the parameters on the next */
+.chart-holder.hero-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: opacity .28s ease;
+}
+/* the link in the chip: host on one line, the parameters on the next */
 .hero .chip-url b { display: block; }
 .hero .chip-url i { display: block; height: 69px; overflow: hidden; }
 @media (max-width: 760px) { .hero .chip-url i { height: 86px; } }
 
-.hero-switch { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 16px; }
+.topic-switch.hero-switch { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 16px; }
 .hero-switch .topic-tab { font-size: 11px; padding: 4px 10px; }
 
 /* the two halves of the promise, one per reader */
