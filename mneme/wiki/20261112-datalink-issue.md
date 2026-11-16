@@ -76,6 +76,15 @@ agent 写稿（README、issue、PR、博文、聊天），需要图就拼一条�
 - **拿 vision token 跟 token 比** → 图片不能只按 token 算，
   现在比的是「SVG 标记约 1,100 vs 链接约 25」，两边都是文本。
 
+### 托管换了一次（2026-11-16）
+
+页面搬到 **GitHub Pages**（push 就发布，构建里多出 `CNAME` 和 `.nojekyll`）；
+转发路径交给一个 **Cloudflare Worker**（`worker/index.ts`，路由 `datalink.ac/d*`、`/ppt*`、`/explore*`），
+zone 上的安全响应头和 www→apex 的 301 不变。
+
+**踩到的**：Worker 的路由一开始只写了 `d*` —— `/ppt` 和 `/explore` 不是 d 开头，
+那两条直接落到 GitHub Pages，404 了。凡是 Worker 要应的路径，路由都得单写出来。
+
 ### 渲染器给的东西，不一定是你要的
 
 - **日历只会说中文。** draw 的日历图面文字（月份、星期、图例、页脚）是写死的中文，
