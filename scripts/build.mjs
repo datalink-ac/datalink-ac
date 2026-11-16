@@ -442,6 +442,9 @@ await write(
     'User-agent: *',
     'Allow: /',
     // the machine-facing surfaces are tools, not pages worth indexing
+    'Disallow: /draw.json',
+    'Disallow: /ppt',
+    // the old aliases — they 301 to the two above
     'Disallow: /d.json',
     'Disallow: /deck',
     '',
