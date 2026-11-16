@@ -21,6 +21,26 @@ site's voice, and send the change with the build passing.
 The pages are plain HTML with a small set of `{{placeholders}}` the build fills
 in. There is no framework, and there is not going to be one.
 
+## How it is hosted
+
+- **The site** is static and lives on **GitHub Pages**: `scripts/build.mjs`
+  turns `content/` + `public/` into `dist/`, and the `pages` workflow publishes
+  it on every push to `main`. The build also writes `CNAME` (the custom
+  domain) and `.nojekyll`.
+- **The forwarding edge** is one small **Cloudflare Worker**
+  (`worker/index.ts`) on the routes `datalink.ac/d*`, `/ppt*` and `/explore*`:
+  it forwards `/draw`, `/explore` and `/ppt` to x-cmd.com, serves the data
+  view, and 301s the old aliases (`/d`, `/d.json`, `/deck`) to their new
+  paths. **Every path the Worker must answer needs its own route** — `/ppt` and
+  `/explore` do not start with `d`, and when they were missing they fell
+  through to GitHub Pages and 404'd.
+- **On the zone** there are two rules that are configuration rather than code:
+  the security headers (CSP, Referrer-Policy, X-Content-Type-Options) and the
+  `www.datalink.ac` → `datalink.ac` 301.
+
+The domain is on Cloudflare (Free plan) and points at GitHub Pages, so the
+Worker route and the zone rules still apply in front of it.
+
 ## Running it locally
 
 ```sh
@@ -33,19 +53,38 @@ The site is static; `dist/` is exactly what gets published.
 
 ## Deploying
 
-The site is published by **GitHub Pages**: push to `main` and the
-`pages` workflow builds and publishes it. `CNAME` (in the build output)
-tells GitHub which domain the site belongs to.
+The site is published by **GitHub Pages**: push to `main` and the `pages`
+workflow builds and publishes it. `CNAME` (in the build output) tells GitHub
+which domain the site belongs to.
 
-The forwarding edge is a separate small **Cloudflare Worker**
-(`worker/index.ts`) — it only answers for `datalink.ac/d*`:
+The forwarding edge is a separate small **Cloudflare Worker**:
 
 ```sh
 npm run deploy     # build + wrangler deploy + IndexNow push
 ```
 
-Do not deploy the Worker and the site separately without checking both:
-the pages are static, but every picture on them comes through the Worker.
+Do not deploy the Worker and the site separately without checking both: the
+pages are static, but every picture on them comes through the Worker.
+
+IndexNow's key is in `scripts/indexnow.key`; the build publishes it at the
+site root (`https://datalink.ac/<key>.txt`), which is how the search engines
+verify the push.
+
+## Notes on the design
+
+- **No web fonts.** The system font stack only — Chinese falls through to
+  PingFang / Microsoft YaHei / Noto. Nothing to download, so it opens fast
+  everywhere.
+- **Light and dark** follow `prefers-color-scheme`; the toggle in the header
+  overrides it and the choice is remembered locally.
+- **Motion** is a scroll fade. Without JavaScript the content is still there
+  — only `.js .reveal` is hidden.
+- **SEO**: canonical, two-way `hreflang`, JSON-LD (WebSite / Blog /
+  BlogPosting / TechArticle / BreadcrumbList), a sitemap with `lastmod` and
+  the language pair, robots, an OG image, one `<h1>` per page, explicit image
+  sizes (nothing shifts), and a `noindex` 404.
+- **The pages are hand-written.** The build is a template fill, not a site
+  generator; the HTML in `content/` is the HTML that ships.
 
 ## Writing for the site
 
