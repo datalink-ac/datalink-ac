@@ -269,6 +269,9 @@ em { font-style: normal; color: var(--mint); font-weight: 600; }
 @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
 
 .hero-sub { max-width: 54ch; }
+.hero-why { margin: 16px 0 0; }
+.hero-why a { color: var(--fg-mute); }
+.hero-why a:hover { color: var(--mint); }
 
 /* the hero's picture box — one size, so the panel does not jump between examples */
 .hero-shot { height: 330px; }
