@@ -1,117 +1,121 @@
 # datalink.ac
 
-> **data in the link** — 数据在链接里。
+> **data in the link** — the data lives in the link, not in a picture of it.
 >
-> 一个理念的官网：链接里装的是数据，不是数据的图片。
-> 人读渲染，agent 读数据，双方操作的是同一串字符。
+> A concept site for one idea: a URL can carry the data itself. A person opens
+> the link and sees the render; an agent reads the same link and gets the
+> numbers. Both work on the same string of characters.
 
 **Live:** https://datalink.ac · 中文：https://datalink.ac/zh
 **Spec draft:** https://datalink.ac/spec
-**Concept issue:** [#1 — datatalink as context](https://github.com/datalink-ac/datalink-ac/issues/1)
+**Concept issue:** [#1 — datalink as context](https://github.com/datalink-ac/datalink-ac/issues/1)
 
-## 这是什么
+## What this is
 
-一个理念站点，同时也是一台**数据链接主机**：
+A concept site, and at the same time a **datalink host**:
 
-| 路径 | 是什么 |
+| Path | What it is |
 |---|---|
-| `/draw?<params>` | 渲染：人打开看到图（SVG / HTML） |
-| `/draw/<kind>?<params>` | 其它渲染器：`/draw/arch2`、`/draw/seq`、`/draw/erd`、`/draw/mindmap`、`/draw/echarts`、`/draw/chem`… |
-| `/explore?<params>` | 交互式编辑器（转发到 x-cmd.com 的 explorer） |
-| `/draw.json?<params>` | 数据视图：agent 读的那一份，机器可读的 JSON |
-| `/ppt?<params>` | 幻灯片（markdown 进，deck 出） |
+| `/`, `/zh`, `/spec`, `/blog`, `/privacy` | The site itself — static pages |
+| `/draw?<params>` | A render: a person opens it and sees the picture (SVG) |
+| `/draw/<kind>?<params>` | The other renderers: `/draw/arch2`, `/draw/seq`, `/draw/erd`, `/draw/mindmap`, `/draw/echarts`, `/draw/chem`, `/draw/gantt`… |
+| `/draw.json?<params>` | The data view: the same link, read as JSON |
+| `/explore?<params>` | The interactive editor |
+| `/ppt?<params>` | A slide deck (markdown in, deck out) |
 
-这些路径**全部转发到 x-cmd.com 上对应的 endpoint** —— datalink.ac 是一扇门，
-不是另一套实现（`/draw.json` 是唯一的例外：上游还没有 JSON 视图，
-这一层把渲染结果里的 `<metadata>` 掏出来当规格用，见 x-cmd/draw#24）。
-| `/`、`/zh`、`/spec`、`/blog`、`/privacy` | 站点本身 |
+Every renderer path is **forwarded to the matching endpoint on x-cmd.com** —
+datalink.ac is a door, not a second implementation. The one exception is
+`/draw.json`: the renderer has no JSON view of a render yet (see
+[x-cmd/draw#24](https://github.com/x-cmd/draw/issues/24)), so the Worker pulls
+the render and takes the spec out of the `<metadata>` the renderer embeds in
+every output.
 
-参考实现是 [x-cmd/draw](https://github.com/x-cmd/draw)（图表与结构图）和
-[x-cmd/ppt](https://github.com/x-cmd/ppt)（幻灯片）。draw 就是 datalink 的一个实现。
+The reference implementations are [x-cmd/draw](https://github.com/x-cmd/draw)
+(charts and structure diagrams) and [x-cmd/ppt](https://github.com/x-cmd/ppt)
+(slide decks). draw is one implementation of datalink.
 
-## 托管：Cloudflare Pages
+## How it is hosted
 
-站点是 **Cloudflare Pages** 上的一个项目（`datalink-ac`），没有独立的 Worker：
+- **The site** is static and lives on **GitHub Pages**. `scripts/build.mjs`
+  turns `content/` + `public/` into `dist/`, and the `pages` workflow publishes
+  it on every push to `main`. The build also writes `CNAME` (the custom
+  domain) and `.nojekyll`.
+- **The forwarding edge** is one small **Cloudflare Worker**
+  (`worker/index.ts`) on the route `datalink.ac/d*`: it forwards `/draw`,
+  `/explore` and `/ppt` to x-cmd.com, serves the data view, and 301s the old
+  aliases (`/d`, `/d.json`, `/deck`) to their new paths.
+- **On the zone** there are two rules that are configuration rather than code:
+  the security headers (CSP, Referrer-Policy, X-Content-Type-Options) and the
+  `www.datalink.ac` → `datalink.ac` 301.
 
-- 页面是静态 HTML，`scripts/build.mjs` 把 `content/` + `public/` 变成 `dist/`
-- `functions/` 里是三个 Pages Function，把渲染路径转发到 x-cmd.com：
-  - `/draw`、`/draw/…` → `www.x-cmd.com/draw/…`
-  - `/draw.json`、`/draw.json/…` → 数据视图（把渲染结果里的 `<metadata>` 掏出来当规格）
-  - `/ppt`、`/ppt/…` → `po6.sh/ppt`（x-cmd.com/ppt 还没部署，代码是同一份）
-- zone 上另外两条规则（纯配置，不在代码里）：
-  - 安全响应头（CSP / Referrer-Policy / X-Content-Type-Options）——
-    只加在本站页面上，`/draw`、`/ppt` 走的是上游自己的头
-  - `www.datalink.ac` → `datalink.ac` 的 301（Pages 的 `_redirects` 不支持域名级跳转，
-    所以这条是 zone 上的 Single Redirect）
+The domain is on Cloudflare (Free plan) and points at GitHub Pages, so the
+Worker route and the zone rules still apply in front of it.
 
-## 仓库结构
+## Layout
 
 ```
 content/
-  pages/<lang>/*.html     手写的页面（首页、spec、privacy、blog 索引）
-  blog/<lang>/*.md        博客文章（markdown）
+  pages/<lang>/*.html     the hand-written pages
+  blog/<lang>/*.md        the blog posts (markdown)
 src/
-  layout.html             页面骨架：head、导航、页脚、语言切换
-functions/
-  draw/[[path]].ts        /draw → x-cmd.com/draw 的转发
-  draw.json/[[path]].ts   数据视图
-  ppt/[[path]].ts         /ppt → 幻灯片渲染器
+  layout.html             the page skeleton
+public/                   static assets (css, js, favicon, og.png, manifest)
 scripts/
   build.mjs               content/ + public/ → dist/
-  indexnow.mjs            推送 sitemap 里的 URL（IndexNow）
-  make-og.py              生成社交预览图（可选，需要 Pillow）
-public/                   静态资源（css、js、favicon、og.png、manifest）
-mneme/                    项目的记忆中枢：思考、决策记录、开放问题
+  indexnow.mjs            pushes the sitemap's URLs (IndexNow)
+  make-og.py              regenerates the social preview image (needs Pillow)
+worker/
+  index.ts                the forwarding edge
+mneme/                    the project's memory: notes, decisions, open questions
 ```
 
-## 本地开发
+## Working on it
 
 ```sh
 npm install
 npm run build      # content/ + public/ → dist/
-npm run dev        # build + wrangler pages dev
+npm run dev        # build + wrangler dev
 ```
 
-## 部署
+## Deploying
 
 ```sh
-npm run deploy     # build + wrangler pages deploy + IndexNow 推送
-npm run indexnow   # 只推送（默认推 sitemap 里的全部 URL）
+npm run deploy     # build + wrangler deploy (the Worker) + IndexNow push
+npm run indexnow   # push only (all the URLs in the sitemap by default)
 ```
 
-IndexNow 的密钥在 `scripts/indexnow.key`，构建时会发布到站点根目录
-（`https://datalink.ac/<key>.txt`），搜索引擎据此验证推送。
+The site itself is published by GitHub Pages on push — there is no deploy step.
 
-Pages 项目 `datalink-ac`，custom domain 是 `datalink.ac` 与 `www.datalink.ac`
-（后者 301 跳到前者）。zone 在 Cloudflare 账号 `d8caf3f6…` 下（Free 计划）。
+IndexNow's key is in `scripts/indexnow.key`; the build publishes it at the
+site root (`https://datalink.ac/<key>.txt`), which is how the search engines
+verify the push.
 
-## 加一篇博客
+## Notes on the design
 
-```sh
-$EDITOR content/blog/en/261112-your-topic.md    # frontmatter: title/date/desc/tags
-$EDITOR content/blog/zh/261112-your-topic.md    # 同一个 slug
-npm run build
-```
+- **No web fonts.** The system font stack only — Chinese falls through to
+  PingFang / Microsoft YaHei / Noto. Nothing to download, so it opens fast
+  everywhere.
+- **Light and dark** follow `prefers-color-scheme`; the toggle in the header
+  overrides it and the choice is remembered locally.
+- **Motion** is a scroll fade. Without JavaScript the content is still there
+  — only `.js .reveal` is hidden.
+- **SEO**: canonical, two-way `hreflang`, JSON-LD (WebSite / Blog /
+  BlogPosting / TechArticle / BreadcrumbList), a sitemap with `lastmod` and
+  the language pair, robots, an OG image, one `<h1>` per page, explicit image
+  sizes (nothing shifts), and a `noindex` 404.
+- **The pages are hand-written.** The build is a template fill, not a site
+  generator; the HTML in `content/` is the HTML that ships.
 
-构建脚本会渲染 markdown、生成 `dist/blog/<slug>.html` 与 `dist/zh/blog/<slug>.html`，
-并把新页面写进 `sitemap.xml`。
+## Related repositories
 
-## 设计说明
+- [x-cmd/draw](https://github.com/x-cmd/draw) — the chart and diagram renderer
+- [x-cmd/ppt](https://github.com/x-cmd/ppt) — the slide deck renderer
+- [ClawHub: x-cmd-draw](https://clawhub.ai/edwinjhlee/skills/x-cmd-draw) — the skill for agents
 
-- **零构建依赖的字体**：只用系统字体栈，中文走 PingFang / 微软雅黑 / Noto，
-  没有 web font 请求——在哪儿打开都秒开。
-- **深浅色**：`prefers-color-scheme` 自动跟随，右上角可手动切换，存在本地。
-- **动效**：滚动淡入。没有 JS 时内容照常显示（只有 `.js .reveal` 才隐藏）。
-- **SEO**：canonical、`hreflang` 双语互指、JSON-LD（WebSite / Blog / BlogPosting /
-  TechArticle / BreadcrumbList）、sitemap（带 `lastmod` 与双语互指）、robots、OG 图、
-  每页唯一 `<h1>`、图片显式尺寸（不抖）、404 `noindex`。
+## Contributing
 
-## 相关的仓库
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-- [x-cmd/draw](https://github.com/x-cmd/draw) —— 图表与结构图渲染器
-- [x-cmd/ppt](https://github.com/x-cmd/ppt) —— 幻灯片渲染器
-- [ClawHub: x-cmd-draw](https://clawhub.ai/edwinjhlee/skills/x-cmd-draw) —— 给 agent 的 skill
+## License
 
-## 许可
-
-Apache-2.0
+Apache-2.0 — see [LICENSE](LICENSE).
