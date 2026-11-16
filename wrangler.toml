@@ -6,6 +6,8 @@ compatibility_date = "2026-11-16"
 
 routes = [
   { pattern = "datalink.ac/d*", zone_name = "datalink.ac" },
+  { pattern = "datalink.ac/ppt*", zone_name = "datalink.ac" },
+  { pattern = "datalink.ac/explore*", zone_name = "datalink.ac" },
 ]
 
 # the static site, for `wrangler dev` (in production GitHub Pages serves it)
