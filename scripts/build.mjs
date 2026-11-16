@@ -469,6 +469,10 @@ await write(
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`,
 );
 
+// GitHub Pages: the custom domain and a marker that keeps Jekyll out of the way
+await write(path.join(DIST, 'CNAME'), 'datalink.ac\n');
+await write(path.join(DIST, '.nojekyll'), '');
+
 console.log(`built ${built.length} pages → dist/`);
 for (const b of built.sort((a, b2) => a.urlPath.localeCompare(b2.urlPath))) {
   console.log(`  ${b.lang}  ${b.urlPath}`);

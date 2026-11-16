@@ -1,0 +1,14 @@
+# The forwarding edge. The site itself is static and lives on GitHub Pages;
+# this Worker only answers for the renderer paths under datalink.ac/d*.
+name = "datalink-ac"
+main = "worker/index.ts"
+compatibility_date = "2026-11-16"
+
+routes = [
+  { pattern = "datalink.ac/d*", zone_name = "datalink.ac" },
+]
+
+# the static site, for `wrangler dev` (in production GitHub Pages serves it)
+[assets]
+directory = "./dist"
+binding = "ASSETS"
