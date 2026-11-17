@@ -87,6 +87,6 @@ We put customer identifiers in ticket links. We keep dashboards behind logins
 and then spend real money on the login. The data already lives in the URL —
 what has been thinned out is the content of the link, not the link itself.
 
-What changes is the renderer; what stays is the link. The promises a renderer
-has to keep are written down in the [specification](/spec) — a draft, open
+A renderer can be replaced by another host that keeps the same promises.
+Those promises are written down in the [specification](/spec) — a draft, open
 for argument.

@@ -123,12 +123,10 @@ datalink.
   paragraph; say it once, in prose.
 - **Write about datalink, not about x-cmd draw.** The renderer is an
   implementation; the link is the idea.
-- **The link is the thing; a picture is one rendering of it.** Do not write
-  "the renderer is a detail of the link" — the opposite is true: what changes
-  is the renderer, what stays is the link. To show one set of data drawn
-  several ways, give the *same parameters* to several renderers
-  (`/draw/archmap`, `/draw/cloud`, `/draw/seq`, `/draw/arch3d` take the same
-  `n=`). Unrelated pictures are not a demonstration of anything.
+- **One link renders one picture.** Different pictures come from different
+  links — usually because the parameters differ. What stays the same across
+  kinds is the *shape* of the link and the contract the renderer keeps.
+  There is no "one link, many pictures".
 
 ```sh
 $EDITOR content/blog/en/261112-your-topic.md    # frontmatter: title/date/order/desc/tags

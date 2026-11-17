@@ -31,7 +31,9 @@ it:
 ```
 
 Six links. One label each is different; the nodes, the edges and the numbers
-are the same in all six.
+are the same in all six. That is also why translating is easy here: the words
+in the picture are parameters, so a translation is a parameter edit and not a
+redraw.
 
 The picture is not in the repository. It is drawn from the link whenever
 somebody opens the README — so it cannot fall behind its own link, and when
