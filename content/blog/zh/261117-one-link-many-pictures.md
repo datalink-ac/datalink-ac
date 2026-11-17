@@ -1,18 +1,18 @@
 ---
-title: 一条链接，一张图。
+title: Datalink 不只是图表。
 date: 2026-11-17
 order: 3
-desc: 不同的图来自不同的链接。不变的是链接的形态。
+desc: 架构图、日历、地图、分子结构，用的是和图表一样的 datalink 范式。
 tags: 概念
 ---
 
-让 agent 画一张图，它给你一张图。让它给出发布日历，或者那份讲稿，
-或者上一季度的销售地图，它交给你的还是一条链接。
+不只是数据图表。一张架构图、一本发布日历、一张上季度的销售地图、一个分子结构 ——
+它们都是数据放在链接里，各自都是一条链接。
 
-图不一样，链接也不一样：日历要的是日程，结构图要的是节点和连线，
-图表要的是标签和数值。一条链接，画出一张图。
+参数不一样，因为数据不一样：日历要日程，结构图要节点和连线，图表要标签和数值。
+一条链接，画出一张图。
 
-不变的是链接的形态。它是一条 URL，参数里装着数据，后面坐着一个渲染器，
+不变的是形态。它是一条 URL，参数里装着数据，后面坐着一个渲染器，
 守着同样的承诺 —— 画图表还是画日历，都是如此。
 
 <div class="post-figs">
@@ -22,7 +22,7 @@ tags: 概念
 <figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore/butterfly?type=butterfly&amp;title=Issues%20opened%20vs%20closed&amp;labels=0-30d,30-60d,60-90d,90-180d,180-360d,360-720d&amp;left=Opened:7,8,2,7,6,7&amp;right=Closed:5,6,2,7,5,6&amp;w=480&amp;h=340&amp;scheme=auto" target="_blank" rel="noopener"><img src="/draw/butterfly?type=butterfly&amp;title=Issues%20opened%20vs%20closed&amp;labels=0-30d,30-60d,60-90d,90-180d,180-360d,360-720d&amp;left=Opened:7,8,2,7,6,7&amp;right=Closed:5,6,2,7,5,6&amp;w=480&amp;h=340&amp;scheme=auto" alt="双翼图" width="480" height="340" loading="lazy"></a><figcaption>一张两边的图。</figcaption></figure>
 </div>
 
-四条链接，四张图。每一条都只是「数据放在链接里」，没有别的。
+四条链接，四张图。同一种形态，不同的数据。
 
 一份对数据的描述，说的是「测了什么」，不说「该怎么画」。
 所以同一份数据才可以是图、是表、是日历、也可以是幻灯片。

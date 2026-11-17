@@ -35,7 +35,7 @@ agent 写稿（README、issue、PR、博文、聊天），需要图就拼一条�
 |---|---|
 | **The link is the data.** | 链接里装着数据 —— 大 URL 框，可以直接改，改完回车，图和数字一起变 |
 | **Case: 6-language charts.** | 先摆两行账：✅ 6 条链接（diff 里看得到数字）／ ❌ 每改一次数据多 6 个 PNG（仓库在胖、文档走样）。左边六种语言的按钮，右边同一张架构图换标签 |
-| **Datalink gives more than pictures.** | 架构图、日历、PPT、地图、分子、图表 —— 左边一列，点一个换一张图 |
+| **Datalink is not only for charts.** | 不只是数据图表：架构图、日历、PPT、地图、分子结构，用的是同一个 datalink 范式 —— 左边一列，点一个换一张图 |
 | **Datalink is designed for GitHub.** | release（代码构成）／ issue（需求流程）／ PR（性能对比）／ README（架构图），四张 2×2 的卡 |
 | **Tell your agent to use datalinks.** | 左 prompt（带 skill 说明书地址）、右 clawhub 安装，都能 copy |
 
@@ -89,6 +89,9 @@ agent 写稿（README、issue、PR、博文、聊天），需要图就拼一条�
 - **六种语言要六条链接**，因为图里的 label 是参数；label 是参数，
   翻译一个图就是改参数，不是重画 —— 这也是这个做法省事的地方。
 - 别把「几张不同的图」当成「同一条链接的几种画法」。那是几条不同的链接。
+- 「不只是图表」那节讲的是**范式**：架构图、日历、地图、分子结构，各是各的链接，
+  但形态一样（一条 URL + 参数 + 版本），渲染器守的承诺也一样。
+  不是「一条链接画出好几种图」。
 
 ### 写 blog 的规矩
 

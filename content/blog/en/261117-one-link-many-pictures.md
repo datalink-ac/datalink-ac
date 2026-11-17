@@ -1,22 +1,22 @@
 ---
-title: One link, one picture.
+title: Datalink is not only for charts.
 date: 2026-11-17
 order: 3
-desc: Different pictures come from different links. What they share is the shape of the link.
+desc: Diagrams, calendars, maps and molecules use the same datalink form as a chart.
 tags: concept
 ---
 
-Ask an agent for a chart and you get a chart. Ask it for the release calendar,
-or the slide deck, or the map of last quarter's sales, and it hands you a link
-each time.
+Not only data charts. An architecture diagram, a release calendar, a map of
+last quarter's sales, a molecule — each of them is data in a link, and each of
+them is a link of its own.
 
-The pictures are different, and so are the links: a calendar needs events, a
-diagram needs nodes and edges, a chart needs labels and values. One link
+The parameters differ, because the data differs: a calendar takes events, a
+diagram takes nodes and edges, a chart takes labels and values. One link
 renders one picture.
 
-What does not change is the shape of the link. It is a URL, its parameters
-carry the data, and a renderer sits behind it and keeps the same promises —
-whether it is drawing a chart or a calendar.
+What does not change is the form. It is a URL, its parameters carry the data,
+and a renderer sits behind it and keeps the same promises — whether it is
+drawing a chart or a calendar.
 
 <div class="post-figs">
 <figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore/archmap?n=web;fe;Browser;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20Gateway;r0c2&amp;n=auth;be;Auth%20Service;r1c1&amp;n=render;be;Chart%20Render;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=Data%20Layer;pg%20cache" target="_blank" rel="noopener"><img src="/draw/archmap?n=web;fe;Browser;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20Gateway;r0c2&amp;n=auth;be;Auth%20Service;r1c1&amp;n=render;be;Chart%20Render;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=Data%20Layer;pg%20cache" alt="Architecture diagram" width="436" height="270" loading="lazy"></a><figcaption>A structure.</figcaption></figure>
@@ -25,7 +25,7 @@ whether it is drawing a chart or a calendar.
 <figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore/butterfly?type=butterfly&amp;title=Issues%20opened%20vs%20closed&amp;labels=0-30d,30-60d,60-90d,90-180d,180-360d,360-720d&amp;left=Opened:7,8,2,7,6,7&amp;right=Closed:5,6,2,7,5,6&amp;w=480&amp;h=340&amp;scheme=auto" target="_blank" rel="noopener"><img src="/draw/butterfly?type=butterfly&amp;title=Issues%20opened%20vs%20closed&amp;labels=0-30d,30-60d,60-90d,90-180d,180-360d,360-720d&amp;left=Opened:7,8,2,7,6,7&amp;right=Closed:5,6,2,7,5,6&amp;w=480&amp;h=340&amp;scheme=auto" alt="Butterfly chart" width="480" height="340" loading="lazy"></a><figcaption>A chart with two sides.</figcaption></figure>
 </div>
 
-Four links, four pictures. Each one is data in a link and nothing more.
+Four links, four pictures. Same form, different data.
 
 A description of data says what was measured. It does not say how it should
 be drawn. That is what lets the same data be a chart, a table, a calendar or
