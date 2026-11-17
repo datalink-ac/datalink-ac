@@ -1,7 +1,7 @@
 ---
 title: Tell your agent to use datalinks.
 date: 2026-11-17
-order: 5
+order: 6
 desc: One prompt, one skill, and a different default when the agent needs a chart.
 tags: agents
 ---

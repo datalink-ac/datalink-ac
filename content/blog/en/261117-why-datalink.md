@@ -1,7 +1,7 @@
 ---
 title: Why it's called datalink.
 date: 2026-11-17
-order: 6
+order: 7
 desc: The name we landed on, and the thinking that got us there.
 tags: concept, naming
 ---

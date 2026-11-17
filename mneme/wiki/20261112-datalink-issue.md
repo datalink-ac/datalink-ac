@@ -49,9 +49,10 @@ agent 写稿（README、issue、PR、博文、聊天），需要图就拼一条�
 | 2 | The language is just a parameter. ／ 语言只是一个参数。 | 案例那节 |
 | 3 | A picture is just one rendering. ／ 图只是一种渲染。 | 「给的不只是图」（issue 主张 03） |
 | 4 | Everything in a repository is already text. ／ 仓库里的一切本来就是文本。 | GitHub 那节 |
-| 5 | Tell your agent to use datalinks. ／ 告诉 agent：图用 datalink。 | 最后一节 |
-| 6 | Why it's called datalink. ／ 为什么叫 datalink。 | 名字那篇（首页首屏有个小链接指过去） |
-| 7 | Anyone with the link has the data. ／ 拿到链接，就拿到了数据。 | 隐私（规范第 8 节那件事，单独写一篇） |
+| 5 | One method, any kind of picture. ／ 一套办法，画任何一种图。 | 「不只是图表」那节的另一半：agent 怎么挑渲染器 |
+| 6 | Tell your agent to use datalinks. ／ 告诉 agent：图用 datalink。 | 最后一节 |
+| 7 | Why it's called datalink. ／ 为什么叫 datalink。 | 名字那篇（首页首屏有个小链接指过去） |
+| 8 | Anyone with the link has the data. ／ 拿到链接，就拿到了数据。 | 隐私（规范第 8 节那件事，单独写一篇） |
 
 标题取自 issue #1 自己的三个主张：**图不是数据 / URL 就是 API / 图只是一种渲染**。
 文章标题要是一个完整的判断，不是话题（「6 种语言，6 条链接」那种不算数）。
@@ -89,6 +90,9 @@ agent 写稿（README、issue、PR、博文、聊天），需要图就拼一条�
 - **六种语言要六条链接**，因为图里的 label 是参数；label 是参数，
   翻译一个图就是改参数，不是重画 —— 这也是这个做法省事的地方。
 - 别把「几张不同的图」当成「同一条链接的几种画法」。那是几条不同的链接。
+- 「不只是图表」那节讲的是**范式**（各种数据共用一种形态），
+  跟它配的那一篇讲的是**agent 怎么挑渲染器**（挑了以后承诺不变）。
+  这是两篇。
 - 「不只是图表」那节讲的是**范式**：架构图、日历、地图、分子结构，各是各的链接，
   但形态一样（一条 URL + 参数 + 版本），渲染器守的承诺也一样。
   不是「一条链接画出好几种图」。

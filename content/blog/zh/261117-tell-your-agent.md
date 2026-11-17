@@ -1,7 +1,7 @@
 ---
 title: 告诉 agent：图用 datalink。
 date: 2026-11-17
-order: 5
+order: 6
 desc: 一段 prompt，一个 skill，以及 agent 需要图时的另一个默认动作。
 tags: agent
 ---

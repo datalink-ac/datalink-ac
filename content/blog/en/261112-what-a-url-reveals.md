@@ -1,7 +1,7 @@
 ---
 title: Anyone with the link has the data.
 date: 2026-11-12
-order: 7
+order: 8
 desc: A datalink is public by construction — worth settling before you put anything in one.
 tags: privacy
 ---
