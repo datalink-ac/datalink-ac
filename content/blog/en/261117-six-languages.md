@@ -12,8 +12,8 @@ architecture diagram, drawn in that language's labels.
 Today that is six PNG files, checked into the repository, one per README. It
 is fine on the first day.
 
-Then the numbers move. Somebody updates the table in the English README, and
-the six images have to be redrawn and committed again — six files, six renders,
+Then a number moves. Somebody updates it in the English README, and the six
+images have to be redrawn and committed again — six files, six renders,
 one commit. A year later the repository is carrying a year of pictures nobody
 looks at, and the diagram in the Italian README is from a quarter before the
 diagram in the Korean one. There is no way to tell which one is current.

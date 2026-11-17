@@ -34,9 +34,10 @@ npx clawhub@latest install edwinjhlee/x-cmd-draw
 Once it is in place, the agent writes links, and the links keep working after
 the conversation ends. A picture pasted into a chat is gone in a week. A link
 in a README is still there in three years, still holding the numbers it was
-made from — and if a number changes, you get the new picture without asking
-anybody for a new screenshot.
+made from — and when a number changes, you change one parameter and the
+picture updates, with no new screenshot to beg for.
 
-The link answers both sides of the request. The numbers are in it, so there is
-no reason to ask for a description of them. And it stays in the text, so the
-person reading the document can open it and change a parameter themselves.
+The link serves both parties. The numbers are inside it, so the agent has no
+reason to attach a description of what the picture shows; and it stays in the
+text, so the person reading the document can open it and change a parameter
+themselves.

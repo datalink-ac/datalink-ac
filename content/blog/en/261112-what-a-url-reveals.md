@@ -13,10 +13,10 @@ comes with a property that is easy to state and easy to forget:
 
 Not anyone who can log in. Anyone. The string is the payload.
 
-It matters more now than it did a year ago, for one reason: the link outlives
-the piece. A screenshot in a chat log is gone in a week. A datalink in a
-release note is still there in three years, still holding the numbers it was
-made from — and still perfectly readable by whoever finds it.
+It is worth saying this now because pictures are lost and links are not. A
+screenshot in a chat log is gone in a week. A datalink in a release note is
+still there in three years, still holding the numbers it was made from — and
+still perfectly readable by whoever finds it.
 
 ## Where a link actually goes
 
@@ -64,9 +64,9 @@ link, publishes it in a form that anybody can quote back precisely.
 
 Some of this we do not have good answers to yet: whether a datalink should
 carry a marker saying "this describes something private", and who owns a
-public link once it has been sitting in an issue for three years. Those
-questions are open in the [specification](/spec), and they are not technical
-questions.
+public link once it has been sitting in an issue for three years. The
+specification makes a start of it and leaves these bigger questions to the
+repo's issues and this blog — unanswered, and none of them technical.
 
 This site is a small example of the rule. No accounts, no cookies, no
 analytics, no database. Every chart here is a link you can copy, and every one

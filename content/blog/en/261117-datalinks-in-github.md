@@ -20,12 +20,12 @@ In a **release note** — the code composition of that version. It is a link, so
 the next release does not need a new picture: the link already says what to
 draw.
 
-<figure class="post-fig"><a href="https://www.x-cmd.com/draw/tokei?layout=butterfly&amp;langs=TypeScript:4820:1180:940,JavaScript:1687:298:71,Shell:640:120:88,CSS:210:40:35,Markdown:180:760:120,JSON:95:0:12&amp;title=Code%20composition&amp;w=560&amp;h=300&amp;scheme=auto" target="_blank" rel="noopener"><img src="/draw/tokei?layout=butterfly&amp;langs=TypeScript:4820:1180:940,JavaScript:1687:298:71,Shell:640:120:88,CSS:210:40:35,Markdown:180:760:120,JSON:95:0:12&amp;title=Code%20composition&amp;w=560&amp;h=300&amp;scheme=auto" alt="Code composition of a repository" width="560" height="300" loading="lazy"></a><figcaption>The release note’s picture — the link says what to draw, so the next version draws itself.</figcaption></figure>
+<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore/tokei?layout=butterfly&amp;langs=TypeScript:4820:1180:940,JavaScript:1687:298:71,Shell:640:120:88,CSS:210:40:35,Markdown:180:760:120,JSON:95:0:12&amp;title=Code%20composition&amp;w=560&amp;h=300&amp;scheme=auto" target="_blank" rel="noopener"><img src="/draw/tokei?layout=butterfly&amp;langs=TypeScript:4820:1180:940,JavaScript:1687:298:71,Shell:640:120:88,CSS:210:40:35,Markdown:180:760:120,JSON:95:0:12&amp;title=Code%20composition&amp;w=560&amp;h=300&amp;scheme=auto" alt="Code composition of a repository" width="560" height="300" loading="lazy"></a><figcaption>The release note’s picture — the link says what to draw, so the next version draws itself.</figcaption></figure>
 
 In an **issue** — the flow of a requirement, drawn once. The next issue about
 the same requirement links to the same picture rather than redrawing it.
 
-<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore/mermaid?m=graph%20TD%3BA%5BRequirement%5D--%3EB%5BDesign%5D%3BB--%3EC%5BDevelopment%5D%3BC--%3ED%5BReview%5D%3BD--%3E%7Cchange%20C%7CD--%3EE%5BRelease%5D&amp;title=The%20flow%20of%20a%20requirement&amp;w=300&amp;h=400&amp;scheme=auto" target="_blank" rel="noopener"><img src="/draw/mermaid?m=graph%20TD%3BA%5BRequirement%5D--%3EB%5BDesign%5D%3BB--%3EC%5BDevelopment%5D%3BC--%3ED%5BReview%5D%3BD--%3E%7Cchange%20C%7CD--%3EE%5BRelease%5D&amp;title=The%20flow%20of%20a%20requirement&amp;w=300&amp;h=400&amp;scheme=auto" alt="Flow of a requirement" width="320" height="594" loading="lazy"></a><figcaption>A requirement’s flow, drawn once.</figcaption></figure>
+<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore/mermaid?m=graph%20TD%3BA%5BRequirement%5D--%3EB%5BDesign%5D%3BB--%3EC%5BDevelopment%5D%3BC--%3ED%5BReview%5D%3BD--%3E%7Cchange%7CC%3BD--%3EE%5BRelease%5D&amp;title=The%20flow%20of%20a%20requirement&amp;w=300&amp;h=400&amp;scheme=auto" target="_blank" rel="noopener"><img src="/draw/mermaid?m=graph%20TD%3BA%5BRequirement%5D--%3EB%5BDesign%5D%3BB--%3EC%5BDevelopment%5D%3BC--%3ED%5BReview%5D%3BD--%3E%7Cchange%7CC%3BD--%3EE%5BRelease%5D&amp;title=The%20flow%20of%20a%20requirement&amp;w=300&amp;h=400&amp;scheme=auto" alt="Flow of a requirement" width="320" height="594" loading="lazy"></a><figcaption>A requirement’s flow, drawn once.</figcaption></figure>
 
 In a **pull request** — the benchmark. The numbers travel with the diff, so
 the reviewer sees the change to the number and the change to the picture at
@@ -40,9 +40,9 @@ with it; nobody has to remember to regenerate a file.
 
 The through-line is that the repository stops storing drawings. What it stores
 is data, in a form a machine can read and a person can review. The picture is
-still there when somebody looks at it; it just is not a thing that has to be
-kept in sync by hand.
+still there whenever somebody looks at it; it just is not a thing that has to
+be kept in sync by hand.
 
 This is also why the same links work outside GitHub. A README is a document, an
 issue is a document, a release note is a document — and a document that carries
-its own data does not go stale.
+its own data never falls out of sync with it.

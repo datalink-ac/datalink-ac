@@ -1,14 +1,15 @@
 ---
-title: Not just charts: diagrams, calendars, maps and molecules are the same kind of link.
+title: Not just charts: diagrams, calendars and molecules are the same kind of link.
 date: 2026-11-17
 order: 3
 desc: The parameters differ, the form does not — every kind of data goes through the same datalink.
 tags: concept
 ---
 
-Not only data charts. An architecture diagram, a release calendar, a map of
-last quarter's sales, a molecule — each of them is data in a link, and each of
-them is a link of its own.
+Not only data charts. An architecture diagram, a release calendar, a molecule —
+each of them is data in a link, and each of them is a link of its own. The form
+reaches further: a map, a kind nobody has thought of yet, is a link too, the day
+someone writes a renderer for it.
 
 The parameters differ, because the data differs: a calendar takes events, a
 diagram takes nodes and edges, a chart takes labels and values. One link
@@ -33,11 +34,10 @@ a slide.
 
 ## A new kind is not a new format
 
-Renderers are an open list: charts, structure diagrams, calendars, decks. A
-new one — a molecule, a Gantt chart, something nobody has thought of yet —
-does not change the format. It is another renderer, and it has to keep the
-same promises: the link carries the data, the output is a pure function of
-the parameters, and the picture can always be taken back apart into the
-numbers it was drawn from.
+Renderers are an open list: charts, structure diagrams, calendars, decks. A new
+one — a map, something nobody has thought of yet — does not change the format.
+It is another renderer, and it has to keep the same promises: the link carries
+the data, the output is a pure function of the parameters, and the picture can
+always be taken back apart into the numbers it was drawn from.
 
 Those promises are written down in the [specification](/spec).

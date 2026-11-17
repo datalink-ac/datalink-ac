@@ -12,11 +12,13 @@ ended up with datalink.
 (1) info
 
 Information is not the thing. Every link carries information already. What we
-meant was narrower: the numbers themselves, on the URL, with a service that
+meant was narrower: the numbers themselves, in the URL, with a service that
 keeps nothing.
 
-That is what lets a link be stateless. Tomorrow it still says the same thing,
-and it says it even when the service behind it is down.
+That is what lets a link be stateless. Tomorrow it still says the same thing —
+and it says it even when the service behind it is down, because the string
+still holds the data, and another renderer that keeps the same promises will
+draw the same picture from it.
 
 So: data rather than info.
 
@@ -32,7 +34,7 @@ not somewhere else. It is in the link you are already sending.
 (3) linkdata
 
 linkdata has the head in the wrong place. It reads as data attached to a link
-— data is the subject, link is the modifier. We were after the other way
+— data is the head, link is the modifier. We were after the other way
 round: a kind of link, one that happens to carry the data.
 
 (It is also a name that is already taken, which we found out late.)

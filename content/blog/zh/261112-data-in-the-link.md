@@ -6,7 +6,7 @@ desc: 稿子发出去了，写它的上下文没有 —— 除非数据在链接
 tags: 概念
 ---
 
-稿子是 AI 写的。它要一张图，就做一张图。可它留下的是一张图 ——
+稿子是 AI 写的，需要图的地方，它画一张。可它留下的是一张图 ——
 数字进了图，就没再出来。
 
 稿子发出去了，写它的上下文没有。下一个人来读 —— 一个人、一个 agent、
@@ -15,8 +15,7 @@ tags: 概念
 ## 图里没有地方放数字
 
 一张图能让你看出一百个数字的形状，但它没法把那一百个数字交给你。
-所以正文里还得写一个数字 —— 而那个数字是从哪儿来的？
-从有人把那张图读回去的地方。
+而正文里引用的那个数字，只能从一处来：有人把图读了回去。
 
 读回去这一步是有损的，而且损得很安静。那根柱子可能是 4.18，
 句子里写的是 4.2，或者 4.3，或者 42%。没人能分辨，
@@ -27,14 +26,14 @@ tags: 概念
 
 ## URL 可以是一份文档
 
-这件事网页在文档上早就解决了。URL 可以是一份文档，不是一份文档的指针 ——
-`https://example.com/notes.md` *就是*那份笔记，服务器只是替我们保管、
-递交给别人的地方。
+网页在文档上早就把这件事解决了。一个 URL 命名的是一份文档，不只是指向一个程序 ——
+`https://example.com/notes.md` 这串字符后面就是那份笔记，谁去取，
+拿到的都是同样的字节。
 
-这是个早已确定、无聊、几十年前就有的想法。也正因为如此，网页才能被引用、
-被 diff、被缓存、被争论。
+这是个用了几十年、无聊的想法。正因如此，网页才能被引用、被 diff、
+被缓存、被争论。
 
-我们把它用到数据上却慢了。图是最后一个地方：一份东西的实质，
+轮到数据，我们却慢了。图是最后一个还守着老规矩的地方：一份东西的实质，
 被故意放在它的地址之外。
 
 数据放进链接，链接就不再是一个指针了 —— 它成了上下文。
@@ -47,12 +46,13 @@ tags: 概念
 datalink.ac/draw?type=pie&labels=TS,Py,Go&values=4821,2312,980
 ```
 
-手里就有数字、标签和问题本身。不用取，不用看，也没有一段描述图片内容的话。
+手里就有数字、标签，还有这份数据在回答什么问题。不用取，不用看，
+也用不着一段描述图片内容的话。
 
-<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore?type=pie&amp;t=revenue&amp;title=Stars%20by%20language&amp;labels=TypeScript,Python,Go,Rust,Java&amp;values=4821,2312,980,645,520" target="_blank" rel="noopener"><img src="/draw?type=pie&amp;t=revenue&amp;title=Stars%20by%20language&amp;labels=TypeScript,Python,Go,Rust,Java&amp;values=4821,2312,980,645,520&amp;w=720&amp;h=510&amp;scheme=auto" alt="各语言 star 数量的饼图" width="720" height="510" loading="lazy"></a><figcaption>上面那条链接渲染出来的样子。同一条字符串，agent 也能直接读到背后的数字。</figcaption></figure>
+<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore?type=pie&amp;t=revenue&amp;title=Stars%20by%20language&amp;labels=TypeScript,Python,Go,Rust,Java&amp;values=4821,2312,980,645,520" target="_blank" rel="noopener"><img src="/draw?type=pie&amp;t=revenue&amp;title=Stars%20by%20language&amp;labels=TypeScript,Python,Go,Rust,Java&amp;values=4821,2312,980,645,520&amp;w=720&amp;h=510&amp;scheme=auto" alt="各语言 star 数量的饼图" width="720" height="510" loading="lazy"></a><figcaption>一条这样的链接渲染出来的样子。同一串字符，agent 也能直接读到背后的数字。</figcaption></figure>
 
 同一张图写成 SVG 标记，大概 1,100 个 token；装着同样数字的那条链接，大概 25 个。
-两边都是文本，所以这个比法是公平的 —— 而且便宜的那一份，恰好也是准的那一份。
+两边都是文本 —— 而且短的那一份，恰好也是准的那一份。
 
 ## URL 就是 API
 
@@ -60,8 +60,8 @@ datalink.ac/draw?type=pie&labels=TS,Py,Go&values=4821,2312,980
 没有刷新按钮 —— 要说的都在参数里了。
 
 它能缓存，因为 URL 就是键。它能版本化，因为 `v=1` 把字节钉住了，
-贴进 release note 的链接就不会变。它能 diff：两条只差一个参数的链接，
-就只差一个字符。
+贴进 release note 的链接就不会变。它能 diff：两条链接只差一个参数，
+diff 里看到的就是那个参数。
 
 最后这一条，是图表该出现在 issue、release note 和 PR 里的原因 ——
 不是在那里好看，而是在那里可以改，而且历史会记下你当时的意思。
@@ -69,16 +69,17 @@ datalink.ac/draw?type=pie&labels=TS,Py,Go&values=4821,2312,980
 ## 链接比图活得久
 
 聊天记录里的一张图是条死路。链接是一份数字还在里面的报告，
-半年以后，有记忆的 agent 还能从它里面把意图和数字读回来。
+半年以后，agent 还能从里面把意图和数字读回来。
 
 ## 链接是公开的
 
 链接会被复制、转发、缓存、记录、截图。如果背后的数据是私密的，
-那么数据链接就是错的形状，再聪明也改不了。
+数据链接就不是对的形状 —— 这不是缺陷，是性质。
 
 但看看我们已经在怎么用 URL。我们往 issue 里贴查询串，
 把客户标识放进工单链接，给仪表盘加登录，然后再为这个登录花掉真金白银。
-数据早就住在 URL 里了；被抽空的不是链接本身，而是链接的**内容**。
+数据住在 URL 里，这事不新鲜；新鲜的是链接装的东西 —— 以前装的是门牌，
+现在可以装下内容本身。
 
 渲染器可以换 —— 换成另一个守住同样承诺的 host。承诺本身写在
 [数据链接规范](/zh/spec)里 —— 一份草案，欢迎争论。

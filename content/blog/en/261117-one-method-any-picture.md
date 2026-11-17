@@ -7,7 +7,7 @@ tags: agents
 ---
 
 Ask an agent for a chart. Now ask it for the release calendar, or the
-architecture diagram, or the map of last quarter's sales.
+architecture diagram, or a Gantt chart.
 
 The kind changes, and so do the parameters: a calendar takes events, a
 diagram takes nodes and edges, a chart takes labels and values. The method does
@@ -28,9 +28,9 @@ An agent that has the list does not have to learn a second API for the second
 kind of picture. The shape of the link is the same for all of them: a URL, the
 kind in the path, the data in the parameters.
 
-<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore/erd?n=users%3Btable%3Busers%3Bid%3Auuid%20%28pk%29%0Aemail%3Atext%20%28uk%29%0Aname%3Atext&n=orders%3Btable%3Borders%3Bid%3Auuid%20%28pk%29%0Auser_id%3Auuid%0Atotal%3Anumeric&n=products%3Btable%3Bproducts%3Bsku%3Atext%20%28pk%29%0Aname%3Atext%0Aprice%3Anumeric" target="_blank" rel="noopener"><img src="/draw/erd?n=users%3Btable%3Busers%3Bid%3Auuid%20%28pk%29%0Aemail%3Atext%20%28uk%29%0Aname%3Atext&n=orders%3Btable%3Borders%3Bid%3Auuid%20%28pk%29%0Auser_id%3Auuid%0Atotal%3Anumeric&n=products%3Btable%3Bproducts%3Bsku%3Atext%20%28pk%29%0Aname%3Atext%0Aprice%3Anumeric&amp;w=560&amp;h=400&amp;scheme=auto" alt="Entity relationship diagram of a small shop" width="560" height="548" loading="lazy"></a><figcaption>An ER diagram — a kind nobody had heard of yesterday, drawn the same way.</figcaption></figure>
+<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore/erd?n=users%3Btable%3Busers%3Bid%3Auuid%20%28pk%29%0Aemail%3Atext%20%28uk%29%0Aname%3Atext&n=orders%3Btable%3BOrders%3Bid%3Auuid%20%28pk%29%0Auser_id%3Auuid%0Atotal%3Anumeric&n=products%3Btable%3Bproducts%3Bsku%3Atext%20%28pk%29%0Aname%3Atext%0Aprice%3Anumeric" target="_blank" rel="noopener"><img src="/draw/erd?n=users%3Btable%3Busers%3Bid%3Auuid%20%28pk%29%0Aemail%3Atext%20%28uk%29%0Aname%3Atext&n=orders%3Btable%3BOrders%3Bid%3Auuid%20%28pk%29%0Auser_id%3Auuid%0Atotal%3Anumeric&n=products%3Btable%3Bproducts%3Bsku%3Atext%20%28pk%29%0Aname%3Atext%0Aprice%3Anumeric&amp;w=560&amp;h=400&amp;scheme=auto" alt="Entity relationship diagram of a small shop" width="560" height="548" loading="lazy"></a><figcaption>An ER diagram — old idea, same method.</figcaption></figure>
 
-A kind that did not exist yesterday is drawn the same way. The registry is
+A kind that did not exist yesterday is drawn the same way, too. The registry is
 open; the promises are not.
 
 ## The promises do not depend on the kind
@@ -52,4 +52,4 @@ The kind is the path in the address. Change it and you get a different
 picture — and you do not need the agent for that. Edit the link in a README,
 or in the address bar, and the picture changes with it.
 
-The agent composes the link. You read it. Both are working on the same string.
+The agent composes the link. You read it. Both of you are working on the same string.
