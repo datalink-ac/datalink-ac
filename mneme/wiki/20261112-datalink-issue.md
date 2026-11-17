@@ -45,18 +45,24 @@ agent 写稿（README、issue、PR、博文、聊天），需要图就拼一条�
 
 | 顺序 | 文章 | 对应 |
 |---|---|---|
-| 1 | The link is the data. ／ 链接就是数据。 | 首屏 +「The link is the data.」 |
-| 2 | 6 links, and no images to regenerate. ／ 6 条链接，没有图要重画。 | 案例那节 |
-| 3 | One link, many pictures. ／ 一条链接，很多张图。 | 「给的不只是图」 |
-| 4 | A repository stores data, not pictures. ／ 仓库该存的是数据，不是图片。 | GitHub 那节 |
+| 1 | A picture is not the data. ／ 图不是数据。 | 首屏 +「The link is the data.」（issue 主张 01 + 02） |
+| 2 | The language is just a parameter. ／ 语言只是一个参数。 | 案例那节 |
+| 3 | A picture is just one rendering. ／ 图只是一种渲染。 | 「给的不只是图」（issue 主张 03） |
+| 4 | Everything in a repository is already text. ／ 仓库里的一切本来就是文本。 | GitHub 那节 |
 | 5 | Tell your agent to use datalinks. ／ 告诉 agent：图用 datalink。 | 最后一节 |
 | 6 | Why it's called datalink. ／ 为什么叫 datalink。 | 名字那篇（首页首屏有个小链接指过去） |
 | 7 | Anyone with the link has the data. ／ 拿到链接，就拿到了数据。 | 隐私（规范第 8 节那件事，单独写一篇） |
 
-**文章里的图就是证据。** 每一处要讲的，都放一张真的 datalink 渲染出来的图：
-第 1 篇放那张饼图，第 2 篇放英语和中文两张架构图（同一张图、只换标签），
-第 3 篇放架构图/分子/双翼图，第 4 篇四张图分别对应 release / issue / PR / README。
-图都指向 `/draw?...`，点得开、改得动 —— **不要干说**。
+标题取自 issue #1 自己的三个主张：**图不是数据 / URL 就是 API / 图只是一种渲染**。
+文章标题要是一个完整的判断，不是话题（「6 种语言，6 条链接」那种不算数）。
+
+**文章里的图就是证据。** 要讲的就画出来，不要干说。图的规矩见下面那节：
+第 1 篇放那张饼图，第 3 篇放**同一串参数**被四个渲染器画出的四张图，
+第 4 篇四张图分别对应 release / issue / PR / README。
+图都指向 `/draw?...`，点得开、改得动。
+
+**第 2 篇（六种语言）不放图** —— 那件事的重点是链接：六条链接，
+每条只换一个标签。图是同一张，不用再加。
 
 **索引卡片上不再有副标题。** 标题写好了，就不用再补一句说明
 （front-matter 的 `desc` 只留给 meta description 和搜索结果摘要，页面上不显示）。
@@ -69,6 +75,24 @@ agent 写稿（README、issue、PR、博文、聊天），需要图就拼一条�
 - 《The URL is the API》—— 「URL 就是 API」讲的是接口设计，不是数据链接；
   纯函数、可缓存、可版本化在规范第 3、7 节。
   其中「没人再手写 URL，agent 拼链接」那段并进了《告诉 agent：图用 datalink》。
+
+### 理解要摆正：链接才是那个「东西」，图只是它的一种渲染
+
+**这是 blog 写错过的最深的一处。** 之前把图当成了主角、把渲染器当成了细节，
+写成「渲染器是链接的细节，不是链接的属性」—— **反了**。
+
+issue #1 主张 03 的原话是：**换的是渲染器，不变的是链接。**
+一条链接 = 一个字符串；图 = 这个字符串被某个渲染器画出来的样子。
+所以：
+
+- 讲「一张图」，就把**同一串参数**交给不同的渲染器 ——
+  `/draw/archmap`、`/draw/cloud`、`/draw/seq`、`/draw/arch3d` 吃的是同一串 `n=`。
+- 讲「六种语言」，就不加图 —— 加链接就行，图是同一张。
+- 渲染器不是「链接的细节」：它是 host 后面的服务，可以换（换 host 也行）；
+  换不了的是契约 —— 规范里那五条不变量。
+
+**别把「几张不同的图」当成「同一条链接的几种画法」。** 那是两条不同的链接，
+它们的参数不一样，说的就不是一件事。
 
 ### 写 blog 的规矩
 

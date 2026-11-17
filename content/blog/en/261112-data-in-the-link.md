@@ -1,8 +1,8 @@
 ---
-title: The link is the data.
+title: A picture is not the data.
 date: 2026-11-12
 order: 1
-desc: A picture shows; it does not hold. What changes when the numbers stay in the address.
+desc: The numbers went into the image and did not come back out. Put them in the link and they stay there.
 tags: concept
 ---
 
@@ -13,7 +13,7 @@ out of it.
 The piece ships. The context that made it does not. Whoever reads it next — a
 person, an agent, you next year — has the picture and nothing else.
 
-## A picture shows; it does not hold
+## A picture has no room for the numbers
 
 A chart can show you the shape of a hundred numbers. It cannot hand you the
 hundred numbers. So the prose needs a number too — and where did that one come
@@ -23,15 +23,15 @@ That read-back is lossy, and quietly so. The bar might say 4.18; the sentence
 says 4.2, or 4.3, or 42%. Nobody can tell which, because the numbers were never
 in the picture to begin with.
 
-This is not the model's fault. It is the format's. A picture has no room for
-the precision, the units, the caveats, or the second series.
+A picture has no room for the precision, the units, the caveats, or the second
+series. This is not the model's fault. It is the format's.
 
-## The web settled this for documents a long time ago
+## A URL can be a document
 
-A URL can be a document. Not a pointer to a document — the document.
-`https://example.com/notes.md` *is* the note; the server is just somewhere to
-keep it and hand it over. That idea is old and boring, and it is the reason
-the web can be quoted, diffed, cached and argued with.
+The web settled this for documents long ago. A URL can be a document, not a
+pointer to one: `https://example.com/notes.md` *is* the note; the server is
+just somewhere to keep it and hand it over. That old, boring idea is why the
+web can be quoted, diffed, cached and argued with.
 
 We were slow to apply it to data. The chart is the last place where the
 substance of a thing is deliberately kept away from the address of the thing.
@@ -56,14 +56,19 @@ The same chart as SVG markup is about 1,100 tokens. The link that holds the
 same numbers is about 25. Both are text, so the comparison is fair — and the
 cheaper one is also the exact one.
 
-## A chart in a pull request becomes reviewable
+## The URL is the API
 
-Two links that differ in one parameter differ in one character.
-`values=4821` → `values=5120` is a change a reviewer can read in a diff.
+A datalink is a pure function: parameters in, picture out. No session, no
+login, no dashboard, no refresh button — because the parameters already say
+everything there is to say.
 
-That is why a chart belongs in an issue, a release note or a pull request — not
-because it looks good there, but because it can be changed there, and because
-the history then says what you meant.
+It caches, because the URL is the key. It versions, because `v=1` pins the
+bytes and a link pasted into a release note stays correct. And it diffs: two
+links that differ in one parameter differ in one character.
+
+That last one is why a chart belongs in an issue, a release note or a pull
+request — not because it looks good there, but because it can be changed
+there, and because the history then says what you meant.
 
 ## The link outlives the picture
 
@@ -82,7 +87,6 @@ We put customer identifiers in ticket links. We keep dashboards behind logins
 and then spend real money on the login. The data already lives in the URL —
 what has been thinned out is the content of the link, not the link itself.
 
-Charts, structure diagrams, calendars, decks, a map, a molecule: those are
-renderers, and a renderer is a detail of the link rather than a property of it.
-The promises a renderer has to keep are written down in the
-[specification](/spec) — a draft, open for argument.
+What changes is the renderer; what stays is the link. The promises a renderer
+has to keep are written down in the [specification](/spec) — a draft, open
+for argument.

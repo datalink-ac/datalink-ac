@@ -115,7 +115,7 @@ datalink.
 
 - **The title is the conclusion.** "The harder question" and "that rule" are
   not titles — they are a promise to pay off later, and nobody waits. Say the
-  thing: *The link is the data.*
+  thing: *A picture is not the data.*
 - **One story per post.** If a post is carrying two, split it.
 - **Do not tell the reader what to do.** No "you should", no "always".
 - **Do not write in parallel bullet points to reach for a conclusion.**
@@ -123,6 +123,12 @@ datalink.
   paragraph; say it once, in prose.
 - **Write about datalink, not about x-cmd draw.** The renderer is an
   implementation; the link is the idea.
+- **The link is the thing; a picture is one rendering of it.** Do not write
+  "the renderer is a detail of the link" — the opposite is true: what changes
+  is the renderer, what stays is the link. To show one set of data drawn
+  several ways, give the *same parameters* to several renderers
+  (`/draw/archmap`, `/draw/cloud`, `/draw/seq`, `/draw/arch3d` take the same
+  `n=`). Unrelated pictures are not a demonstration of anything.
 
 ```sh
 $EDITOR content/blog/en/261112-your-topic.md    # frontmatter: title/date/order/desc/tags
