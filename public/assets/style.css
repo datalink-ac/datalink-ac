@@ -1070,6 +1070,7 @@ pre.code .c { color: var(--fg-mute); }
 }
 
 .post-card {
+  position: relative;
   border: 1px solid var(--line);
   border-radius: var(--r);
   background: var(--surface);
@@ -1079,6 +1080,8 @@ pre.code .c { color: var(--fg-mute); }
 .post-card:hover { border-color: var(--peri-dim); transform: translateY(-2px); box-shadow: var(--glow-peri); }
 .post-card h3 { margin: 0 0 .3em; font-size: 1.14rem; }
 .post-card h3 a { color: var(--fg); }
+/* the whole card is the link — the title's anchor covers it */
+.post-card h3 a::after { content: ""; position: absolute; inset: 0; border-radius: var(--r); }
 .post-card h3 a:hover { color: var(--peri); }
 .post-meta {
   font-family: var(--mono);
