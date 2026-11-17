@@ -6,7 +6,7 @@ desc: release note、issue、pull request、README —— 四个链接比图片�
 tags: 案例
 ---
 
-仓库是个写文本的地方。它有 diff，有 blame，有一段能读下来的历史。
+仓库是由文本组成的。它有 diff，有 blame，有一段能读下来的历史。
 图片是里面唯一一样这些都不管用的东西：PNG 没法在 diff 里被审阅，
 你看不出它改了哪里，不装个工具也改不动它。
 

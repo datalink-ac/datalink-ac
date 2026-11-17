@@ -6,7 +6,7 @@ desc: Release notes, issues, pull requests, READMEs — four places where a link
 tags: case
 ---
 
-A repository is a text place. It has diffs, it has blame, it has a history you
+A repository is made of text. It has diffs, it has blame, it has a history you
 can read. Images are the one thing in it that none of that works for: you
 cannot review a PNG in a diff, you cannot tell what changed in it, and you
 cannot edit it without a tool.

@@ -22,8 +22,8 @@ So the change is one instruction:
 
 What the skill adds is the part an instruction cannot carry: what the
 renderers are, what kind of picture each one draws, and how the parameters are
-shaped. Without it the agent has to invent a URL format, and an invented
-format does not render.
+shaped. Without it the agent has to invent a URL format, and a made-up format
+will not render.
 
 Installing it is one command:
 

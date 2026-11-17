@@ -50,9 +50,9 @@ datalink.ac/draw?type=pie&labels=TS,Py,Go&values=4821,2312,980
 has the numbers, the labels and the shape of the question. Nothing to fetch,
 nothing to look at, no paragraph describing what the picture showed.
 
-The same chart as SVG markup runs about 1,100 tokens. The link that holds the
+The same chart as SVG markup is about 1,100 tokens. The link that holds the
 same numbers is about 25. Both are text, so the comparison is fair — and the
-cheaper one happens to be the exact one.
+cheaper one is also the exact one.
 
 ## A chart in a pull request becomes reviewable
 
@@ -82,5 +82,5 @@ what has been thinned out is the content of the link, not the link itself.
 
 Charts, structure diagrams, calendars, decks, a map, a molecule: those are
 renderers, and a renderer is a detail of the link rather than a property of it.
-The part worth writing down is in the [specification](/spec) — it is a draft,
-and it is open for argument.
+The promises a renderer has to keep are written down in the
+[specification](/spec) — a draft, open for argument.

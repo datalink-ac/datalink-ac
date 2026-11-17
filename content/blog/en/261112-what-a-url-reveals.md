@@ -20,7 +20,7 @@ made from — and still perfectly readable by whoever finds it.
 
 ## Where a link actually goes
 
-Most of the ways a URL escapes are mundane rather than malicious:
+Most of the ways a URL travels are ordinary, not malicious:
 
 - A link pasted into a comment is copied into a notification, a search index, a
   webhook, and possibly a third-party service that indexes issues for search.

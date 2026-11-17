@@ -22,10 +22,9 @@ Different renderer, different shape of output — but the same shape of address:
 a path that says what kind of thing this is, and parameters that carry the
 data it is made of.
 
-This is worth spelling out, because it is easy to miss. A description of data
-says what was measured. It does not say how it should be drawn. That is not an
-oversight in the description — it is exactly what lets the same data be a
-chart, a table, a calendar or a slide.
+A description of data says what was measured. It does not say how it should
+be drawn — and that is exactly what lets the same data be a chart, a table, a
+calendar or a slide.
 
 ## The renderer is a detail
 

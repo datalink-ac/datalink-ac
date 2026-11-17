@@ -273,6 +273,12 @@ em { font-style: normal; color: var(--mint); font-weight: 600; }
 .hero-why a { color: var(--fg-mute); }
 .hero-why a:hover { color: var(--mint); }
 
+/* the small link under a section heading — the long version of that story */
+.section-more { margin: 24px 0 0; font-size: 15px; line-height: 1.5; }
+.section-more a { color: var(--fg-mute); }
+.section-more a:hover { color: var(--mint); }
+.section-head.case-head .section-more { margin-bottom: 22px; }
+
 /* the hero's picture box — one size, so the panel does not jump between examples */
 .hero-shot { height: 330px; }
 .hero-shot a { display: block; height: 100%; }

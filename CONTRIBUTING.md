@@ -96,6 +96,12 @@ engineers. Two things matter more than anything else:
 - **Show the artifact, not the description of it.** Every claim on the site is
   a real link that renders something.
 
+The house style is the writing skill in
+[edwinjhlee/ai#61](https://github.com/edwinjhlee/ai/issues/61): know who the
+reader is and what they came for; state the value point from the title down;
+do not sell the ending before you deliver it; be exact, and shorten the
+argument so the reader gets there inside their attention.
+
 Keep it in English and Chinese, with the same meaning on both sides: the
 home page, the spec draft and every blog post exist in both languages under
 the same slug.
