@@ -45,17 +45,23 @@ agent 写稿（README、issue、PR、博文、聊天），需要图就拼一条�
 
 | 顺序 | 文章 | 对应 |
 |---|---|---|
-| 1 | A picture is not the data. ／ 图不是数据。 | 首屏 +「The link is the data.」（issue 主张 01 + 02） |
-| 2 | The language is just a parameter. ／ 语言只是一个参数。 | 案例那节 |
-| 3 | A picture is just one rendering. ／ 图只是一种渲染。 | 「给的不只是图」（issue 主张 03） |
-| 4 | Everything in a repository is already text. ／ 仓库里的一切本来就是文本。 | GitHub 那节 |
-| 5 | One method, any kind of picture. ／ 一套办法，画任何一种图。 | 「不只是图表」那节的另一半：agent 怎么挑渲染器 |
+| 1 | Send a picture and the numbers are gone; send a link and they are still there. ／ 发出去一张图，数字就没了；发出去一条链接，数字还在。 | 首屏 +「The link is the data.」（issue 主张 01 + 02） |
+| 2 | Six languages: no six images to add every time — six links are enough. ／ 6种语言的图表，不需要每次加6个图，6个链接即可。 | 案例那节 |
+| 3 | Not just charts: diagrams, calendars, maps and molecules are the same kind of link. ／ 不止图表：架构图、日历、地图、分子结构，用的也是同一种链接。 | 「给的不只是图」（issue 主张 03） |
+| 4 | No more images in the repository: a link is text, so the diff shows the number. ／ 仓库里不必再放图：链接是文本，diff 里就是那个数字。 | GitHub 那节 |
+| 5 | The agent does not have to guess: look up the kind, fill in the parameters, and the link is done. ／ agent 不用再猜格式：查一下注册表，填上参数，链接就成了。 | 「不只是图表」那节的另一半：agent 怎么挑渲染器 |
 | 6 | Tell your agent to use datalinks. ／ 告诉 agent：图用 datalink。 | 最后一节 |
-| 7 | Why it's called datalink. ／ 为什么叫 datalink。 | 名字那篇（首页首屏有个小链接指过去） |
-| 8 | Anyone with the link has the data. ／ 拿到链接，就拿到了数据。 | 隐私（规范第 8 节那件事，单独写一篇） |
+| 7 | Why it is called datalink. ／ 为什么叫 datalink。 | 名字那篇（首页首屏有个小链接指过去） |
+| 8 | With a picture you can only look; with a link, anyone can take the numbers. ／ 以前图里的数字只能看，现在链接里的数字谁都能拿。 | 隐私（规范第 8 节那件事，单独写一篇） |
 
-标题取自 issue #1 自己的三个主张：**图不是数据 / URL 就是 API / 图只是一种渲染**。
-文章标题要是一个完整的判断，不是话题（「6 种语言，6 条链接」那种不算数）。
+**标题的写法：以前是什么，现在怎么更好了。** 一句话说清代价和好处，
+不要只说话题（「6 种语言，6 条链接」那种不算数）：
+
+- 「6种语言的图表，不需要每次加6个图，6个链接即可。」
+- 「发出去一张图，数字就没了；发出去一条链接，数字还在。」
+
+标题不能读成另一个意思。「语言只是一个参数」在中文里会被读成
+「语言不重要」—— 这就是为什么标题要写完整。
 
 **文章里的图就是证据。** 要讲的就画出来，不要干说。
 第 1 篇放那张饼图，第 3 篇放四种不同的图（各自的链接、各自的参数），

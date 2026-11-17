@@ -115,7 +115,11 @@ datalink.
 
 - **The title is the conclusion.** "The harder question" and "that rule" are
   not titles — they are a promise to pay off later, and nobody waits. Say the
-  thing: *A picture is not the data.*
+  thing.
+- **Say what it was, and what is better now.** "Six languages: no six images
+  to add every time — six links are enough." A topic is not a title, and check
+  that the title cannot be read as saying something else — "the language is
+  just a parameter" reads in Chinese as "the language does not matter".
 - **One story per post.** If a post is carrying two, split it.
 - **Do not tell the reader what to do.** No "you should", no "always".
 - **Do not write in parallel bullet points to reach for a conclusion.**
