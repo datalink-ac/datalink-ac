@@ -46,12 +46,20 @@ agent 写稿（README、issue、PR、博文、聊天），需要图就拼一条�
 | 顺序 | 文章 | 对应 |
 |---|---|---|
 | 1 | The link is the data. ／ 链接就是数据。 | 首屏 +「The link is the data.」 |
-| 2 | 6 languages, 6 links. ／ 6 种语言，6 条链接。 | 案例那节 |
+| 2 | 6 links, and no images to regenerate. ／ 6 条链接，没有图要重画。 | 案例那节 |
 | 3 | One link, many pictures. ／ 一条链接，很多张图。 | 「给的不只是图」 |
-| 4 | Datalinks in GitHub. ／ GitHub 里的数据链接。 | GitHub 那节 |
+| 4 | A repository stores data, not pictures. ／ 仓库该存的是数据，不是图片。 | GitHub 那节 |
 | 5 | Tell your agent to use datalinks. ／ 告诉 agent：图用 datalink。 | 最后一节 |
 | 6 | Why it's called datalink. ／ 为什么叫 datalink。 | 名字那篇（首页首屏有个小链接指过去） |
 | 7 | Anyone with the link has the data. ／ 拿到链接，就拿到了数据。 | 隐私（规范第 8 节那件事，单独写一篇） |
+
+**文章里的图就是证据。** 每一处要讲的，都放一张真的 datalink 渲染出来的图：
+第 1 篇放那张饼图，第 2 篇放英语和中文两张架构图（同一张图、只换标签），
+第 3 篇放架构图/分子/双翼图，第 4 篇四张图分别对应 release / issue / PR / README。
+图都指向 `/draw?...`，点得开、改得动 —— **不要干说**。
+
+**索引卡片上不再有副标题。** 标题写好了，就不用再补一句说明
+（front-matter 的 `desc` 只留给 meta description 和搜索结果摘要，页面上不显示）。
 
 **顺序由 front-matter 的 `order:` 决定**，没有 `order` 的按日期倒序（`scripts/build.mjs`）。
 

@@ -188,7 +188,7 @@ function relatedPosts(all, current, lang) {
     .map(
       (x) => `          <li>
             <a href="${base}/${x.slug}">${esc(x.title)}</a>
-            <span class="tiny">${esc(x.date)}${x.desc ? ' — ' + esc(x.desc) : ''}</span>
+            <span class="tiny">${esc(x.date)}</span>
           </li>`,
     )
     .join('\n');
@@ -290,7 +290,6 @@ for (const { lang, file, full } of pageFiles) {
             p.tags ? ` · ${esc(p.tags)}` : ''
           }</p>
           <h3><a href="${lang === 'zh' ? '/zh/blog' : '/blog'}/${p.slug}">${esc(p.title)}</a></h3>
-          <p class="post-desc">${esc(p.desc)}</p>
         </article>`,
       )
       .join('\n');
@@ -398,7 +397,6 @@ for (const lang of Object.keys(LANGS)) {
       content: `<article class="post">
         <p class="post-meta"><time datetime="${esc(p.date)}">${esc(p.date)}</time>${p.tags ? ` · ${esc(p.tags)}` : ''}</p>
         <h1 class="post-title">${esc(p.title)}</h1>
-        ${p.desc ? `<p class="post-lede">${esc(p.desc)}</p>` : ''}
         <div class="post-body">
 ${p.html}
         </div>

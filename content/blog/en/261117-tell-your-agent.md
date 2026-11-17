@@ -37,7 +37,6 @@ in a README is still there in three years, still holding the numbers it was
 made from — and if a number changes, you get the new picture without asking
 anybody for a new screenshot.
 
-Two habits are worth forming along the way. Ask for the numbers rather than a
-description of them, because the numbers are in the link. And keep the link in
-the text, so the person reading it can open it and change a parameter
-themselves.
+The link answers both sides of the request. The numbers are in it, so there is
+no reason to ask for a description of them. And it stays in the text, so the
+person reading the document can open it and change a parameter themselves.

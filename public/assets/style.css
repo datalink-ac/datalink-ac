@@ -1129,6 +1129,26 @@ img.fit { width: 100%; height: auto; display: block; }
 }
 .post-body blockquote p:last-child { margin-bottom: 0; }
 .post-body img { border-radius: var(--r-sm); border: 1px solid var(--line); }
+
+/* pictures in a post — they are the proof, so they get room */
+.post-body figure { margin: 30px 0; }
+.post-body figure a { display: block; }
+.post-body figure img { display: block; width: 100%; height: auto; }
+.post-body figcaption {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--fg-mute);
+}
+.post-figs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 18px;
+  margin: 30px 0;
+  align-items: start;
+}
+.post-figs figure { margin: 0; }
+.post-figs figcaption { margin-top: 8px; }
 .post-body table { width: 100%; border-collapse: collapse; font-size: 15px; margin: 1.6em 0; }
 .post-body th, .post-body td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); }
 .post-body th { color: var(--fg-dim); font-weight: 650; font-size: 13px; letter-spacing: .03em; text-transform: uppercase; }

@@ -46,6 +46,8 @@ URL 可以是一份文档。不是文档的指针 —— 就是文档本身。
 datalink.ac/draw?type=pie&labels=TS,Py,Go&values=4821,2312,980
 ```
 
+<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore?type=pie&amp;t=revenue&amp;title=Stars%20by%20language&amp;labels=TypeScript,Python,Go,Rust,Java&amp;values=4821,2312,980,645,520" target="_blank" rel="noopener"><img src="/draw?type=pie&amp;t=revenue&amp;title=Stars%20by%20language&amp;labels=TypeScript,Python,Go,Rust,Java&amp;values=4821,2312,980,645,520&amp;w=720&amp;h=510&amp;scheme=auto" alt="各语言 star 数量的饼图" width="720" height="510" loading="lazy"></a><figcaption>上面那条链接渲染出来的样子。同一条字符串，agent 也能直接读到背后的数字。</figcaption></figure>
+
 手里就有数字、标签和问题本身。不用取，不用看，也没有一段描述图片内容的话。
 
 同一张图写成 SVG 标记，大概 1,100 个 token；装着同样数字的那条链接，大概 25 个。
