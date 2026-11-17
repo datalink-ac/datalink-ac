@@ -367,6 +367,13 @@ for (const { lang, file, full } of pageFiles) {
   });
 
   await write(outPath(urlPath), html);
+
+  // also serve the same page under a trailing slash — /blog/ is what people
+  // type, and GitHub Pages looks for blog/index.html
+  if (urlPath !== '/') {
+    await write(path.join(DIST, urlPath.replace(/^\//, ''), 'index.html'), html);
+  }
+
   built.push({
     urlPath,
     lang,
