@@ -44,10 +44,10 @@ trying to avoid.
 
 Short links are for URLs that are too long, not for URLs that are too private.
 
-## Once a link is public, the data can be taken straight out of it
+## When the data is about people, a public link publishes them
 
-There is a harder side to this, and it is not about the reader of the link. It
-is about the subject of the data.
+There is a harder side to this. It is not about who reads the link. It is about
+who the link talks about.
 
 A public link describing a private thing is still a disclosure. A chart of
 support tickets by customer name, pasted into a public issue, publishes the
