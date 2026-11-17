@@ -34,10 +34,44 @@ agent 写稿（README、issue、PR、博文、聊天），需要图就拼一条�
 | | 那一节要说的 |
 |---|---|
 | **The link is the data.** | 链接里装着数据 —— 大 URL 框，可以直接改，改完回车，图和数字一起变 |
-| **Six-language charts, six datalinks — instead of six PNG files blowing your storage.** | 大标题先摆一笔具体的账：六种语言就是六个图片文件，每改一次数据再添六个。接着讲解（六条 URL，每条一行文字；README 里改数字，diff 里就是那个数字）。最后一句收尾：**The repo stops blowing. The documents stop drifting.** |
-| **Datalink gives more than pictures.** | 架构图、日历、PPT、地图、分子、图表 —— 大号 label 排开，点一个换一张图 |
-| **Datalink is designed for GitHub.** | release / issue / PR 三张真图 |
-| **Make your agent use datalinks.** | 左 prompt（带 skill 说明书地址）、右 clawhub 安装，都能 copy |
+| **Case: 6-language charts.** | 先摆两行账：✅ 6 条链接（diff 里看得到数字）／ ❌ 每改一次数据多 6 个 PNG（仓库在胖、文档走样）。左边六种语言的按钮，右边同一张架构图换标签 |
+| **Datalink gives more than pictures.** | 架构图、日历、PPT、地图、分子、图表 —— 左边一列，点一个换一张图 |
+| **Datalink is designed for GitHub.** | release（代码构成）／ issue（需求流程）／ PR（性能对比）／ README（架构图），四张 2×2 的卡 |
+| **Tell your agent to use datalinks.** | 左 prompt（带 skill 说明书地址）、右 clawhub 安装，都能 copy |
+
+## 博客：一篇一个故事（2026-11-17 重整）
+
+博客不再是一堆随笔，而是**首页那几节各自展开**。顺序跟着首页走：
+
+| 顺序 | 文章 | 对应 |
+|---|---|---|
+| 1 | The link is the data. ／ 链接就是数据。 | 首屏 +「The link is the data.」 |
+| 2 | 6 languages, 6 links. ／ 6 种语言，6 条链接。 | 案例那节 |
+| 3 | One link, many pictures. ／ 一条链接，很多张图。 | 「给的不只是图」 |
+| 4 | Datalinks in GitHub. ／ GitHub 里的数据链接。 | GitHub 那节 |
+| 5 | Tell your agent to use datalinks. ／ 告诉 agent：图用 datalink。 | 最后一节 |
+| 6 | Why it's called datalink. ／ 为什么叫 datalink。 | 名字那篇（首页首屏有个小链接指过去） |
+| 7 | Anyone with the link has the data. ／ 拿到链接，就拿到了数据。 | 隐私（规范第 8 节那件事，单独写一篇） |
+
+**顺序由 front-matter 的 `order:` 决定**，没有 `order` 的按日期倒序（`scripts/build.mjs`）。
+
+**删掉的两篇**（内容已经被别的篇吃掉了）：
+- 《One link, two audiences》—— 两种读法已经是《链接就是数据》的正文；
+  agent 契约在规范第 6 节；prompt 在首页。
+- 《The URL is the API》—— 「URL 就是 API」讲的是接口设计，不是数据链接；
+  纯函数、可缓存、可版本化在规范第 3、7 节。
+  其中「没人再手写 URL，agent 拼链接」那段并进了《告诉 agent：图用 datalink》。
+
+### 写 blog 的规矩
+
+- **标题直接给结论。** 「更难的那个问题」「那条规矩」这种卖关子的，一律不许。
+  标题就是一句话结论，跟首页的 h2 一个口气。
+- **一篇一个故事。** 别在一篇里讲三件事；讲不下就再开一篇。
+- **别命令读者。** 不要「你应该」「你必须」。
+- **别写成 AI。** 平行排比当结论（「它可缓存。它可版本化。它可 diff。」）
+  是最像 AI 的一种写法 —— 能用一段话讲完就别拆成三条。
+- **只讲 datalink 体系**；实现是 x-cmd draw 的事，blog 不替 draw 讲它。
+- **中文要像中文**，别是英文的翻译。
 
 ## 两条不能丢的
 

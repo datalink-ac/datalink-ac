@@ -128,9 +128,10 @@ So: a **datalink** — a link that carries the data. The long version is in
   promise: the anatomy, the invariants, the agent contract, and the questions
   we have not settled.
 - The **concept issue** — where the idea is argued out in the open.
-- The **blog** — notes on the idea as we go: how datalink works and why it
-  works that way, two audiences, URLs as APIs, what a URL gives away, and why
-  it is called datalink.
+- The **blog** — one story per post, in the order of the home page: what a
+  datalink is, six languages in six links, what else a link can be, where a
+  datalink belongs in GitHub, telling your agent to use them, and why it is
+  called datalink.
 
 ## Related
 

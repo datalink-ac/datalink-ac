@@ -102,11 +102,30 @@ the same slug.
 
 ### Adding a blog post
 
+The blog is one story per post, and the stories follow the home page: what a
+datalink is, the six-language case, what else a link can be, where a datalink
+belongs in GitHub, how to get your agent to use them, and why it is called
+datalink.
+
+- **The title is the conclusion.** "The harder question" and "that rule" are
+  not titles — they are a promise to pay off later, and nobody waits. Say the
+  thing: *The link is the data.*
+- **One story per post.** If a post is carrying two, split it.
+- **Do not tell the reader what to do.** No "you should", no "always".
+- **Do not write in parallel bullet points to reach for a conclusion.**
+  "It caches. It versions. It diffs." is the tell of a machine-written
+  paragraph; say it once, in prose.
+- **Write about datalink, not about x-cmd draw.** The renderer is an
+  implementation; the link is the idea.
+
 ```sh
-$EDITOR content/blog/en/261112-your-topic.md    # frontmatter: title/date/desc/tags
+$EDITOR content/blog/en/261112-your-topic.md    # frontmatter: title/date/order/desc/tags
 $EDITOR content/blog/zh/261112-your-topic.md    # the same slug
 npm run build
 ```
+
+`order` is the reading order on the blog index — the order of the stories on
+the home page. A post without one falls back to newest first.
 
 The build renders the markdown, writes `dist/blog/<slug>.html` and
 `dist/zh/blog/<slug>.html`, and adds both to `sitemap.xml`.

@@ -1,12 +1,13 @@
 ---
-title: Data in the link
+title: The link is the data.
 date: 2026-11-12
-desc: Why the URL is the right place to keep the data — and what changes when it is there.
+order: 1
+desc: A picture shows; it does not hold. What changes when the numbers stay in the address.
 tags: concept
 ---
 
 Your AI writes the piece. Where it needs a chart, it makes one. What it leaves
-behind is a picture — and the data went into the image and did not come back
+behind is a picture — and the numbers went into the image and did not come back
 out of it.
 
 The piece ships. The context that made it does not. Whoever reads it next — a
@@ -15,71 +16,71 @@ person, an agent, you next year — has the picture and nothing else.
 ## A picture shows; it does not hold
 
 A chart can show you the shape of a hundred numbers. It cannot hand you the
-hundred numbers. So the piece needs a number in the prose as well — and where
-did that number come from? From whoever read the picture back.
+hundred numbers. So the prose needs a number too — and where did that one come
+from? From whoever read the picture back.
 
 That read-back is lossy, and quietly so. The bar might say 4.18; the sentence
-says 4.2, or 4.3, or 42%. Nobody can tell which, because the numbers were
-never in the picture to begin with.
+says 4.2, or 4.3, or 42%. Nobody can tell which, because the numbers were never
+in the picture to begin with.
 
-The gap is not the model. The gap is the format. A picture has no room for the
-precision, the units, the caveats, or the second series.
+This is not the model's fault. It is the format's. A picture has no room for
+the precision, the units, the caveats, or the second series.
 
-## The web solved this for documents a long time ago
+## The web settled this for documents a long time ago
 
 A URL can be a document. Not a pointer to a document — the document.
-`https://example.com/notes.md` *is* the note; the server is just a place to
-keep it and hand it over. That is a settled, boring, decades-old idea, and it
-is the reason the web can be quoted, diffed, cached and argued with.
+`https://example.com/notes.md` *is* the note; the server is just somewhere to
+keep it and hand it over. That idea is old and boring, and it is the reason
+the web can be quoted, diffed, cached and argued with.
 
-We have been slow to extend it to data. The chart is the last place where the
+We were slow to apply it to data. The chart is the last place where the
 substance of a thing is deliberately kept away from the address of the thing.
 
-## What changes
+Put the data in the link and the link stops being a pointer. It becomes the
+context.
 
-Put the data in the link and the link stops being a pointer.
+## The agent gets the numbers
 
-It becomes the whole context. An agent that receives
-`datalink.ac/draw?type=pie&labels=TS,Py,Go&values=4821,2312,980` has the
-numbers, the labels and the shape of the question — nothing to fetch, nothing
-to look at, no paragraph describing what the picture showed.
+An agent that receives
 
-It becomes diffable. Two links that differ in one parameter differ in one
-character. `values=4821` → `values=5120` is a reviewable change: a pull
-request that edits a chart is a pull request that edits a URL. That is why a
-chart belongs in an issue, a release note or a pull request — not because it
-looks good there, but because it can be *changed* there, and because the
-history then says what you meant.
+```
+datalink.ac/draw?type=pie&labels=TS,Py,Go&values=4821,2312,980
+```
 
-It becomes a call. Parameters in, picture out — no session, no login, no
-dashboard state. An agent that wants a different cut of the same data rewrites
-the parameters; a person who wants to explore it edits the same string.
-Neither of them needs a special tool to do it.
+has the numbers, the labels and the shape of the question. Nothing to fetch,
+nothing to look at, no paragraph describing what the picture showed.
 
-And it is what survives. A picture in a chat log is a dead end. A link is a
-report whose numbers are still inside it, so six months later an agent with
-memory can read the intent and the data back out of it.
+The same chart as SVG markup runs about 1,100 tokens. The link that holds the
+same numbers is about 25. Both are text, so the comparison is fair — and the
+cheaper one happens to be the exact one.
 
-## The uncomfortable part
+## A chart in a pull request becomes reviewable
 
-A link is public. A link is copied, forwarded, cached, logged, screenshotted.
-If the data behind it is private, then a datalink is the wrong shape for that
-data, and no amount of cleverness changes it. (We wrote about this separately —
-see *What a URL reveals*.)
+Two links that differ in one parameter differ in one character.
+`values=4821` → `values=5120` is a change a reviewer can read in a diff.
+
+That is why a chart belongs in an issue, a release note or a pull request — not
+because it looks good there, but because it can be changed there, and because
+the history then says what you meant.
+
+## The link outlives the picture
+
+A picture in a chat log is a dead end. A link is a report whose numbers are
+still inside it, so six months later an agent with memory can read the intent
+and the data back out of it.
+
+## Links are public
+
+A link gets copied, forwarded, cached, logged, screenshotted. If the data
+behind it is private, a datalink is the wrong shape for it, and no cleverness
+changes that.
 
 But look at what we already do with URLs. We paste query strings into issues.
 We put customer identifiers in ticket links. We keep dashboards behind logins
-and then spend real money on the login. The URL is already the place where data
-lives in practice; it is the *content* of the link that has been thinned out,
-not the link itself.
+and then spend real money on the login. The data already lives in the URL —
+what has been thinned out is the content of the link, not the link itself.
 
-## Where this goes
-
-A datalink is a small idea with a long tail. Today it draws charts, structure
-diagrams, tables, calendars, decks, a map, a molecule. Those are renderers, and
-a renderer is a detail of the link, not a property of it.
-
-What we want to write down next is the part that makes it a standard rather
-than a convention: the invariants a renderer has to keep, and what an agent is
-allowed to assume. That is the [datalink specification](/spec), and it is a
-draft, and it is open for argument.
+Charts, structure diagrams, calendars, decks, a map, a molecule: those are
+renderers, and a renderer is a detail of the link rather than a property of it.
+The part worth writing down is in the [specification](/spec) — it is a draft,
+and it is open for argument.

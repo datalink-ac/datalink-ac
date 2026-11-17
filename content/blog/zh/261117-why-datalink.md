@@ -1,6 +1,7 @@
 ---
-title: 为什么叫 datalink
+title: 为什么叫 datalink。
 date: 2026-11-17
+order: 6
 desc: 最后定下来的那个名字，和定它的时候想过的东西。
 tags: 概念, 命名
 ---

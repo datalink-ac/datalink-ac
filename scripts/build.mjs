@@ -223,10 +223,18 @@ for (const lang of Object.keys(LANGS)) {
       date: meta.date || '',
       desc: meta.desc || '',
       tags: meta.tags || '',
+      // `order` is the reading order — the order of the stories on the home
+      // page. Posts without one fall back to newest first.
+      order: meta.order ? Number(meta.order) : 0,
       html: marked.parse(body),
     });
   }
-  posts[lang].sort((a, b) => (a.date < b.date ? 1 : -1));
+  posts[lang].sort((a, b) => {
+    if (a.order && b.order) return a.order - b.order;
+    if (a.order) return -1;
+    if (b.order) return 1;
+    return a.date < b.date ? 1 : -1;
+  });
 }
 
 // 2. static assets -------------------------------------------------------
