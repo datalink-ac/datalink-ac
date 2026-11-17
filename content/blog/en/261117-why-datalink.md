@@ -1,56 +1,41 @@
 ---
-title: Why datalink, and not infolink
+title: Why datalink
 date: 2026-11-17
-desc: The name says what the thing is: a link that carries the data. The other three names say something else.
+desc: The name we landed on, and the thinking that got us there.
 tags: concept, naming
 ---
 
-We kept the name almost by accident, and then we had to argue for it. The
-candidates were **infolink**, **linkdata** and **dataurl**. Here is why they
-lost.
+The name took a while to settle. Four were on the table — infolink, linkdata,
+dataurl, datalink — and it is worth saying why the first three lost.
 
 ## data, not info
 
-`info` is the vaguer word, and vagueness is the problem.
+Information is what every link already carries. What we wanted to talk about
+was narrower, and stronger than that: the actual numbers, on the URL, with a
+service that keeps nothing.
 
-Every link carries information — a page, a post, a login. What a datalink
-carries is the **actual data**: the numbers, in the URL, in a form a machine
-can read without asking anybody. That is a narrower promise than
-"information", and a stronger one.
+Put the data on the link and the link can be stateless. It still says the
+same thing tomorrow, and it says it even when the service behind it is down.
 
-The point is not that the link holds information. The point is that the data
-sits on the URL and the service stays **stateless** — no account, no cloud
-store, nothing that has to keep running for the link to keep meaning
-something.
+That is a big enough idea to deserve the word *data*.
 
 ## link, not url
 
-`url` is a term of art. It is the right word inside an HTTP header and the
-wrong word on a page that a writer is going to paste into a README.
+`url` is the term of art. The people who will paste these links into a
+README or a post are not thinking in URLs — they are thinking in links, and
+`link` is the word they already have.
 
-`link` is the word everybody already has. It says what the thing does in
-ordinary language: you send it, someone clicks it, and it shows them
-something.
+`dataurl` had a second problem: it sounded like somewhere you go to download
+data from. A repository of it, an endpoint, somewhere else. But the data is
+not somewhere else. It is right there, in the link you are already sending.
 
-## A kind of link, not a kind of data
+## a kind of link
 
-`linkdata` has the wrong head. It reads as *data attached to a link* — the
-link is the modifier, the data is the thing. But the subject of this idea is
-the link itself: a **kind of link**, one that happens to carry the data.
+`linkdata` had the head in the wrong place. It reads as data attached to a
+link, but what we were naming was a kind of link — one that happens to carry
+the data. It is also a name that is already taken, which we found out
+rather late.
 
-The same goes for `dataurl`: it reads like the *place where data is
-downloaded from* — a repository of data, an endpoint, somewhere else. The
-whole point of a datalink is that the data is not somewhere else. It is
-here, in the link you are already sending.
+## datalink
 
-## data in the link
-
-So the name says what the thing is, in the order the thing works:
-
-> **data** — the real data, not a picture of it, not a description of it
-> **link** — the thing you send, click and paste, in words everyone knows
-
-A **datalink** is a link that carries the data.
-
-The name is not the argument — the [specification](https://datalink.ac/spec)
-is. But a name is the first sentence of a concept, and this one is true.
+Data in the link. The thing is that simple, and so is the name.
