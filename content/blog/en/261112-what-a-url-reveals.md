@@ -44,7 +44,7 @@ trying to avoid.
 
 Short links are for URLs that are too long, not for URLs that are too private.
 
-## Publishing the link publishes the people inside the data
+## Once a link is public, the data can be taken straight out of it
 
 There is a harder side to this, and it is not about the reader of the link. It
 is about the subject of the data.
