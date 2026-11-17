@@ -1,8 +1,8 @@
 ---
-title: One method, any kind of picture.
+title: The agent does not have to guess: look up the kind, fill in the parameters, and the link is done.
 date: 2026-11-17
 order: 5
-desc: The agent picks the kind and fills in the parameters. Everything else about a picture is the same.
+desc: The kind and the parameters change; the method does not — and neither do the promises.
 tags: agents
 ---
 

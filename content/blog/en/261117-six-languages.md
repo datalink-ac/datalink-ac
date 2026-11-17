@@ -1,8 +1,8 @@
 ---
-title: The language is just a parameter.
+title: Six languages: no six images to add every time — six links are enough.
 date: 2026-11-17
 order: 2
-desc: One diagram in six languages — six links, and no image files to keep in sync.
+desc: The same diagram in six languages — six links, each with one label changed.
 tags: case
 ---
 
@@ -18,8 +18,8 @@ one commit. A year later the repository is carrying a year of pictures nobody
 looks at, and the diagram in the Italian README is from a quarter before the
 diagram in the Korean one. There is no way to tell which one is current.
 
-With a datalink, the README holds a link, and the language is a parameter in
-it:
+With a datalink, the README holds a link. Six languages means six links,
+because the labels in the picture are different:
 
 ```
 /draw/archmap?n=web;fe;Browser;r0c0&n=cdn;cloud;CDN;r0c1&…
@@ -31,9 +31,8 @@ it:
 ```
 
 Six links. One label each is different; the nodes, the edges and the numbers
-are the same in all six. That is also why translating is easy here: the words
-in the picture are parameters, so a translation is a parameter edit and not a
-redraw.
+are the same in all six. The labels are parameters, so translating is easy
+here: another language is one parameter to change, not a picture to redraw.
 
 The picture is not in the repository. It is drawn from the link whenever
 somebody opens the README — so it cannot fall behind its own link, and when

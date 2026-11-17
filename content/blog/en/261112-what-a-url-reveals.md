@@ -1,5 +1,5 @@
 ---
-title: Anyone with the link has the data.
+title: With a picture you can only look; with a link, anyone can take the numbers.
 date: 2026-11-12
 order: 8
 desc: A datalink is public by construction — worth settling before you put anything in one.
@@ -44,7 +44,7 @@ trying to avoid.
 
 Short links are for URLs that are too long, not for URLs that are too private.
 
-## Quotation has consequences for the people inside the data
+## Publishing the link publishes the people inside the data
 
 There is a harder side to this, and it is not about the reader of the link. It
 is about the subject of the data.
@@ -57,9 +57,9 @@ Making the data linkable is making it quotable, and quotability has
 consequences for the people inside the data, not just for the people who made
 it.
 
-An agent sharpens this rather than softening it. A report written by an AI is
-full of numbers that came from somewhere, and the link is the only place that
-somewhere is recorded. Publishing the report publishes the data — and with the
+An agent makes this worse, not better. A report written by an AI is full of
+numbers that came from somewhere, and the link is the only place that somewhere
+is recorded. Publishing the report publishes the data — and with the
 link, publishes it in a form that anybody can quote back precisely.
 
 Some of this we do not have good answers to yet: whether a datalink should

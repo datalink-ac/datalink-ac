@@ -1,8 +1,8 @@
 ---
-title: Datalink is not only for charts.
+title: Not just charts: diagrams, calendars, maps and molecules are the same kind of link.
 date: 2026-11-17
 order: 3
-desc: Diagrams, calendars, maps and molecules use the same datalink form as a chart.
+desc: The parameters differ, the form does not — every kind of data goes through the same datalink.
 tags: concept
 ---
 

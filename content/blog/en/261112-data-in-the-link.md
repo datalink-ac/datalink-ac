@@ -1,8 +1,8 @@
 ---
-title: A picture is not the data.
+title: Send a picture and the numbers are gone; send a link and they are still there.
 date: 2026-11-12
 order: 1
-desc: The numbers went into the image and did not come back out. Put them in the link and they stay there.
+desc: The piece ships; the context that made it does not — unless the data is in the link.
 tags: concept
 ---
 

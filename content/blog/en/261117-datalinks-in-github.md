@@ -1,5 +1,5 @@
 ---
-title: Everything in a repository is already text.
+title: No more images in the repository: a link is text, so the diff shows the number.
 date: 2026-11-17
 order: 4
 desc: Release notes, issues, pull requests, READMEs — four places where a link fits better than a picture.
