@@ -46,9 +46,9 @@ URL 可以是一份文档。不是文档的指针 —— 就是文档本身。
 datalink.ac/draw?type=pie&labels=TS,Py,Go&values=4821,2312,980
 ```
 
-<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore?type=pie&amp;t=revenue&amp;title=Stars%20by%20language&amp;labels=TypeScript,Python,Go,Rust,Java&amp;values=4821,2312,980,645,520" target="_blank" rel="noopener"><img src="/draw?type=pie&amp;t=revenue&amp;title=Stars%20by%20language&amp;labels=TypeScript,Python,Go,Rust,Java&amp;values=4821,2312,980,645,520&amp;w=720&amp;h=510&amp;scheme=auto" alt="各语言 star 数量的饼图" width="720" height="510" loading="lazy"></a><figcaption>上面那条链接渲染出来的样子。同一条字符串，agent 也能直接读到背后的数字。</figcaption></figure>
-
 手里就有数字、标签和问题本身。不用取，不用看，也没有一段描述图片内容的话。
+
+<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore?type=pie&amp;t=revenue&amp;title=Stars%20by%20language&amp;labels=TypeScript,Python,Go,Rust,Java&amp;values=4821,2312,980,645,520" target="_blank" rel="noopener"><img src="/draw?type=pie&amp;t=revenue&amp;title=Stars%20by%20language&amp;labels=TypeScript,Python,Go,Rust,Java&amp;values=4821,2312,980,645,520&amp;w=720&amp;h=510&amp;scheme=auto" alt="各语言 star 数量的饼图" width="720" height="510" loading="lazy"></a><figcaption>上面那条链接渲染出来的样子。同一条字符串，agent 也能直接读到背后的数字。</figcaption></figure>
 
 同一张图写成 SVG 标记，大概 1,100 个 token；装着同样数字的那条链接，大概 25 个。
 两边都是文本，所以这个比法是公平的 —— 而且便宜的那一份，恰好也是准确的那一份。
@@ -76,5 +76,5 @@ datalink.ac/draw?type=pie&labels=TS,Py,Go&values=4821,2312,980
 实际上，数据早就住在 URL 里了；被抽空的不是链接本身，而是链接的**内容**。
 
 图表、结构图、日历、幻灯片、一张地图、一个分子 —— 这些都是渲染器，
-而渲染器是链接的细节，不是链接的属性。值得写下来的那部分在
-[数据链接规范](/zh/spec) —— 它现在是草案，欢迎争论。
+而渲染器是链接的细节，不是链接的属性。渲染器必须守的承诺写在
+[数据链接规范](/zh/spec)里 —— 一份草案，欢迎争论。

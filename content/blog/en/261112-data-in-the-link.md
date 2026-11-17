@@ -47,10 +47,10 @@ An agent that receives
 datalink.ac/draw?type=pie&labels=TS,Py,Go&values=4821,2312,980
 ```
 
-<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore?type=pie&amp;t=revenue&amp;title=Stars%20by%20language&amp;labels=TypeScript,Python,Go,Rust,Java&amp;values=4821,2312,980,645,520" target="_blank" rel="noopener"><img src="/draw?type=pie&amp;t=revenue&amp;title=Stars%20by%20language&amp;labels=TypeScript,Python,Go,Rust,Java&amp;values=4821,2312,980,645,520&amp;w=720&amp;h=510&amp;scheme=auto" alt="Pie chart of stars by language" width="720" height="510" loading="lazy"></a><figcaption>The link above, rendered. The same string also hands an agent the numbers behind it.</figcaption></figure>
-
 has the numbers, the labels and the shape of the question. Nothing to fetch,
 nothing to look at, no paragraph describing what the picture showed.
+
+<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore?type=pie&amp;t=revenue&amp;title=Stars%20by%20language&amp;labels=TypeScript,Python,Go,Rust,Java&amp;values=4821,2312,980,645,520" target="_blank" rel="noopener"><img src="/draw?type=pie&amp;t=revenue&amp;title=Stars%20by%20language&amp;labels=TypeScript,Python,Go,Rust,Java&amp;values=4821,2312,980,645,520&amp;w=720&amp;h=510&amp;scheme=auto" alt="Pie chart of stars by language" width="720" height="510" loading="lazy"></a><figcaption>The link above, rendered. The same string also hands an agent the numbers behind it.</figcaption></figure>
 
 The same chart as SVG markup is about 1,100 tokens. The link that holds the
 same numbers is about 25. Both are text, so the comparison is fair — and the
