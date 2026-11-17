@@ -11,7 +11,8 @@ comes with a property that is easy to state and easy to forget:
 
 > Anyone who has the string has the data.
 
-Not anyone who can log in. Anyone. The string is the payload.
+Not anyone who can log in. Anyone. The string is the payload — and a link has
+no gate. That is not a figure of speech; it is how the thing is built.
 
 It is worth saying this now because pictures are lost and links are not. A
 screenshot in a chat log is gone in a week. A datalink in a release note is
@@ -44,18 +45,18 @@ trying to avoid.
 
 Short links are for URLs that are too long, not for URLs that are too private.
 
-## When the data is about people, a public link publishes them
+## When the data is about people, a link publishes them
 
 There is a harder side to this. It is not about who reads the link. It is about
 who the link talks about.
 
-A public link describing a private thing is still a disclosure. A chart of
-support tickets by customer name, pasted into a public issue, publishes the
-customer names and the fact that they needed support. A chart of error rates
-per internal service tells a reader which parts of the system are fragile.
-Making the data linkable is making it quotable, and quotability has
-consequences for the people inside the data, not just for the people who made
-it.
+A link that describes a private thing is still a disclosure. A chart of
+support tickets by customer name, pasted into a public issue, hands the
+customer names — and the fact that they needed support — to whoever finds the
+link. A chart of error rates per internal service tells a reader which parts of
+the system are fragile. Making the data linkable is making it quotable, and
+quotability has consequences for the people inside the data, not just for the
+people who made it.
 
 An agent makes this worse, not better. A report written by an AI is full of
 numbers that came from somewhere, and the link is the only place that somewhere
@@ -64,7 +65,7 @@ link, publishes it in a form that anybody can quote back precisely.
 
 Some of this we do not have good answers to yet: whether a datalink should
 carry a marker saying "this describes something private", and who owns a
-public link once it has been sitting in an issue for three years. The
+link once it has been sitting in an issue for three years. The
 specification makes a start of it and leaves these bigger questions to the
 repo's issues and this blog — unanswered, and none of them technical.
 
@@ -72,3 +73,5 @@ This site is a small example of the rule. No accounts, no cookies, no
 analytics, no database. Every chart here is a link you can copy, and every one
 of them is safe to copy, because none of them contains anything that should
 not be copied.
+
+<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore?type=butterfly&amp;title=Issues%20opened%20vs%20closed&amp;labels=0-30d,30-60d,60-90d,90-180d,180-360d,360-720d&amp;left=Opened:7,8,2,7,6,7&amp;right=Closed:5,6,2,7,5,6&amp;w=480&amp;h=340&amp;scheme=auto" target="_blank" rel="noopener"><img src="/draw?type=butterfly&amp;title=Issues%20opened%20vs%20closed&amp;labels=0-30d,30-60d,60-90d,90-180d,180-360d,360-720d&amp;left=Opened:7,8,2,7,6,7&amp;right=Closed:5,6,2,7,5,6&amp;w=480&amp;h=340&amp;scheme=auto" alt="Age of issues, as a butterfly chart" width="480" height="340" loading="lazy"></a><figcaption>Every picture on this page is a link; so is this one. Copy it and the numbers travel with you.</figcaption></figure>

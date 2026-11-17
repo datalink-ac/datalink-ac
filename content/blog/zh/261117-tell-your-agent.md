@@ -33,5 +33,13 @@ npx clawhub@latest install edwinjhlee/x-cmd-draw
 还装着当初那批数字 —— 数字变了，改一个参数再打开，就是新图，
 不用再找人截一次图。
 
+比如它写进 README 的是这串字符：
+
+```
+/draw?type=hbar&labels=deno,node,bun&values=7238,6553,4972&title=Runtime throughput&unit=ops/s
+```
+
+<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore?type=hbar&amp;labels=deno,node,bun&amp;values=7238,6553,4972&amp;title=Runtime%20throughput&amp;unit=ops%2Fs" target="_blank" rel="noopener"><img src="/draw?type=hbar&amp;labels=deno,node,bun&amp;values=7238,6553,4972&amp;title=Runtime%20throughput&amp;unit=ops%2Fs&amp;w=480&amp;h=300&amp;scheme=auto" alt="运行时吞吐对比" width="480" height="300" loading="lazy"></a><figcaption>agent 交出来的是上面那串字符，和它能渲染成的这张图。</figcaption></figure>
+
 一条链接，agent 和读文档的人都够用：数字就在里面，agent 不必再附一段
 「图里有什么」的描述；它也留在正文里，读的人自己就能打开、自己改一个参数。

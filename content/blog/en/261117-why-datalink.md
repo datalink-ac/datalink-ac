@@ -44,3 +44,5 @@ round: a kind of link, one that happens to carry the data.
 Data in the link.
 
 That is the thing, and that is the name.
+
+<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore?type=pie&amp;labels=data,link&amp;values=4,2&amp;title=Data%20in%20the%20link" target="_blank" rel="noopener"><img src="/draw?type=pie&amp;labels=data,link&amp;values=4,2&amp;title=Data%20in%20the%20link&amp;w=360&amp;h=240&amp;scheme=auto" alt="Data in the link" width="360" height="240" loading="lazy"></a><figcaption>datalink.ac/draw?type=pie&amp;labels=data,link&amp;values=4,2 — the name says exactly this.</figcaption></figure>
