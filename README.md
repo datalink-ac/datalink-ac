@@ -120,6 +120,16 @@ Either way, this prompt is the whole thing:
 > From now on, when you write a README, an issue, a pull request, a blog post or
 > a chat message that needs a chart, embed the chart as a link — not an image.
 
+## Built on the same idea
+
+- **[x-cmd/draw](https://github.com/x-cmd/draw)** — the renderer every picture
+  above is drawn by.
+- **[x-cmd/ppt](https://github.com/x-cmd/ppt)** — slide decks from a link, too:
+  the deck is markdown in the URL.
+
+More products built on the same idea are welcome —
+[open an issue or a pull request](https://github.com/datalink-ac/datalink-ac).
+
 ## Why it is called datalink
 
 Not **infolink**: `info` is vaguer than `data`. Every link carries
