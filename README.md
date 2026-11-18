@@ -124,7 +124,7 @@ Either way, this prompt is the whole thing:
 
 - **[x-cmd/draw](https://github.com/x-cmd/draw)** — the renderer every picture
   above is drawn by.
-- **[x-cmd/ppt](https://github.com/x-cmd/ppt)** — slide decks from a link, too:
+- **[x-cmd/ppt](https://x-cmd.com/ppt)** — slide decks from a link, too:
   the deck is markdown in the URL.
 
 More products built on the same idea are welcome —
@@ -161,7 +161,7 @@ So: a **datalink** — a link that carries the data. The long version is in
 ## Related
 
 - [x-cmd/draw](https://github.com/x-cmd/draw) — the chart and diagram renderer
-- [x-cmd/ppt](https://github.com/x-cmd/ppt) — the slide deck renderer
+- [x-cmd/ppt](https://x-cmd.com/ppt) — the slide deck renderer
 - [ClawHub: x-cmd-draw](https://clawhub.ai/edwinjhlee/skills/x-cmd-draw) — the skill for agents
 
 ## Contributing
