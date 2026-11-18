@@ -52,4 +52,5 @@ be kept in sync by hand.
 
 This is also why the same links work outside GitHub. A README is a document, an
 issue is a document, a release note is a document — and a document that carries
-its own data never falls out of sync with it.
+its own data never falls out of sync with it. The six-platform test is written
+up in [this post](/blog/261119-git-platforms).

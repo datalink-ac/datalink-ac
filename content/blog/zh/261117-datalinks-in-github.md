@@ -45,3 +45,4 @@ tags: 案例
 
 这也是为什么同一批链接在 GitHub 之外照样能用。README 是一份文档，issue 是一份文档，
 release note 也是一份文档 —— 而一份自己带着数据的文档，不会和数据分家。
+六个平台上的实测记录在[这一篇](/zh/blog/261119-git-platforms)里。
