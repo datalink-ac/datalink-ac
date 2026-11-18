@@ -235,13 +235,14 @@
         }, 220);
       }
       link.href = item.getAttribute('data-href') || '#';
-      hostOut.textContent = location.host + path;
+      const cleanUrl = new URL(clean, location.origin);
+      hostOut.textContent = cleanUrl.host + cleanUrl.pathname;
       const q = query ? '?' + query : '';
       /* every link shows the same amount of text — the carousel must not resize
          the page while it turns. The copy button still gives the whole link. */
       const head = q.length > 128 ? q.slice(0, 128) + '\u2026' : q;
       paramsOut.innerHTML = head.replace(/&/g, '&amp;\u200b').replace(/^\?/, '?\u200b');
-      copyBtn.setAttribute('data-copy', location.origin + clean);
+      copyBtn.setAttribute('data-copy', cleanUrl.href);
       items.forEach((i) => i.classList.toggle('is-on', i === item));
     };
 
@@ -304,7 +305,7 @@
         else u.searchParams.set(k, v);
       }
       u.searchParams.sort();
-      urlIn.value = u.pathname + u.search;
+      urlIn.value = u.href;
     };
 
     const syncFieldsFromUrl = () => {
@@ -322,7 +323,7 @@
     const renderLink = async () => {
       const my = ++seq;
       const path = currentPath();
-      const abs = location.origin + path;
+      const abs = new URL(urlIn.value, location.origin).href;
 
       const out = $('[data-url-out]', demo);
       if (out) out.innerHTML = linkHtml(abs);

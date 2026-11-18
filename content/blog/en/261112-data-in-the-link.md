@@ -23,7 +23,7 @@ That read-back is lossy, and quietly so. The bar might say 4.18; the sentence
 says 4.2, or 4.3, or 42%. Nobody can tell which, because the numbers were never
 in the picture to begin with.
 
-<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore?type=bar&amp;labels=Q1,Q2,Q3,Q4&amp;values=4.18,3.92,4.05,4.21&amp;title=p99%20latency%20(s)" target="_blank" rel="noopener"><img src="/draw?type=bar&amp;labels=Q1,Q2,Q3,Q4&amp;values=4.18,3.92,4.05,4.21&amp;title=p99%20latency%20(s)&amp;w=480&amp;h=300&amp;scheme=auto" alt="Quarterly p99 latency as a bar chart" width="480" height="300" loading="lazy"></a><figcaption>The link says 4.18. Someone reading the picture back writes 4.2, or 4.3 — the picture itself cannot tell.</figcaption></figure>
+<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore?type=bar&amp;labels=Q1,Q2,Q3,Q4&amp;values=4.18,3.92,4.05,4.21&amp;title=p99%20latency%20(s)" target="_blank" rel="noopener"><img src="https://www.x-cmd.com/draw?type=bar&amp;labels=Q1,Q2,Q3,Q4&amp;values=4.18,3.92,4.05,4.21&amp;title=p99%20latency%20(s)&amp;w=480&amp;h=300&amp;scheme=auto" alt="Quarterly p99 latency as a bar chart" width="480" height="300" loading="lazy"></a><figcaption>The link says 4.18. Someone reading the picture back writes 4.2, or 4.3 — the picture itself cannot tell.</figcaption></figure>
 
 A picture has no room for the precision, the units, the caveats, or the second
 series. This is not the model's fault. It is the format's.
@@ -46,13 +46,13 @@ context. Such a link has a name: a datalink.
 An agent that receives
 
 ```
-datalink.ac/draw?type=pie&labels=TS,Py,Go&values=4821,2312,980
+x-cmd.com/draw?type=pie&labels=TS,Py,Go&values=4821,2312,980
 ```
 
 has the numbers, the labels and the shape of the question. Nothing to fetch,
 nothing to look at, no paragraph describing what the picture showed.
 
-<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore?type=pie&amp;t=revenue&amp;title=Stars%20by%20language&amp;labels=TypeScript,Python,Go,Rust,Java&amp;values=4821,2312,980,645,520" target="_blank" rel="noopener"><img src="/draw?type=pie&amp;t=revenue&amp;title=Stars%20by%20language&amp;labels=TypeScript,Python,Go,Rust,Java&amp;values=4821,2312,980,645,520&amp;w=720&amp;h=510&amp;scheme=auto" alt="Pie chart of stars by language" width="720" height="510" loading="lazy"></a><figcaption>Such a link, rendered — the same string hands an agent the numbers behind it.</figcaption></figure>
+<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore?type=pie&amp;t=revenue&amp;title=Stars%20by%20language&amp;labels=TypeScript,Python,Go,Rust,Java&amp;values=4821,2312,980,645,520" target="_blank" rel="noopener"><img src="https://www.x-cmd.com/draw?type=pie&amp;t=revenue&amp;title=Stars%20by%20language&amp;labels=TypeScript,Python,Go,Rust,Java&amp;values=4821,2312,980,645,520&amp;w=720&amp;h=510&amp;scheme=auto" alt="Pie chart of stars by language" width="720" height="510" loading="lazy"></a><figcaption>Such a link, rendered — the same string hands an agent the numbers behind it.</figcaption></figure>
 
 The same chart as SVG markup is about 1,100 tokens. The link that holds the
 same numbers is about 25. Both are text — and the cheaper one is also the

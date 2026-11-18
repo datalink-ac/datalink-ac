@@ -21,7 +21,7 @@ tags: 概念
 句子里写的是 4.2，或者 4.3，或者 42%。没人能分辨，
 因为数字从来就不在图里。
 
-<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore?type=bar&amp;labels=Q1,Q2,Q3,Q4&amp;values=4.18,3.92,4.05,4.21&amp;title=p99%20latency%20(s)" target="_blank" rel="noopener"><img src="/draw?type=bar&amp;labels=Q1,Q2,Q3,Q4&amp;values=4.18,3.92,4.05,4.21&amp;title=p99%20latency%20(s)&amp;w=480&amp;h=300&amp;scheme=auto" alt="季度 p99 延迟柱状图" width="480" height="300" loading="lazy"></a><figcaption>链接里写着 4.18。把图读回去的人写 4.2 还是 4.3，图自己不知道。</figcaption></figure>
+<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore?type=bar&amp;labels=Q1,Q2,Q3,Q4&amp;values=4.18,3.92,4.05,4.21&amp;title=p99%20latency%20(s)" target="_blank" rel="noopener"><img src="https://www.x-cmd.com/draw?type=bar&amp;labels=Q1,Q2,Q3,Q4&amp;values=4.18,3.92,4.05,4.21&amp;title=p99%20latency%20(s)&amp;w=480&amp;h=300&amp;scheme=auto" alt="季度 p99 延迟柱状图" width="480" height="300" loading="lazy"></a><figcaption>链接里写着 4.18。把图读回去的人写 4.2 还是 4.3，图自己不知道。</figcaption></figure>
 
 图里也没有地方放精度、单位、注意事项，更没有地方放第二条序列。
 问题不在模型。问题在格式。
@@ -46,13 +46,13 @@ tags: 概念
 拿到这条链接的 agent：
 
 ```
-datalink.ac/draw?type=pie&labels=TS,Py,Go&values=4821,2312,980
+x-cmd.com/draw?type=pie&labels=TS,Py,Go&values=4821,2312,980
 ```
 
 手里就有数字、标签，还有这份数据在回答什么问题。不用取，不用看，
 也用不着一段描述图片内容的话。
 
-<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore?type=pie&amp;t=revenue&amp;title=Stars%20by%20language&amp;labels=TypeScript,Python,Go,Rust,Java&amp;values=4821,2312,980,645,520" target="_blank" rel="noopener"><img src="/draw?type=pie&amp;t=revenue&amp;title=Stars%20by%20language&amp;labels=TypeScript,Python,Go,Rust,Java&amp;values=4821,2312,980,645,520&amp;w=720&amp;h=510&amp;scheme=auto" alt="各语言 star 数量的饼图" width="720" height="510" loading="lazy"></a><figcaption>一条这样的链接渲染出来的样子。同一串字符，agent 也能直接读到背后的数字。</figcaption></figure>
+<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore?type=pie&amp;t=revenue&amp;title=Stars%20by%20language&amp;labels=TypeScript,Python,Go,Rust,Java&amp;values=4821,2312,980,645,520" target="_blank" rel="noopener"><img src="https://www.x-cmd.com/draw?type=pie&amp;t=revenue&amp;title=Stars%20by%20language&amp;labels=TypeScript,Python,Go,Rust,Java&amp;values=4821,2312,980,645,520&amp;w=720&amp;h=510&amp;scheme=auto" alt="各语言 star 数量的饼图" width="720" height="510" loading="lazy"></a><figcaption>一条这样的链接渲染出来的样子。同一串字符，agent 也能直接读到背后的数字。</figcaption></figure>
 
 同一张图写成 SVG 标记，大概 1,100 个 token；装着同样数字的那条链接，大概 25 个。
 两边都是文本 —— 而且短的那一份，恰好也是准的那一份。
