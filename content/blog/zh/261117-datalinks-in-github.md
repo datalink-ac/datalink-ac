@@ -4,6 +4,7 @@ date: 2026-11-17
 order: 4
 desc: release note、issue、pull request、README —— 四个链接比图片更合适的地方。
 tags: 案例
+keywords: 数据链接, GitHub, markdown, pull request, release note, README, diff, agent, vibe coding
 ---
 
 仓库里放的都是文字。它有 diff，有 blame，有一段能读下来的历史。

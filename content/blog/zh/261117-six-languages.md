@@ -4,6 +4,7 @@ date: 2026-11-17
 order: 2
 desc: 同一张架构图出六种语言 —— 六条链接，每条只换一个标签。
 tags: 案例
+keywords: 数据链接, 多语言 README, 架构图, 国际化文档, SVG, datalink
 ---
 
 同一个项目，你出六种语言的版本。每份 README 里都有一张架构图，

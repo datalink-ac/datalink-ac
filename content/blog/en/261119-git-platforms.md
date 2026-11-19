@@ -4,6 +4,7 @@ date: 2026-11-19
 order: 9
 desc: The same set of datalinks pasted into issues on GitHub, GitLab, Gitee, GitCode, Codeberg and Bitbucket — all of them render, with one length caveat.
 tags: case
+keywords: datalink, GitHub, GitLab, Gitee, GitCode, Codeberg, Bitbucket, issue, SVG
 ---
 
 When a datalink lands in an issue, the picture is not drawn by the reader's
@@ -20,7 +21,7 @@ of links built to test length: 4000, 4096, 5000 characters, one rung at a time.
 
 <figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore?type=pie&amp;t=revenue&amp;title=Stars%20by%20language&amp;labels=TypeScript,Python,Go,Rust,Java&amp;values=4821,2312,980,645,520" target="_blank" rel="noopener"><img src="https://www.x-cmd.com/draw?type=pie&amp;t=revenue&amp;title=Stars%20by%20language&amp;labels=TypeScript,Python,Go,Rust,Java&amp;values=4821,2312,980,645,520&amp;w=480&amp;h=340&amp;scheme=auto" alt="Stars by language, as a pie chart" width="480" height="340" loading="lazy"></a><figcaption>One of the test links — a hundred-odd characters, nowhere near 4096.</figcaption></figure>
 
-## One pit: long links do not show on GitHub and GitCode
+## 1. One pit: long links do not show on GitHub and GitCode
 
 Across the six platforms, exactly one problem has been recorded so far: when
 the image URL grows beyond roughly 4096 characters, GitHub and GitCode refuse
@@ -35,7 +36,7 @@ how GitHub's [image
 proxy](https://github.blog/news-insights/product-news/proxying-user-images/)
 works.
 
-## Run through this before you paste
+## 2. Run through this before you paste
 
 - **Length**: on GitHub and GitCode, keep image URLs under 4000 characters.
   Charts, diagrams and calendars are far short of it; what runs over is maps
@@ -56,7 +57,7 @@ works.
   is not a leak, just do not mistake "the platform fetched it too" for a
   surprise.
 
-## The test record
+## 3. The test record
 
 Same links, six platforms; every test issue is public and can be re-checked:
 [GitHub](https://github.com/lunrenyi/test/issues/3) ·

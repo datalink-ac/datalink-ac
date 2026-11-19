@@ -223,6 +223,7 @@ for (const lang of Object.keys(LANGS)) {
       date: meta.date || '',
       desc: meta.desc || '',
       tags: meta.tags || '',
+      keywords: meta.keywords || '',
       // `order` is the reading order — the order of the stories on the home
       // page. Posts without one fall back to newest first.
       order: meta.order ? Number(meta.order) : 0,
@@ -405,7 +406,7 @@ ${p.html}
       </article>`,
       navKey: 'blog',
       bodyClass: 'is-post',
-      extraHead: jsonLdBlock({
+      extraHead: (p.keywords ? `<meta name="keywords" content="${esc(p.keywords)}">\n` : '') + jsonLdBlock({
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [

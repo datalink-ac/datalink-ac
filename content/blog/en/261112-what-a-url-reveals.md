@@ -4,6 +4,7 @@ date: 2026-11-12
 order: 8
 desc: A datalink is public by construction — worth settling before you put anything in one.
 tags: privacy
+keywords: datalink, URL, privacy, public data, link security
 ---
 
 A datalink is a link that carries the data. That is the whole idea, and it
@@ -19,7 +20,7 @@ screenshot in a chat log is gone in a week. A datalink in a release note is
 still there in three years, still holding the numbers it was made from — and
 still perfectly readable by whoever finds it.
 
-## Where a link actually goes
+## 1. Where a link actually goes
 
 Most of the ways a URL travels are ordinary, not malicious:
 
@@ -35,7 +36,7 @@ Most of the ways a URL travels are ordinary, not malicious:
 None of this is exotic. It is the ordinary behaviour of URLs, and it is why
 "put the data in the link" is not a licence to put anything in the link.
 
-## A short link hides the data, not the fact of it
+## 2. A short link hides the data, not the fact of it
 
 Short links look like a privacy feature and are not. The destination is still
 fetchable by anyone who has the short link, and the short link itself is a
@@ -45,7 +46,7 @@ trying to avoid.
 
 Short links are for URLs that are too long, not for URLs that are too private.
 
-## When the data is about people, a link publishes them
+## 3. When the data is about people, a link publishes them
 
 There is a harder side to this. It is not about who reads the link. It is about
 who the link talks about.

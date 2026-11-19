@@ -4,6 +4,7 @@ date: 2026-11-17
 order: 7
 desc: 最后定下来的那个名字，和定它的时候想过的东西。
 tags: 概念, 命名
+keywords: datalink, 命名, 数据链接, 无状态, URL, 链接
 ---
 
 这个名字想了挺久。infolink、linkdata、dataurl 都想过，最后选了 datalink。

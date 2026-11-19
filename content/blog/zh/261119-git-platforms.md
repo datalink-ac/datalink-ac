@@ -4,6 +4,7 @@ date: 2026-11-19
 order: 9
 desc: 在 GitHub、GitLab、Gitee、GitCode、Codeberg、Bitbucket 的 issue 里实测同一组数据链接 —— 都能显示，只有一个长度上的坑。
 tags: 案例
+keywords: 数据链接, GitHub, GitLab, Gitee, GitCode, Codeberg, Bitbucket, issue, SVG
 ---
 
 数据链接贴进 issue，图不是读者的浏览器画的 —— 是平台的服务器先抓一遍、
@@ -18,7 +19,7 @@ Codeberg（Forgejo）、Bitbucket（Atlassian）。从饼图、雷达图到架�
 
 <figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore?type=pie&amp;t=revenue&amp;title=%E5%90%84%E8%AF%AD%E8%A8%80%E7%9A%84%20star%20%E6%95%B0&amp;labels=TypeScript,Python,Go,Rust,Java&amp;values=4821,2312,980,645,520" target="_blank" rel="noopener"><img src="https://www.x-cmd.com/draw?type=pie&amp;t=revenue&amp;title=%E5%90%84%E8%AF%AD%E8%A8%80%E7%9A%84%20star%20%E6%95%B0&amp;labels=TypeScript,Python,Go,Rust,Java&amp;values=4821,2312,980,645,520&amp;w=480&amp;h=340&amp;scheme=auto" alt="各语言 star 数的饼图" width="480" height="340" loading="lazy"></a><figcaption>测试链接之一 —— 一百多个字符，离 4096 远得很。</figcaption></figure>
 
-## 一个坑：链接太长，GitHub 和 GitCode 不显示
+## 1. 一个坑：链接太长，GitHub 和 GitCode 不显示
 
 六个平台，目前记录到的问题只有这一个：图片链接超过大约 4096 个字符，
 GitHub 和 GitCode 就不抓、不显示。出事的正是这类链接：
@@ -30,7 +31,7 @@ URL 长度设了上限。替所有读者抓图的中间人，不想替太长的�
 GitHub 的[图片代理](https://github.blog/news-insights/product-news/proxying-user-images/)
 就是这么工作的。
 
-## 贴之前过一遍
+## 2. 贴之前过一遍
 
 - **长度**：在 GitHub / GitCode 上，图片链接控制在 4000 字符以内。
   图表、结构图、日历都很短，够不上；会超限的是装了几十个节点的图、
@@ -48,7 +49,7 @@ GitHub 的[图片代理](https://github.blog/news-insights/product-news/proxying
   平台看得见。链接本来就是公开的，这不是漏洞；但别把「平台也看了一遍」
   当成意外。
 
-## 测试记录
+## 3. 测试记录
 
 同一组链接、六个平台，测试 issue 都是公开的，可以自己复看：
 [GitHub](https://github.com/lunrenyi/test/issues/3) ·

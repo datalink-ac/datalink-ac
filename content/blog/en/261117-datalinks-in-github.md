@@ -4,6 +4,7 @@ date: 2026-11-17
 order: 4
 desc: Release notes, issues, pull requests, READMEs — four places where a link fits better than a picture.
 tags: case
+keywords: datalink, GitHub, markdown, pull request, release notes, README, diff, agent, vibe coding
 ---
 
 A repository is made of text. It has diffs, it has blame, it has a history you

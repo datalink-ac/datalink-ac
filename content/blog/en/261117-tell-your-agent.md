@@ -4,6 +4,7 @@ date: 2026-11-17
 order: 6
 desc: One prompt, one skill, and a different default when the agent needs a chart.
 tags: agents
+keywords: AI agent, prompt, datalink, skill, chart, vibe coding
 ---
 
 Nobody types a URL by hand any more, and nobody should. You say what you

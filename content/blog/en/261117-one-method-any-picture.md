@@ -4,6 +4,7 @@ date: 2026-11-17
 order: 5
 desc: The kind and the parameters change; the method does not — and neither do the promises.
 tags: agents
+keywords: datalink, renderer, data format, SVG, stateless, specification
 ---
 
 Ask an agent for a chart. Now ask it for the release calendar, or the
@@ -37,7 +38,7 @@ kind in the path, the data in the parameters.
 A kind that did not exist yesterday is drawn the same way, too. The registry is
 open; the promises are not.
 
-## The promises do not depend on the kind
+## 1. The promises do not depend on the kind
 
 Whatever the agent picks, it gets the same contract. The link carries all the
 data, so nothing has to be looked up to draw it. The output is a pure function
@@ -50,7 +51,7 @@ That is what makes it safe to let an agent choose. It is not choosing between
 formats with different promises — it is choosing between renderers that have
 to keep the same ones.
 
-## The kind is in the link, so you can change it
+## 2. The kind is in the link, so you can change it
 
 The kind is the path in the address. Change it and you get a different
 picture — and you do not need the agent for that. Edit the link in a README,

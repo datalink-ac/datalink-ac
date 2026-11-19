@@ -4,6 +4,7 @@ date: 2026-11-17
 order: 7
 desc: The name we landed on, and the thinking that got us there.
 tags: concept, naming
+keywords: datalink, naming, data link, stateless, URL
 ---
 
 The name took a while to settle. We tried infolink, linkdata and dataurl, and

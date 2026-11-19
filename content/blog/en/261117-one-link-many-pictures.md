@@ -4,6 +4,7 @@ date: 2026-11-17
 order: 3
 desc: The parameters differ, the form does not — every kind of data goes through the same datalink.
 tags: concept
+keywords: datalink, data link, SVG chart, diagram, calendar, map, molecule, data visualization, agent
 ---
 
 Not only data charts. An architecture diagram, a release calendar, a map, a
@@ -11,13 +12,11 @@ molecule — each of them is data in a link, and each of them is a link of its
 own. And a kind of data nobody has thought of yet will only be one more link.
 Nearly every picture a development document asks for is on this list.
 
-The parameters differ, because the data differs: a calendar takes events, a
-diagram takes nodes and edges, a chart takes labels and values. One link
-renders one picture.
-
 What does not change is the form. It is a URL, its parameters carry the data,
 and a renderer sits behind it and keeps the same promises — whether it is
 drawing a chart or a calendar.
+
+## 1. Six pictures, one form
 
 <div class="post-figs">
 <figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore/archmap?n=web;fe;Browser;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20Gateway;r0c2&amp;n=auth;be;Auth%20Service;r1c1&amp;n=render;be;Chart%20Render;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=Data%20Layer;pg%20cache" target="_blank" rel="noopener"><img src="https://www.x-cmd.com/draw/archmap?n=web;fe;Browser;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20Gateway;r0c2&amp;n=auth;be;Auth%20Service;r1c1&amp;n=render;be;Chart%20Render;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=Data%20Layer;pg%20cache" alt="Architecture diagram" width="436" height="270" loading="lazy"></a><figcaption>A structure.</figcaption></figure>
@@ -30,11 +29,25 @@ drawing a chart or a calendar.
 
 Six links, six pictures. Same form, different data.
 
+## 2. The parameters differ, because the data differs
+
+A calendar takes events, a diagram takes nodes and edges, a chart takes
+labels and values:
+
+| picture | what the link looks like | where the data sits |
+| --- | --- | --- |
+| structure diagram | `/draw/archmap?n=…&e=…&b=…` | nodes, edges, groups |
+| calendar | `/draw?type=calendar&ev=…` | events: date, title, time |
+| map | `/draw/echarts?d={…}` | an ECharts option |
+| molecule | `/draw/chem?smiles=…` | a SMILES string |
+| chart | `/draw?type=area&labels=…&values=…` | labels and values |
+| butterfly | `/draw?type=butterfly&left=…&right=…` | two series, side by side |
+
 A description of data says what was measured. It does not say how it should
 be drawn. That is what lets the same data be a chart, a table, a calendar or
 a slide.
 
-## A new kind is not a new format
+## 3. A new kind is not a new format
 
 Renderers are an open list: charts, structure diagrams, calendars, maps,
 decks. A new one — a kind nobody has thought of yet — does not change the

@@ -4,6 +4,7 @@ date: 2026-11-17
 order: 6
 desc: 一段 prompt，一个 skill，以及 agent 需要图时的另一个默认动作。
 tags: agent
+keywords: AI agent, prompt, 数据链接, skill, 图表, vibe coding, datalink
 ---
 
 现在没人再手写 URL 了，也不该写。你说要什么，agent 写稿子 ——

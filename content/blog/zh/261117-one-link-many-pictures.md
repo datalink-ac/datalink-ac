@@ -4,6 +4,7 @@ date: 2026-11-17
 order: 3
 desc: 参数不一样，形态一样 —— 每一种数据都走同一套 datalink。
 tags: 概念
+keywords: 数据链接, datalink, SVG 图表, 架构图, 日历, 地图, 分子结构, 数据可视化, agent
 ---
 
 不只是数据图表。一张架构图、一本发布日历、一张地图、一个分子结构 ——
@@ -11,11 +12,10 @@ tags: 概念
 一种还没人想到的东西 —— 也只是多一种链接。开发文档里要用的图，
 差不多都在这几样里。
 
-参数不一样，因为数据不一样：日历要日程，结构图要节点和连线，
-图表要标签和数值。一条链接，画出一张图。
-
 不变的是形态。它是一条 URL，参数里装着数据，后面有一个渲染器，
 守着同样的承诺 —— 画图表还是画日历，都是如此。
+
+## 1. 六种图，一种形态
 
 <div class="post-figs">
 <figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore/archmap?n=web;fe;%E6%B5%8F%E8%A7%88%E5%99%A8;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20%E7%BD%91%E5%85%B3;%E8%AE%A4%E8%AF%81;r0c2&amp;n=auth;be;%E8%AE%A4%E8%AF%81%E6%9C%8D%E5%8A%A1;r1c1&amp;n=render;be;%E5%9B%BE%E8%A1%A8%E6%B8%B2%E6%9F%93;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=%E6%95%B0%E6%8D%AE%E5%B1%82;pg%20cache" target="_blank" rel="noopener"><img src="https://www.x-cmd.com/draw/archmap?n=web;fe;%E6%B5%8F%E8%A7%88%E5%99%A8;r0c0&amp;n=cdn;cloud;CDN;r0c1&amp;n=gw;be;API%20%E7%BD%91%E5%85%B3;%E8%AE%A4%E8%AF%81;r0c2&amp;n=auth;be;%E8%AE%A4%E8%AF%81%E6%9C%8D%E5%8A%A1;r1c1&amp;n=render;be;%E5%9B%BE%E8%A1%A8%E6%B8%B2%E6%9F%93;r1c2&amp;n=pg;db;Postgres;r2c1&amp;n=cache;db;Redis;r2c2&amp;e=web;cdn&amp;e=cdn;gw&amp;e=gw;auth&amp;e=gw;render&amp;e=auth;pg&amp;e=render;pg&amp;e=render;cache&amp;b=%E6%95%B0%E6%8D%AE%E5%B1%82;pg%20cache" alt="架构图" width="436" height="270" loading="lazy"></a><figcaption>一张结构图。</figcaption></figure>
@@ -28,10 +28,23 @@ tags: 概念
 
 六条链接，六张图。同一种形态，不同的数据。
 
+## 2. 参数不一样，因为数据不一样
+
+日历要日程，结构图要节点和连线，图表要标签和数值：
+
+| 图 | 链接的样子 | 数据放在哪 |
+| --- | --- | --- |
+| 结构图 | `/draw/archmap?n=…&e=…&b=…` | 节点、连线、分组 |
+| 日历 | `/draw?type=calendar&ev=…` | 日程：日期、标题、时间 |
+| 地图 | `/draw/echarts?d={…}` | 一份 ECharts 选项 |
+| 分子 | `/draw/chem?smiles=…` | 一个 SMILES 字符串 |
+| 图表 | `/draw?type=area&labels=…&values=…` | 标签和数值 |
+| 双翼图 | `/draw?type=butterfly&left=…&right=…` | 左右两条序列 |
+
 一份对数据的描述，说的是「测了什么」，不说「该怎么画」。
 所以同一份数据才可以是图、是表、是日历、也可以是幻灯片。
 
-## 多一种图，不是多一种格式
+## 3. 多一种图，不是多一种格式
 
 渲染器是一个开放的清单：图表、结构图、日历、地图、幻灯片。
 将来多一种 —— 一种还没人想到的东西 ——

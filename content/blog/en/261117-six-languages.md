@@ -4,6 +4,7 @@ date: 2026-11-17
 order: 2
 desc: The same diagram in six languages — six links, each with one label changed.
 tags: case
+keywords: datalink, multilingual README, architecture diagram, i18n docs, SVG
 ---
 
 You publish one project in six languages. Each README carries the same

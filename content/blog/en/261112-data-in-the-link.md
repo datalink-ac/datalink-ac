@@ -4,6 +4,7 @@ date: 2026-11-12
 order: 1
 desc: The piece ships; the context that made it does not — unless the data is in the link.
 tags: concept
+keywords: datalink, data in the link, AI chart, agent-readable chart, data visualization, SVG chart
 ---
 
 Your AI writes the piece. Where it needs a chart, it makes one. What it leaves
@@ -18,7 +19,7 @@ it cannot read back.
 The piece ships. The context that made it does not. Whoever reads it next — a
 person, an agent, you next year — has the picture and nothing else.
 
-## A picture has no room for the numbers
+## 1. A picture has no room for the numbers
 
 A chart can show you the shape of a hundred numbers. It cannot hand you the
 hundred numbers. And the number quoted in the prose had to come from somewhere:
@@ -33,7 +34,7 @@ in the picture to begin with.
 A picture has no room for the precision, the units, the caveats, or the second
 series. This is not the model's fault. It is the format's.
 
-## A URL can be a document
+## 2. A URL can be a document
 
 The web settled this for documents long ago. A URL names a document, not just a
 program on a server: `https://example.com/notes.md` *is* the note, and whoever
@@ -46,7 +47,7 @@ where a thing's substance is still deliberately kept away from its address.
 Put the data in the link and the link stops being a pointer. It becomes the
 context. Such a link has a name: a datalink.
 
-## The agent gets the numbers
+## 3. The agent gets the numbers
 
 An agent that receives
 
@@ -63,7 +64,7 @@ The same chart as SVG markup is about 1,100 tokens. The link that holds the
 same numbers is about 25. Both are text — and the cheaper one is also the
 exact one.
 
-## The URL is the API
+## 4. The URL is the API
 
 A datalink is a pure function: parameters in, picture out. No session, no
 login, no dashboard, no refresh button — because the parameters already say
@@ -77,13 +78,13 @@ That last one is why a chart belongs in an issue, a release note or a pull
 request — not because it looks good there, but because it can be changed
 there, and because the history then says what you meant.
 
-## The link outlives the picture
+## 5. The link outlives the picture
 
 A picture in a chat log is a dead end. A link is a report whose numbers are
 still inside it, so six months later an agent can read the intent and the data
 back out of it.
 
-## A link has no gate
+## 6. A link has no gate
 
 A link gets copied, forwarded, cached, logged, screenshotted. Wherever the
 string travels, the data travels — whoever holds the string holds the data.
