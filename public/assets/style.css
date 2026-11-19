@@ -532,6 +532,7 @@ em { font-style: normal; color: var(--mint); font-weight: 600; }
 .chart-holder svg { width: 100%; max-width: 720px; height: auto; display: block; margin: 0 auto; }
 /* the tabs' box is one size — switching kinds must not move the page */
 [data-tabs] .chart-holder { height: 470px; }
+[data-tabs] .chart-holder a { display: block; width: 100%; height: 100%; }
 [data-tabs] .chart-holder svg { width: 100%; height: 100%; object-fit: contain; }
 .chart-holder img { width: 100%; max-width: 720px; height: auto; display: block; margin: 0 auto; }
 .chart-holder a, .lang-pair a { display: block; }
