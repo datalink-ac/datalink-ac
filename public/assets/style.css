@@ -363,12 +363,12 @@ em { font-style: normal; color: var(--mint); font-weight: 600; }
   display: inline-block;
   width: 1.5em;
   height: 1.5em;
-  margin-left: .5em;
-  font-size: .44em;
+  margin-left: .6em;
+  font-size: .34em;
   font-weight: 700;
   line-height: 1.5em;
   text-align: center;
-  vertical-align: .5em;
+  vertical-align: .55em;
   color: var(--fg-mute);
   border: 1.5px solid var(--fg-mute);
   border-radius: 50%;
