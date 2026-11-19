@@ -48,31 +48,34 @@ Short links are for URLs that are too long, not for URLs that are too private.
 
 ## 3. When the data is about people, a link publishes them
 
-There is a harder side to this. It is not about who reads the link. It is about
-who the link talks about.
+The first two sections were about how far data travels. This one is about the
+other direction: who the link talks about.
 
-A link that describes a private thing is still a disclosure. A chart of
-support tickets by customer name, pasted into a public issue, hands the
-customer names — and the fact that they needed support — to whoever finds the
-link. A chart of error rates per internal service tells a reader which parts of
-the system are fragile. Making the data linkable is making it quotable, and
-quotability has consequences for the people inside the data, not just for the
-people who made it.
+A chart of support tickets by customer name, pasted into a public issue,
+hands the customer names — and the fact that they needed support — to
+whoever finds the link. A chart of error rates per internal service tells a
+reader which parts of the system are fragile. Quoting is the link's
+strength: anyone can point others at the exact string. But the cost is not
+paid by the one who makes that call. The one who pastes the link decides;
+the ones inside the data are exposed — and they never pressed "publish".
 
-An agent makes this worse, not better. A report written by an AI is full of
-numbers that came from somewhere, and the link is the only place that somewhere
-is recorded. Publishing the report publishes the data — and with the
-link, publishes it in a form that anybody can quote back precisely.
+Agents change the nature of that step. Reports and links now come out in
+batches, and "does this link say too much about someone?" stops passing
+through anyone's head — it becomes a default.
 
-Some of this we do not have good answers to yet: whether a datalink should
-carry a marker saying "this describes something private", and who owns a
-link once it has been sitting in an issue for three years. The
-specification makes a start of it and leaves these bigger questions to the
-repo's issues and this blog — unanswered, and none of them technical.
+So there is one rule: private things never go into a link in the first
+place. Not because a gate could be added — a link has no gate — but because
+the data is handed to a copier that does not stop.
 
-This site is a small example of the rule. No accounts, no cookies, no
-analytics, no database. Every chart here is a link you can copy, and every one
-of them is safe to copy, because none of them contains anything that should
-not be copied.
+Two questions we have no good answers to yet, and neither is technical:
+should a datalink carry a marker saying "this describes something private"?
+And a link, once pasted, has no recall — that is the other face of
+statelessness — so who owns one after three years in an issue? The
+specification makes a start of it and stops there.
+
+This site is built to the same rule: no accounts, no cookies, no analytics,
+no database. Every picture on this page is a link, and each one is fit to
+copy — because there is nothing in it that should not be copied.
+
 
 <figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore?type=butterfly&amp;title=Issues%20opened%20vs%20closed&amp;labels=0-30d,30-60d,60-90d,90-180d,180-360d,360-720d&amp;left=Opened:7,8,2,7,6,7&amp;right=Closed:5,6,2,7,5,6&amp;w=480&amp;h=340&amp;scheme=auto" target="_blank" rel="noopener"><img src="https://www.x-cmd.com/draw?type=butterfly&amp;title=Issues%20opened%20vs%20closed&amp;labels=0-30d,30-60d,60-90d,90-180d,180-360d,360-720d&amp;left=Opened:7,8,2,7,6,7&amp;right=Closed:5,6,2,7,5,6&amp;w=480&amp;h=340&amp;scheme=auto" alt="Age of issues, as a butterfly chart" width="480" height="340" loading="lazy"></a><figcaption>Every picture on this page is a link; so is this one. Copy it and the numbers travel with you.</figcaption></figure>
