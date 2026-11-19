@@ -9,6 +9,7 @@ tags: concept
 Not only data charts. An architecture diagram, a release calendar, a map, a
 molecule — each of them is data in a link, and each of them is a link of its
 own. And a kind of data nobody has thought of yet will only be one more link.
+Nearly every picture a development document asks for is on this list.
 
 The parameters differ, because the data differs: a calendar takes events, a
 diagram takes nodes and edges, a chart takes labels and values. One link

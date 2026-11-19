@@ -27,9 +27,31 @@
 <meta name="twitter:description" content="{{desc}}">
 <meta name="twitter:image" content="{{origin}}/assets/og.png">
 <meta name="theme-color" content="#08090c">
+<link rel="icon" href="/favicon.ico?v={{buildId}}" sizes="48x48">
 <link rel="icon" href="/assets/favicon.svg?v={{buildId}}" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/assets/og.png?v={{buildId}}">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v={{buildId}}">
 <link rel="manifest" href="/manifest.webmanifest">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://datalink.ac/#org",
+      "name": "datalink.ac",
+      "url": "https://datalink.ac/",
+      "logo": "https://datalink.ac/assets/logo.png"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://datalink.ac/#site",
+      "name": "datalink.ac",
+      "url": "https://datalink.ac/",
+      "publisher": { "@id": "https://datalink.ac/#org" }
+    }
+  ]
+}
+</script>
 <link rel="stylesheet" href="/assets/style.css?v={{buildId}}">
 <script>document.documentElement.classList.add('js')</script>
 {{extraHead}}

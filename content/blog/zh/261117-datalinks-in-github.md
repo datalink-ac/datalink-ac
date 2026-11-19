@@ -13,6 +13,9 @@ tags: 案例
 所以链接不需要谁改习惯。它落在文字本来就在的地方，顺手把数字也带上。
 
 还有一层：链接是 markdown 的原生内容，而 markdown 是 GitHub 的第一公民。
+这话放在今天分量更重：vibe coding 的时代，开发的活越来越多交给
+agent，交接发生在 issue 和 PR —— 都是 markdown。图想进这个现场，
+就得先住得进 markdown。
 渲染器对链接直接返回 SVG —— 不是网页，不是脚本；平台代抓一遍、
 缓存在自己的 CDN 上，读者打开就是秒开。每张图又都链到
 [explore](https://www.x-cmd.com/draw/explore?type=pie&labels=TS,Py,Go&values=4821,2312,980)：

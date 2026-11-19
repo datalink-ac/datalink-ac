@@ -9,6 +9,9 @@ tags: case
 When a datalink lands in an issue, the picture is not drawn by the reader's
 browser — the platform's servers fetch it first, store it, and hand it over.
 So whether a link works is not up to the renderer. It is up to the platform.
+The issue is where development happens — and after vibe coding, the one
+filing and following the issue is often an agent itself. Markdown is its
+interface.
 
 We pasted the same set of links into issues on six platforms: GitHub, GitLab,
 Gitee, GitCode, Codeberg (Forgejo) and Bitbucket (Atlassian). Pie, radar,

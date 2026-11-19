@@ -8,6 +8,8 @@ tags: 案例
 
 数据链接贴进 issue，图不是读者的浏览器画的 —— 是平台的服务器先抓一遍、
 存下来、再递给读者。所以「一条链接能不能用」，渲染器说了不算，平台说了算。
+issue 是开发的现场 —— vibe coding 之后，提 issue、跟 issue 的常常就是
+agent 本人，markdown 是它们的界面。
 
 我们把同一组链接贴进了六个平台的 issue：GitHub、GitLab、Gitee、GitCode、
 Codeberg（Forgejo）、Bitbucket（Atlassian）。从饼图、雷达图到架构图、日历、

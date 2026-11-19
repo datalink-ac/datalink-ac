@@ -26,6 +26,8 @@ So: data rather than info.
 
 The people who will paste these links into a README or a post are not thinking
 in URLs. They are thinking in links — and link is a word they already have.
+These days that person is often an agent itself: the vibe-coding done, the
+README and the issue are its writing too, and markdown is where it works.
 
 dataurl had a second problem: it sounded like somewhere you go to download
 data from. A repository of it, an endpoint, somewhere else. But the data is
