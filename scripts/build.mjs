@@ -224,6 +224,7 @@ for (const lang of Object.keys(LANGS)) {
       desc: meta.desc || '',
       tags: meta.tags || '',
       keywords: meta.keywords || '',
+      raw,
       // `order` is the reading order — the order of the stories on the home
       // page. Posts without one fall back to newest first.
       order: meta.order ? Number(meta.order) : 0,
@@ -406,7 +407,7 @@ ${p.html}
       </article>`,
       navKey: 'blog',
       bodyClass: 'is-post',
-      extraHead: (p.keywords ? `<meta name="keywords" content="${esc(p.keywords)}">\n` : '') + jsonLdBlock({
+      extraHead: `<link rel="alternate" type="text/markdown" href="${urlPath}.md">\n` + (p.keywords ? `<meta name="keywords" content="${esc(p.keywords)}">\n` : '') + jsonLdBlock({
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
@@ -431,6 +432,9 @@ ${p.html}
       }),
     });
     await write(outPath(urlPath), html);
+    // the markdown original ships with the site: SEO data (yfm) and prose
+    // stay openly readable and adjustable at the same URL plus .md
+    await write(path.join(DIST, urlPath.replace(/^\//, '') + '.md'), p.raw);
     built.push({ urlPath, lang, title: p.title, desc: p.desc, date: p.date });
   }
 }
