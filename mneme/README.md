@@ -32,6 +32,7 @@ mneme/
 | `wiki/20261112-datalink-issue.md` | issue #1 的出处记录：讲法、三条主张、第一个场景、留下的开放问题 |
 | `wiki/20261112-datalink-privacy.md` | 隐私思考：已经定的（公开、短链接不是隐私工具、那条规矩）与还没定的三个问题 |
 | `wiki/20261112-datalink-seo.md` | SEO 思考：理念站的 SEO 跟产品站不是一回事；已定的选择与还没定的（四条） |
+| `wiki/20261120-seo-issue.md` | SEO issue：定位关键词（ai/agent/markdown/vibe coding/development）、favicon 与 logo 进搜索引擎；2026-11-20 这一批的记录 |
 | `blog/20261112-what-a-url-reveals.md` | 已发布的《URL 会暴露什么》留档 |
 | `inbox/20261112-issue-datalink-as-context.md` | issue 原文 |
 
