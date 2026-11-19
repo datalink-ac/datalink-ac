@@ -358,6 +358,24 @@ em { font-style: normal; color: var(--mint); font-weight: 600; }
 }
 .section-head h2 { margin-bottom: .42em; }
 
+/* a quiet "?" by a section title — the door into the long read */
+.h-more {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  margin-left: .5em;
+  font-size: .44em;
+  font-weight: 700;
+  line-height: 1.5em;
+  text-align: center;
+  vertical-align: .5em;
+  color: var(--fg-mute);
+  border: 1.5px solid var(--fg-mute);
+  border-radius: 50%;
+  transition: color .2s, border-color .2s;
+}
+.h-more:hover { color: var(--mint); border-color: var(--mint); }
+
 .center { text-align: center; }
 .center .lede { margin-left: auto; margin-right: auto; }
 
