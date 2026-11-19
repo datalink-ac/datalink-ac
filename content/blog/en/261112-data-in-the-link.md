@@ -11,10 +11,9 @@ Your AI writes the piece. Where it needs a chart, it makes one. What it leaves
 behind is a picture — and the numbers went into the image and did not come back
 out of it.
 
-This now happens across development. Vibe coding is the daily routine: you
-state the intent, the agent writes the code — and the README, the issue, the
-pull request are markdown it writes. It can read the prose. The picture alone
-it cannot read back.
+Development is becoming the same story: you state the intent, the agent does
+the work, and the READMEs and issues it leaves behind are markdown. It can
+read the prose. The picture alone it cannot read back.
 
 The piece ships. The context that made it does not. Whoever reads it next — a
 person, an agent, you next year — has the picture and nothing else.

@@ -7,9 +7,9 @@ tags: agents
 keywords: AI agent, prompt, datalink, skill, chart, vibe coding
 ---
 
-Nobody types a URL by hand any more, and nobody should. You say what you
-want; the agent writes the piece — in a vibe-coding workflow the code and the
-docs are both its work — and where it needs a chart it makes one.
+Nobody types a URL by hand any more, and nobody should — that is what vibe
+coding means. You say what you want; the agent writes the piece, and where it
+needs a chart it makes one.
 
 That default is the problem. "Chart" means a picture to an agent, and it
 produces a picture — a fine picture, which leaves the numbers behind inside it.

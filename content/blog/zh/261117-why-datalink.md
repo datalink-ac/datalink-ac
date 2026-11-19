@@ -23,7 +23,7 @@ keywords: datalink, 命名, 数据链接, 无状态, URL, 链接
 
 会往 README 里贴这种链接的人，想的不是 URL，是链接。URL 是术语，link 是他们
 本来就有的词。这种人现在常常是 agent 本人：vibe coding 干完活，
-README 和 issue 也是它写的，markdown 是它的工作现场。
+README 和 issue 也出自它手。
 
 dataurl 还有个问题：听着像「下载数据的地方」，一个数据仓库、一个接口，在别处。
 可数据不在别处啊，它就在你正要发出去的那条链接里。

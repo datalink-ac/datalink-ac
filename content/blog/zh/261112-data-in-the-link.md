@@ -10,9 +10,8 @@ keywords: 数据链接, datalink, 数据在链接里, AI 图表, agent 读图, �
 稿子是 AI 写的，需要图的地方，它画一张。可它留下的是一张图 ——
 数字进了图，就没再出来。
 
-这件事在开发里天天发生：vibe coding 成了日常，人出意图，agent 写代码，
-README、issue、pull request 都是它写的 markdown。正文它读得懂，
-唯独图 —— 它画得出，读不回。
+开发的日常也在变成这样：人出意图，agent 写代码，留下的 README 和
+issue 都是 markdown。markdown 它读得懂，唯独图 —— 画得出，读不回。
 
 稿子发出去了，写它的上下文没有。下一个人来读 —— 一个人、一个 agent、
 或者一年后的你 —— 手里只有那张图。

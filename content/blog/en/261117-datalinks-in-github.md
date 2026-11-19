@@ -16,10 +16,10 @@ So a link does not have to change any habit. It lands where the text already
 is, and it brings the numbers along.
 
 There is a second layer. A link is native markdown content, and markdown is
-GitHub's first-class citizen. Today that carries more weight. In the era of
-vibe coding, more and more of the work is handed to agents, and the hand-over
-happens in issues and pull requests — all markdown. For a picture to join
-that room, it has to live in markdown first. The renderer answers the link with SVG directly
+GitHub's first-class citizen. After vibe coding took hold, more and more of
+the work goes to agents, and the hand-over happens in issues and pull
+requests — all markdown. For a picture to join that room, it has to live in
+markdown first. The renderer answers the link with SVG directly
 — not a page, not a script; the platform fetches it once and caches it on its
 own CDN, so the picture opens instantly. Every picture also links to
 [/draw/explore](https://www.x-cmd.com/draw/explore?type=pie&labels=TS,Py,Go&values=4821,2312,980):

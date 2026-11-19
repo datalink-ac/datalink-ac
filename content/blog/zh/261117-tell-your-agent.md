@@ -7,8 +7,8 @@ tags: agent
 keywords: AI agent, prompt, 数据链接, skill, 图表, vibe coding, datalink
 ---
 
-现在没人再手写 URL 了，也不该写。你说要什么，agent 写稿子 ——
-vibe coding 里，代码和文档都是它写的。需要图的时候它做一张。
+现在没人再手写 URL 了，也不该写 —— vibe coding 的意思就是：你说要什么，
+agent 写稿子，需要图的时候它做一张。
 
 问题就在这个默认动作上。对 agent 来说，「chart」就是一张图，它也就给一张图 ——
 画得挺好，只是数字留在了图里面，出不来。

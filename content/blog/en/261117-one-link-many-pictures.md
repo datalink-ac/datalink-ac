@@ -31,9 +31,6 @@ Six links, six pictures. Same form, different data.
 
 ## 2. The parameters differ, because the data differs
 
-A calendar takes events, a diagram takes nodes and edges, a chart takes
-labels and values:
-
 | picture | what the link looks like | where the data sits |
 | --- | --- | --- |
 | structure diagram | `/draw/archmap?n=…&e=…&b=…` | nodes, edges, groups |
