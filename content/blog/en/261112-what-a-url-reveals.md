@@ -46,32 +46,54 @@ trying to avoid.
 
 Short links are for URLs that are too long, not for URLs that are too private.
 
-## 3. When the data is about people, a link publishes them
+## 3. What is missing is not hiding but managing
 
-The first two sections were about how far data travels. This one is about the
-other direction: who the link talks about.
+The first two sections were about how far data travels. This one is about
+a different question: whether that data should have gone out at all.
 
-A chart of support tickets by customer name, pasted into a public issue,
-hands the customer names — and the fact that they needed support — to
-whoever finds the link. A chart of error rates per internal service tells a
-reader which parts of the system are fragile. Quoting is the link's
-strength: anyone can point others at the exact string. But the cost is not
-paid by the one who makes that call. The one who pastes the link decides;
-the ones inside the data are exposed — and they never pressed "publish".
+First, an intuition to correct: a picture is no safer than a link.
+Screenshot the chart of support tickets by customer name and paste it into
+a public issue, and the names are there for everyone who looks — reading
+numbers off an image is not parsing. A link does not leak more. It turns
+"anyone can see it" into "anyone can take it".
 
-Agents change the nature of that step. Reports and links now come out in
-batches, and "does this link say too much about someone?" stops passing
-through anyone's head — it becomes a default.
+The real difference comes after sending. A picture goes out, and nobody
+manages it.
 
-So there is one rule: private things never go into a link in the first
-place. Not because a gate could be added — a link has no gate — but because
-the data is handed to a copier that does not stop.
+Internally, the unmanaged copy grows errors. Nobody can tell which version
+a pasted picture is: last month's screenshot under this month's decision,
+old numbers leading a new conclusion. The numbers travel; the source and
+the freshness do not. That is how error turns into a propagation illusion.
 
-Two questions we have no good answers to yet, and neither is technical:
-should a datalink carry a marker saying "this describes something private"?
-And a link, once pasted, has no recall — that is the other face of
-statelessness — so who owns one after three years in an issue? The
-specification makes a start of it and stops there.
+Externally, the unmanaged send grows accidents. With no admission and no
+masking, whoever pastes a picture casually carries out real, specific data.
+Not malice — nobody was ever asked to think first.
+
+A datalink moves that step earlier. The link is the data, so "send it out"
+must be answered first: how should this data be managed? A provider can set
+gates above the link — admission decides what kind of data is allowed into
+one; masking blurs what should be blurred before it renders; a revocable
+short link leaves a way back. What is withdrawn is the entrance, not the
+data: those who have not opened it cannot get in, and those who have
+already hold the public link. Revocation needs a ledger on the server —
+exactly the state the section on short links said we wanted to avoid — so
+it can only be a provider's service, never a promise of the spec.
+
+Agents make this step more frequent. Reports and links now come out in
+batches, and "how should this data be managed" stops passing through
+anyone's head. It becomes a default: either answered in advance, or never
+answered.
+
+The rule has not changed, only moved earlier: private things never go into
+a link in the first place. Not because a gate could be added — a link has
+no gate — but because what is handed out is out. The copying never stops;
+a link is just honest about that.
+
+Two questions stay open: should a datalink carry a marker saying "this
+describes something private"? And who owns a link after three years in an
+issue? The specification makes a start and stops there; the larger
+questions live in the issues and this blog. No answers yet — and none of
+them is technical.
 
 This site is built to the same rule: no accounts, no cookies, no analytics,
 no database. Every picture on this page is a link, and each one is fit to
