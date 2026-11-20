@@ -69,10 +69,13 @@ Externally, the unmanaged send grows accidents. With no admission and no
 masking, whoever pastes a picture casually carries out real, specific data.
 Not malice — nobody was ever asked to think first.
 
-A datalink moves that step earlier. The link is the data, so "send it out"
-must be answered first: how should this data be managed? A provider can set
-gates above the link — admission decides what kind of data is allowed into
-one; masking blurs what should be blurred before it renders; a revocable
+A datalink brings leaking under management. Screenshots and exported
+charts used to route around every management system — no admission, no
+masking, no recall. A link is the data itself; there is no routing around
+it. Before "send it out", one question has to be answered: how should
+this data be managed? Around that question, a provider can hand you a
+privacy toolbox — admission decides what kind of data is allowed into a
+link; masking blurs what should be blurred before it renders; a revocable
 short link leaves a way back. What is withdrawn is the entrance, not the
 data: those who have not opened it cannot get in, and those who have
 already hold the public link. Revocation needs a ledger on the server —
