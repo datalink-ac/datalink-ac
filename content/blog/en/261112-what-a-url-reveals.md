@@ -85,9 +85,10 @@ anyone's head. It becomes a default: either answered in advance, or never
 answered.
 
 The rule has not changed, only moved earlier: private things never go into
-a link in the first place. Not because a gate could be added — a link has
-no gate — but because what is handed out is out. The copying never stops;
-a link is just honest about that.
+a link in the first place. That is not a limitation of the link — it is
+the first gate you get. A picture buries the decision in "just screenshot
+it"; a link hands the decision back to you. Public is not the price; it
+is the precondition. Hidden data has never been manageable at all.
 
 Two questions stay open: should a datalink carry a marker saying "this
 describes something private"? And who owns a link after three years in an
