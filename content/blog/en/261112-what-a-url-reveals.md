@@ -60,14 +60,16 @@ numbers off an image is not parsing. A link does not leak more. It turns
 The real difference comes after sending. A picture goes out, and nobody
 manages it.
 
-Internally, the unmanaged copy grows errors. Nobody can tell which version
-a pasted picture is: last month's screenshot under this month's decision,
-old numbers leading a new conclusion. The numbers travel; the source and
-the freshness do not. That is how error turns into a propagation illusion.
+Internally, old numbers get used as new ones. Nobody can tell which
+version a pasted picture is: last month's screenshot under this month's
+decision — the numbers are old, the conclusion is new. The numbers
+travel; the source and the freshness do not. That is how error turns
+into a propagation illusion.
 
-Externally, the unmanaged send grows accidents. With no admission and no
-masking, whoever pastes a picture casually carries out real, specific data.
-Not malice — nobody was ever asked to think first.
+Externally, real data gets sent out as public. A chart of internal error
+rates lands in a public doc, and every reader can see which parts of the
+system are fragile. Not malice — nobody was asked to look inside before
+sending.
 
 A datalink brings leaking under management. Sending a picture is giving
 up on management: no admission, no masking, no recall. A link is the
