@@ -1052,7 +1052,7 @@ pre.code .c { color: var(--fg-mute); }
 }
 .card-shot img { width: 100%; height: auto; max-height: 320px; object-fit: contain; display: block; }
 .cards .card { display: flex; flex-direction: column; }
-.card-note { margin-top: auto; }
+.card-note { margin-top: auto; padding: 14px 16px 16px; }
 .card {
   border: 1px solid var(--line-soft);
   border-radius: var(--r);
