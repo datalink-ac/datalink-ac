@@ -69,18 +69,18 @@ Externally, the unmanaged send grows accidents. With no admission and no
 masking, whoever pastes a picture casually carries out real, specific data.
 Not malice — nobody was ever asked to think first.
 
-A datalink brings leaking under management. Screenshots and exported
-charts used to route around every management system — no admission, no
-masking, no recall. A link is the data itself; there is no routing around
-it. Before "send it out", one question has to be answered: how should
-this data be managed? Around that question, a provider can hand you a
-privacy toolbox — admission decides what kind of data is allowed into a
-link; masking blurs what should be blurred before it renders; a revocable
-short link leaves a way back. What is withdrawn is the entrance, not the
-data: those who have not opened it cannot get in, and those who have
-already hold the public link. Revocation needs a ledger on the server —
-exactly the state the section on short links said we wanted to avoid — so
-it can only be a provider's service, never a promise of the spec.
+A datalink brings leaking under management. Sending a picture is giving
+up on management: no admission, no masking, no recall. A link is the
+data itself, and giving up is not an option — before "send it out", one
+question has to be answered: how should this data be managed? Around
+that question, a provider can hand you a privacy toolbox — admission
+decides what kind of data is allowed into a link; masking blurs what
+should be blurred before it renders; a revocable short link leaves a way
+back. What is withdrawn is the entrance, not the data: those who have
+not opened it cannot get in, and those who have already hold the public
+link. Revocation needs a ledger on the server — exactly the state the
+section on short links said we wanted to avoid — so it can only be a
+provider's service, never a promise of the spec.
 
 Agents make this step more frequent. Reports and links now come out in
 batches, and "how should this data be managed" stops passing through
