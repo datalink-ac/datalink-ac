@@ -27,12 +27,20 @@ AI 味残留（发在 issue #7 评论）与事实/逻辑存疑（开成 4 个问
 - `npx clawhub@latest install edwinjhlee/x-cmd-draw` 在 draw 仓库 md 里找不到出处。
 - SVG 内嵌 `<metadata>` 保存原始 spec（I5 无损的实现方式）。
 
-## 开的 issue
+## 开的 issue（在 datalink-ac/mneme，拆细后）
 
-- #11 事实对账：规范 vs 实现（.json、种类表、可撤销短链、v 语义）
-- #12 datalink.ac 自己是一台 host——定位与用法
-- #13 agent skill 三个渠道漂移
-- #14 下一批文章 6 个候选选题
+- mneme#1 数据视图 /draw.json：x-cmd.com 缺货，契约怎么改口
+- mneme#2 规范 §5 种类表和实现漂移
+- mneme#3 v=N 钉版本的确切语义
+- mneme#4 短链现状（公开仓/永不过期）与「可撤销」的张力
+- mneme#5 datalink.ac host 定位：养不养、写不写进规范
+- mneme#6 文章图混用两个 host + 可靠性承诺
+- mneme#7 agent skill canonical 渠道 + 安装命令
+- mneme#8 两份 SKILL.md 要不要合并
+- mneme#9 下一批文章选题（6 选 3）
+
+原先开在 datalink-ac/datalink-ac 的 #11-#14 已关闭并指向 mneme。
+datalink-ac#7 评论里保留了 AI 味残留清单。
 
 ## 待站主回答后
 
