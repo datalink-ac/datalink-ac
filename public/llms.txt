@@ -1,0 +1,18 @@
+# datalink.ac
+
+datalink is the spec and concept site for data links: a URL whose parameters carry
+the complete data for rendering a picture. One link, one picture — the link is the
+data. A human sees the rendering; an agent reads the numbers out of the link itself.
+
+## For agents
+
+- SKILL: https://datalink.ac/SKILL.md — how to write datalink URLs with the draw renderer.
+- Examples (URL ↔ rendered pairs, a training corpus): https://datalink.ac/examples
+- Spec (invariants, the agent contract, HTTP semantics): https://datalink.ac/spec
+- Blog: https://datalink.ac/blog
+- Reference renderer: https://x-cmd.com/draw — no account, no key; CLI and npm
+  share the same parameters.
+
+## The one rule
+
+A datalink carries its data in its parameters. To change the picture, change the link.

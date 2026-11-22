@@ -62,11 +62,13 @@ const ORG = { '@type': 'Organization', name: 'datalink.ac', url: SITE.origin };
 const NAV = {
   en: [
     { href: '/', label: 'Concept', key: 'home' },
+    { href: '/examples', label: 'Examples', key: 'examples' },
     { href: '/spec', label: 'Spec', key: 'spec' },
     { href: '/blog', label: 'Blog', key: 'blog' },
   ],
   zh: [
     { href: '/zh', label: '理念', key: 'home' },
+    { href: '/zh/examples', label: '案例', key: 'examples' },
     { href: '/zh/spec', label: '规范', key: 'spec' },
     { href: '/zh/blog', label: '博客', key: 'blog' },
   ],
