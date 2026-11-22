@@ -49,3 +49,6 @@ u-lxbin 的 FrontierHarness/黎曼猜想两份报告。产出 261123-agent-repor
 中英各一：四个报告例子，中文版图配中文版、英文版图配英文版（GPU 天梯
 EN 版数据文件放 datalink.ac/assets/ladder-gpu-en.json）。AGENTS.md 的
 「filelink(src=)不用」已改为「src= 已落地并在用」。
+补充（同日）：该主题同时上了首页——「Datalink 是为 agent 的报告设计的」
+section（在 GitHub section 与「告诉 agent」之间），榜单(src=)/测评/评测/
+新闻四张案例卡，中文首页中文图、英文首页英文图；know-more 指向博客长文。
