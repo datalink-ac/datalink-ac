@@ -82,9 +82,13 @@ lives in issue #8; the landing is not scheduled.
 Hosting data costs money, and the common practice is a TTL on short links —
 delete what expires. Datalink does not plan to do this: **a user's data is
 precious, and the platform should not delete it carelessly** — a link pasted
-into an issue, dug out three years later, must still render. The cost is
-held back by a different wall: price. Abusers pay; careful users' links live
-forever. Between deleting data and charging for it, choose charging.
+into an issue, dug out three years later, must still render.
+
+No expiry means abuse control: a link that is free and never expires invites
+abuse, and abusive traffic makes rendering costs spike. So this feature can
+only be gated behind login and a paywall — the wall stops abusers, and
+careful users pay for links that live forever. Between deleting data and
+charging for it, choose charging.
 
 ## Choosing
 
@@ -101,7 +105,8 @@ A link that is too long is, on the surface, an address-bar problem; at
 bottom it is a problem of **where the data lives**. In the URL, it is
 self-contained and readable by anyone, but there is a wall; with the
 renderer, the address is short and the picture lives forever, but a view
-must be added for "reading the data" and a price wall for "abuse". The three
+must be added for "reading the data", and a login-and-paywall for abuse
+control. The three
 ways out are three solutions to one conservation law — data does not
 vanish, it only moves house; the cost of moving is the design space of the
 link's form.
