@@ -31,8 +31,7 @@ Which is right depends on three questions.
 be readable — every edit happens on the code. If an agent, readability stops
 mattering: say "split the review into security and performance rounds", and
 the agent writes a new code block as fast as it writes a new URL — both are
-text to it. Readability drains out of the human's requirements and moves to
-something that never needed it.
+text to it.
 
 **Where does the picture live?** A code block is part of the document; the
 picture is where the document is, and if the picture dies the document loses
@@ -88,7 +87,7 @@ Measured on x-cmd.com, 2026-11-22:
 | sequenceDiagram | ✗ | verbatim error: only graph/flowchart and gantt are supported ([x-cmd/draw#44](https://github.com/x-cmd/draw/issues/44)) |
 | class, state, ER, mindmap, pie, … | ✗ | same |
 
-If the story ended here, datalink would be a weakened mermaid. But
+If the story ended here, datalink would be a subset of mermaid. But
 `/draw/mermaid` is only one of the entrances — for nearly every kind mermaid
 draws, the datalink world has another, native way to draw it.
 
@@ -130,9 +129,9 @@ Third, what both lack (timeline, git graph, requirement diagram) is recorded
 honestly. An open registry means "missing" is a public question, not an
 embarrassment.
 
-The sequence diagram deserves a look of its own — it is mermaid's heaviest
-kind, and the one home game `/draw/mermaid` has not wired in. In datalink it
-looks like this:
+The sequence diagram deserves a look of its own — it is mermaid's most-used
+kind, and the one `/draw/mermaid` has not wired in. In datalink it looks
+like this:
 
 <figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore/seq?n=u;ext;User&n=s;svc;Service&e=u;s;request&e=s;u;response" target="_blank" rel="noopener"><img src="https://www.x-cmd.com/draw/seq?n=u;ext;User&amp;n=s;svc;Service&amp;e=u;s;request&amp;e=s;u;response&amp;w=520&amp;scheme=auto" alt="Sequence diagram: a user requests a service and gets a response" loading="lazy"></a><figcaption>The same thing, drawn natively in datalink. Actors and messages are structured parameters, not a DSL.</figcaption></figure>
 
@@ -186,12 +185,12 @@ an image renders, but a large picture needs its length managed.
   go through native datalink grammars. mermaid's seat on the URL carrier will
   keep growing ([#44](https://github.com/x-cmd/draw/issues/44) is in motion).
 
-## 8. After the drawing: the layer a link gets
+## 8. A shipped picture can still be edited
 
-Beyond the drawing languages there is another layer: what a picture can
-still do after it is drawn. A code block, once rendered, is finished; a link
-stays a living object — the data is in its parameters, and it can be opened,
-edited, annotated and re-skinned.
+Beyond the drawing languages there is one more thing: a picture can still
+be edited after it ships. A code block, once rendered, is finished; a link
+keeps its data in the parameters, so it can be opened, edited, annotated
+and re-skinned.
 
 **explore: every picture carries its own editing bench.** Open any picture's
 `/draw/explore/<kind>`: the data is readable on hover, parameters show their

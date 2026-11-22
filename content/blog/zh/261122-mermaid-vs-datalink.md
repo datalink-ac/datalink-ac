@@ -28,7 +28,7 @@ datalink 的答案是：写给基础设施。图是一条 URL，读文档的人�
 **图将来靠什么被修改？** 靠人手，源必须可读——每一次修改都发生在
 代码上。靠 agent，可读性就不重要了：你说「把评审拆成安全和性能
 两轮」，agent 写出新的代码块和写出新的 URL 一样快，两者对它都是
-文本。可读性从人的需求里消失，转移给了不需要可读性的东西。
+文本。
 
 **图住在哪？** 代码块是文档的一部分，文档在哪图在哪，图死了文档
 也少一块。URL 是独立的物件，文档只是引用它——图是一个个可以跟踪的
@@ -38,7 +38,7 @@ asset：标注、重编、分享、协作，都发生在图上，不发生在文
 邮件、PDF、聊天工具、打印纸都不。URL 是图片——图片是三十年的
 基础设施。读者在哪，比源长什么样重要。
 
-这三个问题没有 universal 答案，所以这篇文章不做胜负，做清点：
+这三个问题没有通用答案，所以这篇文章不做胜负，做清点：
 两个体系各自画得出什么，载体的账怎么算。
 
 ## 一、先对齐事实：画法没有分歧
@@ -76,7 +76,7 @@ mermaid.js 是一个语法覆盖极宽的 DSL：流程图（含 subgraph 分组�
 | 时序图 sequenceDiagram | ✗ | 报错原文：只支持 graph/flowchart 与 gantt（[x-cmd/draw#44](https://github.com/x-cmd/draw/issues/44)） |
 | 类图、状态图、ER、思维导图、饼图等 | ✗ | 同上 |
 
-故事如果只到这里，datalink 只是 mermaid 的残血版。但 `/draw/mermaid`
+故事如果只到这里，datalink 只是 mermaid 的一个子集。但 `/draw/mermaid`
 只是入口之一——mermaid 的每个图类，datalink 世界里几乎都有另一套
 原生画法。
 
@@ -114,8 +114,8 @@ labels 和 values。
 第三，两边都缺的（时间线、git 图、需求图）诚实记下。注册表开放，
 缺什么是公开的问题，不是不好意思的问题。
 
-时序图值得单独看一眼——它是 mermaid 使用最重的图类，也是
-`/draw/mermaid` 唯一没接的主场。在 datalink 里它长这样：
+时序图值得单独看一眼——它是 mermaid 用得最多的图类，也是
+`/draw/mermaid` 唯一没接的那一种。在 datalink 里它长这样：
 
 <figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore/seq?n=u;ext;%E7%94%A8%E6%88%B7&n=s;svc;%E6%9C%8D%E5%8A%A1&e=u;s;%E8%AF%B7%E6%B1%82&e=s;u;%E8%BF%94%E5%9B%9E" target="_blank" rel="noopener"><img src="https://www.x-cmd.com/draw/seq?n=u;ext;%E7%94%A8%E6%88%B7&amp;n=s;svc;%E6%9C%8D%E5%8A%A1&amp;e=u;s;%E8%AF%B7%E6%B1%82&amp;e=s;u;%E8%BF%94%E5%9B%9E&amp;w=520&amp;scheme=auto" alt="时序图：用户请求服务并收到返回" loading="lazy"></a><figcaption>同一件事，datalink 原生的时序图。参与者和消息是结构化参数，不是 DSL。</figcaption></figure>
 
@@ -159,11 +159,10 @@ GitHub、GitLab 渲染 mermaid；邮件、PDF、聊天工具、打印纸都不�
   走 datalink 原生语法；mermaid 语法在 URL 载体上的座位会越来越多
   （[#44](https://github.com/x-cmd/draw/issues/44) 在推进）。
 
-## 八、画完之后：链接多出来的一层
+## 八、图发出去了还能改
 
-画法之外还有一层：图画完之后还能做什么。代码块渲染出图，事情就
-到此为止；链接是个活着的物件——数据在参数里，点开能改、能标、
-能换肤。
+画法之外还有一件事：图发出去了还能改。代码块渲染出图就到头了；
+链接把数据留在参数里，点开就能改、能标、能换肤。
 
 **explore：每张图自带编辑台。** 点开任何一张图的 `/draw/explore/<kind>`，
 数据悬停可读、参数即改即显，改完复制新链接。文档里的图从此不需要
