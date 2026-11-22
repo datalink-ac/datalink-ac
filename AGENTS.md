@@ -34,7 +34,11 @@ datalink.ac 是 datalink 的 **spec + 理念站 + 文章库**。它不是产品�
 
 ## 写作
 
-- 审稿标准 = issue #7 正文的「写作红线」。中文是原生中文，英文同理。
+- 审稿标准 = issue #7 正文的「写作红线」+ **edwinjhlee/ai#61**（vip:
+  value-oriented-efficient-writing-skill）：标题直述价值点、不卖关子、
+  避免副标题、精准表达（不许含糊词）、缩短论证闭环、严查废话文学
+  （样例：「这个问题在 AI 时代变得更尖锐，而不是更钝」）。
+- 中文是原生中文，英文同理。
 - 关键词：vibe coding / ai / agent 必押；再扩 chart、graph、charting ×
   ai/agent/vibecoding/gpt/claude 的组合。
 
