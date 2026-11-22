@@ -31,3 +31,10 @@ data-url 断链 bug 已修复发布（46036bf）。
 SKILL.md 只是 repo 文件，worker ROUTES 未挂（`src/index.ts:84` 只有 `/llms.txt`），
 线上 www.x-cmd.com/draw/SKILL.md 404。已开 x-cmd-hub/draw#146（附最小补丁与同步
 策略）。datalink.ac/SKILL.md 是本站自己的 agent-facing 文件，保留。
+
+## 写作更正：mermaid 在 draw 里的位置（2026-11-23）
+
+站主指正：「直接用 mermaid 的画法，不重造一套」是错误表述。mermaid 只是
+x-cmd/draw 注册表里**其中一种**方案；每个图类还有一套结构化参数的原生画法
+（seq/archmap/erd/pie…），两案并存。已改为「其中一种方案，不是唯一方案」。
+教训：写对比关系前先回源码数清楚方案集合，别用「直接采用」这种偷懒句。
