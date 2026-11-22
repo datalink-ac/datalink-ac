@@ -52,3 +52,17 @@ EN 版数据文件放 datalink.ac/assets/ladder-gpu-en.json）。AGENTS.md 的
 补充（同日）：该主题同时上了首页——「Datalink 是为 agent 的报告设计的」
 section（在 GitHub section 与「告诉 agent」之间），榜单(src=)/测评/评测/
 新闻四张案例卡，中文首页中文图、英文首页英文图；know-more 指向博客长文。
+
+## 首页卡片图教训（2026-11-23 站主批「好好看看不要不假思索」）
+
+1. **卡片图必须自身可读**：天梯 900×3346 塞进 320px 卡 = 一条看不清的亮线
+   （截图亲证）。做法：同一份数据做「前十对战」小图（butterfly-ladder 的
+   d= 支持内联 JSON，src= 文件同款结构），完整 200 项进文章，卡上注明
+   「点进去看」，卡片点击目标 = 文章。
+2. **不要老用 pie/bar**：首页报告 section 四种图全是别的——butterfly-ladder、
+   butterfly、echarts 散点（P50/P95/P99）、echarts 热力图（晚高峰丢包，
+   数据来自 hub#142 的 WZE 监控）。
+3. **src= 数据源优先放快的地方**：raw.githubusercontent 上游偶发十几秒，
+   worker 10s 超时（src-spec.ts 注释自己写了）。zh/en 天梯 JSON 都镜像到
+   datalink.ac/assets/。
+4. 验证方式升级：agent-browser 截图 + 滚动到元素再看，别只 curl HTML。
