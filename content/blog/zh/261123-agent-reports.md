@@ -20,10 +20,10 @@ keywords: 数据链接, datalink, AI agent, 报告, 图表链接, chart, agent, 
 JSON 源文件里，链接只带一个 `src=`：
 
 ```
-https://www.x-cmd.com/draw?src=…/examples/ladder-gpu-100.json
+https://www.x-cmd.com/draw?src=https://datalink.ac/assets/ladder-gpu-zh.json
 ```
 
-<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore?src=https%3A%2F%2Fraw.githubusercontent.com%2Fx-cmd%2Fdraw%2Fmain%2Fexamples%2Fladder-gpu-100.json" target="_blank" rel="noopener"><img src="https://www.x-cmd.com/draw?src=https%3A%2F%2Fraw.githubusercontent.com%2Fx-cmd%2Fdraw%2Fmain%2Fexamples%2Fladder-gpu-100.json" alt="显卡天梯图：NVIDIA 前 100 对 AMD/Intel 前 100" width="450" height="1673" loading="lazy"></a><figcaption>NVIDIA 前 100 对 AMD/Intel 前 100，数据全在源文件里；链接只有 src= 那一行。点开进 explore，数据悬停可读。</figcaption></figure>
+<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore?src=https%3A%2F%2Fdatalink.ac%2Fassets%2Fladder-gpu-zh.json" target="_blank" rel="noopener"><img src="https://www.x-cmd.com/draw?src=https%3A%2F%2Fdatalink.ac%2Fassets%2Fladder-gpu-zh.json" alt="显卡天梯图：NVIDIA 前 100 对 AMD/Intel 前 100" width="450" height="1673" loading="lazy"></a><figcaption>NVIDIA 前 100 对 AMD/Intel 前 100，数据全在源文件里；链接只有 src= 那一行。点开进 explore，数据悬停可读。</figcaption></figure>
 
 数据更新就改源文件，引用这一头什么都不用动。
 
