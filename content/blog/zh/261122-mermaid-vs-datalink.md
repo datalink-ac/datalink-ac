@@ -52,8 +52,7 @@ graph LR; A[需求]-->B[设计]; B-->C[开发]; C-->D[评审]; D-->|改|C; D-->E
 
 <figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore/mermaid?m=graph%20LR%3BA%5B%E9%9C%80%E6%B1%82%5D--%3EB%5B%E8%AE%BE%E8%AE%A1%5D%3BB--%3EC%5B%E5%BC%80%E5%8F%91%5D%3BC--%3ED%5B%E8%AF%84%E5%AE%A1%5D%3BD--%3E%7C%E6%94%B9%7C%20C%3BD--%3EE%5B%E5%8F%91%E5%B8%83%5D" target="_blank" rel="noopener"><img src="https://www.x-cmd.com/draw/mermaid?m=graph%20LR%3BA%5B%E9%9C%80%E6%B1%82%5D--%3EB%5B%E8%AE%BE%E8%AE%A1%5D%3BB--%3EC%5B%E5%BC%80%E5%8F%91%5D%3BC--%3ED%5B%E8%AF%84%E5%AE%A1%5D%3BD--%3E%7C%E6%94%B9%7C%20C%3BD--%3EE%5B%E5%8F%91%E5%B8%83%5D&amp;w=560&amp;h=300&amp;scheme=auto" alt="mermaid 流程图，经 /draw/mermaid 渲染" width="560" height="300" loading="lazy"></a><figcaption>上面那段代码，以 URL 为载体渲染出来的样子。画法还是 mermaid 的画法。</figcaption></figure>
 
-datalink 不反对 mermaid 的画法。mermaid 社区十几年攒下的 DSL 是
-好东西，值得一个座位。
+datalink 直接用 mermaid 的画法，不重造一套。
 
 ## 二、mermaid 能画什么
 
@@ -156,7 +155,7 @@ GitHub、GitLab 渲染 mermaid；邮件、PDF、聊天工具、打印纸都不�
 - 读者分布在邮件、PDF、聊天、网页之间，或者图需要被标注、被
   explore 改参数、被 agent 直接读写 → URL 路线。
 - 两边都想要的图类 → graph 和 gantt 可以走 `/draw/mermaid`，其余的
-  走 datalink 原生语法；mermaid 语法在 URL 载体上的座位会越来越多
+  走 datalink 原生语法；mermaid 能在 URL 载体上渲染的图类会越来越多
   （[#44](https://github.com/x-cmd/draw/issues/44) 在推进）。
 
 ## 八、图发出去了还能改

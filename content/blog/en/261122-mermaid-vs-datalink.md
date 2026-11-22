@@ -59,9 +59,7 @@ graph LR; A[Need]-->B[Design]; B-->C[Build]; C-->D[Review]; D-->|rework|C; D-->E
 
 <figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore/mermaid?m=graph%20LR%3BA%5BNeed%5D--%3EB%5BDesign%5D%3BB--%3EC%5BBuild%5D%3BC--%3ED%5BReview%5D%3BD--%3E%7Crework%7C%20C%3BD--%3EE%5BShip%5D" target="_blank" rel="noopener"><img src="https://www.x-cmd.com/draw/mermaid?m=graph%20LR%3BA%5BNeed%5D--%3EB%5BDesign%5D%3BB--%3EC%5BBuild%5D%3BC--%3ED%5BReview%5D%3BD--%3E%7Crework%7C%20C%3BD--%3EE%5BShip%5D&amp;w=560&amp;h=300&amp;scheme=auto" alt="A mermaid flowchart, rendered through /draw/mermaid" width="560" height="300" loading="lazy"></a><figcaption>The code above, carried as a URL. The drawing language is still mermaid's.</figcaption></figure>
 
-Datalink has no quarrel with mermaid's language. The DSL the mermaid
-community has built over a decade and more is a good thing, and it has a
-seat here.
+Datalink renders mermaid's language directly instead of reinventing one.
 
 ## 2. What mermaid can draw
 
@@ -182,8 +180,9 @@ an image renders, but a large picture needs its length managed.
   be annotated, re-edited in explore, or read and written by agents directly
   → the URL route.
 - Kinds both sides want → graph and gantt can ride `/draw/mermaid`; the rest
-  go through native datalink grammars. mermaid's seat on the URL carrier will
-  keep growing ([#44](https://github.com/x-cmd/draw/issues/44) is in motion).
+  go through native datalink grammars. The mermaid kinds that render on the
+  URL carrier will keep growing
+  ([#44](https://github.com/x-cmd/draw/issues/44) is in motion).
 
 ## 8. A shipped picture can still be edited
 
