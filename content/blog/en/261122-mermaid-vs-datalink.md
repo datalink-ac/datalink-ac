@@ -186,6 +186,41 @@ an image renders, but a large picture needs its length managed.
   go through native datalink grammars. mermaid's seat on the URL carrier will
   keep growing ([#44](https://github.com/x-cmd/draw/issues/44) is in motion).
 
+## 8. What mermaid can't do, and we use every day
+
+Beyond the drawing languages there is another layer: the picture as a living
+object. In mermaid's world a picture is a render result, fixed once drawn; in
+the x-cmd/draw world a picture keeps being used — and mermaid has nothing
+corresponding to this layer.
+
+**explore: every picture carries its own editing bench.** Open any picture's
+`/draw/explore/<kind>`: the data is readable on hover, parameters show their
+effect as you change them, and the new link is one copy away. A picture in a
+document no longer needs its "source file redrawn" — the reader is the editor
+now.
+
+**annotate: annotations are links too.** Circles, leader lines and comments
+drawn on the picture are URL parameters (`_oval`/`_text`/`_hl`/`_note`/
+`_arrow`/`_path`) — they travel with the link:
+
+<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore?type=bar&amp;labels=Q1,Q2,Q3&amp;values=3,7,5&amp;title=Quarterly&amp;_note=50,32,58,8;the%20spike%20is%20Q2&amp;_oval=42,22,16,20" target="_blank" rel="noopener"><img src="https://www.x-cmd.com/draw?type=bar&amp;labels=Q1,Q2,Q3&amp;values=3,7,5&amp;title=Quarterly&amp;_note=50,32,58,8;the%20spike%20is%20Q2&amp;_oval=42,22,16,20&amp;w=480&amp;h=320&amp;scheme=auto" alt="An annotated bar chart: the Q2 bar circled, with a note about the spike" width="480" height="320" loading="lazy"></a><figcaption>The circle and the comment are parameters: `_oval` rings the Q2 bar, `_note` is the comment. Annotations travel with the link and every viewer sees them.</figcaption></figure>
+
+Circle a suspicious number in a code review and paste the link back into the
+comment — the review note is the picture itself. In one of x-cmd's own
+reviews, the agent read the numbers from the URLs and wrote its annotations
+back into the URLs — that workflow runs today.
+
+**One dataset, many skins in light and dark.** `scheme=auto` follows the
+reader's system, `t=` swaps design families; one link, and the dark-mode
+reader gets a dark picture.
+
+**format=png.** Where a raster is required (some mail clients, chat tools),
+the same link plus `format=png` gets rasterised on the server — it is still
+the same string of characters.
+
+**The echarts escape hatch.** A full ECharts option in `d=` draws whatever
+the registry does not cover yet — maps, candlesticks, anything custom.
+
 ## Coda: not a verdict, a division of labour
 
 The drawing language is mermaid's strength; the carrier is the URL's.

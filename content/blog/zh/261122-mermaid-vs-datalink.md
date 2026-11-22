@@ -160,6 +160,35 @@ GitHub、GitLab 渲染 mermaid；邮件、PDF、聊天工具、打印纸都不�
   走 datalink 原生语法；mermaid 语法在 URL 载体上的座位会越来越多
   （[#44](https://github.com/x-cmd/draw/issues/44) 在推进）。
 
+## 八、mermaid 画不了、但我们天天在用的
+
+画法之外还有一层：图作为「活物」的功能。mermaid 的世界里图是渲染
+结果，画完就定住了；x-cmd/draw 的世界里图一直被使用——这一层没有
+对应的 mermaid 功能。
+
+**explore：每张图自带编辑台。** 点开任何一张图的 `/draw/explore/<kind>`，
+数据悬停可读、参数即改即显，改完复制新链接。文档里的图从此不需要
+「找源文件重画」——读的人顺手就是改的人。
+
+**annotate：标注也是链接。** 在图上画圈、拉线、写批注，标注本身是
+URL 参数（`_oval`/`_text`/`_hl`/`_note`/`_arrow`/`_path`），跟着
+链接走：
+
+<figure class="post-fig"><a href="https://www.x-cmd.com/draw/explore?type=bar&amp;labels=Q1,Q2,Q3&amp;values=3,7,5&amp;title=Quarterly&amp;_note=50,32,58,8;%E5%B3%B0%E5%80%BC%E5%87%BA%E7%8E%B0%E5%9C%A8%20Q2&amp;_oval=42,22,16,20" target="_blank" rel="noopener"><img src="https://www.x-cmd.com/draw?type=bar&amp;labels=Q1,Q2,Q3&amp;values=3,7,5&amp;title=Quarterly&amp;_note=50,32,58,8;%E5%B3%B0%E5%80%BC%E5%87%BA%E7%8E%B0%E5%9C%A8%20Q2&amp;_oval=42,22,16,20&amp;w=480&amp;h=320&amp;scheme=auto" alt="带标注的柱状图：圈住 Q2 的柱子，批注说明峰值" width="480" height="320" loading="lazy"></a><figcaption>圈和批注都是参数：`_oval` 圈住 Q2 的柱子，`_note` 是那条评论。标注跟着链接走，看图的人都看得见。</figcaption></figure>
+
+代码评审里圈住一个可疑的数字，圈完把链接贴回评论——评审意见就是
+图本身。x-cmd 团队自己的一次复审里，agent 全程从 URL 读数、把标注
+写回 URL——这条工作流今天就在跑。
+
+**一套数据，明暗多套皮肤。** `scheme=auto` 跟随读者系统，`t=` 换
+设计家族；同一条链接，深色模式的读者拿到深色的图。
+
+**format=png。** 需要位图的地方（某些邮件客户端、聊天工具），
+同一条链接加 `format=png`，服务端光栅化——还是那串字符。
+
+**echarts 兜底。** `d=` 里放一份 ECharts 选项，注册表装不下的图
+（地图、K 线、任何自定义），从这里画。
+
 ## 收尾：不是胜负，是分工
 
 画法是 mermaid 的强项，载体是 URL 的强项。datalink 站在 URL 这边，
