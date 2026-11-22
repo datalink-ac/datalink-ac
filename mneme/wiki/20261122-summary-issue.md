@@ -1,0 +1,26 @@
+# 汇总定调与提问约定（2026-11-22）
+
+**唯一提问处：datalink-ac/mneme#10。** 一个问题只问一次；新问题追加到 #10 评论。
+9 个分散的问题 issue（mneme#1-#9）已关闭并指向 #10。站主的定调已固化进
+datalink-ac 仓库根 `AGENTS.md`（定位/作风/世界观/渠道/写作/记录六节）。
+
+## 站主定调要点（细节以 AGENTS.md 与 mneme#10 为准）
+
+- datalink.ac = spec + 理念站 + 文章库；对外只有 x-cmd.com/draw，不混 host。
+- 规范是宣传：带流量、不夸张；不写 draw 使用文档；未实现但有价值的功能
+  可写进规范并开 issue push 实现。
+- 短链：相同数据相同短链；`_ctx=<context>` 补信息；无 TTL；价格墙防滥用。
+- 超限治理：3.8k comfort zone；短链+_ctx 为主，pak 兜底，template+关键数据备选；
+  `/draw/explain` 做参数解析。
+- 选题：「图是证据」砍掉；「markdown 第一公民」可写；关键词押 vibe coding/ai/agent
+  加 chart/graph/charting 组合。
+
+## 工作计划（在 mneme#10 的 checklist 里跟踪）
+
+规范修订（.json 幻觉句删除、§5 种类表对账）→ 两篇文章 → llms.txt/SKILL.md 布局
++ 大案例文档页。
+
+## 全站通读对账（2026-11-21）
+
+过程记录见上一节同名文件：AI 味清单发在 datalink-ac#7 评论；首页 hero 三个
+data-url 断链 bug 已修复发布（46036bf）。
