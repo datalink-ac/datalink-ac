@@ -24,3 +24,10 @@ datalink-ac 仓库根 `AGENTS.md`（定位/作风/世界观/渠道/写作/记录
 
 过程记录见上一节同名文件：AI 味清单发在 datalink-ac#7 评论；首页 hero 三个
 data-url 断链 bug 已修复发布（46036bf）。
+
+## 渠道对账：/draw/SKILL.md 归 worker（2026-11-22）
+
+站主确认：`/draw/SKILL.md` 是 /draw worker 的事，不是站点的事。核实：hub 仓库根
+SKILL.md 只是 repo 文件，worker ROUTES 未挂（`src/index.ts:84` 只有 `/llms.txt`），
+线上 www.x-cmd.com/draw/SKILL.md 404。已开 x-cmd-hub/draw#146（附最小补丁与同步
+策略）。datalink.ac/SKILL.md 是本站自己的 agent-facing 文件，保留。
