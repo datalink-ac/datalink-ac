@@ -38,3 +38,14 @@ SKILL.md 只是 repo 文件，worker ROUTES 未挂（`src/index.ts:84` 只有 `/
 x-cmd/draw 注册表里**其中一种**方案；每个图类还有一套结构化参数的原生画法
 （seq/archmap/erd/pie…），两案并存。已改为「其中一种方案，不是唯一方案」。
 教训：写对比关系前先回源码数清楚方案集合，别用「直接采用」这种偷懒句。
+
+## 新篇：agent 给人的报告（2026-11-23）
+
+站主命题「Datalink is designed for reports for agents to human」，素材：
+x-cmd/draw 的 ladder-gpu-100.json（src= 已落地，hub src-spec.ts 核实：
+折进 d=、SSRF/1MB/10s 防护、URL 的 title= 不覆盖 JSON 里的 title）、
+x-cmd-hub/draw#142 的 VPS 测评图（选测速 butterfly + 磁盘 P99 散点）、
+u-lxbin 的 FrontierHarness/黎曼猜想两份报告。产出 261123-agent-reports
+中英各一：四个报告例子，中文版图配中文版、英文版图配英文版（GPU 天梯
+EN 版数据文件放 datalink.ac/assets/ladder-gpu-en.json）。AGENTS.md 的
+「filelink(src=)不用」已改为「src= 已落地并在用」。

@@ -22,7 +22,8 @@ datalink.ac 是 datalink 的 **spec + 理念站 + 文章库**。它不是产品�
   价格墙防滥用。
 - 长度：comfort zone 3.8k（datalink-ac#3）。超限三方案：短链+_ctx（主）、
   pak 压缩（仅无可奈何场景，支持但不推荐）、默认 template+关键数据。
-- 变体取舍：filelink（src=）不用；压缩数据不建议但支持。
+- 变体取舍：压缩数据不建议但支持；`src=`（规格放 JSON 源文件、链接只带
+  一个链接）已落地并在用——天梯图这类几百项数据的报告靠它。
 - 图一律 x-cmd.com/draw host；交互一律 /draw/explore。
 
 ## 渠道
