@@ -34,7 +34,7 @@ nav: spec
         This page is for the people who want to <em>implement</em> a renderer, or to
         rely on one and need to know exactly what it promises.
       </div>
-      <p class="tiny">Status: <b>draft v0.1</b> · last revised 2026-11-14 · discussion is open on the repository issue.</p>
+      <p class="tiny">Status: <b>draft v0.1</b> · last revised 2026-11-22 · discussion is open on the repository issue.</p>
 
       <h2 id="definitions">1 · Definitions</h2>
       <dl>
@@ -55,7 +55,7 @@ nav: spec
         <li><b>host</b> — the renderer. A different host may implement the same contract.</li>
         <li><b>path</b> — the kind of rendering. <code>/draw</code> covers the flat-parameter renderers; <code>/draw/archmap</code>, <code>/draw/seq</code>, <code>/draw/erd</code> … cover the structural ones.</li>
         <li><b>parameters</b> — flat, named, URL-encoded. They are the data.</li>
-        <li><b>v</b> — pins the renderer version, making the output immutable.</li>
+        <li><b>v</b> — pins the renderer version: output is stable within that version.</li>
       </ul>
       <div class="note">
         <b>Two rules about parameters.</b> First, they must be sufficient on their own:
@@ -82,7 +82,7 @@ nav: spec
         </div>
         <div class="inv-item peri">
           <b>I4 · Versioned</b>
-          A version can be pinned in the link (<code>v=N</code>). A pinned link renders the same bytes forever; an unpinned link tracks the newest renderer and says so.
+          A version can be pinned in the link (<code>v=N</code>), pinning the renderer's version: output is stable within that version, and the version number advances when a deploy changes the output. Byte-level immutability is not v's promise — it is the promise of content-addressed short links (<code>/c/&lt;hash&gt;</code>).
         </div>
         <div class="inv-item">
           <b>I5 · Lossless</b>
@@ -117,12 +117,17 @@ nav: spec
       <table>
         <thead><tr><th>Kind</th><th>Path</th><th>Parameters</th></tr></thead>
         <tbody>
-          <tr><td>chart</td><td><code>/draw?type=pie</code>, <code>bar</code>, <code>hbar</code>, <code>line</code>, <code>area</code>, <code>radar</code>, <code>gauge</code>, <code>scatter</code>, <code>combo</code>, <code>sankey</code>, <code>butterfly</code></td><td><code>labels</code>, <code>values</code>, <code>series</code>, <code>title</code>, <code>unit</code></td></tr>
-          <tr><td>structure</td><td><code>/draw/archmap</code>, <code>/draw/seq</code>, <code>/draw/uc</code>, <code>/draw/dataflow</code>, <code>/draw/lifecycle</code>, <code>/draw/erd</code>, <code>/draw/class</code></td><td><code>n=</code>, <code>e=</code>, <code>b=</code></td></tr>
-          <tr><td>diagram</td><td><code>/draw/mindmap</code>, <code>/draw/mermaid</code>, <code>/draw/gantt</code></td><td><code>n=</code>, <code>m=</code></td></tr>
-          <tr><td>table</td><td><code>/draw?type=table</code> — <em>specified, not rendered yet</em></td><td><code>cols=</code>, <code>rows=</code></td></tr>
-          <tr><td>calendar</td><td><code>/draw?type=calendar</code></td><td><code>start=</code>, <code>ev=</code></td></tr>
+          <tr><td>chart</td><td><code>/draw?type=pie</code>, <code>bar</code>, <code>hbar</code>, <code>line</code>, <code>area</code>, <code>radar</code>, <code>gauge</code>, <code>scatter</code>, <code>combo</code>, <code>sankey</code>, <code>qr</code>, <code>quadrant</code>, <code>compass</code>, <code>butterfly</code>, <code>ladder</code></td><td><code>labels</code>, <code>values</code>, <code>series</code>, <code>title</code>, <code>unit</code></td></tr>
+          <tr><td>calendar · table</td><td><code>/draw?type=calendar</code>, <code>table</code></td><td><code>start</code>, <code>ev</code> / <code>cols</code>, <code>rows</code></td></tr>
+          <tr><td>structure</td><td><code>/draw/archmap</code>, <code>arch2</code>, <code>arch3d</code>, <code>globe</code>, <code>sphere</code>, <code>cloud</code>, <code>seq</code>, <code>uc</code>, <code>dataflow</code>, <code>lifecycle</code>, <code>erd</code>, <code>class</code>, <code>chord</code></td><td><code>n=</code>, <code>e=</code>, <code>b=</code></td></tr>
+          <tr><td>code composition</td><td><code>/draw/tokei</code></td><td><code>langs</code></td></tr>
+          <tr><td>source-as-picture</td><td><code>/draw/nomnoml</code>, <code>wavedrom</code>, <code>abcjs</code>, <code>vexflow</code>, <code>jianpu</code></td><td><code>d=</code> (the source itself)</td></tr>
+          <tr><td>text diagram</td><td><code>/draw/mermaid</code>, <code>gantt</code>, <code>gantt2</code>, <code>mindmap</code></td><td><code>m=</code></td></tr>
+          <tr><td>open charting</td><td><code>/draw/echarts</code></td><td><code>d=</code> (an ECharts option)</td></tr>
+          <tr><td>chemistry · terminal</td><td><code>/draw/chem</code>, <code>tty</code></td><td><code>smiles</code> / <code>cmd</code></td></tr>
           <tr><td>ppt</td><td><code>/ppt</code></td><td><code>data=</code> (markdown)</td></tr>
+          <tr><td>short link</td><td>POST <code>/draw</code> to create → <code>/draw/c/&lt;hash&gt;</code></td><td>—</td></tr>
+          <tr><td>interactive</td><td><code>/draw/explore/&lt;kind&gt;</code>, <code>/draw/annotate</code></td><td>—</td></tr>
         </tbody>
       </table>
       <p>
@@ -154,10 +159,10 @@ nav: spec
       <h2 id="http">7 · HTTP semantics</h2>
       <ul>
         <li><b>GET</b>, cacheable. The renderer decides freshness; unpinned links are short-lived, pinned links are immutable.</li>
-        <li><b>Version pinning</b> — <code>v=N</code> makes the bytes stable, so a link pasted into a document stays correct.</li>
-        <li><b>Short links</b> — a renderer may accept the same spec by POST and answer with a short, stable URL. The same data must always yield the same short link; that is what makes them shareable rather than opaque.</li>
+        <li><b>Version pinning</b> — <code>v=N</code> pins the renderer's version, so a link pasted into a document stays correct within that version.</li>
+        <li><b>Short links</b> — a renderer may accept the same spec by POST and answer with a short, stable URL (<code>/draw/c/&lt;hash&gt;</code>). The same data must always yield the same short link; that is what makes them shareable rather than opaque.</li>
         <li><b>Errors</b> — a 4xx with plain text and a corrected example. A renderer that cannot explain itself is not usable by an agent.</li>
-        <li><b>The data view</b> — the spec must be reachable as JSON from the same link, so that a reader can go past the picture. This site exposes it at <code>/draw.json</code>; content negotiation on <code>Accept</code> is an open question below.</li>
+        <li><b>The data view</b> — the parameters of a flat link are the spec (I1), so no second reading is needed. For links that do not carry all their data in the URL (short links, template links), the renderer must provide a machine-readable view of the spec: JSON, or a parameter-parsing endpoint such as <code>/draw/explain</code>. The shape is an open question below.</li>
       </ul>
 
       <h2 id="privacy">8 · Privacy</h2>
@@ -184,7 +189,7 @@ nav: spec
         <li>Should a spec be signed — so an agent can tell a chart from a forgery?</li>
         <li>What happens to data too large for a URL, and what is the privacy cost of storing it server-side?</li>
         <li>Should there be a public registry of renderers, so “a datalink” is a standard rather than a convention?</li>
-        <li>Should one link negotiate its output by <code>Accept</code> — SVG for a browser, JSON for an agent — instead of a second path?</li>
+        <li>What shape should the data view take: a separate <code>.json</code> path, a <code>/draw/explain</code> endpoint, or output negotiated by <code>Accept</code> — SVG for a browser, JSON for an agent?</li>
         <li>How do we express uncertainty? A chart of estimates is not a chart of facts, and the spec should be able to say so.</li>
       </ol>
       <p class="small">

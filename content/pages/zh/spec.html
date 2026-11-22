@@ -32,7 +32,7 @@ nav: spec
         这一页是给想<em>实现</em>一个渲染器的人，或者想依赖一个渲染器、
         需要确切知道它承诺了什么的人。
       </div>
-      <p class="tiny">状态：<b>草案 v0.1</b> · 最后修订 2026-11-14 · 讨论在仓库的 issue 上进行。</p>
+      <p class="tiny">状态：<b>草案 v0.1</b> · 最后修订 2026-11-22 · 讨论在仓库的 issue 上进行。</p>
 
       <h2 id="definitions">1 · 定义</h2>
       <dl>
@@ -53,7 +53,7 @@ nav: spec
         <li><b>host</b> —— 渲染器。换一个 host 也可以实现同一套契约。</li>
         <li><b>path</b> —— 渲染的种类。<code>/draw</code> 覆盖扁平参数那一类；<code>/draw/archmap</code>、<code>/draw/seq</code>、<code>/draw/erd</code>……覆盖结构图那一类。</li>
         <li><b>parameters</b> —— 扁平、有名字、URL 编码。它们就是数据。</li>
-        <li><b>v</b> —— 钉住渲染器版本，让输出不再变动。</li>
+        <li><b>v</b> —— 钉住渲染器版本：该版本内输出稳定。</li>
       </ul>
       <div class="note">
         <b>关于参数的两条规矩。</b> 第一，它们必须自足：渲染的时候不允许去查任何东西、
@@ -79,7 +79,7 @@ nav: spec
         </div>
         <div class="inv-item peri">
           <b>I4 · 可版本化</b>
-          版本可以写进链接（<code>v=N</code>）。钉住版本的链接永远渲染出同样的字节；没钉的跟随最新渲染器，并且会说明这一点。
+          版本可以写进链接（<code>v=N</code>），钉住的是渲染器版本：同一版本内输出稳定，部署改变输出时版本号递增。字节级的不变不是 v 的承诺——那是内容寻址短链（<code>/c/&lt;hash&gt;</code>）的承诺。
         </div>
         <div class="inv-item">
           <b>I5 · 无损</b>
@@ -111,12 +111,17 @@ nav: spec
       <table>
         <thead><tr><th>种类</th><th>路径</th><th>参数</th></tr></thead>
         <tbody>
-          <tr><td>图表</td><td><code>/draw?type=pie</code>、<code>bar</code>、<code>hbar</code>、<code>line</code>、<code>area</code>、<code>radar</code>、<code>gauge</code>、<code>scatter</code>、<code>combo</code>、<code>sankey</code>、<code>butterfly</code></td><td><code>labels</code>、<code>values</code>、<code>series</code>、<code>title</code>、<code>unit</code></td></tr>
-          <tr><td>结构图</td><td><code>/draw/archmap</code>、<code>/draw/seq</code>、<code>/draw/uc</code>、<code>/draw/dataflow</code>、<code>/draw/lifecycle</code>、<code>/draw/erd</code>、<code>/draw/class</code></td><td><code>n=</code>、<code>e=</code>、<code>b=</code></td></tr>
-          <tr><td>示意图</td><td><code>/draw/mindmap</code>、<code>/draw/mermaid</code>、<code>/draw/gantt</code></td><td><code>n=</code>、<code>m=</code></td></tr>
-          <tr><td>表格</td><td><code>/draw?type=table</code> —— <em>已定规格，尚未能渲染</em></td><td><code>cols=</code>、<code>rows=</code></td></tr>
-          <tr><td>日历</td><td><code>/draw?type=calendar</code></td><td><code>start=</code>、<code>ev=</code></td></tr>
+          <tr><td>图表</td><td><code>/draw?type=pie</code>、<code>bar</code>、<code>hbar</code>、<code>line</code>、<code>area</code>、<code>radar</code>、<code>gauge</code>、<code>scatter</code>、<code>combo</code>、<code>sankey</code>、<code>qr</code>、<code>quadrant</code>、<code>compass</code>、<code>butterfly</code>、<code>ladder</code></td><td><code>labels</code>、<code>values</code>、<code>series</code>、<code>title</code>、<code>unit</code></td></tr>
+          <tr><td>日历 · 表格</td><td><code>/draw?type=calendar</code>、<code>table</code></td><td><code>start</code>、<code>ev</code> / <code>cols</code>、<code>rows</code></td></tr>
+          <tr><td>结构图</td><td><code>/draw/archmap</code>、<code>arch2</code>、<code>arch3d</code>、<code>globe</code>、<code>sphere</code>、<code>cloud</code>、<code>seq</code>、<code>uc</code>、<code>dataflow</code>、<code>lifecycle</code>、<code>erd</code>、<code>class</code>、<code>chord</code></td><td><code>n=</code>、<code>e=</code>、<code>b=</code></td></tr>
+          <tr><td>代码构成</td><td><code>/draw/tokei</code></td><td><code>langs</code></td></tr>
+          <tr><td>源码即图</td><td><code>/draw/nomnoml</code>、<code>wavedrom</code>、<code>abcjs</code>、<code>vexflow</code>、<code>jianpu</code></td><td><code>d=</code>（源码本身）</td></tr>
+          <tr><td>文本图</td><td><code>/draw/mermaid</code>、<code>gantt</code>、<code>gantt2</code>、<code>mindmap</code></td><td><code>m=</code></td></tr>
+          <tr><td>开放图表</td><td><code>/draw/echarts</code></td><td><code>d=</code>（ECharts 选项）</td></tr>
+          <tr><td>化学 · 终端</td><td><code>/draw/chem</code>、<code>tty</code></td><td><code>smiles</code> / <code>cmd</code></td></tr>
           <tr><td>PPT</td><td><code>/ppt</code></td><td><code>data=</code>（markdown）</td></tr>
+          <tr><td>短链</td><td>POST <code>/draw</code> 创建 → <code>/draw/c/&lt;hash&gt;</code></td><td>—</td></tr>
+          <tr><td>交互</td><td><code>/draw/explore/&lt;kind&gt;</code>、<code>/draw/annotate</code></td><td>—</td></tr>
         </tbody>
       </table>
       <p>
@@ -149,9 +154,9 @@ nav: spec
       <ul>
         <li><b>GET</b>，可缓存。新鲜度由渲染器决定：没钉版本的链接缓存较短，钉了版本的链接不可变。</li>
         <li><b>钉版本</b> —— <code>v=N</code> 让字节稳定，贴进文档里的链接不会过期。</li>
-        <li><b>短链接</b> —— 渲染器可以接受用 POST 提交同一份规格，返回一个短而稳定的 URL。相同的数据必须永远得到相同的短链接——这才是短链接可分享的原因，而不是因为它不可解析。</li>
+        <li><b>短链接</b> —— 渲染器可以接受用 POST 提交同一份规格，返回一个短而稳定的 URL（<code>/draw/c/&lt;hash&gt;</code>）。相同的数据必须永远得到相同的短链接——这才是短链接可分享的原因，而不是因为它不可解析。</li>
         <li><b>错误</b> —— 4xx，纯文本，并附一个改对了的例子。解释不了自己的渲染器，agent 也用不了。</li>
-        <li><b>数据视图</b> —— 规格必须能从同一条链接以 JSON 取到，好让读的人能越过图看到数字。本站在 <code>/draw.json</code> 提供；按 <code>Accept</code> 协商输出是下面那个待决问题。</li>
+        <li><b>数据视图</b> —— 扁平链接的参数即规格（I1），不需要第二个读法。数据不全在 URL 里的链接（短链、template 链接），渲染器必须提供机器可读的规格视图：JSON 输出，或 <code>/draw/explain</code> 这样的参数解析端点。形态是 §9 的待决问题。</li>
       </ul>
 
       <h2 id="privacy">8 · 隐私</h2>
@@ -176,7 +181,7 @@ nav: spec
         <li>规格要不要签名——好让 agent 分得出一张真图和一张伪造图？</li>
         <li>URL 装不下的数据怎么办？以及，把数据存到服务器上的隐私代价是什么？</li>
         <li>要不要有一个公开的渲染器注册表，让「数据链接」成为标准而不是约定？</li>
-        <li>一条链接该不该按 <code>Accept</code> 协商输出——浏览器给 SVG，agent 给 JSON——而不是另开一条路径？</li>
+        <li>数据视图用什么形态：独立 <code>.json</code> 路径、<code>/draw/explain</code> 解析端点，还是按 <code>Accept</code> 协商——浏览器拿 SVG、agent 拿 JSON？</li>
         <li>怎么表达不确定性？估算出来的图和事实的图不是一回事，规格应该能说出自己是哪一种。</li>
       </ol>
       <p class="small">
