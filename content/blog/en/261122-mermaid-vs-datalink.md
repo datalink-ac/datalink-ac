@@ -119,7 +119,8 @@ diagram declares actors with `n=` and messages with `e=`, structure diagrams
 share the `n=`/`e=`/`b=` family, a pie chart is `type=pie` plus labels and
 values.
 
-Second, the extra column on the right is not padding. Molecules, code
+Second, each entry in the extra column on the right is a drawing language
+of its own. Molecules, code
 composition, calendars, QR codes, gauges and musical notation are kinds
 mermaid does not have — its grammar grew around software-engineering
 diagrams, and these are not in its field. The datalink kind table is an open
@@ -144,8 +145,7 @@ edge `e=s;q;event` — it is just changing key-value pairs.
 Mermaid's choice is abstraction: one syntax engine consumes every kind, one
 investment for the learner. The cost — an agent that must reliably generate
 or modify mermaid has to parse a text grammar with subgraphs, activation
-bars and alt/loop blocks. Doable, but the most model-expensive of the
-available formats.
+bars and alt/loop blocks. Doable, but not cheap to parse.
 
 Datalink's choice is structure: every kind's parameters are flat key-value
 pairs, no grammar to parse, and editing a picture is editing keys. The cost
@@ -186,12 +186,12 @@ an image renders, but a large picture needs its length managed.
   go through native datalink grammars. mermaid's seat on the URL carrier will
   keep growing ([#44](https://github.com/x-cmd/draw/issues/44) is in motion).
 
-## 8. What mermaid can't do, and we use every day
+## 8. After the drawing: the layer a link gets
 
-Beyond the drawing languages there is another layer: the picture as a living
-object. In mermaid's world a picture is a render result, fixed once drawn; in
-the x-cmd/draw world a picture keeps being used — and mermaid has nothing
-corresponding to this layer.
+Beyond the drawing languages there is another layer: what a picture can
+still do after it is drawn. A code block, once rendered, is finished; a link
+stays a living object — the data is in its parameters, and it can be opened,
+edited, annotated and re-skinned.
 
 **explore: every picture carries its own editing bench.** Open any picture's
 `/draw/explore/<kind>`: the data is readable on hover, parameters show their
