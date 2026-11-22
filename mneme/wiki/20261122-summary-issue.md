@@ -66,3 +66,16 @@ section（在 GitHub section 与「告诉 agent」之间），榜单(src=)/测�
    worker 10s 超时（src-spec.ts 注释自己写了）。zh/en 天梯 JSON 都镜像到
    datalink.ac/assets/。
 4. 验证方式升级：agent-browser 截图 + 滚动到元素再看，别只 curl HTML。
+
+## 文章用图教训（2026-11-23 站主二次批「为何还是 boring pie bar」）
+
+1. 每篇文章的图种要**主动规划多样性**——报告篇定稿 8 张图 7 种图法：
+   butterfly-ladder(src= 天梯)、butterfly(测速)、echarts 双线图(24h steal)、
+   echarts 散点(P50/P95/P99)、gauge(通过率)、sankey(费用去向)、line+标注
+   (中英对照斜率图)。**全站禁默认 pie/bar 当万能图**。
+2. sankey 右侧节点名太长会截断数值（w=680/720 都试过）——节点名要短。
+3. 两张新图种源码核实过参数：sankey 用 `labels=` + `links=A>B:v;…`，
+   gauge 用 `value=&max=`（多环才用 labels+values）。
+4. fig() 每张图写 img + explore href 两个 URL，**改 URL 必须同时改两处**
+   （这次 href 残留旧参数上了两回当）。按 `labels=` 参数子串全局替换最稳。
+5. 折线图 x 轴端点标签会截断：端点用短标签（此前/Before）。
