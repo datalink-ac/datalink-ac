@@ -79,3 +79,17 @@ section（在 GitHub section 与「告诉 agent」之间），榜单(src=)/测�
 4. fig() 每张图写 img + explore href 两个 URL，**改 URL 必须同时改两处**
    （这次 href 残留旧参数上了两回当）。按 `labels=` 参数子串全局替换最稳。
 5. 折线图 x 轴端点标签会截断：端点用短标签（此前/Before）。
+
+## 2026-11-23 末：报告区块定稿 + 手机版 + SEO（交接见 datalink-ac/mneme 新 issue）
+
+- 首页报告区块最终两行：📤 一条链接随意分享（IM/issue/PR）/ ✏️ 批注、评论全写进 URL，
+  回来的是新链接，原图不动。迭代六轮才定稿（00c4553→8e639b6→d5487fc→c3b029c→1fcc73b→cd2e5b5）。
+- 教训（写落地页文案前必读）：每行先过两关——读者得到什么 × 哪块已讲过；
+  机制归文章、落地页只写读者动作；事实必须源码核实（标注参数在 x-cmd/draw src/render/anno.ts：
+  _oval/_text/_note/_path/_hl/_arrow，全写进 URL，批注回来=新链接）；
+  砍掉宣告式废话尾巴（"你的图还是你的"被毙）。
+- 首页区块分工（防复诵）：hero=数在链里｜链接就是数据=两种读法｜六语言=多语言｜
+  不只是图表=图种｜GitHub=仓库机制(diff/识数/改参数/标注)｜报告=社交层(分享/标注/协作)。
+- 手机版：唯一缺陷是 620px 以下主导航被藏掉无替代；已做汉堡菜单（layout/style/app 三处，6629ce8）。
+- SEO 补：og:locale:alternate、article:modified_time。未做：每篇文章专属 og:image、Search Console 提交。
+- 全站 SEO/手机审计结论：其余页面 390px 下渲染正常。
