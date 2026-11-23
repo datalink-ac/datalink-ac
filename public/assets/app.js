@@ -573,4 +573,30 @@
   /* the panes register late, so remember and give them the scheme once more */
   rememberPictures();
   syncPictures();
+
+  /* --------------------------------------------------------- mobile nav -- */
+  /* Below 620px the nav links move into a panel this button opens. */
+  const navToggle = $('[data-nav-toggle]');
+  const siteNav = $('#site-nav');
+  if (navToggle && siteNav) {
+    const setNav = (open) => {
+      siteNav.classList.toggle('is-open', open);
+      navToggle.setAttribute('aria-expanded', String(open));
+    };
+    navToggle.addEventListener('click', () => setNav(!siteNav.classList.contains('is-open')));
+    siteNav.addEventListener('click', (e) => {
+      if (e.target.closest('a')) setNav(false);
+    });
+    document.addEventListener('click', (e) => {
+      if (!siteNav.classList.contains('is-open')) return;
+      if (siteNav.contains(e.target) || navToggle.contains(e.target)) return;
+      setNav(false);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && siteNav.classList.contains('is-open')) {
+        setNav(false);
+        navToggle.focus();
+      }
+    });
+  }
 })();

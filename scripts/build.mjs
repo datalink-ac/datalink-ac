@@ -140,7 +140,7 @@ function applyTernaries(text, lang) {
   return text.replace(/\{\{lang === 'zh' \? '([^']*)' : '([^']*)'\}\}/g, (_, a, b) => (lang === 'zh' ? a : b));
 }
 
-function render({ lang, urlPath, title, desc, content, navKey, extraHead = '', bodyClass = '', jsonLd = '', ogType = 'website', publishedTime = '' }) {
+function render({ lang, urlPath, title, desc, content, navKey, extraHead = '', bodyClass = '', jsonLd = '', ogType = 'website', publishedTime = '', modifiedTime = '' }) {
   const L = LANGS[lang];
   const nav = NAV[lang]
     .map(
@@ -159,6 +159,7 @@ function render({ lang, urlPath, title, desc, content, navKey, extraHead = '', b
     .replaceAll('{{lang}}', lang)
     .replaceAll('{{htmlLang}}', L.htmlLang)
     .replaceAll('{{ogLocale}}', L.ogLocale)
+    .replaceAll('{{ogLocaleAlt}}', LANGS[L.other].ogLocale)
     .replaceAll('{{title}}', esc(title))
     .replaceAll('{{desc}}', esc(desc))
     .replaceAll('{{canonical}}', SITE.origin + urlPath)
@@ -172,6 +173,7 @@ function render({ lang, urlPath, title, desc, content, navKey, extraHead = '', b
     .replaceAll('{{extraHead}}', extraHead + jsonLd)
     .replaceAll('{{ogType}}', ogType)
     .replaceAll('{{publishedTime}}', publishedTime)
+    .replaceAll('{{modifiedTime}}', modifiedTime)
     .replaceAll('{{origin}}', SITE.origin)
     .replaceAll('{{buildId}}', BUILD_ID)
     .replaceAll('{{repo}}', SITE.repo)
@@ -398,6 +400,7 @@ for (const lang of Object.keys(LANGS)) {
       desc: p.desc,
       ogType: 'article',
       publishedTime: p.date,
+      modifiedTime: p.date,
       content: `<article class="post">
         <p class="post-meta"><time datetime="${esc(p.date)}">${esc(p.date)}</time>${p.tags ? ` · ${esc(p.tags)}` : ''}</p>
         <h1 class="post-title">${esc(p.title)}</h1>

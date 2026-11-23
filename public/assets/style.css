@@ -178,6 +178,22 @@ code, pre, .mono { font-family: var(--mono); }
 
 .head-tools { margin-left: auto; display: flex; align-items: center; gap: 8px; }
 
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--fg-dim);
+  background: transparent;
+  cursor: pointer;
+  transition: color .18s, border-color .18s;
+}
+.nav-toggle:hover { color: var(--mint); border-color: var(--mint-dim); }
+.nav-toggle svg { width: 17px; height: 17px; }
+
 .lang-switch {
   font-size: 13px;
   color: var(--fg-dim);
@@ -204,7 +220,24 @@ code, pre, .mono { font-family: var(--mono); }
 .gh-link svg { width: 16px; height: 16px; }
 
 @media (max-width: 620px) {
-  .nav { display: none; }
+  .nav-toggle { display: inline-flex; }
+  .nav {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: var(--gut);
+    right: var(--gut);
+    display: none;
+    flex-direction: column;
+    gap: 2px;
+    margin: 0;
+    padding: 8px;
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: var(--r-sm);
+    box-shadow: 0 18px 44px -18px rgba(0, 0, 0, .55);
+  }
+  .nav.is-open { display: flex; }
+  .nav-link { padding: 11px 14px; font-size: 16px; }
 }
 
 /* ------------------------------------------------------------------ type */
